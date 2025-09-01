@@ -1,0 +1,360 @@
+{
+  "version": "1.0",
+  "scenarios": [
+    {
+      "id": "career_001",
+      "client_id": "sarah_001",
+      "title": "Corporate Burnout and Life Purpose",
+      "category": "career",
+      "difficulty_level": "intermediate",
+      "question_type": "personal_insight",
+      "emotional_intensity": "medium",
+      "context": {
+        "situation_background": "Sarah has been working at a prestigious consulting firm for 5 years. She climbed the ladder quickly but now feels emotionally drained and questions whether this is what she truly wants to do with her life.",
+        "recent_events": [
+          "Received a promotion with significant salary increase",
+          "Best friend left corporate world to start art therapy practice",
+          "Parents expressed pride in her success",
+          "Noticed she's been having trouble sleeping"
+        ],
+        "client_concerns": [
+          "Feeling ungrateful for complaining about success",
+          "Fear of disappointing family",
+          "Uncertainty about what would actually fulfill her",
+          "Financial security vs. personal happiness"
+        ],
+        "hidden_factors": [
+          "Deep creative side she's suppressed since college",
+          "Growing interest in helping others heal",
+          "Childhood dream of being a teacher",
+          "Fear of being seen as a failure"
+        ]
+      },
+      "primary_question": "Everyone expects me to be grateful for my stable life, but I feel empty. Why?",
+      "followup_questions": [
+        "Should I stay in my current job?",
+        "What would bring me more fulfillment?",
+        "How can I honor both security and happiness?"
+      ],
+      "suggested_spreads": ["celtic-cross", "past-present-future", "five-card-cross"],
+      "learning_objectives": [
+        "Exploring internal vs. external expectations",
+        "Balancing practical and spiritual concerns",
+        "Identifying core values and authentic desires",
+        "Compassionate communication about difficult choices"
+      ],
+      "challenge_factors": ["complex_emotions", "multiple_perspectives", "ethical_considerations"]
+    },
+    
+    {
+      "id": "relationship_002", 
+      "client_id": "marcus_002",
+      "title": "Trust Issues After Betrayal",
+      "category": "relationships",
+      "difficulty_level": "advanced",
+      "question_type": "relationship_dynamics",
+      "emotional_intensity": "high",
+      "context": {
+        "situation_background": "Marcus discovered his partner of 3 years had been having an emotional affair with a coworker. They're trying to work through it in therapy, but Marcus struggles with rebuilding trust.",
+        "recent_events": [
+          "Partner ended the emotional affair",
+          "Started couples counseling",
+          "Partner shared phone passwords",
+          "Marcus found himself checking up on partner constantly"
+        ],
+        "client_concerns": [
+          "Constant anxiety and suspicion",
+          "Feeling like he's becoming controlling",
+          "Uncertainty if love is enough",
+          "Fear of being hurt again"
+        ],
+        "hidden_factors": [
+          "Previous relationship ended due to infidelity",
+          "Struggles with self-worth",
+          "Difficulty expressing vulnerability",
+          "Pattern of pushing people away when hurt"
+        ]
+      },
+      "primary_question": "Can I ever trust my partner again, or am I just setting myself up to be hurt?",
+      "followup_questions": [
+        "How do I stop feeling so anxious all the time?",
+        "What do I need to heal?",
+        "Is this relationship worth saving?"
+      ],
+      "suggested_spreads": ["relationship-spread", "celtic-cross", "past-present-future"],
+      "learning_objectives": [
+        "Navigating complex emotional trauma",
+        "Distinguishing between intuition and fear",
+        "Addressing self-worth and trust patterns",
+        "Maintaining hope while being realistic"
+      ],
+      "challenge_factors": ["complex_emotions", "ethical_considerations", "emotional_client"]
+    },
+
+    {
+      "id": "transition_003",
+      "client_id": "linda_003",
+      "title": "Empty Nest Syndrome",
+      "category": "life_transition", 
+      "difficulty_level": "beginner",
+      "question_type": "personal_insight",
+      "emotional_intensity": "medium",
+      "context": {
+        "situation_background": "Linda's youngest child just left for college. After 25 years of parenting being her primary identity, she feels lost and uncertain about who she is now.",
+        "recent_events": [
+          "Youngest daughter moved to college dorm",
+          "Cleaned out daughter's room",
+          "Husband suggested they take a vacation",
+          "Old friend invited her to join book club"
+        ],
+        "client_concerns": [
+          "Feeling purposeless without children to care for",
+          "Marriage feels different after years of child-focused living",
+          "Doesn't remember what she enjoyed before kids",
+          "Worry about being seen as 'just a mom'"
+        ],
+        "hidden_factors": [
+          "Talented artist before having children",
+          "Always wanted to travel",
+          "Marriage has grown distant over the years",
+          "Pride in raising successful children"
+        ]
+      },
+      "primary_question": "Now that my kids are grown, who am I supposed to be?",
+      "followup_questions": [
+        "How can I rediscover myself?",
+        "What should I focus on now?",
+        "How do I reconnect with my husband?"
+      ],
+      "suggested_spreads": ["five-card-cross", "past-present-future", "mind-body-spirit"],
+      "learning_objectives": [
+        "Understanding identity beyond roles",
+        "Exploring dormant talents and interests",
+        "Processing life transitions with compassion",
+        "Finding opportunity in challenging changes"
+      ],
+      "challenge_factors": ["multiple_perspectives", "unclear_question"]
+    },
+
+    {
+      "id": "decision_004",
+      "client_id": "alex_004",
+      "title": "Career Pivot vs. Graduate School",
+      "category": "decision_making",
+      "difficulty_level": "intermediate", 
+      "question_type": "choice_between_options",
+      "emotional_intensity": "medium",
+      "context": {
+        "situation_background": "Alex works in marketing but feels called to become a therapist. They've been accepted to a graduate program in counseling psychology but would need to quit their job and take on significant debt.",
+        "recent_events": [
+          "Accepted to competitive graduate program",
+          "Received unexpected work bonus",
+          "Friend warned about therapist burnout",
+          "Volunteered at crisis hotline and loved it"
+        ],
+        "client_concerns": [
+          "Financial burden of graduate school",
+          "Starting over at age 30",
+          "Family thinks they're making a mistake",
+          "Uncertainty about being good at therapy"
+        ],
+        "hidden_factors": [
+          "Deep desire to help others heal",
+          "Natural empathy and listening skills", 
+          "Fear of financial instability",
+          "Imposter syndrome about intelligence"
+        ]
+      },
+      "primary_question": "Should I leave my stable marketing job to pursue graduate school in therapy?",
+      "followup_questions": [
+        "Am I being realistic about the challenges?",
+        "What would I regret more - trying or not trying?",
+        "How can I make this decision with confidence?"
+      ],
+      "suggested_spreads": ["four-card-decision", "situation-action-outcome", "celtic-cross"],
+      "learning_objectives": [
+        "Weighing practical vs. passionate choices",
+        "Exploring fears around change and risk",
+        "Understanding timing and readiness",
+        "Supporting decision-making process"
+      ],
+      "challenge_factors": ["timing_sensitive", "multiple_perspectives", "conflicting_cards"]
+    },
+
+    {
+      "id": "spiritual_005",
+      "client_id": "david_005",
+      "title": "Loss of Faith After Tragedy",
+      "category": "spirituality",
+      "difficulty_level": "expert",
+      "question_type": "spiritual_guidance", 
+      "emotional_intensity": "crisis",
+      "context": {
+        "situation_background": "David lost his teenage son in a car accident 8 months ago. Previously deeply religious, he now questions everything he believed about God, meaning, and whether life has any purpose.",
+        "recent_events": [
+          "Son's birthday passed recently",
+          "Stopped attending church",
+          "Wife suggests grief counseling",
+          "Found son's journal with plans for the future"
+        ],
+        "client_concerns": [
+          "Feeling abandoned by God",
+          "Anger at religious platitudes from others",
+          "Marriage strain due to different grief styles",
+          "Questioning if son's life had meaning"
+        ],
+        "hidden_factors": [
+          "Deep fear that death is truly the end",
+          "Guilt about moments of feeling normal",
+          "Spiritual experiences that contradict his doubt",
+          "Son shared his spiritual questioning before death"
+        ]
+      },
+      "primary_question": "How can I believe in anything good when such terrible things happen to innocent people?",
+      "followup_questions": [
+        "Is my son at peace?",
+        "Will I ever feel whole again?",
+        "How do I honor his memory while moving forward?"
+      ],
+      "suggested_spreads": ["horseshoe-traditional", "five-card-cross", "celtic-cross"],
+      "learning_objectives": [
+        "Holding space for profound grief",
+        "Addressing spiritual crisis with sensitivity",
+        "Understanding different stages of grief",
+        "Maintaining hope without minimizing pain"
+      ],
+      "challenge_factors": ["complex_emotions", "ethical_considerations", "emotional_client"]
+    },
+
+    {
+      "id": "finances_006",
+      "client_id": "maya_006",
+      "title": "Debt and Self-Worth Spiral",
+      "category": "finances",
+      "difficulty_level": "intermediate",
+      "question_type": "situation_analysis",
+      "emotional_intensity": "high",
+      "context": {
+        "situation_background": "Maya graduated college with significant debt, works two jobs but still struggles financially. She's been using credit cards for basic necessities and feels overwhelmed by the mounting debt.",
+        "recent_events": [
+          "Credit card was declined at grocery store",
+          "Saw friends posting vacation photos",
+          "Mom offered to help with money (pride says no)",
+          "Found a financial advisor willing to work with her"
+        ],
+        "client_concerns": [
+          "Feeling like a failure as an adult",
+          "Shame about needing help",
+          "Fear of never getting ahead",
+          "Comparison with more successful peers"
+        ],
+        "hidden_factors": [
+          "Excellent work ethic and problem-solving skills",
+          "Fear of being seen as a burden",
+          "Perfectionist tendencies that prevent asking for help",
+          "Strong values around financial independence"
+        ]
+      },
+      "primary_question": "I feel like I'm drowning in debt. Does this mean I'm failing at life?",
+      "followup_questions": [
+        "Should I accept help from my family?",
+        "How can I change my financial situation?", 
+        "When will things get better?"
+      ],
+      "suggested_spreads": ["horseshoe-apex", "five-card-cross", "mind-body-spirit"],
+      "learning_objectives": [
+        "Separating financial situation from self-worth",
+        "Identifying practical next steps",
+        "Addressing shame and comparison",
+        "Finding hope in difficult circumstances"
+      ],
+      "challenge_factors": ["complex_emotions", "unclear_question"]
+    }
+  ],
+
+  "client_profiles": [
+    {
+      "id": "sarah_001",
+      "name": "Sarah Chen",
+      "age_range": "26-35",
+      "background": {
+        "occupation": "Management Consultant",
+        "life_stage": "established_career",
+        "relationship_status": "dating",
+        "cultural_context": "First-generation American, high-achieving family"
+      },
+      "personality_traits": ["analytical", "practical", "guarded", "decisive"],
+      "tarot_experience": "curious"
+    },
+    
+    {
+      "id": "marcus_002", 
+      "name": "Marcus Johnson",
+      "age_range": "36-45",
+      "background": {
+        "occupation": "High School Teacher",
+        "life_stage": "established_career", 
+        "relationship_status": "committed",
+        "cultural_context": "Values community and family connections"
+      },
+      "personality_traits": ["emotional", "analytical", "open", "hesitant"],
+      "tarot_experience": "curious"
+    },
+
+    {
+      "id": "linda_003",
+      "name": "Linda Rodriguez", 
+      "age_range": "46-55",
+      "background": {
+        "occupation": "Former Stay-at-Home Mom",
+        "life_stage": "transition",
+        "relationship_status": "married",
+        "cultural_context": "Traditional values, family-centered life"
+      },
+      "personality_traits": ["emotional", "creative", "open", "hesitant"],
+      "tarot_experience": "some_knowledge"
+    },
+
+    {
+      "id": "alex_004",
+      "name": "Alex Thompson",
+      "age_range": "26-35", 
+      "background": {
+        "occupation": "Marketing Coordinator",
+        "life_stage": "early_career",
+        "relationship_status": "single",
+        "cultural_context": "Urban professional, values authenticity"
+      },
+      "personality_traits": ["creative", "analytical", "open", "decisive"],
+      "tarot_experience": "some_knowledge"
+    },
+
+    {
+      "id": "david_005",
+      "name": "David Williams",
+      "age_range": "46-55",
+      "background": {
+        "occupation": "Engineer",
+        "life_stage": "established_career",
+        "relationship_status": "married", 
+        "cultural_context": "Religious background, conservative community"
+      },
+      "personality_traits": ["analytical", "spiritual", "guarded", "hesitant"],
+      "tarot_experience": "complete_beginner"
+    },
+
+    {
+      "id": "maya_006",
+      "name": "Maya Patel",
+      "age_range": "18-25",
+      "background": {
+        "occupation": "Recent Graduate/Service Industry",
+        "life_stage": "early_career",
+        "relationship_status": "single",
+        "cultural_context": "College-educated, facing economic challenges"
+      },
+      "personality_traits": ["creative", "emotional", "open", "hesitant"],
+      "tarot_experience": "curious"
+    }
+  ]
+}

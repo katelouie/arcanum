@@ -1,0 +1,2997 @@
+{
+  "tarot_reading_dataset": {
+    "metadata": {
+      "total_readings": 51,
+      "common_readings": 44,
+      "special_readings": 10,
+      "version": "unified_v1.0",
+      "description": "Unified tarot reading dataset with both standard and custom spreads",
+      "created": "2025-08-28T14:08:15.109058",
+      "migration_source": {
+        "common_file": "readings_common.json",
+        "special_file": "readings_special.json"
+      }
+    },
+    "readings": [
+      {
+        "reading_id": "R001",
+        "spread_id": "single-focus",
+        "spread_name": "Single Card",
+        "question_category": "Creative & Expression",
+        "question": "I've been feeling creatively stuck for months. What's really blocking me?",
+        "cards": [
+          {
+            "position_name": "Focus",
+            "position_index": 0,
+            "card_name": "The Magician",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R002",
+        "spread_id": "single-focus",
+        "spread_name": "Single Card",
+        "question_category": "Health & Wellness",
+        "question": "Everyone expects me to be grateful for my stable life, but I feel empty. Why?",
+        "cards": [
+          {
+            "position_name": "Focus",
+            "position_index": 0,
+            "card_name": "The High Priestess",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R003",
+        "spread_id": "single-focus",
+        "spread_name": "Single Card",
+        "question_category": "Love & Relationships",
+        "question": "I keep attracting partners who are emotionally unavailable. What pattern am I missing?",
+        "cards": [
+          {
+            "position_name": "Focus",
+            "position_index": 0,
+            "card_name": "Seven of Wands",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R004",
+        "spread_id": "past-present-future",
+        "spread_name": "3 Cards (Past, Present, Future)",
+        "question_category": "Career & Work",
+        "question": "I'm 32 and considering leaving my teaching career to become a therapist. How will this unfold?",
+        "cards": [
+          {
+            "position_name": "Past",
+            "position_index": 0,
+            "card_name": "The Empress",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Present",
+            "position_index": 1,
+            "card_name": "Two of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Future",
+            "position_index": 2,
+            "card_name": "Five of Cups",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R005",
+        "spread_id": "past-present-future",
+        "spread_name": "3 Cards (Past, Present, Future)",
+        "question_category": "Health & Wellness",
+        "question": "My father passed six months ago and I'm still struggling. What's my grief journey looking like?",
+        "cards": [
+          {
+            "position_name": "Past",
+            "position_index": 0,
+            "card_name": "Knight of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Present",
+            "position_index": 1,
+            "card_name": "Seven of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Future",
+            "position_index": 2,
+            "card_name": "The Star",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R006",
+        "spread_id": "past-present-future",
+        "spread_name": "3 Cards (Past, Present, Future)",
+        "question_category": "Love & Relationships",
+        "question": "I've been single for three years after a painful divorce. What's next for my love life?",
+        "cards": [
+          {
+            "position_name": "Past",
+            "position_index": 0,
+            "card_name": "Queen of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Present",
+            "position_index": 1,
+            "card_name": "The Lovers",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Future",
+            "position_index": 2,
+            "card_name": "Three of Pentacles",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R007",
+        "spread_id": "past-present-future",
+        "spread_name": "3 Cards (Past, Present, Future)",
+        "question_category": "Life Transitions",
+        "question": "I'm thinking about moving back to my hometown after 10 years in the city. Is this wise?",
+        "cards": [
+          {
+            "position_name": "Past",
+            "position_index": 0,
+            "card_name": "The Hermit",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Present",
+            "position_index": 1,
+            "card_name": "Nine of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Future",
+            "position_index": 2,
+            "card_name": "Two of Pentacles",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R008",
+        "spread_id": "past-present-future",
+        "spread_name": "3 Cards (Past, Present, Future)",
+        "question_category": "Family Dynamics",
+        "question": "My teenage daughter and I have been fighting constantly. How can our relationship evolve?",
+        "cards": [
+          {
+            "position_name": "Past",
+            "position_index": 0,
+            "card_name": "Five of Wands",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Present",
+            "position_index": 1,
+            "card_name": "King of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Future",
+            "position_index": 2,
+            "card_name": "Ace of Cups",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R009",
+        "spread_id": "past-present-future",
+        "spread_name": "3 Cards (Past, Present, Future)",
+        "question_category": "Career & Work",
+        "question": "I'm 45 and feeling invisible at work while younger colleagues advance. What's my path forward?",
+        "cards": [
+          {
+            "position_name": "Past",
+            "position_index": 0,
+            "card_name": "Page of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Present",
+            "position_index": 1,
+            "card_name": "The World",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Future",
+            "position_index": 2,
+            "card_name": "Six of Pentacles",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R010",
+        "spread_id": "situation-action-outcome",
+        "spread_name": "3 Cards (Situation, Action, Outcome)",
+        "question_category": "Conflict Resolution",
+        "question": "My best friend borrowed $3000 six months ago and keeps avoiding the topic. What should I do?",
+        "cards": [
+          {
+            "position_name": "Situation",
+            "position_index": 0,
+            "card_name": "Ten of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Action",
+            "position_index": 1,
+            "card_name": "Four of Wands",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Outcome",
+            "position_index": 2,
+            "card_name": "Ace of Pentacles",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R011",
+        "spread_id": "situation-action-outcome",
+        "spread_name": "3 Cards (Situation, Action, Outcome)",
+        "question_category": "Conflict Resolution",
+        "question": "I discovered my partner has been lying about their drinking. How do I handle this?",
+        "cards": [
+          {
+            "position_name": "Situation",
+            "position_index": 0,
+            "card_name": "Nine of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Action",
+            "position_index": 1,
+            "card_name": "The Fool",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Outcome",
+            "position_index": 2,
+            "card_name": "Eight of Cups",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R012",
+        "spread_id": "situation-action-outcome",
+        "spread_name": "3 Cards (Situation, Action, Outcome)",
+        "question_category": "Family Dynamics",
+        "question": "My aging mother wants to move in with us, but my spouse is resistant. What's the best approach?",
+        "cards": [
+          {
+            "position_name": "Situation",
+            "position_index": 0,
+            "card_name": "Two of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Action",
+            "position_index": 1,
+            "card_name": "Queen of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Outcome",
+            "position_index": 2,
+            "card_name": "Seven of Swords",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R013",
+        "spread_id": "situation-action-outcome",
+        "spread_name": "3 Cards (Situation, Action, Outcome)",
+        "question_category": "Career & Work",
+        "question": "I'm being pressured to take on my boss's responsibilities without a promotion. How should I respond?",
+        "cards": [
+          {
+            "position_name": "Situation",
+            "position_index": 0,
+            "card_name": "King of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Action",
+            "position_index": 1,
+            "card_name": "Three of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Outcome",
+            "position_index": 2,
+            "card_name": "Five of Pentacles",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R014",
+        "spread_id": "mind-body-spirit",
+        "spread_name": "3 Cards (Mind, Body, Spirit)",
+        "question_category": "Health & Wellness",
+        "question": "I've been having panic attacks and my doctor says it's just stress. What do I really need to know?",
+        "cards": [
+          {
+            "position_name": "Mind",
+            "position_index": 0,
+            "card_name": "Three of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Body",
+            "position_index": 1,
+            "card_name": "King of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Spirit",
+            "position_index": 2,
+            "card_name": "The Moon",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R015",
+        "spread_id": "mind-body-spirit",
+        "spread_name": "3 Cards (Mind, Body, Spirit)",
+        "question_category": "Spiritual Growth",
+        "question": "I'm successful by every measure but feel spiritually bankrupt. How do I find meaning again?",
+        "cards": [
+          {
+            "position_name": "Mind",
+            "position_index": 0,
+            "card_name": "Ten of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Body",
+            "position_index": 1,
+            "card_name": "Four of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Spirit",
+            "position_index": 2,
+            "card_name": "The High Priestess",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R016",
+        "spread_id": "mind-body-spirit",
+        "spread_name": "3 Cards (Mind, Body, Spirit)",
+        "question_category": "Health & Wellness",
+        "question": "Since turning 40, I feel disconnected from my body and purpose. What needs attention?",
+        "cards": [
+          {
+            "position_name": "Mind",
+            "position_index": 0,
+            "card_name": "Page of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Body",
+            "position_index": 1,
+            "card_name": "Strength",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Spirit",
+            "position_index": 2,
+            "card_name": "The Empress",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R017",
+        "spread_id": "four-card-decision",
+        "spread_name": "4-Card Decision",
+        "question_category": "Love & Relationships",
+        "question": "Should I leave my marriage? We're not fighting, but there's no passion left.",
+        "cards": [
+          {
+            "position_name": "Option A",
+            "position_index": 0,
+            "card_name": "Four of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Option B",
+            "position_index": 1,
+            "card_name": "Eight of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "What Helps",
+            "position_index": 2,
+            "card_name": "Nine of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "What Hinders",
+            "position_index": 3,
+            "card_name": "Justice",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R018",
+        "spread_id": "four-card-decision",
+        "spread_name": "4-Card Decision",
+        "question_category": "Career & Work",
+        "question": "I got into my dream PhD program, but it means five more years of poverty. Is it worth it?",
+        "cards": [
+          {
+            "position_name": "Option A",
+            "position_index": 0,
+            "card_name": "The Star",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Option B",
+            "position_index": 1,
+            "card_name": "Five of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "What Helps",
+            "position_index": 2,
+            "card_name": "Ace of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "What Hinders",
+            "position_index": 3,
+            "card_name": "Two of Cups",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R019",
+        "spread_id": "four-card-decision",
+        "spread_name": "4-Card Decision",
+        "question_category": "Life Transitions",
+        "question": "My company offered me a transfer to London, but my elderly parents need me here. What should I weigh?",
+        "cards": [
+          {
+            "position_name": "Option A",
+            "position_index": 0,
+            "card_name": "Six of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Option B",
+            "position_index": 1,
+            "card_name": "The Tower",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "What Helps",
+            "position_index": 2,
+            "card_name": "Ten of Wands",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "What Hinders",
+            "position_index": 3,
+            "card_name": "Queen of Cups",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R020",
+        "spread_id": "four-card-decision",
+        "spread_name": "4-Card Decision",
+        "question_category": "Family Dynamics",
+        "question": "Should I tell my adult children about their father's affair from 20 years ago?",
+        "cards": [
+          {
+            "position_name": "Option A",
+            "position_index": 0,
+            "card_name": "Temperance",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Option B",
+            "position_index": 1,
+            "card_name": "Seven of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "What Helps",
+            "position_index": 2,
+            "card_name": "King of Pentacles",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "What Hinders",
+            "position_index": 3,
+            "card_name": "The Devil",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R021",
+        "spread_id": "five-card-cross",
+        "spread_name": "5-Card Cross",
+        "question_category": "Family Dynamics",
+        "question": "I'm the executor of my late aunt's estate and my siblings are fighting over everything. How do I navigate this?",
+        "cards": [
+          {
+            "position_name": "Present Situation",
+            "position_index": 0,
+            "card_name": "Seven of Pentacles",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Challenge",
+            "position_index": 1,
+            "card_name": "The Chariot",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Past Influences",
+            "position_index": 2,
+            "card_name": "Judgement",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Future Potential",
+            "position_index": 3,
+            "card_name": "Six of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Advice",
+            "position_index": 4,
+            "card_name": "Ace of Swords",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R022",
+        "spread_id": "five-card-cross",
+        "spread_name": "5-Card Cross",
+        "question_category": "Family Dynamics",
+        "question": "I think my 16-year-old is experimenting with drugs, but I have no proof. What's really happening here?",
+        "cards": [
+          {
+            "position_name": "Present Situation",
+            "position_index": 0,
+            "card_name": "The Hanged Man",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Challenge",
+            "position_index": 1,
+            "card_name": "Three of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Past Influences",
+            "position_index": 2,
+            "card_name": "Nine of Pentacles",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Future Potential",
+            "position_index": 3,
+            "card_name": "Two of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Advice",
+            "position_index": 4,
+            "card_name": "Page of Wands",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R023",
+        "spread_id": "five-card-cross",
+        "spread_name": "5-Card Cross",
+        "question_category": "Career & Work",
+        "question": "My startup is failing and I'm running out of savings. Should I pivot or fold?",
+        "cards": [
+          {
+            "position_name": "Present Situation",
+            "position_index": 0,
+            "card_name": "Five of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Challenge",
+            "position_index": 1,
+            "card_name": "Knight of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Past Influences",
+            "position_index": 2,
+            "card_name": "The Magician",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Future Potential",
+            "position_index": 3,
+            "card_name": "Eight of Wands",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Advice",
+            "position_index": 4,
+            "card_name": "Queen of Wands",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R024",
+        "spread_id": "five-card-cross",
+        "spread_name": "5-Card Cross",
+        "question_category": "Career & Work",
+        "question": "I've been offered a job that pays twice my salary but requires constant travel. What am I not seeing?",
+        "cards": [
+          {
+            "position_name": "Present Situation",
+            "position_index": 0,
+            "card_name": "Wheel of Fortune",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Challenge",
+            "position_index": 1,
+            "card_name": "Three of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Past Influences",
+            "position_index": 2,
+            "card_name": "Knight of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Future Potential",
+            "position_index": 3,
+            "card_name": "Four of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Advice",
+            "position_index": 4,
+            "card_name": "Seven of Wands",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R025",
+        "spread_id": "five-card-cross",
+        "spread_name": "5-Card Cross",
+        "question_category": "Health & Wellness",
+        "question": "My husband wants another child but I'm secretly relieved our fertility struggles mean it might not happen. What's true for me?",
+        "cards": [
+          {
+            "position_name": "Present Situation",
+            "position_index": 0,
+            "card_name": "The Sun",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Challenge",
+            "position_index": 1,
+            "card_name": "Six of Wands",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Past Influences",
+            "position_index": 2,
+            "card_name": "Ace of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Future Potential",
+            "position_index": 3,
+            "card_name": "Nine of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Advice",
+            "position_index": 4,
+            "card_name": "Ten of Swords",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R026",
+        "spread_id": "relationship-spread",
+        "spread_name": "6-Card Relationship",
+        "question_category": "Love & Relationships",
+        "question": "My partner and I have completely different parenting styles and it's affecting our kids. How do we resolve this?",
+        "cards": [
+          {
+            "position_name": "You",
+            "position_index": 0,
+            "card_name": "The Tower",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "The Other",
+            "position_index": 1,
+            "card_name": "Ace of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "The Relationship",
+            "position_index": 2,
+            "card_name": "Eight of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Past Foundation",
+            "position_index": 3,
+            "card_name": "The Hierophant",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Present State",
+            "position_index": 4,
+            "card_name": "Page of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Future Potential",
+            "position_index": 5,
+            "card_name": "The Devil",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R027",
+        "spread_id": "relationship-spread",
+        "spread_name": "6-Card Relationship",
+        "question_category": "Love & Relationships",
+        "question": "I think I'm in love with my best friend, but they're married. What do I need to understand about this situation?",
+        "cards": [
+          {
+            "position_name": "You",
+            "position_index": 0,
+            "card_name": "Death",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "The Other",
+            "position_index": 1,
+            "card_name": "Two of Pentacles",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "The Relationship",
+            "position_index": 2,
+            "card_name": "Queen of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Past Foundation",
+            "position_index": 3,
+            "card_name": "Five of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Present State",
+            "position_index": 4,
+            "card_name": "Knight of Wands",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Future Potential",
+            "position_index": 5,
+            "card_name": "The Lovers",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R028",
+        "spread_id": "relationship-spread",
+        "spread_name": "6-Card Relationship",
+        "question_category": "Love & Relationships",
+        "question": "My adult son is in an abusive relationship but won't listen to family concerns. How should we approach this?",
+        "cards": [
+          {
+            "position_name": "You",
+            "position_index": 0,
+            "card_name": "Justice",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "The Other",
+            "position_index": 1,
+            "card_name": "Ten of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "The Relationship",
+            "position_index": 2,
+            "card_name": "The Hermit",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Past Foundation",
+            "position_index": 3,
+            "card_name": "Ace of Wands",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Present State",
+            "position_index": 4,
+            "card_name": "Seven of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Future Potential",
+            "position_index": 5,
+            "card_name": "Four of Swords",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R029",
+        "spread_id": "relationship-spread",
+        "spread_name": "6-Card Relationship",
+        "question_category": "Career & Work",
+        "question": "My business partner and I used to be friends, but now we can barely work together. Can this be saved?",
+        "cards": [
+          {
+            "position_name": "You",
+            "position_index": 0,
+            "card_name": "Page of Pentacles",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "The Other",
+            "position_index": 1,
+            "card_name": "Six of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "The Relationship",
+            "position_index": 2,
+            "card_name": "King of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Past Foundation",
+            "position_index": 3,
+            "card_name": "Eight of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Present State",
+            "position_index": 4,
+            "card_name": "Nine of Wands",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Future Potential",
+            "position_index": 5,
+            "card_name": "Temperance",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R030",
+        "spread_id": "relationship-spread",
+        "spread_name": "6-Card Relationship",
+        "question_category": "Career & Work",
+        "question": "I'm torn between my high-achieving career and my desire to be more present for my young children. How do I integrate these parts of myself?",
+        "cards": [
+          {
+            "position_name": "You",
+            "position_index": 0,
+            "card_name": "The World",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "The Other",
+            "position_index": 1,
+            "card_name": "Four of Pentacles",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "The Relationship",
+            "position_index": 2,
+            "card_name": "Queen of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Past Foundation",
+            "position_index": 3,
+            "card_name": "Five of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Present State",
+            "position_index": 4,
+            "card_name": "Ten of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Future Potential",
+            "position_index": 5,
+            "card_name": "Knight of Pentacles",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R031",
+        "spread_id": "horseshoe-traditional",
+        "spread_name": "7-Card Horseshoe",
+        "question_category": "Career & Work",
+        "question": "I inherited my family's business but have zero interest in running it. My siblings are furious about my hesitation. What's the wise path?",
+        "cards": [
+          {
+            "position_name": "Past",
+            "position_index": 0,
+            "card_name": "Eight of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Present",
+            "position_index": 1,
+            "card_name": "Five of Pentacles",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Hidden Influences",
+            "position_index": 2,
+            "card_name": "Nine of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Your Approach",
+            "position_index": 3,
+            "card_name": "Ace of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Others Around You",
+            "position_index": 4,
+            "card_name": "Ten of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Hopes and Fears",
+            "position_index": 5,
+            "card_name": "Death",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Final Outcome",
+            "position_index": 6,
+            "card_name": "Four of Pentacles",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R032",
+        "spread_id": "horseshoe-traditional",
+        "spread_name": "7-Card Horseshoe",
+        "question_category": "Family Dynamics",
+        "question": "My 22-year-old moved back home after college and seems depressed and directionless. How can I help without enabling?",
+        "cards": [
+          {
+            "position_name": "Past",
+            "position_index": 0,
+            "card_name": "Knight of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Present",
+            "position_index": 1,
+            "card_name": "The Chariot",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Hidden Influences",
+            "position_index": 2,
+            "card_name": "Six of Pentacles",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Your Approach",
+            "position_index": 3,
+            "card_name": "Three of Pentacles",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Others Around You",
+            "position_index": 4,
+            "card_name": "Seven of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Hopes and Fears",
+            "position_index": 5,
+            "card_name": "The Moon",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Final Outcome",
+            "position_index": 6,
+            "card_name": "Strength",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R033",
+        "spread_id": "horseshoe-traditional",
+        "spread_name": "7-Card Horseshoe",
+        "question_category": "Life Transitions",
+        "question": "I'm considering leaving my religious community after 30 years due to changing beliefs. What should I know about this transition?",
+        "cards": [
+          {
+            "position_name": "Past",
+            "position_index": 0,
+            "card_name": "Judgement",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Present",
+            "position_index": 1,
+            "card_name": "Wheel of Fortune",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Hidden Influences",
+            "position_index": 2,
+            "card_name": "Two of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Your Approach",
+            "position_index": 3,
+            "card_name": "The Hierophant",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Others Around You",
+            "position_index": 4,
+            "card_name": "Page of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Hopes and Fears",
+            "position_index": 5,
+            "card_name": "King of Wands",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Final Outcome",
+            "position_index": 6,
+            "card_name": "Five of Cups",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R034",
+        "spread_id": "horseshoe-traditional",
+        "spread_name": "7-Card Horseshoe",
+        "question_category": "Health & Wellness",
+        "question": "My spouse and I are caring for both sets of aging parents while raising teenagers. We're burning out. What needs to shift?",
+        "cards": [
+          {
+            "position_name": "Past",
+            "position_index": 0,
+            "card_name": "The Sun",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Present",
+            "position_index": 1,
+            "card_name": "Eight of Pentacles",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Hidden Influences",
+            "position_index": 2,
+            "card_name": "Queen of Wands",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Your Approach",
+            "position_index": 3,
+            "card_name": "Three of Wands",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Others Around You",
+            "position_index": 4,
+            "card_name": "Six of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Hopes and Fears",
+            "position_index": 5,
+            "card_name": "Nine of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Final Outcome",
+            "position_index": 6,
+            "card_name": "Seven of Swords",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R035",
+        "spread_id": "horseshoe-apex",
+        "spread_name": "7-Card Horseshoe (Apex Focus)",
+        "question_category": "Career & Work",
+        "question": "I suspect my business mentor has been stealing my ideas and presenting them as their own. How do I handle this betrayal?",
+        "cards": [
+          {
+            "position_name": "Past Foundation",
+            "position_index": 0,
+            "card_name": "The Moon",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Recent Past",
+            "position_index": 1,
+            "card_name": "Two of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Present Influences",
+            "position_index": 2,
+            "card_name": "The Hanged Man",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Key Focus",
+            "position_index": 3,
+            "card_name": "Ace of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Future Influences",
+            "position_index": 4,
+            "card_name": "Six of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Near Future",
+            "position_index": 5,
+            "card_name": "The Empress",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Final Outcome",
+            "position_index": 6,
+            "card_name": "Five of Wands",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R036",
+        "spread_id": "horseshoe-apex",
+        "spread_name": "7-Card Horseshoe (Apex Focus)",
+        "question_category": "Career & Work",
+        "question": "I'm 55 and want to completely change careers, but everyone says I'm too old. What's really true about this desire?",
+        "cards": [
+          {
+            "position_name": "Past Foundation",
+            "position_index": 0,
+            "card_name": "Four of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Recent Past",
+            "position_index": 1,
+            "card_name": "Seven of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Present Influences",
+            "position_index": 2,
+            "card_name": "King of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Key Focus",
+            "position_index": 3,
+            "card_name": "The Fool",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Future Influences",
+            "position_index": 4,
+            "card_name": "Three of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Near Future",
+            "position_index": 5,
+            "card_name": "Eight of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Final Outcome",
+            "position_index": 6,
+            "card_name": "Two of Swords",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R037",
+        "spread_id": "celtic-cross",
+        "spread_name": "Celtic Cross",
+        "question_category": "Health & Wellness",
+        "question": "I've been struggling with anxiety and depression for two years since my miscarriage. How do I rebuild my life?",
+        "cards": [
+          {
+            "position_name": "Present Situation",
+            "position_index": 0,
+            "card_name": "King of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Challenge",
+            "position_index": 1,
+            "card_name": "Four of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Distant Past",
+            "position_index": 2,
+            "card_name": "Page of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Recent Past",
+            "position_index": 3,
+            "card_name": "Ten of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Possible Outcome",
+            "position_index": 4,
+            "card_name": "Seven of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Near Future",
+            "position_index": 5,
+            "card_name": "King of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Your Approach",
+            "position_index": 6,
+            "card_name": "Page of Wands",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "External Influences",
+            "position_index": 7,
+            "card_name": "Six of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Hopes and Fears",
+            "position_index": 8,
+            "card_name": "Nine of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Final Outcome",
+            "position_index": 9,
+            "card_name": "Two of Wands",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R038",
+        "spread_id": "celtic-cross",
+        "spread_name": "Celtic Cross",
+        "question_category": "Love & Relationships",
+        "question": "My spouse of 15 years came out as transgender. I love them but don't know if I can navigate this transition. What's my path?",
+        "cards": [
+          {
+            "position_name": "Present Situation",
+            "position_index": 0,
+            "card_name": "Temperance",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Challenge",
+            "position_index": 1,
+            "card_name": "The Star",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Distant Past",
+            "position_index": 2,
+            "card_name": "Knight of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Recent Past",
+            "position_index": 3,
+            "card_name": "Five of Wands",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Possible Outcome",
+            "position_index": 4,
+            "card_name": "Ace of Pentacles",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Near Future",
+            "position_index": 5,
+            "card_name": "Nine of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Your Approach",
+            "position_index": 6,
+            "card_name": "Ten of Pentacles",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "External Influences",
+            "position_index": 7,
+            "card_name": "The Magician",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Hopes and Fears",
+            "position_index": 8,
+            "card_name": "Queen of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Final Outcome",
+            "position_index": 9,
+            "card_name": "The Hierophant",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R039",
+        "spread_id": "celtic-cross",
+        "spread_name": "Celtic Cross",
+        "question_category": "Career & Work",
+        "question": "I'm considering whistleblowing on serious ethical violations at my company, knowing it will end my career. What do I need to understand?",
+        "cards": [
+          {
+            "position_name": "Present Situation",
+            "position_index": 0,
+            "card_name": "The Devil",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Challenge",
+            "position_index": 1,
+            "card_name": "Eight of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Distant Past",
+            "position_index": 2,
+            "card_name": "Seven of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Recent Past",
+            "position_index": 3,
+            "card_name": "Four of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Possible Outcome",
+            "position_index": 4,
+            "card_name": "Six of Wands",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Near Future",
+            "position_index": 5,
+            "card_name": "Three of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Your Approach",
+            "position_index": 6,
+            "card_name": "Queen of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "External Influences",
+            "position_index": 7,
+            "card_name": "Ace of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Hopes and Fears",
+            "position_index": 8,
+            "card_name": "Five of Pentacles",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Final Outcome",
+            "position_index": 9,
+            "card_name": "The Tower",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R040",
+        "spread_id": "celtic-cross",
+        "spread_name": "Celtic Cross",
+        "question_category": "Family Dynamics",
+        "question": "I discovered I was adopted at age 35 and my entire family kept it secret. How do I process this revelation and move forward?",
+        "cards": [
+          {
+            "position_name": "Present Situation",
+            "position_index": 0,
+            "card_name": "The Hermit",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Challenge",
+            "position_index": 1,
+            "card_name": "Nine of Pentacles",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Distant Past",
+            "position_index": 2,
+            "card_name": "King of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Recent Past",
+            "position_index": 3,
+            "card_name": "Six of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Possible Outcome",
+            "position_index": 4,
+            "card_name": "Two of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Near Future",
+            "position_index": 5,
+            "card_name": "Ace of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Your Approach",
+            "position_index": 6,
+            "card_name": "Seven of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "External Influences",
+            "position_index": 7,
+            "card_name": "Knight of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Hopes and Fears",
+            "position_index": 8,
+            "card_name": "Five of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Final Outcome",
+            "position_index": 9,
+            "card_name": "The World",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R041",
+        "spread_id": "inner-messenger-4",
+        "spread_name": "4-Card Inner Messenger",
+        "question_category": "Creative & Expression",
+        "question": "I keep having the same recurring dream about being chased. What is my subconscious trying to tell me?",
+        "spread_config": {
+          "id": "inner-messenger-4",
+          "name": "Inner Messenger",
+          "description": "A 4-card spread for understanding recurring dreams and subconscious messages",
+          "layout": "square-4",
+          "cardSize": "large",
+          "aspectRatio": 1.5,
+          "category": "psychological",
+          "difficulty": "intermediate",
+          "positions": [
+            {
+              "name": "The Dream Symbol",
+              "short_description": "What the recurring element represents in your psyche",
+              "detailed_description": "What does the recurring symbol, character, or scenario in your dream represent about your inner landscape? This card reveals the archetypal or personal meaning of the dream imagery and what aspect of your psyche is trying to communicate through this symbol.",
+              "keywords": [
+                "symbol",
+                "archetype",
+                "representation",
+                "psyche",
+                "meaning",
+                "imagery"
+              ],
+              "rag_mapping": "emotional_and_internal.subconscious"
+            },
+            {
+              "name": "The Message",
+              "short_description": "What your subconscious is trying to communicate",
+              "detailed_description": "What important message, insight, or guidance is your subconscious mind trying to deliver through this recurring dream? This card reveals the core communication from your deeper wisdom that wants to reach your conscious awareness.",
+              "keywords": [
+                "message",
+                "guidance",
+                "communication",
+                "insight",
+                "wisdom",
+                "awareness"
+              ],
+              "rag_mapping": "guidance_and_action.guidance"
+            },
+            {
+              "name": "The Fear/Resistance",
+              "short_description": "What you're avoiding or running from in waking life",
+              "detailed_description": "What fear, responsibility, truth, or change are you unconsciously avoiding or resisting in your daily life? This card illuminates what the 'chase' in your dream represents - what part of yourself or your life you're running from rather than facing.",
+              "keywords": [
+                "fear",
+                "avoidance",
+                "resistance",
+                "running",
+                "truth",
+                "responsibility"
+              ],
+              "rag_mapping": "challenge_and_growth.obstacle"
+            },
+            {
+              "name": "Integration",
+              "short_description": "How to work with this message in waking life",
+              "detailed_description": "How can you consciously integrate this subconscious wisdom into your daily life? What practical steps, mindset shifts, or conscious actions will help you work with rather than against the energy your dreams are revealing?",
+              "keywords": [
+                "integration",
+                "action",
+                "conscious",
+                "practical",
+                "daily",
+                "work"
+              ],
+              "rag_mapping": "guidance_and_action.action"
+            }
+          ]
+        },
+        "cards": [
+          {
+            "position_name": "The Dream Symbol",
+            "position_index": 0,
+            "card_name": "Five of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "The Message",
+            "position_index": 1,
+            "card_name": "Two of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "The Fear/Resistance",
+            "position_index": 2,
+            "card_name": "King of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Integration",
+            "position_index": 3,
+            "card_name": "The Hermit",
+            "orientation": "Upright"
+          }
+        ],
+        "source": "special"
+      },
+      {
+        "reading_id": "R042",
+        "spread_id": "soul-vs-security-6",
+        "spread_name": "6-Card Soul vs Security",
+        "question_category": "Creative & Expression",
+        "question": "I feel called to quit my corporate job and become a yoga teacher, but I have a mortgage and kids. Is this practical wisdom or midlife crisis?",
+        "spread_config": {
+          "id": "soul-vs-security-6",
+          "name": "Soul vs Security",
+          "description": "A 6-card spread for navigating the tension between authentic calling and practical security",
+          "layout": "relationship-6",
+          "cardSize": "medium",
+          "aspectRatio": 1.5,
+          "category": "decision",
+          "difficulty": "intermediate",
+          "positions": [
+            {
+              "name": "The Calling",
+              "short_description": "The spiritual/authentic pull you're feeling",
+              "detailed_description": "What is the true nature of this calling or desire for change? This card reveals whether this impulse comes from genuine soul guidance, creative expansion, or authentic life purpose. What deeper part of yourself is asking to be expressed?",
+              "keywords": [
+                "calling",
+                "authentic",
+                "soul",
+                "purpose",
+                "guidance",
+                "expression"
+              ],
+              "rag_mapping": "guidance_and_action.guidance"
+            },
+            {
+              "name": "The Fear",
+              "short_description": "What practical concerns are holding you back",
+              "detailed_description": "What practical fears, security concerns, or responsibilities are creating resistance to this change? This card illuminates the legitimate practical considerations as well as any limiting beliefs about money, security, or worthiness that may be influencing your decision.",
+              "keywords": [
+                "fear",
+                "security",
+                "practical",
+                "resistance",
+                "concerns",
+                "limitations"
+              ],
+              "rag_mapping": "challenge_and_growth.obstacle"
+            },
+            {
+              "name": "Current Foundation",
+              "short_description": "What you'd be leaving behind - the real value",
+              "detailed_description": "What does your current situation actually provide beyond just financial security? This card reveals the true value, skills, connections, or stability you've built that you'd be releasing, helping you understand what you're really giving up.",
+              "keywords": [
+                "foundation",
+                "current",
+                "value",
+                "stability",
+                "skills",
+                "security"
+              ],
+              "rag_mapping": "temporal_positions.present_situation"
+            },
+            {
+              "name": "Hidden Costs",
+              "short_description": "What this change would really require from you",
+              "detailed_description": "What would this transition actually demand of you beyond the obvious financial sacrifice? This card reveals the hidden challenges, personal growth required, or unexpected difficulties that come with following this calling.",
+              "keywords": [
+                "costs",
+                "sacrifice",
+                "demands",
+                "challenges",
+                "growth",
+                "difficulties"
+              ],
+              "rag_mapping": "challenge_and_growth.obstacle"
+            },
+            {
+              "name": "Hidden Gifts",
+              "short_description": "What this change would really offer you",
+              "detailed_description": "What unexpected benefits, opportunities, or forms of abundance could emerge from making this change? This card reveals the hidden gifts and possibilities that aren't obvious when you're focused on practical concerns.",
+              "keywords": [
+                "gifts",
+                "benefits",
+                "opportunities",
+                "abundance",
+                "possibilities",
+                "potential"
+              ],
+              "rag_mapping": "outcome_and_result.best_case"
+            },
+            {
+              "name": "Wise Action",
+              "short_description": "How to honor both soul and security",
+              "detailed_description": "What approach would allow you to honor your authentic calling while also being responsible to your practical needs? This card provides guidance for a path that doesn't require you to choose between soul and security.",
+              "keywords": [
+                "wisdom",
+                "balance",
+                "honor",
+                "responsible",
+                "approach",
+                "integration"
+              ],
+              "rag_mapping": "guidance_and_action.best_course"
+            }
+          ]
+        },
+        "cards": [
+          {
+            "position_name": "The Calling",
+            "position_index": 0,
+            "card_name": "The Fool",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "The Fear",
+            "position_index": 1,
+            "card_name": "Ten of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Current Foundation",
+            "position_index": 2,
+            "card_name": "Three of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Hidden Costs",
+            "position_index": 3,
+            "card_name": "Queen of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Hidden Gifts",
+            "position_index": 4,
+            "card_name": "Knight of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Wise Action",
+            "position_index": 5,
+            "card_name": "Seven of Wands",
+            "orientation": "Upright"
+          }
+        ],
+        "source": "special"
+      },
+      {
+        "reading_id": "R043",
+        "spread_id": "beneath-surface-5",
+        "spread_name": "5-Card Beneath the Surface",
+        "question_category": "Love & Relationships",
+        "question": "My ex-husband wants to reconnect 'for the kids,' but I sense ulterior motives. What's really happening here?",
+        "spread_config": {
+          "id": "beneath-surface-5",
+          "name": "Beneath the Surface",
+          "description": "A 5-card spread for uncovering hidden motives and navigating trust issues",
+          "layout": "cross-5",
+          "cardSize": "medium",
+          "aspectRatio": 1.0,
+          "category": "relationship",
+          "difficulty": "intermediate",
+          "positions": [
+            {
+              "name": "Their Surface",
+              "short_description": "What they're presenting or saying openly",
+              "detailed_description": "What is this person openly presenting as their motivation, reason, or intention? This card reveals the conscious or stated agenda they're putting forward - what they want you to believe about their motivations.",
+              "keywords": [
+                "surface",
+                "stated",
+                "presentation",
+                "conscious",
+                "open",
+                "claimed"
+              ],
+              "rag_mapping": "external_influences.others"
+            },
+            {
+              "name": "Their Hidden",
+              "short_description": "Their real motivations or hidden agenda",
+              "detailed_description": "What are their actual motivations, needs, or agenda that they may not be consciously aware of or willing to admit? This card reveals the deeper psychological or emotional drivers behind their actions.",
+              "keywords": [
+                "hidden",
+                "real",
+                "agenda",
+                "unconscious",
+                "deeper",
+                "motivations"
+              ],
+              "rag_mapping": "external_influences.hidden_influences"
+            },
+            {
+              "name": "Your Intuition",
+              "short_description": "What your gut is telling you",
+              "detailed_description": "What is your intuitive wisdom picking up about this situation that your logical mind might be dismissing? This card validates and clarifies the subtle energetic information you're receiving about this person's true intentions.",
+              "keywords": [
+                "intuition",
+                "gut",
+                "sensing",
+                "subtle",
+                "wisdom",
+                "energetic"
+              ],
+              "rag_mapping": "emotional_and_internal.subconscious"
+            },
+            {
+              "name": "The Dynamic",
+              "short_description": "What's really happening between you energetically",
+              "detailed_description": "What is the actual energetic or psychological dynamic at play between you two? This card reveals the real relationship pattern, power dynamic, or emotional undercurrent that's driving this interaction.",
+              "keywords": [
+                "dynamic",
+                "energetic",
+                "pattern",
+                "power",
+                "relationship",
+                "undercurrent"
+              ],
+              "rag_mapping": "external_influences.others"
+            },
+            {
+              "name": "Wise Response",
+              "short_description": "How to protect yourself while staying open",
+              "detailed_description": "How can you respond in a way that protects your boundaries and well-being while remaining open to legitimate connection? This card provides guidance for navigating this situation with both wisdom and compassion.",
+              "keywords": [
+                "response",
+                "protect",
+                "boundaries",
+                "open",
+                "wisdom",
+                "compassion"
+              ],
+              "rag_mapping": "guidance_and_action.advice"
+            }
+          ]
+        },
+        "cards": [
+          {
+            "position_name": "Their Surface",
+            "position_index": 0,
+            "card_name": "Seven of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Their Hidden",
+            "position_index": 1,
+            "card_name": "The Lovers",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Your Intuition",
+            "position_index": 2,
+            "card_name": "King of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "The Dynamic",
+            "position_index": 3,
+            "card_name": "Page of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Wise Response",
+            "position_index": 4,
+            "card_name": "Nine of Wands",
+            "orientation": "Upright"
+          }
+        ],
+        "source": "special"
+      },
+      {
+        "reading_id": "R044",
+        "spread_id": "family-wounds-wisdom-7",
+        "spread_name": "7-Card Family Wounds & Wisdom",
+        "question_category": "Family Dynamics",
+        "question": "I've been estranged from my brother for five years over a political disagreement. Should I reach out for our mother's sake?",
+        "spread_config": {
+          "id": "family-wounds-wisdom-7",
+          "name": "Family Wounds & Wisdom",
+          "description": "A 7-card spread for navigating family estrangement and healing decisions",
+          "layout": "horseshoe-7",
+          "cardSize": "small",
+          "aspectRatio": 1.5,
+          "category": "family",
+          "difficulty": "advanced",
+          "positions": [
+            {
+              "name": "The Original Wound",
+              "short_description": "What really broke the connection beyond the surface disagreement",
+              "detailed_description": "What deeper hurt, pattern, or fundamental difference lies beneath the surface disagreement that caused this estrangement? This card reveals the real wound that the political disagreement triggered or exposed.",
+              "keywords": [
+                "wound",
+                "deeper",
+                "original",
+                "hurt",
+                "pattern",
+                "fundamental"
+              ],
+              "rag_mapping": "temporal_positions.distant_past"
+            },
+            {
+              "name": "Your Part",
+              "short_description": "Your role in creating or maintaining this dynamic",
+              "detailed_description": "What have you contributed to this estrangement through your actions, reactions, or unconscious patterns? This card reveals your responsibility in the dynamic without blame, helping you see where you have power to change things.",
+              "keywords": [
+                "responsibility",
+                "contribution",
+                "role",
+                "actions",
+                "patterns",
+                "power"
+              ],
+              "rag_mapping": "emotional_and_internal.conscious"
+            },
+            {
+              "name": "Their Part",
+              "short_description": "Their role in creating or maintaining this dynamic",
+              "detailed_description": "What patterns, fears, or unconscious dynamics is your brother contributing to this estrangement? This card helps you understand their perspective and motivations without excusing harmful behavior.",
+              "keywords": [
+                "their_role",
+                "perspective",
+                "patterns",
+                "fears",
+                "motivations",
+                "understanding"
+              ],
+              "rag_mapping": "external_influences.others"
+            },
+            {
+              "name": "Cost of Silence",
+              "short_description": "What happens if nothing changes - the price of continued estrangement",
+              "detailed_description": "What are the real costs to you, your family, and your brother if this estrangement continues? This card reveals what is lost or damaged by maintaining the current separation.",
+              "keywords": [
+                "cost",
+                "silence",
+                "consequences",
+                "loss",
+                "separation",
+                "damage"
+              ],
+              "rag_mapping": "outcome_and_result.worst_case"
+            },
+            {
+              "name": "Cost of Action",
+              "short_description": "What reaching out would require from you emotionally and practically",
+              "detailed_description": "What would it actually cost you emotionally, psychologically, or practically to reach out? This card reveals what you'd need to risk, release, or face to take the first step toward reconnection.",
+              "keywords": [
+                "action_cost",
+                "risk",
+                "emotional",
+                "practical",
+                "release",
+                "step"
+              ],
+              "rag_mapping": "challenge_and_growth.challenge"
+            },
+            {
+              "name": "Collateral Impact",
+              "short_description": "How this estrangement affects other family members",
+              "detailed_description": "How is this estrangement impacting your mother and other family members? This card reveals the ripple effects of your family dynamic and how others are being affected by this separation.",
+              "keywords": [
+                "impact",
+                "family",
+                "ripple",
+                "effects",
+                "others",
+                "collateral"
+              ],
+              "rag_mapping": "external_influences.others"
+            },
+            {
+              "name": "Path of Love",
+              "short_description": "The most loving action for all involved",
+              "detailed_description": "What action would serve the highest good of everyone involved, including yourself? This card provides guidance on the path that honors love while respecting boundaries and acknowledging reality.",
+              "keywords": [
+                "love",
+                "highest_good",
+                "service",
+                "honor",
+                "boundaries",
+                "reality"
+              ],
+              "rag_mapping": "guidance_and_action.best_course"
+            }
+          ]
+        },
+        "cards": [
+          {
+            "position_name": "The Original Wound",
+            "position_index": 0,
+            "card_name": "Five of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Your Part",
+            "position_index": 1,
+            "card_name": "The Hanged Man",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Their Part",
+            "position_index": 2,
+            "card_name": "Eight of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Cost of Silence",
+            "position_index": 3,
+            "card_name": "Two of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Cost of Action",
+            "position_index": 4,
+            "card_name": "Ace of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Collateral Impact",
+            "position_index": 5,
+            "card_name": "Three of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Path of Love",
+            "position_index": 6,
+            "card_name": "Wheel of Fortune",
+            "orientation": "Upright"
+          }
+        ],
+        "source": "special"
+      },
+      {
+        "reading_id": "R045",
+        "spread_id": "beneath-surface-5",
+        "spread_name": "5-Card Beneath the Surface",
+        "question_category": "Love & Relationships",
+        "question": "I'm attracted to someone 15 years younger and question my motivations. What am I really seeking?",
+        "spread_config": {
+          "id": "beneath-surface-5",
+          "name": "Beneath the Surface",
+          "description": "A 5-card spread for uncovering hidden motives and navigating trust issues",
+          "layout": "cross-5",
+          "cardSize": "medium",
+          "aspectRatio": 1.0,
+          "category": "relationship",
+          "difficulty": "intermediate",
+          "positions": [
+            {
+              "name": "Their Surface",
+              "short_description": "What they represent or offer on the surface level",
+              "detailed_description": "What does this person represent to you on a surface level? What obvious qualities, energy, or experiences do they seem to offer? This card reveals what initially attracts you about them on a conscious level.",
+              "keywords": [
+                "surface",
+                "represents",
+                "offers",
+                "qualities",
+                "attracts",
+                "conscious"
+              ],
+              "rag_mapping": "external_influences.others"
+            },
+            {
+              "name": "Their Hidden",
+              "short_description": "What you're unconsciously seeking through them",
+              "detailed_description": "What deeper need, missing piece, or aspect of yourself are you unconsciously trying to access through this person? This card reveals what you're really seeking that has little to do with them as an individual.",
+              "keywords": [
+                "seeking",
+                "unconscious",
+                "need",
+                "missing",
+                "aspect",
+                "accessing"
+              ],
+              "rag_mapping": "emotional_and_internal.subconscious"
+            },
+            {
+              "name": "Your Intuition",
+              "short_description": "What your deeper wisdom knows about this attraction",
+              "detailed_description": "What does your intuitive wisdom understand about the real nature of this attraction? This card reveals what your deeper self knows about whether this connection serves your growth or stems from unhealed patterns.",
+              "keywords": [
+                "intuition",
+                "wisdom",
+                "nature",
+                "growth",
+                "patterns",
+                "deeper"
+              ],
+              "rag_mapping": "emotional_and_internal.intuitive_knowing"
+            },
+            {
+              "name": "The Dynamic",
+              "short_description": "What psychological pattern is playing out",
+              "detailed_description": "What unconscious psychological or emotional pattern is being activated through this attraction? This card reveals the deeper dynamic at play and what it might be trying to heal or repeat in your life.",
+              "keywords": [
+                "pattern",
+                "psychological",
+                "activated",
+                "dynamic",
+                "heal",
+                "repeat"
+              ],
+              "rag_mapping": "challenge_and_growth.shadow"
+            },
+            {
+              "name": "Wise Response",
+              "short_description": "How to honor your feelings while staying conscious",
+              "detailed_description": "How can you work with this attraction consciously and responsibly? This card provides guidance for honoring your feelings while maintaining awareness of power dynamics, motivations, and potential consequences.",
+              "keywords": [
+                "conscious",
+                "responsible",
+                "honor",
+                "awareness",
+                "power",
+                "consequences"
+              ],
+              "rag_mapping": "guidance_and_action.advice"
+            }
+          ]
+        },
+        "cards": [
+          {
+            "position_name": "Their Surface",
+            "position_index": 0,
+            "card_name": "The Magician",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Their Hidden",
+            "position_index": 1,
+            "card_name": "Queen of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Your Intuition",
+            "position_index": 2,
+            "card_name": "Four of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "The Dynamic",
+            "position_index": 3,
+            "card_name": "Knight of Cups",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Wise Response",
+            "position_index": 4,
+            "card_name": "Six of Pentacles",
+            "orientation": "Reversed"
+          }
+        ],
+        "source": "special"
+      },
+      {
+        "reading_id": "R046",
+        "spread_id": "love-letting-go-6",
+        "spread_name": "6-Card Love & Letting Go",
+        "question_category": "Love & Relationships",
+        "question": "My teenage daughter wants to live with her father instead of me. How do I handle this rejection without damaging our relationship?",
+        "spread_config": {
+          "id": "love-letting-go-6",
+          "name": "Love & Letting Go",
+          "description": "A 6-card spread for navigating parent-child rejection and healthy boundaries",
+          "layout": "relationship-6",
+          "cardSize": "medium",
+          "aspectRatio": 1.5,
+          "category": "family",
+          "difficulty": "intermediate",
+          "positions": [
+            {
+              "name": "Their Need",
+              "short_description": "What your child is really seeking or needing",
+              "detailed_description": "What is your child's authentic need that this request represents? Beyond the surface desire to live elsewhere, what deeper developmental, emotional, or psychological need are they trying to meet through this choice?",
+              "keywords": [
+                "need",
+                "authentic",
+                "developmental",
+                "emotional",
+                "seeking",
+                "deeper"
+              ],
+              "rag_mapping": "external_influences.others"
+            },
+            {
+              "name": "Your Fear",
+              "short_description": "What this rejection triggers in you personally",
+              "detailed_description": "What fears, wounds, or insecurities does this request activate in you as a parent and as a person? This card reveals what this situation brings up from your own childhood, sense of worth, or parenting anxieties.",
+              "keywords": [
+                "fear",
+                "triggers",
+                "wounds",
+                "insecurities",
+                "childhood",
+                "worth"
+              ],
+              "rag_mapping": "emotional_and_internal.fears"
+            },
+            {
+              "name": "The Lesson",
+              "short_description": "What this situation is teaching you both",
+              "detailed_description": "What important life lesson or growth opportunity is embedded in this challenging situation? How is this experience serving both your development and your child's journey toward independence and self-knowledge?",
+              "keywords": [
+                "lesson",
+                "growth",
+                "development",
+                "independence",
+                "journey",
+                "opportunity"
+              ],
+              "rag_mapping": "challenge_and_growth.lesson"
+            },
+            {
+              "name": "Healthy Boundaries",
+              "short_description": "How to love without clinging",
+              "detailed_description": "What would healthy, loving boundaries look like in this situation? How can you support your child's autonomy while maintaining your relationship and protecting your own emotional well-being?",
+              "keywords": [
+                "boundaries",
+                "love",
+                "autonomy",
+                "support",
+                "relationship",
+                "well-being"
+              ],
+              "rag_mapping": "guidance_and_action.advice"
+            },
+            {
+              "name": "Long-term View",
+              "short_description": "How this serves their growth and your relationship",
+              "detailed_description": "How might honoring this choice serve your child's long-term development and ultimately strengthen your relationship? What positive outcomes could emerge from allowing this transition, even if it's painful now?",
+              "keywords": [
+                "long-term",
+                "development",
+                "strengthen",
+                "positive",
+                "transition",
+                "growth"
+              ],
+              "rag_mapping": "outcome_and_result.best_case"
+            },
+            {
+              "name": "Your Healing",
+              "short_description": "What you need to process about this experience",
+              "detailed_description": "What personal healing, understanding, or inner work does this situation call you to do? How can you use this experience to grow in your capacity for unconditional love and healthy detachment?",
+              "keywords": [
+                "healing",
+                "understanding",
+                "inner_work",
+                "unconditional",
+                "detachment",
+                "growth"
+              ],
+              "rag_mapping": "emotional_and_internal.conscious"
+            }
+          ]
+        },
+        "cards": [
+          {
+            "position_name": "Their Need",
+            "position_index": 0,
+            "card_name": "Eight of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Your Fear",
+            "position_index": 1,
+            "card_name": "Three of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "The Lesson",
+            "position_index": 2,
+            "card_name": "The Star",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Healthy Boundaries",
+            "position_index": 3,
+            "card_name": "Nine of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Long-term View",
+            "position_index": 4,
+            "card_name": "Ten of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Your Healing",
+            "position_index": 5,
+            "card_name": "Temperance",
+            "orientation": "Upright"
+          }
+        ],
+        "source": "special"
+      },
+      {
+        "reading_id": "R047",
+        "spread_id": "facing-unknown-5",
+        "spread_name": "5-Card Facing the Unknown",
+        "question_category": "Health & Wellness",
+        "question": "I found a lump and I'm terrified of the biopsy results. How do I cope with this uncertainty?",
+        "spread_config": {
+          "id": "facing-unknown-5",
+          "name": "Facing the Unknown",
+          "description": "A 5-card spread for finding strength and wisdom during health crises and uncertainty",
+          "layout": "cross-5",
+          "cardSize": "medium",
+          "aspectRatio": 1.0,
+          "category": "health",
+          "difficulty": "intermediate",
+          "positions": [
+            {
+              "name": "The Fear",
+              "short_description": "What you're most afraid of in this situation",
+              "detailed_description": "What is the deepest fear that this health concern has awakened in you? This card helps you name and understand your terror so you can work with it consciously rather than being overwhelmed by it.",
+              "keywords": [
+                "fear",
+                "terror",
+                "deepest",
+                "awakened",
+                "understand",
+                "conscious"
+              ],
+              "rag_mapping": "emotional_and_internal.fears"
+            },
+            {
+              "name": "Your Strength",
+              "short_description": "Inner resources and resilience you can draw upon",
+              "detailed_description": "What inner strength, wisdom, or resilience do you possess that can help you navigate this uncertainty? This card reveals the resources within you that you may have forgotten or underestimated in your fear.",
+              "keywords": [
+                "strength",
+                "resilience",
+                "inner",
+                "resources",
+                "wisdom",
+                "navigate"
+              ],
+              "rag_mapping": "emotional_and_internal.conscious"
+            },
+            {
+              "name": "Support Available",
+              "short_description": "External help, love, and resources around you",
+              "detailed_description": "What support systems, loving relationships, or practical resources are available to help you through this time? This card reminds you that you don't have to face this alone and reveals help you might not be seeing.",
+              "keywords": [
+                "support",
+                "love",
+                "resources",
+                "relationships",
+                "help",
+                "available"
+              ],
+              "rag_mapping": "external_influences.others"
+            },
+            {
+              "name": "What You Can Control",
+              "short_description": "Where to focus your energy and actions",
+              "detailed_description": "What aspects of this situation can you actually influence or control? This card guides you toward productive action and helps you distinguish between what you can change and what you must accept.",
+              "keywords": [
+                "control",
+                "influence",
+                "action",
+                "productive",
+                "change",
+                "accept"
+              ],
+              "rag_mapping": "guidance_and_action.action"
+            },
+            {
+              "name": "Trust/Surrender",
+              "short_description": "What you need to release to higher powers",
+              "detailed_description": "What do you need to surrender to forces beyond your control - whether that's medical expertise, divine timing, or the natural unfolding of life? This card guides you toward the peace that comes from healthy surrender.",
+              "keywords": [
+                "surrender",
+                "trust",
+                "release",
+                "divine",
+                "peace",
+                "acceptance"
+              ],
+              "rag_mapping": "emotional_and_internal.subconscious"
+            }
+          ]
+        },
+        "cards": [
+          {
+            "position_name": "The Fear",
+            "position_index": 0,
+            "card_name": "Death",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Your Strength",
+            "position_index": 1,
+            "card_name": "The Tower",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Support Available",
+            "position_index": 2,
+            "card_name": "Strength",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "What You Can Control",
+            "position_index": 3,
+            "card_name": "The Sun",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Trust/Surrender",
+            "position_index": 4,
+            "card_name": "Four of Swords",
+            "orientation": "Upright"
+          }
+        ],
+        "source": "special"
+      },
+      {
+        "reading_id": "R048",
+        "spread_id": "partnership-crossroads-6",
+        "spread_name": "6-Card Partnership Crossroads",
+        "question_category": "Career & Work",
+        "question": "My successful business partner wants to sell our company, but it feels like betraying our shared vision. What's the deeper truth here?",
+        "spread_config": {
+          "id": "partnership-crossroads-6",
+          "name": "Partnership Crossroads",
+          "description": "A 6-card spread for navigating business partnership conflicts and vision differences",
+          "layout": "relationship-6",
+          "cardSize": "medium",
+          "aspectRatio": 1.5,
+          "category": "business",
+          "difficulty": "intermediate",
+          "positions": [
+            {
+              "name": "Original Vision",
+              "short_description": "What you both originally dreamed and committed to",
+              "detailed_description": "What was the shared vision, dream, or purpose that originally brought you together in this business partnership? This card reveals the foundational energy and intention that you both once aligned with.",
+              "keywords": [
+                "vision",
+                "original",
+                "shared",
+                "purpose",
+                "foundation",
+                "aligned"
+              ],
+              "rag_mapping": "temporal_positions.distant_past"
+            },
+            {
+              "name": "Your Current Truth",
+              "short_description": "Where you stand now - your current relationship to the vision",
+              "detailed_description": "How do you currently feel about the business, the vision, and your partnership? What has changed for you, and what remains important? This card reveals your authentic current perspective.",
+              "keywords": [
+                "current",
+                "authentic",
+                "perspective",
+                "changed",
+                "important",
+                "feeling"
+              ],
+              "rag_mapping": "emotional_and_internal.conscious"
+            },
+            {
+              "name": "Their Current Truth",
+              "short_description": "Where your partner stands now",
+              "detailed_description": "What is driving your partner's desire to sell? How has their relationship to the business and original vision evolved? This card helps you understand their perspective without judgment.",
+              "keywords": [
+                "partner",
+                "driving",
+                "evolved",
+                "perspective",
+                "understanding",
+                "motivation"
+              ],
+              "rag_mapping": "external_influences.others"
+            },
+            {
+              "name": "External Forces",
+              "short_description": "Market pressures, timing, and practical factors",
+              "detailed_description": "What external market conditions, timing factors, or practical pressures are influencing this decision? This card reveals the objective circumstances that may be pushing this choice beyond personal preference.",
+              "keywords": [
+                "external",
+                "market",
+                "timing",
+                "pressures",
+                "circumstances",
+                "objective"
+              ],
+              "rag_mapping": "external_influences.external_influences"
+            },
+            {
+              "name": "Cost of Compromise",
+              "short_description": "What adapting to their wishes would require from you",
+              "detailed_description": "What would it actually cost you - emotionally, financially, or spiritually - to go along with selling the business? This card reveals what you'd be giving up and what it would demand of you.",
+              "keywords": [
+                "cost",
+                "compromise",
+                "giving_up",
+                "demand",
+                "emotionally",
+                "spiritually"
+              ],
+              "rag_mapping": "challenge_and_growth.challenge"
+            },
+            {
+              "name": "Higher Purpose",
+              "short_description": "What wants to emerge from this conflict for the highest good",
+              "detailed_description": "What new possibility, understanding, or direction wants to emerge from this conflict? How might this disagreement be serving a higher purpose for both of you and the business itself?",
+              "keywords": [
+                "higher_purpose",
+                "emerge",
+                "possibility",
+                "direction",
+                "serving",
+                "evolution"
+              ],
+              "rag_mapping": "outcome_and_result.best_case"
+            }
+          ]
+        },
+        "cards": [
+          {
+            "position_name": "Original Vision",
+            "position_index": 0,
+            "card_name": "Three of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Your Current Truth",
+            "position_index": 1,
+            "card_name": "Five of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Their Current Truth",
+            "position_index": 2,
+            "card_name": "The World",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "External Forces",
+            "position_index": 3,
+            "card_name": "King of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Cost of Compromise",
+            "position_index": 4,
+            "card_name": "Ace of Wands",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Higher Purpose",
+            "position_index": 5,
+            "card_name": "Justice",
+            "orientation": "Upright"
+          }
+        ],
+        "source": "special"
+      },
+      {
+        "reading_id": "R049",
+        "spread_id": "breaking-patterns-5",
+        "spread_name": "5-Card Breaking Patterns",
+        "question_category": "Love & Relationships",
+        "question": "I've been having an emotional affair online and feel guilty but can't stop. What's driving this behavior?",
+        "spread_config": {
+          "id": "breaking-patterns-5",
+          "name": "Breaking Patterns",
+          "description": "A 5-card spread for understanding and breaking compulsive or self-destructive patterns",
+          "layout": "cross-5",
+          "cardSize": "medium",
+          "aspectRatio": 1.0,
+          "category": "psychological",
+          "difficulty": "intermediate",
+          "positions": [
+            {
+              "name": "The Need",
+              "short_description": "What emotional need this behavior is trying to meet",
+              "detailed_description": "What legitimate emotional or psychological need is this behavior attempting to fulfill? This card reveals the underlying need that's driving the compulsion, helping you understand what you're really seeking.",
+              "keywords": [
+                "need",
+                "emotional",
+                "legitimate",
+                "fulfill",
+                "underlying",
+                "seeking"
+              ],
+              "rag_mapping": "emotional_and_internal.subconscious"
+            },
+            {
+              "name": "The Shadow",
+              "short_description": "What part of yourself you're avoiding or denying",
+              "detailed_description": "What aspect of yourself, your life, or your feelings are you trying to escape or avoid through this behavior? This card reveals what you're running from that needs to be faced and integrated.",
+              "keywords": [
+                "shadow",
+                "avoiding",
+                "escape",
+                "running",
+                "faced",
+                "integrated"
+              ],
+              "rag_mapping": "challenge_and_growth.shadow"
+            },
+            {
+              "name": "The Trigger",
+              "short_description": "What situations or feelings activate this pattern",
+              "detailed_description": "What specific emotional states, situations, or triggers consistently lead you to engage in this behavior? Understanding your triggers helps you recognize the pattern before you're fully caught in it.",
+              "keywords": [
+                "trigger",
+                "situations",
+                "emotional",
+                "consistently",
+                "recognize",
+                "pattern"
+              ],
+              "rag_mapping": "emotional_and_internal.subconscious"
+            },
+            {
+              "name": "The Consequence",
+              "short_description": "Where this path leads if unchanged",
+              "detailed_description": "What are the real consequences - to your relationships, self-respect, and life direction - if this pattern continues? This card shows you the trajectory you're on without judgment, but with clarity.",
+              "keywords": [
+                "consequence",
+                "trajectory",
+                "relationships",
+                "self-respect",
+                "direction",
+                "clarity"
+              ],
+              "rag_mapping": "outcome_and_result.worst_case"
+            },
+            {
+              "name": "Healthy Alternative",
+              "short_description": "How to meet that need authentically and constructively",
+              "detailed_description": "What healthy, authentic ways could you meet the underlying need that this behavior is trying to fulfill? This card provides guidance for redirecting your energy toward more life-affirming choices.",
+              "keywords": [
+                "healthy",
+                "authentic",
+                "redirect",
+                "life-affirming",
+                "choices",
+                "constructive"
+              ],
+              "rag_mapping": "guidance_and_action.best_course"
+            }
+          ]
+        },
+        "cards": [
+          {
+            "position_name": "The Need",
+            "position_index": 0,
+            "card_name": "Seven of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "The Shadow",
+            "position_index": 1,
+            "card_name": "The Devil",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "The Trigger",
+            "position_index": 2,
+            "card_name": "Two of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "The Consequence",
+            "position_index": 3,
+            "card_name": "Queen of Pentacles",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Healthy Alternative",
+            "position_index": 4,
+            "card_name": "Six of Swords",
+            "orientation": "Upright"
+          }
+        ],
+        "source": "special"
+      },
+      {
+        "reading_id": "R050",
+        "spread_id": "family-wounds-wisdom-7",
+        "spread_name": "7-Card Family Wounds & Wisdom",
+        "question_category": "Love & Relationships",
+        "question": "I'm considering going no-contact with my narcissistic mother, but I worry about my younger siblings. What's the most loving choice?",
+        "spread_config": {
+          "id": "family-wounds-wisdom-7",
+          "name": "Family Wounds & Wisdom",
+          "description": "A 7-card spread for navigating family estrangement and healing decisions",
+          "layout": "horseshoe-7",
+          "cardSize": "small",
+          "aspectRatio": 1.5,
+          "category": "family",
+          "difficulty": "advanced",
+          "positions": [
+            {
+              "name": "The Original Wound",
+              "short_description": "The foundational damage in this family relationship",
+              "detailed_description": "What is the core wound or pattern of harm that has developed in this family relationship? This card reveals the fundamental dynamic that has made this relationship toxic and why protection may be necessary.",
+              "keywords": [
+                "wound",
+                "foundational",
+                "damage",
+                "harm",
+                "toxic",
+                "protection"
+              ],
+              "rag_mapping": "temporal_positions.root_cause"
+            },
+            {
+              "name": "Your Part",
+              "short_description": "How you've participated in or enabled these dynamics",
+              "detailed_description": "What role have you played in these family dynamics through enabling, people-pleasing, or unconscious participation? This card helps you see your agency without self-blame.",
+              "keywords": [
+                "participation",
+                "enabling",
+                "people-pleasing",
+                "agency",
+                "dynamics",
+                "responsibility"
+              ],
+              "rag_mapping": "emotional_and_internal.personal_responsibility"
+            },
+            {
+              "name": "Their Part",
+              "short_description": "The harmful patterns they continue to perpetuate",
+              "detailed_description": "What harmful behaviors, manipulations, or patterns does this family member continue to engage in? This card validates your experience of harm without requiring you to excuse it.",
+              "keywords": [
+                "harmful",
+                "manipulation",
+                "patterns",
+                "validates",
+                "experience",
+                "behavior"
+              ],
+              "rag_mapping": "external_influences.hidden_influences"
+            },
+            {
+              "name": "Cost of Silence",
+              "short_description": "What continuing contact costs you personally",
+              "detailed_description": "What is the real cost to your mental health, spiritual well-being, and authentic self if you continue to maintain contact? This card reveals what you sacrifice by staying in harmful dynamics.",
+              "keywords": [
+                "cost",
+                "mental_health",
+                "well-being",
+                "authentic",
+                "sacrifice",
+                "harmful"
+              ],
+              "rag_mapping": "outcome_and_result.personal_cost"
+            },
+            {
+              "name": "Cost of Action",
+              "short_description": "What no-contact would require you to face and release",
+              "detailed_description": "What would going no-contact demand of you emotionally and practically? What guilt, fear, or family programming would you need to work through to maintain healthy boundaries?",
+              "keywords": [
+                "no-contact",
+                "demand",
+                "guilt",
+                "fear",
+                "programming",
+                "boundaries"
+              ],
+              "rag_mapping": "challenge_and_growth.challenge"
+            },
+            {
+              "name": "Collateral Impact",
+              "short_description": "How this choice affects your siblings and family system",
+              "detailed_description": "How would your choice to go no-contact impact your siblings and the broader family system? This card helps you understand the ripple effects while not making you responsible for everyone's feelings.",
+              "keywords": [
+                "siblings",
+                "family_system",
+                "ripple_effects",
+                "impact",
+                "responsible",
+                "choice"
+              ],
+              "rag_mapping": "external_influences.family_impact"
+            },
+            {
+              "name": "Path of Love",
+              "short_description": "How to love yourself and others through this decision",
+              "detailed_description": "What choice would represent the highest form of love - for yourself, your siblings, and even the harmful family member? This card guides you toward self-love that doesn't require self-sacrifice.",
+              "keywords": [
+                "highest_love",
+                "self-love",
+                "self-sacrifice",
+                "choice",
+                "guidance",
+                "protection"
+              ],
+              "rag_mapping": "guidance_and_action.best_course"
+            }
+          ]
+        },
+        "cards": [
+          {
+            "position_name": "The Original Wound",
+            "position_index": 0,
+            "card_name": "The Hermit",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Your Part",
+            "position_index": 1,
+            "card_name": "Five of Swords",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Their Part",
+            "position_index": 2,
+            "card_name": "Justice",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Cost of Silence",
+            "position_index": 3,
+            "card_name": "Three of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Cost of Action",
+            "position_index": 4,
+            "card_name": "Wheel of Fortune",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Collateral Impact",
+            "position_index": 5,
+            "card_name": "Page of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Path of Love",
+            "position_index": 6,
+            "card_name": "The World",
+            "orientation": "Upright"
+          }
+        ],
+        "source": "special"
+      },
+      {
+        "reading_id": "R051",
+        "spread_id": "past-present-future",
+        "spread_name": "3 Cards (Past, Present, Future)",
+        "question_category": "Spiritual Growth",
+        "question": "What do I need to let go of?",
+        "cards": [
+          {
+            "position_name": "Past",
+            "position_index": 0,
+            "card_name": "Knight of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Present",
+            "position_index": 1,
+            "card_name": "Four of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Future",
+            "position_index": 2,
+            "card_name": "Two of Pentacles",
+            "orientation": "Reversed"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      }
+    ]
+  }
+}

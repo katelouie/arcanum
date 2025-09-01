@@ -1,0 +1,395 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Arcanum Practice System Schema",
+  "description": "Comprehensive data structure for tarot reading practice sessions",
+  
+  "definitions": {
+    "client_profile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique client identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Client's name (can be pseudonym)"
+        },
+        "age_range": {
+          "type": "string",
+          "enum": ["18-25", "26-35", "36-45", "46-55", "56-65", "65+"],
+          "description": "Age demographic for context"
+        },
+        "background": {
+          "type": "object",
+          "properties": {
+            "occupation": {"type": "string"},
+            "life_stage": {
+              "type": "string",
+              "enum": ["student", "early_career", "established_career", "transition", "retirement"]
+            },
+            "relationship_status": {
+              "type": "string", 
+              "enum": ["single", "dating", "committed", "married", "divorced", "widowed", "complicated"]
+            },
+            "cultural_context": {
+              "type": "string",
+              "description": "Brief cultural/social background if relevant"
+            }
+          }
+        },
+        "personality_traits": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["analytical", "emotional", "spiritual", "practical", "creative", "skeptical", "open", "guarded", "decisive", "hesitant"]
+          }
+        },
+        "tarot_experience": {
+          "type": "string",
+          "enum": ["complete_beginner", "curious", "some_knowledge", "experienced", "advanced_practitioner"],
+          "description": "Client's familiarity with tarot"
+        }
+      },
+      "required": ["id", "name", "age_range", "background", "personality_traits", "tarot_experience"]
+    },
+    
+    "scenario": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique scenario identifier"
+        },
+        "title": {
+          "type": "string",
+          "description": "Brief scenario title"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["career", "relationships", "personal_growth", "finances", "health", "spirituality", "family", "creativity", "life_transition", "decision_making", "crisis", "general_guidance"]
+        },
+        "difficulty_level": {
+          "type": "string",
+          "enum": ["beginner", "intermediate", "advanced", "expert"],
+          "description": "Complexity level for practice"
+        },
+        "question_type": {
+          "type": "string",
+          "enum": ["yes_no", "timing", "choice_between_options", "situation_analysis", "advice_seeking", "relationship_dynamics", "personal_insight", "spiritual_guidance", "past_influence", "future_potential"]
+        },
+        "emotional_intensity": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "crisis"],
+          "description": "Emotional weight of the situation"
+        },
+        "context": {
+          "type": "object",
+          "properties": {
+            "situation_background": {
+              "type": "string",
+              "description": "Detailed context leading to the question"
+            },
+            "recent_events": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Recent occurrences affecting the situation"
+            },
+            "client_concerns": {
+              "type": "array", 
+              "items": {"type": "string"},
+              "description": "Specific worries or hopes the client has"
+            },
+            "hidden_factors": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Underlying issues the reader might uncover"
+            }
+          }
+        },
+        "primary_question": {
+          "type": "string",
+          "description": "The main question the client asks"
+        },
+        "followup_questions": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Additional questions that might arise during reading"
+        },
+        "suggested_spreads": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Spread IDs that work well for this scenario"
+        },
+        "learning_objectives": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Skills this scenario helps develop"
+        },
+        "challenge_factors": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["complex_emotions", "multiple_perspectives", "timing_sensitive", "ethical_considerations", "conflicting_cards", "unclear_question", "emotional_client", "skeptical_client", "urgent_decision"]
+          }
+        }
+      },
+      "required": ["id", "title", "category", "difficulty_level", "question_type", "emotional_intensity", "context", "primary_question", "suggested_spreads", "learning_objectives"]
+    },
+    
+    "practice_session": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "description": "Unique session identifier"
+        },
+        "user_id": {
+          "type": "string",
+          "description": "Practicing reader identifier"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "client_profile": {"$ref": "#/definitions/client_profile"},
+        "scenario": {"$ref": "#/definitions/scenario"},
+        "selected_spread": {
+          "type": "string",
+          "description": "Spread ID chosen for this session"
+        },
+        "cards_drawn": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "card_name": {"type": "string"},
+              "position": {"type": "string"},
+              "reversed": {"type": "boolean"}
+            }
+          }
+        },
+        "user_interpretation": {
+          "type": "object",
+          "properties": {
+            "overall_reading": {
+              "type": "string",
+              "description": "Complete reading interpretation"
+            },
+            "card_interpretations": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "card_name": {"type": "string"},
+                  "position": {"type": "string"},
+                  "interpretation": {"type": "string"},
+                  "connection_to_question": {"type": "string"}
+                }
+              }
+            },
+            "synthesis": {
+              "type": "string",
+              "description": "How cards work together to answer the question"
+            },
+            "advice_given": {
+              "type": "string",
+              "description": "Practical guidance offered to client"
+            },
+            "reading_time_minutes": {
+              "type": "number",
+              "description": "Time spent on interpretation"
+            }
+          }
+        },
+        "ai_evaluation": {
+          "type": "object",
+          "properties": {
+            "overall_score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "criteria_scores": {
+              "type": "object",
+              "properties": {
+                "card_knowledge": {"type": "number", "minimum": 0, "maximum": 100},
+                "position_relevance": {"type": "number", "minimum": 0, "maximum": 100},
+                "reading_coherence": {"type": "number", "minimum": 0, "maximum": 100},
+                "empathy_communication": {"type": "number", "minimum": 0, "maximum": 100},
+                "practical_guidance": {"type": "number", "minimum": 0, "maximum": 100},
+                "ethical_considerations": {"type": "number", "minimum": 0, "maximum": 100},
+                "intuitive_insight": {"type": "number", "minimum": 0, "maximum": 100}
+              }
+            },
+            "strengths": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "What the reader did well"
+            },
+            "areas_for_improvement": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Specific suggestions for growth"
+            },
+            "missed_opportunities": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Insights or connections not explored"
+            },
+            "alternative_interpretations": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "card_or_position": {"type": "string"},
+                  "alternative_meaning": {"type": "string"},
+                  "why_relevant": {"type": "string"}
+                }
+              }
+            },
+            "next_steps": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Specific practice recommendations"
+            }
+          }
+        },
+        "session_metadata": {
+          "type": "object",
+          "properties": {
+            "completed": {"type": "boolean"},
+            "difficulty_rating": {
+              "type": "string",
+              "enum": ["too_easy", "appropriate", "challenging", "too_difficult"]
+            },
+            "user_notes": {"type": "string"},
+            "technical_issues": {"type": "array", "items": {"type": "string"}}
+          }
+        }
+      },
+      "required": ["session_id", "user_id", "timestamp", "client_profile", "scenario", "selected_spread", "cards_drawn"]
+    },
+    
+    "progress_tracking": {
+      "type": "object",
+      "properties": {
+        "user_id": {"type": "string"},
+        "skill_levels": {
+          "type": "object",
+          "properties": {
+            "card_knowledge": {"type": "string", "enum": ["novice", "developing", "proficient", "advanced", "expert"]},
+            "position_awareness": {"type": "string", "enum": ["novice", "developing", "proficient", "advanced", "expert"]},
+            "reading_synthesis": {"type": "string", "enum": ["novice", "developing", "proficient", "advanced", "expert"]},
+            "client_communication": {"type": "string", "enum": ["novice", "developing", "proficient", "advanced", "expert"]},
+            "ethical_practice": {"type": "string", "enum": ["novice", "developing", "proficient", "advanced", "expert"]},
+            "intuitive_development": {"type": "string", "enum": ["novice", "developing", "proficient", "advanced", "expert"]}
+          }
+        },
+        "statistics": {
+          "type": "object",
+          "properties": {
+            "total_sessions": {"type": "integer"},
+            "sessions_by_difficulty": {
+              "type": "object",
+              "properties": {
+                "beginner": {"type": "integer"},
+                "intermediate": {"type": "integer"}, 
+                "advanced": {"type": "integer"},
+                "expert": {"type": "integer"}
+              }
+            },
+            "average_scores": {
+              "type": "object",
+              "properties": {
+                "overall": {"type": "number"},
+                "last_10_sessions": {"type": "number"},
+                "by_category": {
+                  "type": "object",
+                  "additionalProperties": {"type": "number"}
+                }
+              }
+            },
+            "improvement_trends": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "skill": {"type": "string"},
+                  "trend": {"type": "string", "enum": ["improving", "stable", "declining"]},
+                  "rate": {"type": "number"}
+                }
+              }
+            }
+          }
+        },
+        "achievements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {"type": "string"},
+              "title": {"type": "string"},
+              "description": {"type": "string"},
+              "earned_date": {"type": "string", "format": "date-time"},
+              "category": {"type": "string"}
+            }
+          }
+        },
+        "recommended_practice": {
+          "type": "object",
+          "properties": {
+            "focus_areas": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "suggested_scenarios": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "skill_building_exercises": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    
+    "evaluation_rubric": {
+      "type": "object",
+      "properties": {
+        "criteria": {
+          "type": "object",
+          "properties": {
+            "card_knowledge": {
+              "type": "object",
+              "properties": {
+                "description": {"type": "string"},
+                "weight": {"type": "number"},
+                "scoring_guide": {
+                  "type": "object",
+                  "properties": {
+                    "excellent": {"type": "string"},
+                    "good": {"type": "string"},
+                    "satisfactory": {"type": "string"},
+                    "needs_improvement": {"type": "string"}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "difficulty_adjustments": {
+          "type": "object",
+          "properties": {
+            "beginner": {"type": "object"},
+            "intermediate": {"type": "object"},
+            "advanced": {"type": "object"},
+            "expert": {"type": "object"}
+          }
+        }
+      }
+    }
+  }
+}

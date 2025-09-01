@@ -1,0 +1,231 @@
+{
+  "version": "1.0",
+  "evaluation_criteria": {
+    "card_knowledge": {
+      "description": "Understanding of individual card meanings in upright and reversed positions",
+      "weight": 20,
+      "scoring_guide": {
+        "excellent": "Demonstrates deep understanding of card symbolism, traditional meanings, and nuanced interpretations. Accurately interprets both upright and reversed positions.",
+        "good": "Shows solid grasp of basic card meanings with some awareness of reversed interpretations. Occasionally misses subtle nuances.",
+        "satisfactory": "Understands fundamental card meanings but may lack depth or accuracy in reversed positions. Some interpretations may be generic.",
+        "needs_improvement": "Limited or inaccurate understanding of card meanings. Struggles with reversed interpretations or provides generic responses."
+      },
+      "key_indicators": [
+        "Accuracy of card meaning interpretation",
+        "Understanding of upright vs. reversed distinctions", 
+        "Use of card symbolism and imagery",
+        "Avoidance of overly generic interpretations"
+      ]
+    },
+
+    "position_relevance": {
+      "description": "How well the reader connects card meanings to their specific positions in the spread",
+      "weight": 18,
+      "scoring_guide": {
+        "excellent": "Seamlessly integrates card meanings with position significance. Shows clear understanding of how position context modifies interpretation.",
+        "good": "Generally connects cards to positions well, with occasional missed opportunities for deeper position-specific insights.",
+        "satisfactory": "Basic understanding of position meanings but may not fully utilize this context in interpretation.",
+        "needs_improvement": "Little to no integration of position significance. Treats cards as isolated meanings rather than contextual elements."
+      },
+      "key_indicators": [
+        "Understanding of spread position meanings",
+        "Integration of card and position significance",
+        "Contextual relevance to the question",
+        "Recognition of position relationships"
+      ]
+    },
+
+    "reading_coherence": {
+      "description": "How well individual card interpretations are woven together into a cohesive narrative",
+      "weight": 16,
+      "scoring_guide": {
+        "excellent": "Creates a compelling, logical narrative that connects all elements. Cards work together to tell a unified story addressing the question.",
+        "good": "Generally cohesive reading with most elements connecting well. May have minor gaps in narrative flow.",
+        "satisfactory": "Basic attempt at synthesis but may feel like individual card readings rather than integrated interpretation.",
+        "needs_improvement": "Disconnected interpretations with little effort to create narrative coherence or address the question holistically."
+      },
+      "key_indicators": [
+        "Logical flow between card interpretations",
+        "Clear narrative structure",
+        "Integration of all spread elements",
+        "Coherent response to the original question"
+      ]
+    },
+
+    "empathy_communication": {
+      "description": "Compassionate, sensitive communication style appropriate for the client's emotional state",
+      "weight": 15,
+      "scoring_guide": {
+        "excellent": "Demonstrates exceptional empathy and emotional intelligence. Language is compassionate, validating, and appropriately supportive.",
+        "good": "Generally empathetic with good emotional awareness. May occasionally miss emotional nuances or use slightly insensitive language.", 
+        "satisfactory": "Basic empathy shown but may lack depth or use somewhat clinical language. Appropriate but not particularly warm.",
+        "needs_improvement": "Limited empathy or inappropriate emotional response. May be cold, judgmental, or insensitive to client's emotional state."
+      },
+      "key_indicators": [
+        "Emotional validation and support",
+        "Appropriate tone for situation",
+        "Recognition of client's emotional state",
+        "Compassionate language choices"
+      ]
+    },
+
+    "practical_guidance": {
+      "description": "Providing actionable, realistic advice that empowers the client",
+      "weight": 12,
+      "scoring_guide": {
+        "excellent": "Offers specific, actionable guidance that empowers client choice. Balances spiritual insight with practical considerations.",
+        "good": "Provides helpful guidance with some specific suggestions. Generally empowering but may lack concrete steps.",
+        "satisfactory": "Basic advice given but may be vague or generic. Some attempt at practical application.",
+        "needs_improvement": "Vague, impractical, or disempowering advice. May avoid giving guidance or provide unrealistic suggestions."
+      },
+      "key_indicators": [
+        "Specific, actionable suggestions",
+        "Empowerment of client agency",
+        "Balance of spiritual and practical",
+        "Realistic and achievable guidance"
+      ]
+    },
+
+    "ethical_considerations": {
+      "description": "Adherence to ethical tarot reading practices and boundaries",
+      "weight": 10,
+      "scoring_guide": {
+        "excellent": "Demonstrates clear ethical boundaries. Avoids prediction addiction, maintains client autonomy, and shows cultural sensitivity.",
+        "good": "Generally ethical with good boundary awareness. May have minor lapses in ethical considerations.",
+        "satisfactory": "Basic ethical awareness but may not consistently apply ethical principles throughout reading.",
+        "needs_improvement": "Poor ethical boundaries. May be overly predictive, disempowering, or culturally insensitive."
+      },
+      "key_indicators": [
+        "Respect for client autonomy",
+        "Appropriate boundaries and disclaimers",
+        "Cultural sensitivity",
+        "Avoidance of harmful predictions"
+      ]
+    },
+
+    "intuitive_insight": {
+      "description": "Going beyond textbook meanings to provide deeper, intuitive connections",
+      "weight": 9,
+      "scoring_guide": {
+        "excellent": "Demonstrates clear intuitive insights that enhance card meanings. Offers unique perspectives that feel authentic and relevant.",
+        "good": "Some intuitive elements present that add value to the reading. Generally enhances rather than contradicts traditional meanings.",
+        "satisfactory": "Limited intuitive input but doesn't detract from reading quality. Mostly relies on traditional interpretations.",
+        "needs_improvement": "Either no intuitive elements or inappropriate intuitive claims that contradict card meanings or seem fabricated."
+      },
+      "key_indicators": [
+        "Authentic intuitive insights",
+        "Enhancement of traditional meanings",
+        "Unique relevant perspectives",
+        "Balanced intuition and knowledge"
+      ]
+    }
+  },
+
+  "difficulty_adjustments": {
+    "beginner": {
+      "focus_areas": ["card_knowledge", "position_relevance", "empathy_communication"],
+      "expectations": "Basic accuracy and compassionate tone. Less emphasis on synthesis and intuitive elements.",
+      "scoring_adjustments": {
+        "card_knowledge": "More forgiving of basic interpretations",
+        "reading_coherence": "Reduced expectations for complex synthesis",
+        "intuitive_insight": "Not heavily weighted"
+      }
+    },
+    "intermediate": {
+      "focus_areas": ["reading_coherence", "practical_guidance", "ethical_considerations"],
+      "expectations": "Good integration and practical application. Growing ethical awareness.",
+      "scoring_adjustments": {
+        "position_relevance": "Higher expectations for position integration",
+        "practical_guidance": "Increased focus on actionable advice"
+      }
+    },
+    "advanced": {
+      "focus_areas": ["intuitive_insight", "complex_synthesis", "cultural_sensitivity"],
+      "expectations": "Sophisticated interpretation with strong intuitive elements and cultural awareness.",
+      "scoring_adjustments": {
+        "intuitive_insight": "Higher weight and expectations",
+        "reading_coherence": "Expectation for complex narrative synthesis",
+        "ethical_considerations": "Advanced cultural competency expected"
+      }
+    },
+    "expert": {
+      "focus_areas": ["mastery_demonstration", "teaching_ability", "innovation"],
+      "expectations": "Demonstration of mastery across all areas with potential for teaching others.",
+      "scoring_adjustments": {
+        "all_criteria": "Highest standards applied",
+        "additional_factors": ["originality", "teaching_potential", "professional_readiness"]
+      }
+    }
+  },
+
+  "common_feedback_themes": {
+    "strengths": [
+      "Strong card knowledge foundation",
+      "Compassionate communication style", 
+      "Good practical guidance",
+      "Excellent narrative flow",
+      "Appropriate ethical boundaries",
+      "Insightful position integration",
+      "Balanced spiritual and practical advice"
+    ],
+    "improvement_areas": [
+      "Integrate position meanings more fully",
+      "Develop stronger narrative coherence",
+      "Enhance empathetic language",
+      "Provide more specific guidance",
+      "Strengthen ethical boundaries",
+      "Trust intuitive insights more",
+      "Focus on client empowerment"
+    ],
+    "practice_suggestions": [
+      "Study reversed card meanings more thoroughly",
+      "Practice connecting cards in storytelling exercises",
+      "Work on active listening and validation skills",
+      "Develop comfort with giving specific advice",
+      "Review ethical guidelines for readers",
+      "Practice meditation or intuitive development",
+      "Study different cultural approaches to divination"
+    ]
+  },
+
+  "achievement_system": {
+    "badges": [
+      {
+        "id": "first_reading",
+        "title": "First Steps",
+        "description": "Completed your first practice reading",
+        "requirements": {"sessions_completed": 1}
+      },
+      {
+        "id": "compassionate_reader",
+        "title": "Compassionate Heart", 
+        "description": "Scored 85+ on empathy/communication in 5 readings",
+        "requirements": {"empathy_scores_85_plus": 5}
+      },
+      {
+        "id": "card_scholar",
+        "title": "Card Scholar",
+        "description": "Scored 90+ on card knowledge in 10 readings",
+        "requirements": {"card_knowledge_90_plus": 10}
+      },
+      {
+        "id": "master_storyteller",
+        "title": "Master Storyteller",
+        "description": "Scored 90+ on reading coherence in 5 readings",
+        "requirements": {"coherence_scores_90_plus": 5}
+      },
+      {
+        "id": "ethical_practitioner",
+        "title": "Ethical Practitioner",
+        "description": "Maintained 95+ ethical scores for 20 readings",
+        "requirements": {"ethical_scores_95_plus": 20}
+      },
+      {
+        "id": "intuitive_master",
+        "title": "Intuitive Master",
+        "description": "Scored 85+ on intuitive insight in advanced readings",
+        "requirements": {"intuitive_scores_85_plus": 5, "difficulty": "advanced"}
+      }
+    ]
+  }
+}
