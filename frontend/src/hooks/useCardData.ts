@@ -14,6 +14,7 @@ export function useCardData() {
   const [enhancedCards, setEnhancedCards] = useState(null)
   const [spreadsConfig, setSpreadsConfig] = useState<SpreadsConfig | null>(null)
   const [availableSpreads, setAvailableSpreads] = useState<{id: string, name: string, category: string}[]>([])
+  const [refreshTrigger, setRefreshTrigger] = useState(0)
 
   // Category colors for spread labels
   const getCategoryColor = (category: string) => {
@@ -81,7 +82,7 @@ export function useCardData() {
     const enhanced = getEnhancedCardInterpretation(card)
     if (enhanced) return enhanced
 
-    if (!interpretations) return undefined
+    if (!interpretations || !interpretations.cards) return undefined
     
     const cardData = interpretations.cards[card.name]
     
@@ -122,7 +123,11 @@ export function useCardData() {
     }
   }
 
-  // Load interpretations and spreads config on component mount
+  const refreshData = () => {
+    setRefreshTrigger(prev => prev + 1)
+  }
+
+  // Load interpretations and spreads config on component mount and when refreshTrigger changes
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -151,7 +156,7 @@ export function useCardData() {
       }
     }
     loadData()
-  }, [])
+  }, [refreshTrigger])
 
   return {
     interpretations,
@@ -161,6 +166,7 @@ export function useCardData() {
     getCategoryColor,
     getCategoryName,
     getCardInterpretation,
-    getPositionMeaning
+    getPositionMeaning,
+    refreshData
   }
 }

@@ -15,6 +15,8 @@ export interface Layout {
 export interface SpreadPosition {
   name: string;
   description: string;
+  short_description?: string;
+  detailed_description?: string;
   keywords: string[];
 }
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { StyledListbox } from './ui/StyledListbox'
 import ReactMarkdown from 'react-markdown'
+import { useCardData } from '../hooks/useCardData'
 
 interface TrainingReading {
   reading_id: string
@@ -41,6 +42,10 @@ export function ReadingEditor({ reading, onClose }: ReadingEditorProps) {
   const [saving, setSaving] = useState(false)
   const [lastSaved, setLastSaved] = useState<string | null>(null)
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
+  const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set())
+  
+  // Get card data for enhanced information
+  const { spreadsConfig, getCardInterpretation } = useCardData()
   
   // Computed property: read-only when status is 'completed'
   const isReadOnly = status === 'completed'
@@ -170,6 +175,31 @@ export function ReadingEditor({ reading, onClose }: ReadingEditorProps) {
     return orientation === 'Reversed' ? 'text-red-400' : 'text-green-400'
   }
 
+  const toggleCardExpanded = (cardIndex: number) => {
+    const newExpanded = new Set(expandedCards)
+    if (newExpanded.has(cardIndex)) {
+      newExpanded.delete(cardIndex)
+    } else {
+      newExpanded.add(cardIndex)
+    }
+    setExpandedCards(newExpanded)
+  }
+
+  const getPositionDescription = (positionName: string) => {
+    try {
+      if (!spreadsConfig) return "Loading position information..."
+      
+      const spread = spreadsConfig.spreads.find(s => s.id === reading.spread_id)
+      if (!spread) return "Position information not available."
+      
+      const position = spread.positions.find(p => p.name === positionName)
+      return position?.detailed_description || position?.short_description || position?.description || "Position description not available."
+    } catch (error) {
+      console.error("Error getting position description:", error)
+      return "Unable to load position description."
+    }
+  }
+
   const renderSpreadInfo = () => {
     if (reading.spread_config) {
       return (
@@ -289,20 +319,147 @@ export function ReadingEditor({ reading, onClose }: ReadingEditorProps) {
           <div className="bg-slate-800 rounded-lg p-4">
             <h3 className="text-lg font-semibold mb-3">Cards Drawn</h3>
             <div className="space-y-3">
-              {reading.cards.map((card, index) => (
-                <div key={index} className="flex items-center justify-between py-2 border-b border-slate-700 last:border-b-0">
-                  <div>
-                    <div className="font-medium text-slate-200">{card.position_name}</div>
-                    <div className="text-sm text-slate-400">Position {card.position_index + 1}</div>
-                  </div>
-                  <div className="text-right">
-                    <div className={`font-medium ${getCardColor(card.orientation)}`}>
-                      {card.card_name}
+              {reading.cards.map((card, index) => {
+                const cardInfo = {
+                  name: card.card_name,
+                  position: card.position_name,
+                  reversed: card.orientation === 'Reversed',
+                  image_url: ''
+                }
+                
+                let cardInterpretation
+                try {
+                  cardInterpretation = getCardInterpretation(cardInfo)
+                } catch (error) {
+                  console.error("Error getting card interpretation:", error)
+                  cardInterpretation = null
+                }
+                
+                const isExpanded = expandedCards.has(index)
+
+                return (
+                  <div key={index} className="border border-slate-700 rounded-lg overflow-hidden">
+                    {/* Card Header - Always Visible */}
+                    <div 
+                      className="flex items-center justify-between p-3 cursor-pointer hover:bg-slate-700/50 transition-colors"
+                      onClick={() => toggleCardExpanded(index)}
+                    >
+                      <div>
+                        <div className="font-medium text-slate-200">{card.position_name}</div>
+                        <div className="text-sm text-slate-400">Position {card.position_index + 1}</div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="text-right">
+                          <div className={`font-medium ${getCardColor(card.orientation)}`}>
+                            {card.card_name}
+                          </div>
+                          <div className="text-sm text-slate-400">{card.orientation}</div>
+                        </div>
+                        <div className="text-slate-400">
+                          {isExpanded ? '▼' : '▶'}
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-sm text-slate-400">{card.orientation}</div>
+
+                    {/* Expandable Details */}
+                    {isExpanded && (
+                      <div className="border-t border-slate-700 p-4 bg-slate-900/50">
+                        <div className="space-y-4">
+                          {/* Position Description */}
+                          <div>
+                            <h4 className="text-sm font-semibold text-violet-400 mb-2">Position Meaning</h4>
+                            <p className="text-sm text-slate-300 leading-relaxed">
+                              {getPositionDescription(card.position_name)}
+                            </p>
+                          </div>
+
+                          {/* Card Interpretation */}
+                          {cardInterpretation && (
+                            <div>
+                              <h4 className="text-sm font-semibold text-violet-400 mb-2">Card Meaning</h4>
+                              <div className="space-y-3">
+                                {/* Upright/Reversed Meaning */}
+                                <div>
+                                  <h5 className="text-xs font-medium text-slate-400 mb-1">
+                                    {card.orientation === 'Reversed' ? 'Reversed' : 'Upright'} Meaning
+                                  </h5>
+                                  {card.orientation === 'Reversed' ? (
+                                    <div className="space-y-2">
+                                      {cardInterpretation.reversed?.essence && (
+                                        <p className="text-sm text-slate-300 leading-relaxed">
+                                          <span className="font-medium">Essence:</span> {cardInterpretation.reversed.essence}
+                                        </p>
+                                      )}
+                                      {cardInterpretation.reversed?.keywords && (
+                                        <div>
+                                          <span className="text-xs font-medium text-slate-400">Keywords: </span>
+                                          <span className="text-sm text-red-300">
+                                            {Array.isArray(cardInterpretation.reversed.keywords) 
+                                              ? cardInterpretation.reversed.keywords.join(', ')
+                                              : cardInterpretation.reversed.keywords}
+                                          </span>
+                                        </div>
+                                      )}
+                                      {cardInterpretation.reversed?.psychological && (
+                                        <p className="text-sm text-slate-300">
+                                          <span className="font-medium">Psychological:</span> {cardInterpretation.reversed.psychological}
+                                        </p>
+                                      )}
+                                      {cardInterpretation.reversed?.spiritual && (
+                                        <p className="text-sm text-slate-300">
+                                          <span className="font-medium">Spiritual:</span> {cardInterpretation.reversed.spiritual}
+                                        </p>
+                                      )}
+                                      {cardInterpretation.reversed?.practical && (
+                                        <p className="text-sm text-slate-300">
+                                          <span className="font-medium">Practical:</span> {cardInterpretation.reversed.practical}
+                                        </p>
+                                      )}
+                                    </div>
+                                  ) : (
+                                    <div className="space-y-2">
+                                      {cardInterpretation.upright?.essence && (
+                                        <p className="text-sm text-slate-300 leading-relaxed">
+                                          <span className="font-medium">Essence:</span> {cardInterpretation.upright.essence}
+                                        </p>
+                                      )}
+                                      {cardInterpretation.upright?.keywords && (
+                                        <div>
+                                          <span className="text-xs font-medium text-slate-400">Keywords: </span>
+                                          <span className="text-sm text-green-300">
+                                            {Array.isArray(cardInterpretation.upright.keywords) 
+                                              ? cardInterpretation.upright.keywords.join(', ')
+                                              : cardInterpretation.upright.keywords}
+                                          </span>
+                                        </div>
+                                      )}
+                                      {cardInterpretation.upright?.psychological && (
+                                        <p className="text-sm text-slate-300">
+                                          <span className="font-medium">Psychological:</span> {cardInterpretation.upright.psychological}
+                                        </p>
+                                      )}
+                                      {cardInterpretation.upright?.spiritual && (
+                                        <p className="text-sm text-slate-300">
+                                          <span className="font-medium">Spiritual:</span> {cardInterpretation.upright.spiritual}
+                                        </p>
+                                      )}
+                                      {cardInterpretation.upright?.practical && (
+                                        <p className="text-sm text-slate-300">
+                                          <span className="font-medium">Practical:</span> {cardInterpretation.upright.practical}
+                                        </p>
+                                      )}
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
 

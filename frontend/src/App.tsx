@@ -3,6 +3,7 @@ import { InterpretationPanel } from './components/InterpretationPanel'
 import { ReadingMode } from './components/ReadingMode'
 import { PracticeMode } from './components/PracticeMode'
 import { DevMode } from './components/DevMode'
+import { SpreadLayoutCreator } from './components/SpreadLayoutCreator'
 import { StylingPlaybook } from './components/StylingPlaybook'
 import { useCardData } from './hooks/useCardData'
 
@@ -13,7 +14,7 @@ interface CardInfo {
   image_url: string;
 }
 
-type AppMode = 'reading' | 'practice' | 'dev'
+type AppMode = 'reading' | 'practice' | 'layout' | 'dev'
 
 function App() {
   const [mode, setMode] = useState<AppMode>('reading')
@@ -75,6 +76,16 @@ function App() {
               Practice Mode
             </button>
             <button
+              onClick={() => setMode('layout')}
+              className={`px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
+                mode === 'layout'
+                  ? 'bg-cyan-600 text-white shadow-lg'
+                  : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+              }`}
+            >
+              Layout Creator
+            </button>
+            <button
               onClick={() => setMode('dev')}
               className={`px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
                 mode === 'dev'
@@ -104,6 +115,17 @@ function App() {
             spreadsConfig={spreadsConfig}
             onCardClick={handleCardClick}
             onSpreadChange={setCurrentSpread}
+          />
+        )}
+
+        {mode === 'layout' && (
+          <SpreadLayoutCreator 
+            onExport={(layout) => {
+              const output = JSON.stringify(layout, null, 2);
+              navigator.clipboard.writeText(output);
+              console.log('Exported layout:', layout);
+              alert('Layout JSON copied to clipboard!\n\nCheck the console for the full output, or paste from clipboard into your spreads-config.json file.');
+            }}
           />
         )}
 

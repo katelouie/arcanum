@@ -2,13 +2,16 @@ from fastapi import FastAPI, HTTPException
 from models.api_models import ReadingRequest, ReadingResponse, CardInfo
 from models.reading import ReadingService
 from models.spreads import (
+    SpreadPosition,
+    GenericSpread,
     SingleCardSpread, 
     ThreeCardSpread, 
     CelticCrossSpread,
     FiveCardCrossSpread,
     SevenCardHorseshoeSpread,
     FourCardDecisionSpread,
-    SixCardRelationshipSpread
+    SixCardRelationshipSpread,
+    TwelveCardSpread
 )
 from models.practice_models import (
     StartPracticeRequest, StartPracticeResponse,
@@ -29,6 +32,7 @@ from datetime import datetime
 sys.path.append(os.path.join(os.path.dirname(__file__), 'services'))
 from reading_generator import TarotReadingGenerator, ReadingRequest as GenReadingRequest
 from prompt_engineer import ReadingStyle, ReadingTone
+from context_string_builder import ContextStringBuilder
 
 app = FastAPI()
 
@@ -46,33 +50,52 @@ with open("static/tarot-images.json", "r") as f:
     card_data = json.load(f)
 
 # Load spreads configuration to map spread IDs to spread classes
+def create_spread_from_config(spread_name: str, positions_config: List[Dict]) -> GenericSpread:
+    """Create a GenericSpread from configuration data with validation"""
+    positions = []
+    for pos in positions_config:
+        if not all(key in pos for key in ['name', 'description']):
+            raise ValueError(f"Position missing required fields: {pos}")
+        positions.append(SpreadPosition(pos['name'], pos['description']))
+    
+    return GenericSpread(spread_name, positions)
+
 def load_spreads_mapping():
-    """Load spreads config and create mapping from spread ID to spread class based on card count"""
+    """Load spreads config and create mapping from spread ID to spread instances"""
     try:
         with open("config/spreads-config.json", "r") as f:
             config = json.load(f)
         
-        # Map card count to spread class
-        card_count_to_class = {
+        # Legacy spread classes for compatibility
+        legacy_spreads = {
             1: SingleCardSpread,
             3: ThreeCardSpread, 
             4: FourCardDecisionSpread,
             5: FiveCardCrossSpread,
             6: SixCardRelationshipSpread,
             7: SevenCardHorseshoeSpread,
-            10: CelticCrossSpread
+            10: CelticCrossSpread,
+            12: TwelveCardSpread
         }
         
         spreads_mapping = {}
         for spread in config["spreads"]:
             spread_id = spread["id"]
+            spread_name = spread["name"]
             layout = config["layouts"][spread["layout"]]
             card_count = len(layout["positions"])
             
-            if card_count in card_count_to_class:
-                spreads_mapping[spread_id] = card_count_to_class[card_count]
+            # Use legacy spread class if available, otherwise create generic spread
+            if card_count in legacy_spreads:
+                spreads_mapping[spread_id] = legacy_spreads[card_count]
             else:
-                print(f"Warning: No spread class found for {card_count} cards (spread: {spread_id})")
+                try:
+                    spreads_mapping[spread_id] = create_spread_from_config(
+                        spread_name, 
+                        layout["positions"]
+                    )
+                except Exception as pos_error:
+                    print(f"Error creating spread {spread_id}: {pos_error}")
         
         return spreads_mapping
     except Exception as e:
@@ -438,12 +461,12 @@ def get_training_readings():
                         reading["source"] = "special" if reading.get("spread_config") else "common"
                     reading["has_interpretation"] = reading["reading_id"] in existing_interpretations
                     
-                    # Add status from interpretation metadata, fallback to has_interpretation logic
+                    # Add status from interpretation metadata, default to not_started
                     reading_id = reading["reading_id"]
                     if reading_id in interpretation_status:
                         reading["status"] = interpretation_status[reading_id]
                     else:
-                        reading["status"] = "completed" if reading["has_interpretation"] else "not_started"
+                        reading["status"] = "not_started"
                     
                     readings.append(reading)
         except FileNotFoundError:
@@ -555,11 +578,22 @@ def get_reading_interpretation(reading_id: str):
         if os.path.exists(md_file):
             with open(md_file, "r") as f:
                 content = f.read()
+                
+                # Check for existing JSON metadata to get the real status
+                interpretations_dir = "/Users/katelouie/code/arcanum/llm/tuning_data/interpretations"
+                interpretation_file = os.path.join(interpretations_dir, f"{reading_id}.json")
+                actual_status = "not_started"  # Default status
+                
+                if os.path.exists(interpretation_file):
+                    with open(interpretation_file, "r") as json_f:
+                        metadata = json.load(json_f)
+                        actual_status = metadata.get("status", "not_started")
+                
                 return {
                     "reading_id": reading_id,
                     "interpretation": content,
                     "notes": f"Loaded from {os.path.basename(md_file)}",
-                    "status": "completed",
+                    "status": actual_status,
                     "source_file": md_file
                 }
         
@@ -875,13 +909,14 @@ def create_training_reading(reading_data: Dict):
 def get_spreads():
     """Get available spreads configuration"""
     try:
-        spreads_config_path = "/Users/katelouie/code/arcanum/backend/spreads-config.json"
+        spreads_config_path = "/Users/katelouie/code/arcanum/backend/config/spreads-config.json"
         with open(spreads_config_path, "r") as f:
             return json.load(f)
     except FileNotFoundError:
         return {"spreads": []}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error loading spreads: {str(e)}")
+
 
 @app.get("/api/dev/training-readings/{reading_id}/context")
 def get_reading_context_string(reading_id: str):

@@ -231,6 +231,59 @@
           "y": 5
         }
       ]
+    },
+    "wheel-12": {
+      "name": "Twelve Card Wheel",
+      "positions": [
+        {
+          "x": 50,
+          "y": 5
+        },
+        {
+          "x": 65,
+          "y": 16
+        },
+        {
+          "x": 78,
+          "y": 27
+        },
+        {
+          "x": 90,
+          "y": 40
+        },
+        {
+          "x": 78,
+          "y": 56
+        },
+        {
+          "x": 65,
+          "y": 68
+        },
+        {
+          "x": 50,
+          "y": 80
+        },
+        {
+          "x": 38,
+          "y": 68
+        },
+        {
+          "x": 25,
+          "y": 56
+        },
+        {
+          "x": 10,
+          "y": 40
+        },
+        {
+          "x": 25,
+          "y": 27
+        },
+        {
+          "x": 38,
+          "y": 16
+        }
+      ]
     }
   },
   "spreads": [
@@ -1089,6 +1142,246 @@
             "transformation"
           ],
           "rag_mapping": "outcome_and_result.final_outcome"
+        }
+      ]
+    },
+    {
+      "id": "year-ahead",
+      "name": "Year Ahead",
+      "description": "A comprehensive 12-card spread for annual guidance, with one card for each month of the coming year",
+      "layout": "wheel-12",
+      "cardSize": "small",
+      "aspectRatio": 1.0,
+      "category": "timeline",
+      "difficulty": "intermediate",
+      "positions": [
+        {
+          "name": "January",
+          "short_description": "Energy and themes for January",
+          "detailed_description": "What energy, opportunities, or lessons will characterize the first month of your year? What should you focus on as you begin this new cycle? What seeds are being planted in January that will grow throughout the year?",
+          "keywords": [
+            "beginning",
+            "new start",
+            "foundation",
+            "winter",
+            "planning",
+            "intention"
+          ],
+          "question_adaptations": {
+            "career": "Professional opportunities or challenges coming in January",
+            "love": "Romantic energy and potential developments in January",
+            "health": "Physical and mental wellness focus for January"
+          },
+          "rag_mapping": "temporal_positions.near_future"
+        },
+        {
+          "name": "February",
+          "short_description": "Energy and themes for February",
+          "detailed_description": "What will February bring into your life? How will the energy shift from January, and what new developments or deepening themes should you prepare for? What relationships or partnerships may be highlighted this month?",
+          "keywords": [
+            "relationships",
+            "partnership",
+            "love",
+            "collaboration",
+            "deepening",
+            "connection"
+          ],
+          "question_adaptations": {
+            "career": "Professional partnerships or team dynamics in February",
+            "love": "Relationship developments and romantic energy in February",
+            "personal": "Social connections and friendships in February"
+          },
+          "rag_mapping": "temporal_positions.near_future"
+        },
+        {
+          "name": "March",
+          "short_description": "Energy and themes for March",
+          "detailed_description": "As spring begins, what new growth and action will March inspire? What projects, goals, or aspects of yourself are ready to emerge? How can you harness the fresh energy of this transitional month?",
+          "keywords": [
+            "action",
+            "growth",
+            "courage",
+            "spring",
+            "emergence",
+            "initiative"
+          ],
+          "question_adaptations": {
+            "career": "Professional initiatives and bold moves in March",
+            "creative": "Creative projects and artistic expression in March",
+            "personal": "Personal growth and new adventures in March"
+          },
+          "rag_mapping": "temporal_positions.near_future"
+        },
+        {
+          "name": "April",
+          "short_description": "Energy and themes for April",
+          "detailed_description": "What will bloom in April as your year gains momentum? What opportunities for growth, creativity, or manifestation will present themselves? How can you nurture what you've planted in earlier months?",
+          "keywords": [
+            "blooming",
+            "creativity",
+            "manifestation",
+            "beauty",
+            "fertility",
+            "abundance"
+          ],
+          "question_adaptations": {
+            "creative": "Artistic and creative breakthroughs in April",
+            "career": "Professional growth and visible progress in April",
+            "personal": "Self-expression and personal flowering in April"
+          },
+          "rag_mapping": "temporal_positions.future"
+        },
+        {
+          "name": "May",
+          "short_description": "Energy and themes for May",
+          "detailed_description": "What stability, pleasure, or material progress will May offer? How can you ground yourself and enjoy the fruits of your earlier efforts? What sensual or practical matters need attention?",
+          "keywords": [
+            "stability",
+            "pleasure",
+            "material",
+            "grounding",
+            "sensuality",
+            "practical"
+          ],
+          "question_adaptations": {
+            "finances": "Financial opportunities and material gains in May",
+            "health": "Physical wellness and body care in May",
+            "home": "Home, family, and domestic matters in May"
+          },
+          "rag_mapping": "temporal_positions.future"
+        },
+        {
+          "name": "June",
+          "short_description": "Energy and themes for June",
+          "detailed_description": "As spring transitions to summer, what communication, learning, or social connections will June highlight? What new information, skills, or relationships will become important? How will your thinking evolve?",
+          "keywords": [
+            "communication",
+            "learning",
+            "social",
+            "information",
+            "curiosity",
+            "connection"
+          ],
+          "question_adaptations": {
+            "education": "Learning opportunities and skill development in June",
+            "social": "Social connections and community involvement in June",
+            "career": "Professional networking and communication in June"
+          },
+          "rag_mapping": "temporal_positions.future"
+        },
+        {
+          "name": "July",
+          "short_description": "Energy and themes for July",
+          "detailed_description": "What will July illuminate in your emotional world and family life? How can you honor your intuition and inner wisdom during this month? What nurturing or protective instincts will be activated?",
+          "keywords": [
+            "emotion",
+            "family",
+            "intuition",
+            "nurturing",
+            "protection",
+            "inner wisdom"
+          ],
+          "question_adaptations": {
+            "family": "Family relationships and domestic harmony in July",
+            "emotional": "Emotional healing and intuitive development in July",
+            "spiritual": "Spiritual practices and inner guidance in July"
+          },
+          "rag_mapping": "temporal_positions.future"
+        },
+        {
+          "name": "August",
+          "short_description": "Energy and themes for August",
+          "detailed_description": "What will August call forth in terms of your personal power, creativity, and self-expression? How can you shine your light most brightly? What leadership opportunities or creative projects will demand your attention?",
+          "keywords": [
+            "power",
+            "creativity",
+            "self-expression",
+            "leadership",
+            "confidence",
+            "radiance"
+          ],
+          "question_adaptations": {
+            "career": "Leadership opportunities and professional recognition in August",
+            "creative": "Major creative projects and artistic expression in August",
+            "personal": "Personal empowerment and self-confidence in August"
+          },
+          "rag_mapping": "temporal_positions.future"
+        },
+        {
+          "name": "September",
+          "short_description": "Energy and themes for September",
+          "detailed_description": "As autumn approaches, what practical matters, health concerns, or daily routines will September ask you to refine? How can you improve your systems and serve others more effectively? What details need attention?",
+          "keywords": [
+            "practical",
+            "health",
+            "service",
+            "routine",
+            "improvement",
+            "detail"
+          ],
+          "question_adaptations": {
+            "health": "Health routines and wellness practices in September",
+            "work": "Daily work routines and productivity in September",
+            "service": "How you can serve others and contribute in September"
+          },
+          "rag_mapping": "temporal_positions.future"
+        },
+        {
+          "name": "October",
+          "short_description": "Energy and themes for October",
+          "detailed_description": "What balance, relationships, or partnerships will October highlight? How can you create more harmony in your life? What decisions about cooperation, justice, or aesthetics will you face?",
+          "keywords": [
+            "balance",
+            "relationships",
+            "partnerships",
+            "harmony",
+            "justice",
+            "aesthetics"
+          ],
+          "question_adaptations": {
+            "relationships": "Relationship decisions and partnership developments in October",
+            "legal": "Legal matters and issues of fairness in October",
+            "creative": "Artistic collaborations and aesthetic projects in October"
+          },
+          "rag_mapping": "temporal_positions.future"
+        },
+        {
+          "name": "November",
+          "short_description": "Energy and themes for November",
+          "detailed_description": "What deep transformation, healing, or release will November facilitate? How can you work with intense energies for profound change? What hidden aspects of yourself or your life will emerge?",
+          "keywords": [
+            "transformation",
+            "healing",
+            "release",
+            "intensity",
+            "hidden",
+            "regeneration"
+          ],
+          "question_adaptations": {
+            "healing": "Deep healing work and emotional transformation in November",
+            "finances": "Shared resources and financial transformation in November",
+            "spiritual": "Spiritual transformation and mystical experiences in November"
+          },
+          "rag_mapping": "temporal_positions.future"
+        },
+        {
+          "name": "December",
+          "short_description": "Energy and themes for December",
+          "detailed_description": "As the year completes its cycle, what wisdom, expansion, or spiritual understanding will December offer? How will you integrate the year's lessons? What larger perspective or philosophical insights will emerge?",
+          "keywords": [
+            "wisdom",
+            "expansion",
+            "spiritual",
+            "completion",
+            "integration",
+            "philosophy"
+          ],
+          "question_adaptations": {
+            "spiritual": "Spiritual growth and expanded consciousness in December",
+            "education": "Teaching, learning, and sharing wisdom in December",
+            "travel": "Physical or mental journeys and expanded horizons in December"
+          },
+          "rag_mapping": "temporal_positions.future"
         }
       ]
     }

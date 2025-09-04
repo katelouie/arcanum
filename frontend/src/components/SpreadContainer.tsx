@@ -39,10 +39,26 @@ export function SpreadContainer({
   
   const currentSize = cardSizes[cardSize];
   
+  // Calculate the vertical spread of the positions to determine if we need extra height
+  const maxY = positions.length > 0 ? Math.max(...positions.map(p => p.y)) : 0;
+  const minY = positions.length > 0 ? Math.min(...positions.map(p => p.y)) : 0;
+  const verticalSpread = maxY - minY;
+  
   // Calculate container height based on width and aspect ratio
   const containerHeight = `${(100 / aspectRatio)}vw`;
-  // Adjust max height based on aspect ratio - taller for lower ratios
-  const maxHeight = aspectRatio < 1 ? '900px' : '700px';
+  
+  // Dynamic max height based on aspect ratio and vertical spread
+  let maxHeight;
+  if (verticalSpread > 80 || cards.length >= 10) {
+    // Large spreads that use most of the vertical space (like wheel layouts)
+    maxHeight = '1000px';
+  } else if (aspectRatio < 1) {
+    // Portrait aspect ratios
+    maxHeight = '900px';
+  } else {
+    // Landscape aspect ratios
+    maxHeight = '700px';
+  }
   
   return (
     <div className="w-full max-w-6xl mx-auto">
