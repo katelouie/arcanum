@@ -2,8 +2,8 @@
   "tarot_reading_dataset": {
     "metadata": {
       "total_readings": 51,
-      "common_readings": 44,
-      "special_readings": 10,
+      "common_readings": 43,
+      "special_readings": 8,
       "version": "unified_v1.0",
       "description": "Unified tarot reading dataset with both standard and custom spreads",
       "created": "2025-08-28T14:08:15.109058",
@@ -2991,6 +2991,134 @@
         ],
         "spread_config": null,
         "source": "common"
+      },
+      {
+        "reading_id": "R052",
+        "spread_id": "custom-spread-001",
+        "spread_name": "Interview Prep Spread",
+        "question_category": "Career & Finance",
+        "question": "What do I need to know about my upcoming interview? ",
+        "cards": [
+          {
+            "position_name": "First Impression",
+            "position_index": 0,
+            "card_name": "The High Priestess",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Your Strength",
+            "position_index": 1,
+            "card_name": "Three of Pentacles",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Your Challenge",
+            "position_index": 2,
+            "card_name": "Five of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Best Strategy",
+            "position_index": 3,
+            "card_name": "King of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Hidden Factor",
+            "position_index": 4,
+            "card_name": "Six of Cups",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Outcome and Key Takeaway",
+            "position_index": 5,
+            "card_name": "The Star",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "How to Calm Your Nerves (Optional)",
+            "position_index": 6,
+            "card_name": "Four of Swords",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": {
+          "name": "Interview Prep Spread",
+          "description": "A spread to get ready for important, stressful events like interviews. This spread can also be adapted to other stressful events and trials in your life: exams, auditions, public speaking, client pitches, etc.",
+          "positions": [
+            {
+              "name": "First Impression",
+              "short_description": "What impression do I give off?",
+              "detailed_description": "What energy do I naturally radiate to interviewers? What will they notice first about me when I enter the room (consciously or unconsciously)? What part of me enters the room before my words do? What story does my body language tell?",
+              "x": 50,
+              "y": 10,
+              "keywords": ["position"],
+              "question_adaptations": {},
+              "rag_mapping": "temporal_positions.present"
+            },
+            {
+              "name": "Your Strength",
+              "short_description": "What is my strength or resource?",
+              "detailed_description": "What quality or skill is my biggest asset during this interview process? What parts of me shine under pressure? What do I already have that they need? Where does my confidence lie?",
+              "x": 40,
+              "y": 30,
+              "keywords": ["position"],
+              "question_adaptations": {},
+              "rag_mapping": "temporal_positions.present"
+            },
+            {
+              "name": "Your Challenge",
+              "short_description": "What challenge faces you?",
+              "detailed_description": "What internal or external hurdle could trip me up during this interview? What fear, bad habit or self-inflicted blind spot could be a problem for me? What sensitive point within myself do I need to hold with care -- not force?",
+              "x": 60,
+              "y": 30,
+              "keywords": ["position"],
+              "question_adaptations": {},
+              "rag_mapping": "temporal_positions.present"
+            },
+            {
+              "name": "Best Strategy",
+              "short_description": "What's the best way to approach this?",
+              "detailed_description": "What approach, strategy or way or preparation with maximize my chances for a good outcome and serve me best? Where should I lean in? What tool or tone will help me the most?",
+              "x": 50,
+              "y": 50,
+              "keywords": ["position"],
+              "question_adaptations": {},
+              "rag_mapping": "temporal_positions.present"
+            },
+            {
+              "name": "Hidden Factor",
+              "short_description": "What am I not seeing?",
+              "detailed_description": "What unseen influence could shape the outcome of this interview? Is there something subtle and quiet I should watch for? What am I not being told? What is happening under the surface? Is there an invisible wild card I should know about?",
+              "x": 40,
+              "y": 70,
+              "keywords": ["position"],
+              "question_adaptations": {},
+              "rag_mapping": "temporal_positions.present"
+            },
+            {
+              "name": "Outcome and Key Takeaway",
+              "short_description": "What is the likely result?",
+              "detailed_description": "What is the likely outcome here -- and the lesson, regardless of the result? If I zoom out after this is done, what can I take away from this experience?",
+              "x": 60,
+              "y": 70,
+              "keywords": ["position"],
+              "question_adaptations": {},
+              "rag_mapping": "temporal_positions.present"
+            },
+            {
+              "name": "How to Calm Your Nerves (Optional)",
+              "short_description": "How do I soothe myself?",
+              "detailed_description": "What small practice, anchor or mindset will help soothe and ground me? Where does peace already exist in me? What steadiness can I bring with me into the room?",
+              "x": 50,
+              "y": 90,
+              "keywords": ["position"],
+              "question_adaptations": {},
+              "rag_mapping": "temporal_positions.present"
+            }
+          ]
+        },
+        "source": "special"
       }
     ]
   }

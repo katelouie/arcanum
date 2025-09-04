@@ -1,0 +1,36 @@
+# Reading: Interview Nerves
+
+**Question:** What do I need to know about my upcoming interview? 
+
+**Cards:**
+- First Impression: The High Priestess (Upright)
+- Your Strength: Three of Pentacles (Upright)
+- Your Challenge: Five of Wands (Upright)
+- Best Strategy: King of Swords (Upright)
+- Hidden Factor: Six of Cups (Reversed)
+- Outcome and Key Takeaway: The Star (Upright)
+- How to Calm Your Nerves (Optional): Four of Swords (Upright)
+
+---
+
+Card 1 (First Impression): The High Priestess (II). You come across as thoughtful and observant -- and maybe a little mysterious. You seem like someone who notices a lot but only speaks when you have something to say. You might be intriguing to your interviewers -- someone with a hidden depth beyond just your resume.
+
+Card 2 (Your Strength): Three of Pentacles. You excel at teamwork and collaboration. You love to build alongside others and you get along well with your team. You look the best when you're working as part of a larger team or vision, not when isolated. Focus on interview examples where you worked as part of a team and created something bigger than yourself.
+
+Card 3 (Your Challenge): Five of Wands. This card indicates conflict -- internal or external. External competition or internal self-sabotage might trip you up. There might be a lot of candidates jockeying for this position -- or you might be getting in your own way and being your own worst enemy.
+
+Card 4 (Best Strategy): King of Swords. Stay calm, clear and strategic. Lead with mental clarity and keep your communication structured. The interviewer prefers someone who seems on top of either stuff and who is clear and measured. You might be interviewing for a more senior or managerial role. Speak with authority but not bravado. Be honest.
+
+Card 5 (Hidden Factor): Six of Cups (Rx). You may have negative past experiences (childhood, education, or at a toxic past workplace) that are influencing your emotional and mental state. Watch out for emotional triggers that cause you to regress or pull inwards. You might have felt unappreciated or unworthy in the past. That's not you anymore -- you need to keep reminding yourself of that. You are worthy. You are accomplished. You are not an impostor. They have you in this room because you have things they want.
+
+Card 6 (Outcome and Key Takeaway): The Star. Whatever happens, this interview is a turning point -- away from chaos and disappointment, and towards hope, visibility and recalibration. It might be a success, or it might be a re-alignment of your own expectations and emotions toward a more positive direction. Either way, you can expect the interviewer(s) to be a positive interpersonal experience. This is a strong positive indicator.
+
+Card 7 (Calming Nerves): Four of Swords. Rest is key and paramount. Do not overstimulate yourself or cram before this interview. Give yourself plenty of time to prepare your answers to common questions or practice common technical patterns. Give yourself a calm pocket of time before the interview to simply be. Drink some water. Take a walk around your home. Be silent. Meditate. Even 10 minutes of a little stretching can help center you. Don't rush yourself. Inner peace (I know, I know -- but still) is key.
+
+---
+
+## Synthesis
+
+This spread is about quiet power and calm communication (King of Swords, High Priestess, Four of Swords). You have a natural groundedness and likability and gift for collaboration (Three of Pentacles), and you can use that to your advantage -- as long as you don't get caught up in inner conflict or outer competition. 
+
+Preparation matters (King of Swords, 4 of Swords) -- don't shortchange yourself in the time leading up to the interview. The past may try to rear its ugly head and make you doubt yourself, but this interview is already about looking forward and moving into a brighter future -- regardless of the actual outcome of this meeting.

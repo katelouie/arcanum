@@ -1,4 +1,4 @@
-# Reading 001
+# Reading: Creative Intertia
 
 Spread: Single Card
 

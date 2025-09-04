@@ -1,4 +1,4 @@
-# Reading 001
+# Reading: What to let go of? 
 
 Spread: 3-card spread (Past – Present – Future)
 

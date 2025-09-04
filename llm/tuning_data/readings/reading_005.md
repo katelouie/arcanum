@@ -1,4 +1,4 @@
-# Reading 005
+# Reading: The Grieving Process
 
 Spread: 3 Card (Past-Present-Future)
 
