@@ -21,6 +21,8 @@ except ImportError:
 
 class ReadingStyle(Enum):
     """Different styles of tarot reading"""
+
+    DEFAULT = "default"
     COMPASSIONATE = "compassionate"
     DIRECT = "direct"
     MYSTICAL = "mystical"
@@ -31,6 +33,8 @@ class ReadingStyle(Enum):
 
 class ReadingTone(Enum):
     """Different tones for readings"""
+
+    DEFAULT = "default"
     WARM = "warm"
     PROFESSIONAL = "professional"
     WISE = "wise"
@@ -42,51 +46,52 @@ class ReadingTone(Enum):
 @dataclass
 class PromptTemplate:
     """A complete prompt template for reading generation"""
+
     system_prompt: str
     user_prompt_template: str
     style: ReadingStyle
     tone: ReadingTone
-    max_tokens: int = 2000
+    max_tokens: int = 3000
     temperature: float = 0.7
 
 
 class TarotPromptEngineer:
     """Creates sophisticated prompts for tarot reading generation"""
-    
+
     def __init__(self):
         self.templates = self._initialize_templates()
         self.question_type_guidance = self._initialize_question_guidance()
         self.spread_specific_guidance = self._initialize_spread_guidance()
-    
+
     def create_reading_prompt(
         self,
         context_string: str,
         reading_context: ReadingContext,
-        style: ReadingStyle = ReadingStyle.COMPASSIONATE,
-        tone: ReadingTone = ReadingTone.WARM,
-        custom_instructions: Optional[str] = None
+        style: ReadingStyle = ReadingStyle.DEFAULT,
+        tone: ReadingTone = ReadingTone.DEFAULT,
+        custom_instructions: Optional[str] = None,
     ) -> Tuple[str, str]:
         """
         Create a complete prompt for generating a tarot reading
-        
+
         Returns:
             Tuple of (system_prompt, user_prompt)
         """
         template = self.templates.get((style, tone))
         if not template:
             # Fallback to default
-            template = self.templates[(ReadingStyle.COMPASSIONATE, ReadingTone.WARM)]
-        
+            template = self.templates[(ReadingStyle.DEFAULT, ReadingTone.DEFAULT)]
+
         # Get question-specific guidance
         question_guidance = self.question_type_guidance.get(
             reading_context.question_type, ""
         )
-        
+
         # Get spread-specific guidance
         spread_guidance = self.spread_specific_guidance.get(
             reading_context.spread_id, ""
         )
-        
+
         # Build the user prompt
         user_prompt = template.user_prompt_template.format(
             question=reading_context.question,
@@ -98,65 +103,138 @@ class TarotPromptEngineer:
             question_guidance=question_guidance,
             spread_guidance=spread_guidance,
             custom_instructions=custom_instructions or "",
-            card_summary=self._create_card_summary(reading_context)
+            card_summary=self._create_card_summary(reading_context),
         )
-        
+
         return template.system_prompt, user_prompt
-    
+
     def _create_card_summary(self, reading_context: ReadingContext) -> str:
         """Create a brief summary of the cards drawn"""
         cards = []
         for card in reading_context.cards:
-            orientation = "upright" if card.orientation.value == "upright" else "reversed"
+            orientation = (
+                "upright" if card.orientation.value == "upright" else "reversed"
+            )
             cards.append(f"{card.name} ({orientation}) in {card.position_name}")
         return " | ".join(cards)
-    
-    def _initialize_templates(self) -> Dict[Tuple[ReadingStyle, ReadingTone], PromptTemplate]:
+
+    def _initialize_templates(
+        self,
+    ) -> Dict[Tuple[ReadingStyle, ReadingTone], PromptTemplate]:
         """Initialize all prompt templates"""
         templates = {}
-        
+        templates[(ReadingStyle.DEFAULT, ReadingTone.DEFAULT)] = PromptTemplate(
+            system_prompt=self._get_default_system(),
+            user_prompt_template=self._get_default_user(),
+            style=ReadingStyle.DEFAULT,
+            tone=ReadingTone.DEFAULT,
+        )
+
         # Compassionate + Warm (Default)
         templates[(ReadingStyle.COMPASSIONATE, ReadingTone.WARM)] = PromptTemplate(
             system_prompt=self._get_compassionate_warm_system(),
             user_prompt_template=self._get_compassionate_warm_user(),
             style=ReadingStyle.COMPASSIONATE,
-            tone=ReadingTone.WARM
+            tone=ReadingTone.WARM,
         )
-        
+
         # Direct + Professional
         templates[(ReadingStyle.DIRECT, ReadingTone.PROFESSIONAL)] = PromptTemplate(
             system_prompt=self._get_direct_professional_system(),
             user_prompt_template=self._get_direct_professional_user(),
             style=ReadingStyle.DIRECT,
-            tone=ReadingTone.PROFESSIONAL
+            tone=ReadingTone.PROFESSIONAL,
         )
-        
+
         # Mystical + Wise
         templates[(ReadingStyle.MYSTICAL, ReadingTone.WISE)] = PromptTemplate(
             system_prompt=self._get_mystical_wise_system(),
             user_prompt_template=self._get_mystical_wise_user(),
             style=ReadingStyle.MYSTICAL,
-            tone=ReadingTone.WISE
+            tone=ReadingTone.WISE,
         )
-        
+
         # Practical + Grounding
         templates[(ReadingStyle.PRACTICAL, ReadingTone.GROUNDING)] = PromptTemplate(
             system_prompt=self._get_practical_grounding_system(),
             user_prompt_template=self._get_practical_grounding_user(),
             style=ReadingStyle.PRACTICAL,
-            tone=ReadingTone.GROUNDING
+            tone=ReadingTone.GROUNDING,
         )
-        
+
         # Psychological + Empowering
-        templates[(ReadingStyle.PSYCHOLOGICAL, ReadingTone.EMPOWERING)] = PromptTemplate(
-            system_prompt=self._get_psychological_empowering_system(),
-            user_prompt_template=self._get_psychological_empowering_user(),
-            style=ReadingStyle.PSYCHOLOGICAL,
-            tone=ReadingTone.EMPOWERING
+        templates[(ReadingStyle.PSYCHOLOGICAL, ReadingTone.EMPOWERING)] = (
+            PromptTemplate(
+                system_prompt=self._get_psychological_empowering_system(),
+                user_prompt_template=self._get_psychological_empowering_user(),
+                style=ReadingStyle.PSYCHOLOGICAL,
+                tone=ReadingTone.EMPOWERING,
+            )
         )
-        
+
         return templates
-    
+
+    def _get_default_system(self) -> str:
+        return """
+You are an intuitive, thoughtful tarot reader with over 20 years of experience. You give wise, emotionally attuned readings. Given the below reading context, generate a cohesive, flowing tarot interpretation in response to the querent’s question.
+
+Speak with grounded insight and compassion, blending spiritual, psychological, and practical interpretations.
+
+**Things to do:**
+
+- Weave in position meanings and relevant keywords without simply restating them.
+- If there are card combinations that meaningfully influence each other, include them. Build connections between the cards to show the fuller story.
+- Use card correspondences and symbology to inform the deeper insights of the reading.
+- Look for themes, patterns and energy flows across all the cards. Consider card suit, card type (major, minor, or court) and card number (early or late in a suit).
+- Note contrasts and tensions between the cards themselves or between the cards and the situation that reveal important dynamics.
+- Honor both light and shadow aspects of the cards.
+- Address the psychological, spiritual and practical dimensions of the cards and the overall reading.
+- Provide brief guidance and advice near the end of the reading.
+- You may gently include journaling prompts or reflective questions to deepen the seeker’s exploration.
+
+**Things NOT to do:**
+
+- Do not simply list each card in isolation.
+- Avoid repeating the full position descriptions verbatim. Instead, interpret with fluency.
+
+Your tone should be reflective and supportive, without being overly mystical. Assume the querent is spiritually curious, introspective, and looking for meaning in this reading.
+
+Respond in a way that feels like a personal and grounded conversation, not an essay."""
+
+    def _get_default_user(self) -> str:
+        return """Please provide a complete tarot reading for this question: "{question}"
+
+{question_guidance}
+{spread_guidance}
+
+CONTEXT AND CARD MEANINGS:
+{context_string}
+
+Write in paragraphs, not bullet points. Let the reading flow naturally from insight to insight.
+
+Use the following structure as a general template for the reading. It should be in Markdown format.
+
+# Reading
+
+## Card Intepretations
+
+### Position 1 Name (example: Past): Card 1 Name (Upright or Reversed)
+
+(Repeat for all cards in the spread).
+
+## Emerging Themes and Patterns
+
+## Synthesis
+
+## Guidance
+
+(End of suggested structure).
+
+{custom_instructions}
+
+End your response with "That concludes the reading.###END###~~~" when you're finished.
+"""
+
     def _get_compassionate_warm_system(self) -> str:
         return """You are an exceptionally gifted and compassionate tarot reader with over 20 years of experience. Your readings are known for their profound insight, gentle wisdom, and ability to provide comfort while delivering truth with love.
 
@@ -182,7 +260,7 @@ SYNTHESIS APPROACH:
 • Address the psychological, spiritual, and practical dimensions
 
 Remember: You're not just interpreting cards - you're offering sacred guidance to a soul seeking clarity and growth."""
-    
+
     def _get_compassionate_warm_user(self) -> str:
         return """Please provide a complete tarot reading for this question: "{question}"
 
@@ -232,7 +310,7 @@ Create a flowing, holistic reading that:
 Write in paragraphs, not bullet points. Let the reading flow naturally from insight to insight. Aim for 400-600 words that feel like a wise friend sharing profound insights.
 
 {custom_instructions}"""
-    
+
     def _get_direct_professional_system(self) -> str:
         return """You are a professional tarot consultant known for clear, direct, and insightful readings. Your approach is straightforward yet profound, focusing on practical wisdom and actionable guidance.
 
@@ -258,7 +336,7 @@ SYNTHESIS APPROACH:
 • Focus on empowerment through understanding
 
 Remember: Clarity and practical wisdom are your greatest gifts to those seeking guidance."""
-    
+
     def _get_direct_professional_user(self) -> str:
         return """Provide a professional tarot analysis for: "{question}"
 
@@ -304,7 +382,7 @@ Deliver a structured, professional reading with:
 Maintain a professional, confident tone. Focus on empowerment through understanding and strategic thinking. 350-500 words.
 
 {custom_instructions}"""
-    
+
     def _get_mystical_wise_system(self) -> str:
         return """You are a mystical sage and keeper of ancient wisdom, reading the tarot with profound spiritual insight and deep understanding of the soul's journey. Your readings reveal the sacred patterns woven through existence.
 
@@ -330,7 +408,7 @@ SYNTHESIS APPROACH:
 • Connect the reading to larger cycles of growth and transformation
 
 Remember: You are a bridge between worlds, translating cosmic wisdom into guidance for the human heart."""
-    
+
     def _get_mystical_wise_user(self) -> str:
         return """Divine seeker, the cards have been drawn to illuminate your path regarding: "{question}"
 
@@ -365,7 +443,7 @@ Speak as a wise elder sharing sacred knowledge. Use imagery from nature, mytholo
 Write in flowing, poetic prose that honors the sacred nature of this divine consultation. 450-650 words.
 
 {custom_instructions}"""
-    
+
     def _get_practical_grounding_system(self) -> str:
         return """You are a grounded, practical tarot reader who specializes in translating spiritual insights into real-world applications. Your readings focus on concrete steps, realistic strategies, and sustainable change.
 
@@ -391,7 +469,7 @@ SYNTHESIS APPROACH:
 • Focus on building momentum through small, consistent actions
 
 Remember: Your gift is making spiritual wisdom practical and accessible for everyday life."""
-    
+
     def _get_practical_grounding_user(self) -> str:
         return """Provide practical guidance for: "{question}"
 
@@ -438,7 +516,7 @@ Create a grounded reading that includes:
 Focus on realistic, sustainable change. Avoid overwhelming advice - prioritize the most impactful actions. 350-500 words.
 
 {custom_instructions}"""
-    
+
     def _get_psychological_empowering_system(self) -> str:
         return """You are a psychologically-informed tarot reader who integrates depth psychology, personal growth principles, and empowerment coaching into profound readings that catalyze inner transformation.
 
@@ -464,7 +542,7 @@ SYNTHESIS APPROACH:
 • Focus on transformation through awareness and choice
 
 Remember: Your role is to empower people to understand themselves more deeply and create positive change from within."""
-    
+
     def _get_psychological_empowering_user(self) -> str:
         return """Provide an empowering psychological reading for: "{question}"
 
@@ -506,7 +584,7 @@ Focus on:
 Use psychological insights while remaining warm and accessible. Emphasize agency, growth, and possibility. 400-600 words.
 
 {custom_instructions}"""
-    
+
     def _initialize_question_guidance(self) -> Dict[QuestionType, str]:
         """Initialize guidance specific to different question types"""
         return {
@@ -517,7 +595,6 @@ LOVE READING FOCUS:
 • Consider timing, compatibility, and personal growth within relationships
 • Balance romantic idealism with practical relationship wisdom
 • Honor both individual needs and partnership dynamics""",
-            
             QuestionType.CAREER: """
 CAREER READING FOCUS:
 • Connect career choices to personal values and life purpose
@@ -525,7 +602,6 @@ CAREER READING FOCUS:
 • Explore skills, talents, and professional development opportunities
 • Consider workplace dynamics, leadership potential, and collaboration
 • Balance ambition with sustainability and work-life integration""",
-            
             QuestionType.SPIRITUAL: """
 SPIRITUAL READING FOCUS:
 • Explore the soul's journey and spiritual development
@@ -533,7 +609,6 @@ SPIRITUAL READING FOCUS:
 • Consider spiritual practices, gifts, and service to others
 • Explore the relationship between spiritual and material life
 • Honor both mystical experiences and practical spiritual living""",
-            
             QuestionType.FINANCIAL: """
 FINANCIAL READING FOCUS:
 • Address both practical money management and abundance mindset
@@ -541,7 +616,6 @@ FINANCIAL READING FOCUS:
 • Consider both earning potential and spending patterns
 • Address fears, limiting beliefs, and opportunities around money
 • Balance material security with spiritual values around wealth""",
-            
             QuestionType.HEALTH: """
 HEALTH READING FOCUS:
 • Address mind-body-spirit connection and holistic wellbeing
@@ -549,47 +623,41 @@ HEALTH READING FOCUS:
 • Consider stress factors, lifestyle choices, and self-care practices
 • Address the relationship between health and other life areas
 • Balance medical/professional advice with spiritual/energetic healing""",
-            
             QuestionType.GENERAL: """
 GENERAL READING FOCUS:
 • Look for the underlying theme or spiritual curriculum being offered
 • Address life transitions, growth opportunities, and personal evolution
 • Consider how different life areas may be interconnected
 • Explore both current circumstances and longer-term life direction
-• Balance immediate practical needs with soul growth and purpose"""
+• Balance immediate practical needs with soul growth and purpose""",
         }
-    
+
     def _initialize_spread_guidance(self) -> Dict[str, str]:
         """Initialize guidance specific to different spreads"""
         return {
             "single-focus": "Focus on the core energy or message this card brings. What is the universe asking you to pay attention to right now?",
-            
             "past-present-future": "Show how past influences have created current circumstances and where things are naturally heading. Emphasize the flow of energy and story arc.",
-            
             "mind-body-spirit": "Address the holistic integration of mental clarity, physical wellbeing, and spiritual connection. Show how these three aspects work together.",
-            
             "situation-action-outcome": "Provide a clear decision-making framework: assess the situation honestly, recommend strategic action, and show likely results.",
-            
             "four-card-decision": "Compare the two options clearly, showing advantages and challenges of each path. Use 'What Helps' and 'What Hinders' to provide strategic guidance.",
-            
             "five-card-cross": "This comprehensive spread reveals all major aspects. Pay special attention to how Challenge and Advice work together to guide transformation.",
-            
             "relationship-spread": "Focus on the dynamic between the two people/energies, showing how past patterns influence present circumstances and future potential.",
-            
             "horseshoe-traditional": "This classic seven-card spread tells a complete story. Weave all positions into a flowing narrative of guidance and wisdom.",
-            
             "horseshoe-apex": "The Key Focus card is central - let it guide interpretation of all other positions. Show how everything relates to this central theme.",
-            
-            "celtic-cross": "The most comprehensive spread - synthesize all ten positions into a complete life reading that addresses every major aspect of the situation."
+            "celtic-cross": "The most comprehensive spread - synthesize all ten positions into a complete life reading that addresses every major aspect of the situation.",
         }
-    
+
     def get_available_styles(self) -> List[Tuple[ReadingStyle, ReadingTone]]:
         """Get all available style/tone combinations"""
         return list(self.templates.keys())
-    
-    def estimate_prompt_tokens(self, context_string: str, reading_context: ReadingContext) -> int:
+
+    def estimate_prompt_tokens(
+        self, context_string: str, reading_context: ReadingContext
+    ) -> int:
         """Estimate total tokens for the complete prompt"""
-        system_prompt, user_prompt = self.create_reading_prompt(context_string, reading_context)
+        system_prompt, user_prompt = self.create_reading_prompt(
+            context_string, reading_context
+        )
         # Rough estimation: 4 characters per token
         return (len(system_prompt) + len(user_prompt)) // 4
 
@@ -599,17 +667,17 @@ def test_prompt_engineer():
     """Test the prompt engineering system"""
     # This would require a full context setup, but we can test the structure
     engineer = TarotPromptEngineer()
-    
+
     print("🧪 Testing Prompt Engineering System:")
     print("=" * 60)
-    
+
     print(f"Available style/tone combinations: {len(engineer.get_available_styles())}")
     for style, tone in engineer.get_available_styles():
         print(f"  • {style.value} + {tone.value}")
-    
+
     print(f"\nQuestion type guidance available: {len(engineer.question_type_guidance)}")
     print(f"Spread guidance available: {len(engineer.spread_specific_guidance)}")
-    
+
     return engineer
 
 

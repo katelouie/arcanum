@@ -36,18 +36,25 @@
         "What would bring me more fulfillment?",
         "How can I honor both security and happiness?"
       ],
-      "suggested_spreads": ["celtic-cross", "past-present-future", "five-card-cross"],
+      "suggested_spreads": [
+        "celtic-cross",
+        "past-present-future",
+        "five-card-cross"
+      ],
       "learning_objectives": [
         "Exploring internal vs. external expectations",
         "Balancing practical and spiritual concerns",
         "Identifying core values and authentic desires",
         "Compassionate communication about difficult choices"
       ],
-      "challenge_factors": ["complex_emotions", "multiple_perspectives", "ethical_considerations"]
+      "challenge_factors": [
+        "complex_emotions",
+        "multiple_perspectives",
+        "sensitive_topic"
+      ]
     },
-    
     {
-      "id": "relationship_002", 
+      "id": "relationship_002",
       "client_id": "marcus_002",
       "title": "Trust Issues After Betrayal",
       "category": "relationships",
@@ -81,21 +88,28 @@
         "What do I need to heal?",
         "Is this relationship worth saving?"
       ],
-      "suggested_spreads": ["relationship-spread", "celtic-cross", "past-present-future"],
+      "suggested_spreads": [
+        "relationship-spread",
+        "celtic-cross",
+        "past-present-future"
+      ],
       "learning_objectives": [
         "Navigating complex emotional trauma",
         "Distinguishing between intuition and fear",
         "Addressing self-worth and trust patterns",
         "Maintaining hope while being realistic"
       ],
-      "challenge_factors": ["complex_emotions", "ethical_considerations", "emotional_client"]
+      "challenge_factors": [
+        "complex_emotions",
+        "sensitive_topic",
+        "emotional_client"
+      ]
     },
-
     {
       "id": "transition_003",
       "client_id": "linda_003",
       "title": "Empty Nest Syndrome",
-      "category": "life_transition", 
+      "category": "life_transition",
       "difficulty_level": "beginner",
       "question_type": "personal_insight",
       "emotional_intensity": "medium",
@@ -126,22 +140,28 @@
         "What should I focus on now?",
         "How do I reconnect with my husband?"
       ],
-      "suggested_spreads": ["five-card-cross", "past-present-future", "mind-body-spirit"],
+      "suggested_spreads": [
+        "five-card-cross",
+        "past-present-future",
+        "mind-body-spirit"
+      ],
       "learning_objectives": [
         "Understanding identity beyond roles",
         "Exploring dormant talents and interests",
         "Processing life transitions with compassion",
         "Finding opportunity in challenging changes"
       ],
-      "challenge_factors": ["multiple_perspectives", "unclear_question"]
+      "challenge_factors": [
+        "multiple_perspectives",
+        "unclear_question"
+      ]
     },
-
     {
       "id": "decision_004",
       "client_id": "alex_004",
       "title": "Career Pivot vs. Graduate School",
       "category": "decision_making",
-      "difficulty_level": "intermediate", 
+      "difficulty_level": "intermediate",
       "question_type": "choice_between_options",
       "emotional_intensity": "medium",
       "context": {
@@ -160,7 +180,7 @@
         ],
         "hidden_factors": [
           "Deep desire to help others heal",
-          "Natural empathy and listening skills", 
+          "Natural empathy and listening skills",
           "Fear of financial instability",
           "Imposter syndrome about intelligence"
         ]
@@ -171,23 +191,30 @@
         "What would I regret more - trying or not trying?",
         "How can I make this decision with confidence?"
       ],
-      "suggested_spreads": ["four-card-decision", "situation-action-outcome", "celtic-cross"],
+      "suggested_spreads": [
+        "four-card-decision",
+        "situation-action-outcome",
+        "celtic-cross"
+      ],
       "learning_objectives": [
         "Weighing practical vs. passionate choices",
         "Exploring fears around change and risk",
         "Understanding timing and readiness",
         "Supporting decision-making process"
       ],
-      "challenge_factors": ["timing_sensitive", "multiple_perspectives", "conflicting_cards"]
+      "challenge_factors": [
+        "timing_sensitive",
+        "multiple_perspectives",
+        "conflicting_cards"
+      ]
     },
-
     {
       "id": "spiritual_005",
       "client_id": "david_005",
       "title": "Loss of Faith After Tragedy",
       "category": "spirituality",
       "difficulty_level": "expert",
-      "question_type": "spiritual_guidance", 
+      "question_type": "spiritual_guidance",
       "emotional_intensity": "crisis",
       "context": {
         "situation_background": "David lost his teenage son in a car accident 8 months ago. Previously deeply religious, he now questions everything he believed about God, meaning, and whether life has any purpose.",
@@ -216,16 +243,23 @@
         "Will I ever feel whole again?",
         "How do I honor his memory while moving forward?"
       ],
-      "suggested_spreads": ["horseshoe-traditional", "five-card-cross", "celtic-cross"],
+      "suggested_spreads": [
+        "horseshoe-traditional",
+        "five-card-cross",
+        "celtic-cross"
+      ],
       "learning_objectives": [
         "Holding space for profound grief",
         "Addressing spiritual crisis with sensitivity",
         "Understanding different stages of grief",
         "Maintaining hope without minimizing pain"
       ],
-      "challenge_factors": ["complex_emotions", "ethical_considerations", "emotional_client"]
+      "challenge_factors": [
+        "complex_emotions",
+        "sensitive_topic",
+        "emotional_client"
+      ]
     },
-
     {
       "id": "finances_006",
       "client_id": "maya_006",
@@ -258,20 +292,640 @@
       "primary_question": "I feel like I'm drowning in debt. Does this mean I'm failing at life?",
       "followup_questions": [
         "Should I accept help from my family?",
-        "How can I change my financial situation?", 
+        "How can I change my financial situation?",
         "When will things get better?"
       ],
-      "suggested_spreads": ["horseshoe-apex", "five-card-cross", "mind-body-spirit"],
+      "suggested_spreads": [
+        "horseshoe-apex",
+        "five-card-cross",
+        "mind-body-spirit"
+      ],
       "learning_objectives": [
         "Separating financial situation from self-worth",
         "Identifying practical next steps",
         "Addressing shame and comparison",
         "Finding hope in difficult circumstances"
       ],
-      "challenge_factors": ["complex_emotions", "unclear_question"]
+      "challenge_factors": [
+        "complex_emotions",
+        "unclear_question"
+      ]
+    },
+    {
+      "id": "health_007",
+      "client_id": "elena_007",
+      "title": "Chronic Illness and Identity",
+      "category": "health",
+      "difficulty_level": "advanced",
+      "question_type": "personal_insight",
+      "emotional_intensity": "high",
+      "context": {
+        "situation_background": "Elena was diagnosed with an autoimmune condition two years ago that causes unpredictable flare-ups, forcing her to give up her dance career and adapt to a new reality of managing chronic pain.",
+        "recent_events": [
+          "Had to cancel plans with friends due to flare-up",
+          "Doctor adjusted medication with mixed results",
+          "Saw former dance colleagues performing on social media",
+          "Partner has been incredibly supportive but Elena worries about being a burden"
+        ],
+        "client_concerns": [
+          "Feeling like a shadow of her former self",
+          "Guilt about partner having to adjust their life",
+          "Grief for the life and career she lost",
+          "Uncertainty about what brings meaning now"
+        ],
+        "hidden_factors": [
+          "Deep connection to movement and expression",
+          "Fear of being seen as weak or broken",
+          "Natural teaching abilities",
+          "Strong resilience that she doesn't recognize"
+        ]
+      },
+      "primary_question": "How do I find purpose and joy when my body has betrayed me?",
+      "followup_questions": [
+        "Will I ever feel whole again?",
+        "How can I contribute to the world now?",
+        "What does healing look like for me?"
+      ],
+      "suggested_spreads": [
+        "mind-body-spirit",
+        "five-card-cross",
+        "horseshoe-traditional"
+      ],
+      "learning_objectives": [
+        "Addressing grief for lost identity",
+        "Finding meaning beyond physical capabilities",
+        "Reframing concepts of strength and wholeness",
+        "Supporting clients through chronic challenges"
+      ],
+      "challenge_factors": [
+        "complex_emotions",
+        "sensitive_topic",
+        "sensitive_topic"
+      ]
+    },
+    {
+      "id": "creativity_008",
+      "client_id": "jordan_008",
+      "title": "Creative Block and Perfectionism",
+      "category": "creativity",
+      "difficulty_level": "beginner",
+      "question_type": "situation_analysis",
+      "emotional_intensity": "medium",
+      "context": {
+        "situation_background": "Jordan is a freelance graphic designer who hasn't produced personal art in months. They feel stuck, uninspired, and worried that their creative well has dried up permanently.",
+        "recent_events": [
+          "Stared at blank canvas for hours without creating anything",
+          "Saw amazing work by other artists online",
+          "Client praised their commercial work",
+          "Found old sketchbooks from art school"
+        ],
+        "client_concerns": [
+          "Fear that they've lost their artistic voice",
+          "Comparison with other artists",
+          "Pressure to create something meaningful",
+          "Wondering if commercial work has dulled their creativity"
+        ],
+        "hidden_factors": [
+          "Perfectionist tendencies paralyzing their process",
+          "Need for play and experimentation",
+          "Disconnection from original artistic motivations",
+          "Fear of creating something 'bad'"
+        ]
+      },
+      "primary_question": "Why can't I create anything meaningful anymore?",
+      "followup_questions": [
+        "How do I reconnect with my creativity?",
+        "What's blocking my artistic flow?",
+        "Should I take a break from client work?"
+      ],
+      "suggested_spreads": [
+        "past-present-future",
+        "four-card-decision",
+        "mind-body-spirit"
+      ],
+      "learning_objectives": [
+        "Understanding creative cycles and blocks",
+        "Addressing perfectionism and comparison",
+        "Reconnecting with authentic creative expression",
+        "Supporting artistic and creative clients"
+      ],
+      "challenge_factors": [
+        "unclear_question",
+        "self_doubt"
+      ]
+    },
+    {
+      "id": "family_009",
+      "client_id": "robert_009",
+      "title": "Caring for Aging Parents",
+      "category": "family",
+      "difficulty_level": "intermediate",
+      "question_type": "relationship_dynamics",
+      "emotional_intensity": "high",
+      "context": {
+        "situation_background": "Robert's father has early-stage dementia and his mother is struggling to care for him alone. Robert lives two hours away and feels torn between his own family responsibilities and caring for his parents.",
+        "recent_events": [
+          "Mother called crying after father got lost driving",
+          "Family meeting about assisted living options",
+          "Robert's teenage daughter expressed feeling neglected",
+          "Father had a lucid moment asking Robert to 'take care of your mother'"
+        ],
+        "client_concerns": [
+          "Feeling pulled in too many directions",
+          "Guilt about not being able to do more",
+          "Fear of making wrong decisions for parents",
+          "Impact on his own family relationships"
+        ],
+        "hidden_factors": [
+          "Complicated relationship with demanding father",
+          "Mother's pride preventing acceptance of help",
+          "Financial strain of care options",
+          "Deep love despite family tensions"
+        ]
+      },
+      "primary_question": "How do I balance caring for my aging parents with my responsibilities to my own family?",
+      "followup_questions": [
+        "When is the right time to consider assisted living?",
+        "How do I handle my guilt about not doing enough?",
+        "What does my father really need from me?"
+      ],
+      "suggested_spreads": [
+        "five-card-cross",
+        "relationship-spread",
+        "situation-action-outcome"
+      ],
+      "learning_objectives": [
+        "Navigating complex family dynamics",
+        "Balancing competing responsibilities",
+        "Processing guilt and grief around aging",
+        "Supporting difficult family decisions"
+      ],
+      "challenge_factors": [
+        "multiple_perspectives",
+        "sensitive_topic",
+        "timing_sensitive"
+      ]
+    },
+    {
+      "id": "addiction_010",
+      "client_id": "sam_010",
+      "title": "Recovery and Rebuilding Trust",
+      "category": "addiction_recovery",
+      "difficulty_level": "expert",
+      "question_type": "personal_insight",
+      "emotional_intensity": "crisis",
+      "context": {
+        "situation_background": "Sam has been sober for 8 months after struggling with alcohol addiction for years. They're working the steps but feeling overwhelmed by the damage done to relationships and self-worth during active addiction.",
+        "recent_events": [
+          "Completed step 4 (moral inventory) with sponsor",
+          "Daughter agreed to limited phone calls",
+          "Attended former colleague's retirement party (sober)",
+          "Had intense cravings after stressful week at work"
+        ],
+        "client_concerns": [
+          "Fear of relapse during difficult emotions",
+          "Overwhelming shame about past actions",
+          "Impatience with slow progress in relationships",
+          "Questioning if they deserve forgiveness"
+        ],
+        "hidden_factors": [
+          "Strong commitment to recovery program",
+          "Natural leadership qualities emerging in sobriety",
+          "Deep capacity for empathy and connection",
+          "Fear that happiness might trigger complacency"
+        ]
+      },
+      "primary_question": "How do I live with the wreckage of my past while building a future worth staying sober for?",
+      "followup_questions": [
+        "Will my daughter ever trust me again?",
+        "How do I forgive myself?",
+        "What if I relapse?"
+      ],
+      "suggested_spreads": [
+        "celtic-cross",
+        "horseshoe-traditional",
+        "past-present-future"
+      ],
+      "learning_objectives": [
+        "Supporting recovery and sobriety",
+        "Addressing shame and self-forgiveness",
+        "Understanding rebuilding trust process",
+        "Maintaining hope during difficult healing"
+      ],
+      "challenge_factors": [
+        "complex_emotions",
+        "sensitive_topic",
+        "emotional_client",
+        "sensitive_topic"
+      ]
+    },
+    {
+      "id": "lgbtq_011",
+      "client_id": "taylor_011",
+      "title": "Coming Out Later in Life",
+      "category": "identity",
+      "difficulty_level": "advanced",
+      "question_type": "personal_insight",
+      "emotional_intensity": "high",
+      "context": {
+        "situation_background": "Taylor, married with two teenagers, has recently acknowledged they are transgender. They've been questioning their gender identity for months and finally understand why they've felt disconnected from themselves for so long.",
+        "recent_events": [
+          "Started seeing a gender-affirming therapist",
+          "Tried presenting as their true gender privately",
+          "Spouse reacted with confusion and fear",
+          "Found supportive online community"
+        ],
+        "client_concerns": [
+          "Fear of losing family and marriage",
+          "Guilt about 'disrupting' everyone's life",
+          "Anxiety about workplace and community reactions",
+          "Questioning if they're too old to transition"
+        ],
+        "hidden_factors": [
+          "Lifetime of masking and performing expected gender role",
+          "Deep relief at finally understanding themselves",
+          "Strong relationship foundation with spouse despite current tension",
+          "Fear that authenticity equals selfishness"
+        ]
+      },
+      "primary_question": "How do I honor my authentic self without destroying my family?",
+      "followup_questions": [
+        "Is it too late to make such a big change?",
+        "How do I help my family understand?",
+        "What does living authentically really mean?"
+      ],
+      "suggested_spreads": [
+        "celtic-cross",
+        "five-card-cross",
+        "mind-body-spirit"
+      ],
+      "learning_objectives": [
+        "Supporting LGBTQ+ identity exploration",
+        "Balancing authenticity with family considerations",
+        "Understanding coming out process complexities",
+        "Providing affirmative and inclusive guidance"
+      ],
+      "challenge_factors": [
+        "complex_emotions",
+        "sensitive_topic",
+        "sensitive_topic",
+        "identity_crisis"
+      ]
+    },
+    {
+      "id": "entrepreneurship_012",
+      "client_id": "priya_012",
+      "title": "Startup Struggles and Self-Doubt",
+      "category": "career",
+      "difficulty_level": "intermediate",
+      "question_type": "decision_making",
+      "emotional_intensity": "medium",
+      "context": {
+        "situation_background": "Priya left her corporate job six months ago to launch a sustainable fashion startup. Initial enthusiasm has given way to daily stress about money, competition, and whether her idea is viable.",
+        "recent_events": [
+          "Pitched to investors with mixed results",
+          "Competitor launched similar product line",
+          "Received encouraging feedback from early customers",
+          "Bank account running dangerously low"
+        ],
+        "client_concerns": [
+          "Wondering if she made a huge mistake leaving security",
+          "Imposter syndrome about being a 'real' entrepreneur",
+          "Pressure to succeed quickly",
+          "Fear of admitting failure to family and friends"
+        ],
+        "hidden_factors": [
+          "Genuine passion for environmental impact",
+          "Strong business instincts and problem-solving skills",
+          "Perfectionist tendencies slowing decision-making",
+          "Support network that believes in her vision"
+        ]
+      },
+      "primary_question": "Should I give up on my startup and go back to corporate safety?",
+      "followup_questions": [
+        "How do I know if this is normal startup struggle or actual failure?",
+        "What would success really look like for me?",
+        "How long should I keep trying?"
+      ],
+      "suggested_spreads": [
+        "four-card-decision",
+        "situation-action-outcome",
+        "horseshoe-apex"
+      ],
+      "learning_objectives": [
+        "Supporting entrepreneurial risks and uncertainty",
+        "Distinguishing between fear and intuition",
+        "Exploring definitions of success and failure",
+        "Timing and persistence in business decisions"
+      ],
+      "challenge_factors": [
+        "timing_sensitive",
+        "conflicting_cards",
+        "multiple_perspectives"
+      ]
+    },
+    {
+      "id": "study_013",
+      "client_id": "mia_013",
+      "title": "College Major Uncertainty",
+      "category": "education",
+      "difficulty_level": "beginner",
+      "question_type": "choice_between_options",
+      "emotional_intensity": "low",
+      "context": {
+        "situation_background": "Mia is a college sophomore who started as pre-med but finds herself more drawn to her psychology electives. She's considering changing majors but worries about disappointing her parents and starting over.",
+        "recent_events": [
+          "Struggled with organic chemistry exam",
+          "Loved abnormal psychology class",
+          "Parents asked about MCAT prep timeline",
+          "Academic advisor suggested exploring options"
+        ],
+        "client_concerns": [
+          "Parents' investment in medical school dream",
+          "Time and money already spent on pre-med track",
+          "Uncertainty about psychology career prospects",
+          "Fear of making wrong choice"
+        ],
+        "hidden_factors": [
+          "Natural empathy and listening skills",
+          "Genuine interest in human behavior",
+          "Family pressure to pursue prestigious career",
+          "Strong academic performance in psych courses"
+        ]
+      },
+      "primary_question": "Should I switch from pre-med to psychology?",
+      "followup_questions": [
+        "How do I talk to my parents about this?",
+        "What career paths would make me happy?",
+        "Is it too late to change direction?"
+      ],
+      "suggested_spreads": [
+        "four-card-decision",
+        "past-present-future",
+        "situation-action-outcome"
+      ],
+      "learning_objectives": [
+        "Supporting young adults in decision-making",
+        "Balancing family expectations with personal interests",
+        "Exploring career alignment with natural talents",
+        "Simple choice evaluation techniques"
+      ],
+      "challenge_factors": [
+        "unclear_question"
+      ]
+    },
+    {
+      "id": "hobby_014",
+      "client_id": "frank_014",
+      "title": "Retirement Hobbies and Purpose",
+      "category": "lifestyle",
+      "difficulty_level": "beginner",
+      "question_type": "personal_insight",
+      "emotional_intensity": "low",
+      "context": {
+        "situation_background": "Frank recently retired after 35 years in accounting. He's financially secure and healthy, but feels restless and bored. His wife suggests he find hobbies, but nothing seems to stick.",
+        "recent_events": [
+          "Tried woodworking class but felt clumsy",
+          "Joined book club but found it too social",
+          "Enjoyed helping neighbor fix his car",
+          "Wife signed them up for ballroom dancing"
+        ],
+        "client_concerns": [
+          "Feeling useless without work structure",
+          "Worry that he's become boring",
+          "Pressure to find meaningful activities",
+          "Fear that nothing will feel fulfilling"
+        ],
+        "hidden_factors": [
+          "Practical problem-solving skills",
+          "Enjoys helping others with technical issues",
+          "Prefers solo or small group activities",
+          "Values feeling competent and useful"
+        ]
+      },
+      "primary_question": "How do I find activities that give me purpose in retirement?",
+      "followup_questions": [
+        "What kinds of hobbies would suit my personality?",
+        "How do I stay engaged without feeling overwhelmed?",
+        "What does meaningful retirement look like?"
+      ],
+      "suggested_spreads": [
+        "mind-body-spirit",
+        "five-card-cross",
+        "past-present-future"
+      ],
+      "learning_objectives": [
+        "Supporting life transitions and new phases",
+        "Identifying personal interests and strengths",
+        "Finding purpose beyond career identity",
+        "Working with older adult clients"
+      ],
+      "challenge_factors": [
+        "unclear_question"
+      ]
+    },
+    {
+      "id": "friendship_015",
+      "client_id": "casey_015",
+      "title": "Making Friends as an Adult",
+      "category": "relationships",
+      "difficulty_level": "beginner",
+      "question_type": "situation_analysis",
+      "emotional_intensity": "low",
+      "context": {
+        "situation_background": "Casey moved to a new city for work six months ago and is struggling to make friends. They're introverted but lonely, and adult friendships feel much harder than they expected.",
+        "recent_events": [
+          "Went to meetup group but felt awkward",
+          "Coworker invited them to happy hour",
+          "Joined gym and sees same people regularly",
+          "Video calls with old friends feel forced now"
+        ],
+        "client_concerns": [
+          "Feeling socially rusty after focusing on career",
+          "Worry about seeming desperate or needy",
+          "Comparing new city to comfort of old hometown",
+          "Questioning if they're too introverted for friendship"
+        ],
+        "hidden_factors": [
+          "Good listener and loyal friend qualities",
+          "Overthinking social interactions",
+          "Values deeper connections over surface chat",
+          "Actually making progress but not recognizing it"
+        ]
+      },
+      "primary_question": "Why is making friends as an adult so hard for me?",
+      "followup_questions": [
+        "What kind of friendships do I actually want?",
+        "How do I put myself out there without feeling fake?",
+        "Should I be more patient with the process?"
+      ],
+      "suggested_spreads": [
+        "past-present-future",
+        "mind-body-spirit",
+        "five-card-cross"
+      ],
+      "learning_objectives": [
+        "Supporting social anxiety and loneliness",
+        "Understanding adult friendship development",
+        "Building confidence in social situations",
+        "Recognizing progress in gradual processes"
+      ],
+      "challenge_factors": [
+        "self_doubt"
+      ]
+    },
+    {
+      "id": "habits_016",
+      "client_id": "nina_016",
+      "title": "Building Healthy Morning Routine",
+      "category": "lifestyle",
+      "difficulty_level": "beginner",
+      "question_type": "practical_guidance",
+      "emotional_intensity": "low",
+      "context": {
+        "situation_background": "Nina wants to establish a better morning routine to start her days more intentionally. She currently rushes out the door and feels scattered, but previous attempts at change haven't stuck.",
+        "recent_events": [
+          "Read article about successful people's morning routines",
+          "Tried waking up earlier but kept hitting snooze",
+          "Noticed she feels better on weekends with slower mornings",
+          "Friend recommended meditation app"
+        ],
+        "client_concerns": [
+          "Lack of willpower to stick with changes",
+          "Feeling overwhelmed by all the 'should do' advice",
+          "Worry that she's not disciplined enough",
+          "Time constraints with work schedule"
+        ],
+        "hidden_factors": [
+          "Actually does better with gentle, gradual changes",
+          "Values feeling calm and centered",
+          "Night owl tendencies working against morning goals",
+          "Perfectionist approach sabotaging progress"
+        ]
+      },
+      "primary_question": "How can I create a morning routine that actually sticks?",
+      "followup_questions": [
+        "What morning activities would serve me best?",
+        "Why do I keep failing at these changes?",
+        "Should I focus on evening routine instead?"
+      ],
+      "suggested_spreads": [
+        "situation-action-outcome",
+        "four-card-decision",
+        "mind-body-spirit"
+      ],
+      "learning_objectives": [
+        "Supporting practical lifestyle changes",
+        "Understanding habit formation and resistance",
+        "Working with perfectionism and self-criticism",
+        "Finding sustainable approaches to self-improvement"
+      ],
+      "challenge_factors": [
+        "self_doubt"
+      ]
+    },
+    {
+      "id": "travel_017",
+      "client_id": "oscar_017",
+      "title": "Solo Travel Anxiety",
+      "category": "personal_growth",
+      "difficulty_level": "beginner",
+      "question_type": "overcoming_fear",
+      "emotional_intensity": "low",
+      "context": {
+        "situation_background": "Oscar has always wanted to travel but feels anxious about going alone. His friends are too busy or have different travel styles, but he's tired of waiting for the 'perfect' travel companion.",
+        "recent_events": [
+          "Found great deal on trip to Ireland",
+          "Watched travel vlogs and felt inspired",
+          "Friend shared horror story about solo travel",
+          "Booking deadline is approaching"
+        ],
+        "client_concerns": [
+          "Safety concerns about traveling alone",
+          "Worry about being lonely or bored",
+          "Fear of looking awkward eating/sightseeing solo",
+          "Anxiety about navigating unfamiliar places"
+        ],
+        "hidden_factors": [
+          "Good planning and research skills",
+          "Actually enjoys his own company",
+          "Overthinking worst-case scenarios",
+          "Deep desire for adventure and independence"
+        ]
+      },
+      "primary_question": "Should I book this solo trip to Ireland or wait for someone to go with?",
+      "followup_questions": [
+        "How do I overcome my fears about solo travel?",
+        "What would help me feel more confident?",
+        "Is solo travel right for my personality?"
+      ],
+      "suggested_spreads": [
+        "four-card-decision",
+        "past-present-future",
+        "situation-action-outcome"
+      ],
+      "learning_objectives": [
+        "Supporting clients through fear-based decisions",
+        "Encouraging personal growth and independence",
+        "Distinguishing between reasonable caution and limiting anxiety",
+        "Building confidence for new experiences"
+      ],
+      "challenge_factors": [
+        "timing_sensitive",
+        "self_doubt"
+      ]
+    },
+    {
+      "id": "apartment_018",
+      "client_id": "zoe_018",
+      "title": "First Apartment Decision",
+      "category": "decision_making",
+      "difficulty_level": "beginner",
+      "question_type": "choice_between_options",
+      "emotional_intensity": "low",
+      "context": {
+        "situation_background": "Zoe is choosing her first solo apartment and torn between two options: a cheaper place with longer commute, or a more expensive but convenient location. Both have pros and cons.",
+        "recent_events": [
+          "Toured both apartments with positive impressions",
+          "Calculated budget impact of each option",
+          "Current roommate situation becoming stressful",
+          "Parents offered financial help if needed"
+        ],
+        "client_concerns": [
+          "Worry about making financially irresponsible choice",
+          "Fear of regretting either decision",
+          "Pressure to be completely independent",
+          "Uncertainty about what factors matter most"
+        ],
+        "hidden_factors": [
+          "Values both financial security and convenience",
+          "Excited about living alone for first time",
+          "Good at budgeting and planning",
+          "Tendency to overthink simple decisions"
+        ]
+      },
+      "primary_question": "Should I choose the cheaper apartment or pay more for convenience?",
+      "followup_questions": [
+        "What factors should I prioritize in this decision?",
+        "How do I know if I can afford the expensive option?",
+        "Which choice will I be happier with long-term?"
+      ],
+      "suggested_spreads": [
+        "four-card-decision",
+        "situation-action-outcome",
+        "past-present-future"
+      ],
+      "learning_objectives": [
+        "Supporting practical decision-making processes",
+        "Weighing multiple factors and priorities",
+        "Understanding young adult independence choices",
+        "Simple comparative analysis techniques"
+      ],
+      "challenge_factors": [
+        "multiple_perspectives"
+      ]
     }
   ],
-
   "client_profiles": [
     {
       "id": "sarah_001",
@@ -283,27 +937,35 @@
         "relationship_status": "dating",
         "cultural_context": "First-generation American, high-achieving family"
       },
-      "personality_traits": ["analytical", "practical", "guarded", "decisive"],
+      "personality_traits": [
+        "analytical",
+        "practical",
+        "guarded",
+        "decisive"
+      ],
       "tarot_experience": "curious"
     },
-    
     {
-      "id": "marcus_002", 
+      "id": "marcus_002",
       "name": "Marcus Johnson",
       "age_range": "36-45",
       "background": {
         "occupation": "High School Teacher",
-        "life_stage": "established_career", 
+        "life_stage": "established_career",
         "relationship_status": "committed",
         "cultural_context": "Values community and family connections"
       },
-      "personality_traits": ["emotional", "analytical", "open", "hesitant"],
+      "personality_traits": [
+        "emotional",
+        "analytical",
+        "open",
+        "hesitant"
+      ],
       "tarot_experience": "curious"
     },
-
     {
       "id": "linda_003",
-      "name": "Linda Rodriguez", 
+      "name": "Linda Rodriguez",
       "age_range": "46-55",
       "background": {
         "occupation": "Former Stay-at-Home Mom",
@@ -311,24 +973,32 @@
         "relationship_status": "married",
         "cultural_context": "Traditional values, family-centered life"
       },
-      "personality_traits": ["emotional", "creative", "open", "hesitant"],
+      "personality_traits": [
+        "emotional",
+        "creative",
+        "open",
+        "hesitant"
+      ],
       "tarot_experience": "some_knowledge"
     },
-
     {
       "id": "alex_004",
       "name": "Alex Thompson",
-      "age_range": "26-35", 
+      "age_range": "26-35",
       "background": {
         "occupation": "Marketing Coordinator",
         "life_stage": "early_career",
         "relationship_status": "single",
         "cultural_context": "Urban professional, values authenticity"
       },
-      "personality_traits": ["creative", "analytical", "open", "decisive"],
+      "personality_traits": [
+        "creative",
+        "analytical",
+        "open",
+        "decisive"
+      ],
       "tarot_experience": "some_knowledge"
     },
-
     {
       "id": "david_005",
       "name": "David Williams",
@@ -336,13 +1006,17 @@
       "background": {
         "occupation": "Engineer",
         "life_stage": "established_career",
-        "relationship_status": "married", 
+        "relationship_status": "married",
         "cultural_context": "Religious background, conservative community"
       },
-      "personality_traits": ["analytical", "spiritual", "guarded", "hesitant"],
+      "personality_traits": [
+        "analytical",
+        "spiritual",
+        "guarded",
+        "hesitant"
+      ],
       "tarot_experience": "complete_beginner"
     },
-
     {
       "id": "maya_006",
       "name": "Maya Patel",
@@ -353,8 +1027,229 @@
         "relationship_status": "single",
         "cultural_context": "College-educated, facing economic challenges"
       },
-      "personality_traits": ["creative", "emotional", "open", "hesitant"],
+      "personality_traits": [
+        "creative",
+        "emotional",
+        "open",
+        "hesitant"
+      ],
       "tarot_experience": "curious"
+    },
+    {
+      "id": "elena_007",
+      "name": "Elena Vasquez",
+      "age_range": "26-35",
+      "background": {
+        "occupation": "Former Professional Dancer",
+        "life_stage": "transition",
+        "relationship_status": "committed",
+        "cultural_context": "Latina, artistic community, values perseverance"
+      },
+      "personality_traits": [
+        "creative",
+        "emotional",
+        "spiritual",
+        "hesitant"
+      ],
+      "tarot_experience": "some_knowledge"
+    },
+    {
+      "id": "jordan_008",
+      "name": "Jordan Kim",
+      "age_range": "26-35",
+      "background": {
+        "occupation": "Freelance Graphic Designer",
+        "life_stage": "early_career",
+        "relationship_status": "dating",
+        "cultural_context": "Urban creative, values artistic expression"
+      },
+      "personality_traits": [
+        "creative",
+        "analytical",
+        "open",
+        "decisive"
+      ],
+      "tarot_experience": "curious"
+    },
+    {
+      "id": "robert_009",
+      "name": "Robert Mitchell",
+      "age_range": "46-55",
+      "background": {
+        "occupation": "Insurance Agent",
+        "life_stage": "established_career",
+        "relationship_status": "married",
+        "cultural_context": "Middle-class, traditional values, sandwich generation"
+      },
+      "personality_traits": [
+        "practical",
+        "emotional",
+        "guarded",
+        "hesitant"
+      ],
+      "tarot_experience": "complete_beginner"
+    },
+    {
+      "id": "sam_010",
+      "name": "Sam Rivers",
+      "age_range": "36-45",
+      "background": {
+        "occupation": "Construction Supervisor",
+        "life_stage": "recovery_rebuilding",
+        "relationship_status": "divorced",
+        "cultural_context": "Working class, values honesty and hard work"
+      },
+      "personality_traits": [
+        "practical",
+        "emotional",
+        "open",
+        "decisive"
+      ],
+      "tarot_experience": "complete_beginner"
+    },
+    {
+      "id": "taylor_011",
+      "name": "Taylor Anderson",
+      "age_range": "36-45",
+      "background": {
+        "occupation": "High School Counselor",
+        "life_stage": "identity_exploration",
+        "relationship_status": "married",
+        "cultural_context": "Suburban, education-focused, progressive values"
+      },
+      "personality_traits": [
+        "analytical",
+        "spiritual",
+        "open",
+        "hesitant"
+      ],
+      "tarot_experience": "curious"
+    },
+    {
+      "id": "priya_012",
+      "name": "Priya Sharma",
+      "age_range": "26-35",
+      "background": {
+        "occupation": "Startup Founder",
+        "life_stage": "early_career",
+        "relationship_status": "single",
+        "cultural_context": "First-generation entrepreneur, family values stability"
+      },
+      "personality_traits": [
+        "analytical",
+        "creative",
+        "guarded",
+        "decisive"
+      ],
+      "tarot_experience": "some_knowledge"
+    },
+    {
+      "id": "mia_013",
+      "name": "Mia Rodriguez",
+      "age_range": "18-25",
+      "background": {
+        "occupation": "College Student",
+        "life_stage": "education",
+        "relationship_status": "single",
+        "cultural_context": "First-generation college student, family values education"
+      },
+      "personality_traits": [
+        "analytical",
+        "emotional",
+        "open",
+        "hesitant"
+      ],
+      "tarot_experience": "complete_beginner"
+    },
+    {
+      "id": "frank_014",
+      "name": "Frank Thompson",
+      "age_range": "56-65",
+      "background": {
+        "occupation": "Recent Retiree",
+        "life_stage": "retirement_transition",
+        "relationship_status": "married",
+        "cultural_context": "Traditional work ethic, values practical solutions"
+      },
+      "personality_traits": [
+        "practical",
+        "analytical",
+        "guarded",
+        "hesitant"
+      ],
+      "tarot_experience": "complete_beginner"
+    },
+    {
+      "id": "casey_015",
+      "name": "Casey Liu",
+      "age_range": "26-35",
+      "background": {
+        "occupation": "Software Developer",
+        "life_stage": "early_career",
+        "relationship_status": "single",
+        "cultural_context": "Urban professional, values authentic connections"
+      },
+      "personality_traits": [
+        "analytical",
+        "creative",
+        "guarded",
+        "hesitant"
+      ],
+      "tarot_experience": "curious"
+    },
+    {
+      "id": "nina_016",
+      "name": "Nina Ahmed",
+      "age_range": "26-35",
+      "background": {
+        "occupation": "Marketing Manager",
+        "life_stage": "early_career",
+        "relationship_status": "dating",
+        "cultural_context": "Health-conscious, values work-life balance"
+      },
+      "personality_traits": [
+        "practical",
+        "creative",
+        "open",
+        "decisive"
+      ],
+      "tarot_experience": "curious"
+    },
+    {
+      "id": "oscar_017",
+      "name": "Oscar Martinez",
+      "age_range": "26-35",
+      "background": {
+        "occupation": "Teacher",
+        "life_stage": "early_career",
+        "relationship_status": "single",
+        "cultural_context": "Values personal growth and new experiences"
+      },
+      "personality_traits": [
+        "creative",
+        "emotional",
+        "open",
+        "hesitant"
+      ],
+      "tarot_experience": "some_knowledge"
+    },
+    {
+      "id": "zoe_018",
+      "name": "Zoe Carter",
+      "age_range": "18-25",
+      "background": {
+        "occupation": "Recent Graduate/Entry Level",
+        "life_stage": "early_career",
+        "relationship_status": "single",
+        "cultural_context": "Practical, values independence and responsibility"
+      },
+      "personality_traits": [
+        "practical",
+        "analytical",
+        "open",
+        "decisive"
+      ],
+      "tarot_experience": "complete_beginner"
     }
   ]
 }

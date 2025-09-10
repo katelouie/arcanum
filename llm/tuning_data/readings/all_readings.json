@@ -1,8 +1,8 @@
 {
   "tarot_reading_dataset": {
     "metadata": {
-      "total_readings": 51,
-      "common_readings": 43,
+      "total_readings": 54,
+      "common_readings": 45,
       "special_readings": 8,
       "version": "unified_v1.0",
       "description": "Unified tarot reading dataset with both standard and custom spreads",
@@ -3052,7 +3052,9 @@
               "detailed_description": "What energy do I naturally radiate to interviewers? What will they notice first about me when I enter the room (consciously or unconsciously)? What part of me enters the room before my words do? What story does my body language tell?",
               "x": 50,
               "y": 10,
-              "keywords": ["position"],
+              "keywords": [
+                "position"
+              ],
               "question_adaptations": {},
               "rag_mapping": "temporal_positions.present"
             },
@@ -3062,7 +3064,9 @@
               "detailed_description": "What quality or skill is my biggest asset during this interview process? What parts of me shine under pressure? What do I already have that they need? Where does my confidence lie?",
               "x": 40,
               "y": 30,
-              "keywords": ["position"],
+              "keywords": [
+                "position"
+              ],
               "question_adaptations": {},
               "rag_mapping": "temporal_positions.present"
             },
@@ -3072,7 +3076,9 @@
               "detailed_description": "What internal or external hurdle could trip me up during this interview? What fear, bad habit or self-inflicted blind spot could be a problem for me? What sensitive point within myself do I need to hold with care -- not force?",
               "x": 60,
               "y": 30,
-              "keywords": ["position"],
+              "keywords": [
+                "position"
+              ],
               "question_adaptations": {},
               "rag_mapping": "temporal_positions.present"
             },
@@ -3082,7 +3088,9 @@
               "detailed_description": "What approach, strategy or way or preparation with maximize my chances for a good outcome and serve me best? Where should I lean in? What tool or tone will help me the most?",
               "x": 50,
               "y": 50,
-              "keywords": ["position"],
+              "keywords": [
+                "position"
+              ],
               "question_adaptations": {},
               "rag_mapping": "temporal_positions.present"
             },
@@ -3092,7 +3100,9 @@
               "detailed_description": "What unseen influence could shape the outcome of this interview? Is there something subtle and quiet I should watch for? What am I not being told? What is happening under the surface? Is there an invisible wild card I should know about?",
               "x": 40,
               "y": 70,
-              "keywords": ["position"],
+              "keywords": [
+                "position"
+              ],
               "question_adaptations": {},
               "rag_mapping": "temporal_positions.present"
             },
@@ -3102,7 +3112,9 @@
               "detailed_description": "What is the likely outcome here -- and the lesson, regardless of the result? If I zoom out after this is done, what can I take away from this experience?",
               "x": 60,
               "y": 70,
-              "keywords": ["position"],
+              "keywords": [
+                "position"
+              ],
               "question_adaptations": {},
               "rag_mapping": "temporal_positions.present"
             },
@@ -3112,13 +3124,73 @@
               "detailed_description": "What small practice, anchor or mindset will help soothe and ground me? Where does peace already exist in me? What steadiness can I bring with me into the room?",
               "x": 50,
               "y": 90,
-              "keywords": ["position"],
+              "keywords": [
+                "position"
+              ],
               "question_adaptations": {},
               "rag_mapping": "temporal_positions.present"
             }
           ]
         },
         "source": "special"
+      },
+      {
+        "reading_id": "R053",
+        "spread_id": "past-present-future",
+        "spread_name": "3 Cards (Past, Present, Future)",
+        "question_category": "Love & Relationships",
+        "question": "Why do I keep picking people who mess me up? What's going on with me and relationships?",
+        "cards": [
+          {
+            "position_name": "Past",
+            "position_index": 0,
+            "card_name": "The Lovers",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Present",
+            "position_index": 1,
+            "card_name": "Nine of Wands",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Future",
+            "position_index": 2,
+            "card_name": "Three of Swords",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
+      },
+      {
+        "reading_id": "R054",
+        "spread_id": "past-present-future",
+        "spread_name": "3 Cards (Past, Present, Future)",
+        "question_category": "Spiritual Growth",
+        "question": "Why do I keep sabotaging myself every time things start going well?",
+        "cards": [
+          {
+            "position_name": "Past",
+            "position_index": 0,
+            "card_name": "Seven of Swords",
+            "orientation": "Upright"
+          },
+          {
+            "position_name": "Present",
+            "position_index": 1,
+            "card_name": "Wheel of Fortune",
+            "orientation": "Reversed"
+          },
+          {
+            "position_name": "Future",
+            "position_index": 2,
+            "card_name": "Queen of Pentacles",
+            "orientation": "Upright"
+          }
+        ],
+        "spread_config": null,
+        "source": "common"
       }
     ]
   }

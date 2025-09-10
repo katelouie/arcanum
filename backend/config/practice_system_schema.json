@@ -26,7 +26,7 @@
             "occupation": {"type": "string"},
             "life_stage": {
               "type": "string",
-              "enum": ["student", "early_career", "established_career", "transition", "retirement"]
+              "enum": ["student", "early_career", "established_career", "transition", "retirement", "recovery_rebuilding", "identity_exploration", "education", "retirement_transition"]
             },
             "relationship_status": {
               "type": "string", 
@@ -67,7 +67,7 @@
         },
         "category": {
           "type": "string",
-          "enum": ["career", "relationships", "personal_growth", "finances", "health", "spirituality", "family", "creativity", "life_transition", "decision_making", "crisis", "general_guidance"]
+          "enum": ["career", "relationships", "personal_growth", "finances", "health", "spirituality", "family", "creativity", "life_transition", "decision_making", "crisis", "general_guidance", "addiction_recovery", "identity", "education", "lifestyle"]
         },
         "difficulty_level": {
           "type": "string",
@@ -76,7 +76,7 @@
         },
         "question_type": {
           "type": "string",
-          "enum": ["yes_no", "timing", "choice_between_options", "situation_analysis", "advice_seeking", "relationship_dynamics", "personal_insight", "spiritual_guidance", "past_influence", "future_potential"]
+          "enum": ["yes_no", "timing", "choice_between_options", "situation_analysis", "advice_seeking", "relationship_dynamics", "personal_insight", "spiritual_guidance", "past_influence", "future_potential", "practical_guidance", "overcoming_fear", "decision_making"]
         },
         "emotional_intensity": {
           "type": "string",
@@ -130,7 +130,7 @@
           "type": "array",
           "items": {
             "type": "string",
-            "enum": ["complex_emotions", "multiple_perspectives", "timing_sensitive", "ethical_considerations", "conflicting_cards", "unclear_question", "emotional_client", "skeptical_client", "urgent_decision"]
+            "enum": ["complex_emotions", "multiple_perspectives", "timing_sensitive", "ethical_considerations", "conflicting_cards", "unclear_question", "emotional_client", "skeptical_client", "urgent_decision", "sensitive_topic", "self_doubt", "identity_crisis"]
           }
         }
       },
