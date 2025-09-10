@@ -4,6 +4,10 @@ import { Button } from '@headlessui/react'
 import { Listbox } from '@headlessui/react'
 import { ChevronUpDownIcon, CheckIcon } from '@heroicons/react/20/solid'
 import { DynamicSpreadRenderer } from './SpreadRenderer'
+import { TappingRhythm } from './TappingRhythm'
+import { MLXIntegrationSection } from './MLXIntegrationSection'
+import { ModelSelector } from './ModelSelector'
+import ReactMarkdown from 'react-markdown'
 import type { SpreadsConfig } from '../types/spreads'
 
 interface CardInfo {
@@ -22,6 +26,115 @@ interface ReadingModeProps {
   onSpreadChange: (spread: {id: string, name: string} | null) => void;
 }
 
+// MLX Tabbed Section Component
+function MLXTabbedSection({ reading }: { reading: any }) {
+  const [activeTab, setActiveTab] = useState('interpretation')
+  
+  const tabs = [
+    { id: 'interpretation', label: 'AI Reading', icon: '🔮' },
+    { id: 'raw-output', label: 'Raw Output', icon: '📄' },
+    { id: 'user-prompt', label: 'User Prompt', icon: '❓' },
+    { id: 'system-prompt', label: 'System Prompt', icon: '⚙️' }
+  ]
+  
+  return (
+    <div>
+      {/* Tab Navigation */}
+      <div className="border-b border-slate-700">
+        <div className="flex space-x-0">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-6 py-4 text-sm font-medium transition-colors border-b-2 ${
+                activeTab === tab.id
+                  ? 'text-violet-400 border-violet-400 bg-slate-800/50'
+                  : 'text-slate-400 border-transparent hover:text-slate-300 hover:border-slate-600'
+              }`}
+            >
+              <span className="mr-2">{tab.icon}</span>
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Tab Content */}
+      <div className="p-6">
+        {activeTab === 'interpretation' && (
+          <div>
+            {reading.ai_response ? (
+              <>
+                <h4 className="text-lg font-semibold text-slate-100 mb-4">AI-Generated Reading</h4>
+                <div className="text-slate-200 leading-relaxed prose prose-slate prose-invert max-w-none">
+                  <ReactMarkdown>{reading.ai_response.text}</ReactMarkdown>
+                </div>
+                
+                {reading.ai_response && (
+                  <div className="mt-6 p-4 bg-slate-800/50 rounded-lg border border-slate-600">
+                    <h5 className="text-sm font-medium text-slate-300 mb-2">Generation Metadata</h5>
+                    <div className="grid grid-cols-2 gap-4 text-sm text-slate-400">
+                      <div>Tokens Generated: {reading.ai_response.tokens_generated}</div>
+                      <div>Inference Time: {reading.ai_response.inference_time.toFixed(3)}s</div>
+                      <div>Model: {reading.ai_response.model_id}</div>
+                      <div>Generated: {reading.ai_response.timestamp}</div>
+                    </div>
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="text-center py-8 text-slate-400">
+                No AI interpretation available for this reading
+              </div>
+            )}
+          </div>
+        )}
+
+        {activeTab === 'raw-output' && (
+          <div>
+            {reading.ai_response ? (
+              <>
+                <h4 className="text-lg font-semibold text-slate-100 mb-4">Raw Model Output</h4>
+                <div className="text-slate-200 leading-relaxed whitespace-pre-wrap bg-slate-800/50 rounded-lg p-4 border border-slate-600">
+                  {reading.ai_response.raw_text || reading.ai_response.text}
+                </div>
+                
+                <div className="mt-4 p-3 bg-amber-900/20 rounded-lg border border-amber-600/30">
+                  <p className="text-amber-200 text-sm">
+                    📄 This shows the complete, unfiltered output from the model before any cleaning or processing.
+                  </p>
+                </div>
+              </>
+            ) : (
+              <div className="text-center py-8 text-slate-400">
+                No raw output available
+              </div>
+            )}
+          </div>
+        )}
+
+        {activeTab === 'user-prompt' && (
+          <div>
+            <h4 className="text-lg font-semibold text-slate-100 mb-4">User Prompt</h4>
+            <pre className="text-sm text-slate-300 whitespace-pre-wrap bg-slate-800/50 rounded-lg p-4 overflow-x-auto">
+              {reading.full_prompt.user_prompt}
+            </pre>
+          </div>
+        )}
+
+        {activeTab === 'system-prompt' && (
+          <div>
+            <h4 className="text-lg font-semibold text-slate-100 mb-4">System Prompt</h4>
+            <pre className="text-sm text-slate-300 whitespace-pre-wrap bg-slate-800/50 rounded-lg p-4 overflow-x-auto">
+              {reading.full_prompt.system_prompt}
+            </pre>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
 export function ReadingMode({ 
   spreadsConfig, 
   availableSpreads, 
@@ -34,22 +147,41 @@ export function ReadingMode({
   const [selectedSpread, setSelectedSpread] = useState<{id: string, name: string} | null>(
     availableSpreads.length > 0 ? availableSpreads[0] : null
   )
+  const [includeDate, setIncludeDate] = useState(false)
+  const [rhythm, setRhythm] = useState<number[]>([])
   const [loading, setLoading] = useState(false)
   const [reading, setReading] = useState(null)
+  const [aiLoading, setAiLoading] = useState(false)
+  const [selectedModel, setSelectedModel] = useState<string | null>(null)
 
   // Notify parent when spread changes
   useEffect(() => {
     onSpreadChange(selectedSpread)
   }, [selectedSpread, onSpreadChange])
 
-  const callTarotAPI = async (question: string, spreadType: string) => {
+  const callCardsAPI = async (question: string, spreadType: string, includeDateInSeed: boolean = false, rhythmData: number[] = []) => {
     const response = await axios.post(
-      'http://127.0.0.1:8000/api/reading',
+      'http://127.0.0.1:8000/api/reading/cards',
       {
         question: question,
         spread_type: spreadType,
         shuffle_count: 7,
-        include_date: false
+        include_date: includeDateInSeed,
+        rhythm: rhythmData.length > 0 ? rhythmData : null
+      }
+    )
+    return response.data
+  }
+
+  const callAIInterpretationAPI = async (systemPrompt: string, userPrompt: string) => {
+    const response = await axios.post(
+      'http://127.0.0.1:8000/api/reading/ai-interpretation',
+      {
+        system_prompt: systemPrompt,
+        user_prompt: userPrompt,
+        max_tokens: 2000,
+        temperature: 0.7,
+        top_p: 0.9
       }
     )
     return response.data
@@ -60,10 +192,40 @@ export function ReadingMode({
     if (!selectedSpread) return
     
     setLoading(true)
+    setReading(null) // Clear previous reading
+    
     try {
-      const result = await callTarotAPI(question, selectedSpread.id)
-      setReading(result)
-      console.log('Reading result:', result)
+      // Phase 1: Get cards and prompts (fast)
+      console.log('Drawing cards...')
+      const cardsResult = await callCardsAPI(question, selectedSpread.id, includeDate, rhythm)
+      setReading(cardsResult)
+      console.log('Cards drawn successfully')
+      
+      // Phase 2: Generate AI interpretation (slow) - only if we have prompts
+      if (cardsResult.full_prompt?.system_prompt && cardsResult.full_prompt?.user_prompt) {
+        setAiLoading(true)
+        console.log('Generating AI interpretation...')
+        
+        try {
+          const aiResult = await callAIInterpretationAPI(
+            cardsResult.full_prompt.system_prompt,
+            cardsResult.full_prompt.user_prompt
+          )
+          
+          // Update reading with AI response
+          setReading(prev => ({
+            ...prev,
+            ai_response: aiResult
+          }))
+          console.log('AI interpretation generated:', aiResult)
+        } catch (aiError) {
+          console.error('AI interpretation failed:', aiError)
+          // Reading still shows cards and prompts even if AI fails
+        } finally {
+          setAiLoading(false)
+        }
+      }
+      
     } catch (error) {
       console.error('Error getting reading:', error)
     } finally {
@@ -73,9 +235,12 @@ export function ReadingMode({
 
   return (
     <>
-      <div className="max-w-md mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-8 shadow-2xl">
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left Column - Form Inputs */}
+            <div>
+              <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="question" className="block text-sm font-medium text-slate-200 mb-3">
                 What question would you like to ask the cards?
@@ -89,6 +254,9 @@ export function ReadingMode({
                 placeholder="Enter your question..."
                 required
               />
+              <p className="text-xs text-slate-500 mt-2">
+                The cards will give you the same reading for identical questions, ensuring consistent guidance. Enable the date option below for fresh daily insights.
+              </p>
             </div>
 
             <div>
@@ -147,14 +315,45 @@ export function ReadingMode({
               </Listbox>
             </div>
 
-            <Button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 disabled:from-slate-600 disabled:to-slate-600 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
-            >
-              {loading ? 'Drawing Cards...' : 'Draw Cards'}
-            </Button>
-          </form>
+            <div>
+              <label className="flex items-center space-x-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={includeDate}
+                  onChange={(e) => setIncludeDate(e.target.checked)}
+                  className="w-4 h-4 text-violet-600 bg-slate-800 border-slate-600 rounded focus:ring-violet-500 focus:ring-2"
+                />
+                <span className="text-sm text-slate-300">
+                  Include date in reading (for daily draws)
+                </span>
+              </label>
+              <p className="text-xs text-slate-500 mt-1 ml-7">
+                When enabled, asking the same question on different days will give different results
+              </p>
+            </div>
+
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 disabled:from-slate-600 disabled:to-slate-600 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+                >
+                  {loading ? 'Drawing Cards...' : 'Draw Cards'}
+                </Button>
+              </form>
+            </div>
+
+            {/* Right Column - Model & Rhythm Controls */}
+            <div className="space-y-6">
+              <ModelSelector onModelChange={setSelectedModel} />
+              
+              <div className="border-t border-slate-700 pt-6">
+                <TappingRhythm
+                  onRhythmCapture={setRhythm}
+                  disabled={loading}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -187,30 +386,22 @@ export function ReadingMode({
             </div>
           </div>
 
-          {/* Reading Interpretation Section */}
-          {reading.interpretation && (
-            <div className="mt-8 bg-slate-900/30 backdrop-blur border border-slate-700 rounded-xl p-8 shadow-xl">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-slate-100 mb-2">
-                  Reading Interpretation
-                </h3>
-                <div className="w-16 h-0.5 bg-gradient-to-r from-violet-400 to-indigo-400 mx-auto rounded-full"></div>
+          {/* MLX Integration Section */}
+          {reading && reading.full_prompt && (
+            <div className="mt-8 bg-slate-900/30 backdrop-blur border border-slate-700 rounded-xl shadow-xl overflow-hidden">
+              {/* Header */}
+              <div className="border-b border-slate-700 p-6">
+                <h3 className="text-2xl font-bold text-slate-100 mb-2">MLX Model Integration</h3>
               </div>
-              
-              <div className="prose prose-invert prose-slate max-w-none">
-                <div 
-                  className="text-slate-200 leading-relaxed text-base space-y-4"
-                  dangerouslySetInnerHTML={{
-                    __html: reading.interpretation
-                      .replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-100 font-semibold">$1</strong>')
-                      .replace(/\*(.*?)\*/g, '<em class="text-violet-300">$1</em>')
-                      .replace(/---/g, '<hr class="border-slate-600 my-6" />')
-                      .replace(/\n\n/g, '</p><p class="mb-4">')
-                      .replace(/^(.)/gm, '<p class="mb-4">$1')
-                      .replace(/<p class="mb-4">$/, '')
-                  }}
-                />
-              </div>
+
+              {aiLoading ? (
+                <div className="text-center py-12 px-6">
+                  <div className="w-8 h-8 border-4 border-slate-600 border-t-violet-400 rounded-full animate-spin mx-auto mb-4"></div>
+                  <p className="text-slate-300">Generating your reading...</p>
+                </div>
+              ) : (
+                <MLXTabbedSection reading={reading} />
+              )}
             </div>
           )}
         </div>

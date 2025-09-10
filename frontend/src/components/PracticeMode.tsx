@@ -141,6 +141,21 @@ export function PracticeMode({ spreadsConfig, onCardClick, onSpreadChange }: Pra
   const [startTime, setStartTime] = useState<Date | null>(null)
   const [availableScenarios, setAvailableScenarios] = useState<PracticeScenario[]>([])
   const [selectedScenario, setSelectedScenario] = useState<PracticeScenario | null>(null)
+  const [filters, setFilters] = useState({
+    difficulty: '',
+    category: '',
+    emotional_intensity: '',
+    question_type: ''
+  })
+
+  // Filter scenarios based on selected filters
+  const filteredScenarios = availableScenarios.filter(scenario => {
+    if (filters.difficulty && scenario.difficulty_level !== filters.difficulty) return false
+    if (filters.category && scenario.category !== filters.category) return false
+    if (filters.emotional_intensity && scenario.emotional_intensity !== filters.emotional_intensity) return false
+    if (filters.question_type && scenario.question_type !== filters.question_type) return false
+    return true
+  })
 
   // Clear spread when component unmounts or step changes to start
   useEffect(() => {
@@ -312,8 +327,112 @@ export function PracticeMode({ spreadsConfig, onCardClick, onSpreadChange }: Pra
           </p>
         </div>
 
+        {/* Filter Controls */}
+        <div className="bg-slate-900/30 backdrop-blur border border-slate-800 rounded-xl p-6 mb-6">
+          <h3 className="text-lg font-semibold text-slate-200 mb-4">Filter Scenarios</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Difficulty Filter */}
+            <div>
+              <label className="block text-sm font-medium text-slate-300 mb-2">Difficulty</label>
+              <select
+                value={filters.difficulty}
+                onChange={(e) => setFilters({...filters, difficulty: e.target.value})}
+                className="w-full bg-slate-800 border border-slate-700 text-slate-200 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 p-2.5"
+              >
+                <option value="">All Difficulties</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+                <option value="expert">Expert</option>
+              </select>
+            </div>
+
+            {/* Category Filter */}
+            <div>
+              <label className="block text-sm font-medium text-slate-300 mb-2">Category</label>
+              <select
+                value={filters.category}
+                onChange={(e) => setFilters({...filters, category: e.target.value})}
+                className="w-full bg-slate-800 border border-slate-700 text-slate-200 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 p-2.5"
+              >
+                <option value="">All Categories</option>
+                <option value="career">Career</option>
+                <option value="relationships">Relationships</option>
+                <option value="personal_growth">Personal Growth</option>
+                <option value="finances">Finances</option>
+                <option value="health">Health</option>
+                <option value="spirituality">Spirituality</option>
+                <option value="family">Family</option>
+                <option value="creativity">Creativity</option>
+                <option value="life_transition">Life Transition</option>
+                <option value="decision_making">Decision Making</option>
+                <option value="crisis">Crisis</option>
+                <option value="general_guidance">General Guidance</option>
+                <option value="addiction_recovery">Addiction Recovery</option>
+                <option value="identity">Identity</option>
+                <option value="education">Education</option>
+                <option value="lifestyle">Lifestyle</option>
+              </select>
+            </div>
+
+            {/* Emotional Intensity Filter */}
+            <div>
+              <label className="block text-sm font-medium text-slate-300 mb-2">Emotional Intensity</label>
+              <select
+                value={filters.emotional_intensity}
+                onChange={(e) => setFilters({...filters, emotional_intensity: e.target.value})}
+                className="w-full bg-slate-800 border border-slate-700 text-slate-200 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 p-2.5"
+              >
+                <option value="">All Intensities</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="crisis">Crisis</option>
+              </select>
+            </div>
+
+            {/* Question Type Filter */}
+            <div>
+              <label className="block text-sm font-medium text-slate-300 mb-2">Question Type</label>
+              <select
+                value={filters.question_type}
+                onChange={(e) => setFilters({...filters, question_type: e.target.value})}
+                className="w-full bg-slate-800 border border-slate-700 text-slate-200 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 p-2.5"
+              >
+                <option value="">All Question Types</option>
+                <option value="yes_no">Yes/No</option>
+                <option value="timing">Timing</option>
+                <option value="choice_between_options">Choice Between Options</option>
+                <option value="situation_analysis">Situation Analysis</option>
+                <option value="advice_seeking">Advice Seeking</option>
+                <option value="relationship_dynamics">Relationship Dynamics</option>
+                <option value="personal_insight">Personal Insight</option>
+                <option value="spiritual_guidance">Spiritual Guidance</option>
+                <option value="past_influence">Past Influence</option>
+                <option value="future_potential">Future Potential</option>
+                <option value="practical_guidance">Practical Guidance</option>
+                <option value="overcoming_fear">Overcoming Fear</option>
+                <option value="decision_making">Decision Making</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Clear Filters Button */}
+          <div className="flex justify-between items-center mt-4">
+            <button
+              onClick={() => setFilters({difficulty: '', category: '', emotional_intensity: '', question_type: ''})}
+              className="text-sm text-slate-400 hover:text-slate-200 transition-colors"
+            >
+              Clear All Filters
+            </button>
+            <span className="text-sm text-slate-400">
+              Showing {filteredScenarios.length} of {availableScenarios.length} scenarios
+            </span>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {availableScenarios.map((scenario) => (
+          {filteredScenarios.map((scenario) => (
             <div
               key={scenario.id}
               className="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6 shadow-xl hover:shadow-2xl hover:border-violet-500/50 transition-all duration-200 cursor-pointer"
