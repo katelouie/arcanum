@@ -3,6 +3,22 @@ import { Story } from 'inkjs';
 import { StoryTarotDisplay } from './StoryTarotDisplay';
 import { InterpretationPanel } from './InterpretationPanel';
 import { useCardData } from '../hooks/useCardData';
+import { useStorySession } from '../hooks/useStorySession';
+
+// Helper function to parse constraint strings
+const parseConstraintString = (constraintStr: string): Record<string, string[]> => {
+  const constraints: Record<string, string[]> = {};
+  const positionPairs = constraintStr.split(';');
+
+  for (const pair of positionPairs) {
+    const [position, cardsStr] = pair.split(':');
+    if (position && cardsStr) {
+      constraints[position.trim()] = cardsStr.split(',').map(card => card.trim());
+    }
+  }
+
+  return constraints;
+};
 
 interface CardInfo {
   name: string;
@@ -15,6 +31,8 @@ interface StoryPlayerProps {
   storyPath: string;
   className?: string;
   onExternalFunction?: (functionName: string, args: any[]) => Promise<any>;
+  clientId?: string; // For session tracking
+  storyName?: string; // For session tracking
 }
 
 interface StoryState {
@@ -35,7 +53,9 @@ interface TarotReading {
 export const StoryPlayer: React.FC<StoryPlayerProps> = ({
   storyPath,
   className = '',
-  onExternalFunction
+  onExternalFunction,
+  clientId,
+  storyName
 }) => {
   const [story, setStory] = useState<Story | null>(null);
   const [storyState, setStoryState] = useState<StoryState>({
@@ -58,6 +78,17 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
     getPositionMeaning
   } = useCardData();
 
+  // Initialize session tracking
+  const {
+    trackStoryProgress,
+    trackCardDrawing,
+    trackVariableChange,
+    trackChoice,
+    trackStoryCompletion,
+    addInsight,
+    markForFollowUp
+  } = useStorySession({ clientId, storyName });
+
   // Handle story external function calls with tarot integration
   const handleStoryExternalFunction = useCallback(async (functionName: string, args: any[]) => {
     console.log(`[StoryPlayer] External function called: ${functionName}`, {
@@ -71,19 +102,37 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
       // Handle tarot-specific functions
       if (functionName === 'drawCards') {
         console.log(`[StoryPlayer] Processing drawCards with args:`, args);
-        const [spread, count, title, options] = args;
-        
-        console.log(`[StoryPlayer] Extracted parameters:`, { spread, count, title, options });
+        const [spread, count, title, positionConstraintsStr] = args;
+
+        // Parse position constraints if provided
+        let positionConstraints = undefined;
+        if (positionConstraintsStr && typeof positionConstraintsStr === 'string') {
+          try {
+            // Try JSON first
+            positionConstraints = JSON.parse(positionConstraintsStr);
+          } catch (e) {
+            // Fall back to custom format: "0:Card1,Card2|1:Card3,Card4"
+            try {
+              positionConstraints = parseConstraintString(positionConstraintsStr);
+            } catch (e2) {
+              console.error('[StoryPlayer] Failed to parse position constraints:', e2);
+            }
+          }
+        } else if (positionConstraintsStr && typeof positionConstraintsStr === 'object') {
+          positionConstraints = positionConstraintsStr;
+        }
+
+        console.log(`[StoryPlayer] Extracted parameters:`, { spread, count, title, positionConstraints });
 
         // Use our story tarot service
         const { storyTarotService } = await import('../services/storyTarotService');
         console.log(`[StoryPlayer] Calling storyTarotService.drawCards`);
-        
+
         const result = await storyTarotService.drawCards({
           spread,
           cardCount: count,
           spreadType: spread,
-          ...(options || {})
+          positionConstraints: positionConstraints || undefined // New: pass position constraints
         });
 
         console.log(`[StoryPlayer] drawCards result:`, result);
@@ -93,9 +142,19 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
           cards: result.cards,
           spreadId: spread,
           title: title || `${result.spread} Reading`,
-          description: options?.description
+          description: positionConstraints ? 'Constrained reading with specific cards' : undefined
         });
         setCurrentSpread({ id: spread, name: result.spread });
+
+        // Track card drawing for session notes
+        if (clientId) {
+          trackCardDrawing(
+            result.cards.map(c => c.name),
+            spread,
+            title,
+            positionConstraints ? 'Yes' : undefined
+          );
+        }
 
         // Return a simple value that Ink can handle
         return result.cards.length;
@@ -164,9 +223,28 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
       
       newStory.BindExternalFunction('drawCards', (...args: any[]) => {
         console.log(`[StoryPlayer] drawCards binding called with args:`, args);
-        const [spread, count, title, options] = args;
-        console.log(`[StoryPlayer] drawCards parsed args:`, { spread, count, title, options });
-        
+        const [spread, count, title, positionConstraintsStr] = args;
+
+        // Parse position constraints if provided
+        let positionConstraints = undefined;
+        if (positionConstraintsStr && typeof positionConstraintsStr === 'string') {
+          try {
+            // Try JSON first
+            positionConstraints = JSON.parse(positionConstraintsStr);
+          } catch (e) {
+            // Fall back to custom format: "0:Card1,Card2|1:Card3,Card4"
+            try {
+              positionConstraints = parseConstraintString(positionConstraintsStr);
+            } catch (e2) {
+              console.error('[StoryPlayer] Failed to parse position constraints in binding:', e2);
+            }
+          }
+        } else if (positionConstraintsStr && typeof positionConstraintsStr === 'object') {
+          positionConstraints = positionConstraintsStr;
+        }
+
+        console.log(`[StoryPlayer] drawCards parsed args:`, { spread, count, title, positionConstraints });
+
         // Do the actual work asynchronously as a side effect (fire and forget)
         (async () => {
           try {
@@ -175,7 +253,7 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
               spread,
               cardCount: count,
               spreadType: spread,
-              ...(options || {})
+              positionConstraints: positionConstraints || undefined // New: support position constraints
             });
 
             // Update reading state
@@ -183,16 +261,31 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
               cards: result.cards,
               spreadId: spread,
               title: title || `${result.spread} Reading`,
-              description: options?.description
+              description: positionConstraints ? 'Constrained reading with specific cards' : undefined
             });
             setCurrentSpread({ id: spread, name: result.spread });
-            
+
+            // Track card drawing for session notes
+            if (clientId) {
+              trackCardDrawing(
+                result.cards.map(c => c.name),
+                spread,
+                title,
+                positionConstraints ? 'Yes' : undefined
+              );
+            }
+
             console.log(`[StoryPlayer] drawCards completed:`, result);
           } catch (error) {
             console.error(`[StoryPlayer] drawCards failed:`, error);
+            // Update story state to show error
+            setStoryState(prev => ({
+              ...prev,
+              error: `Card drawing failed: ${error instanceof Error ? error.message : String(error)}`
+            }));
           }
         })();
-        
+
         // Return synchronous value for Ink (number of cards requested)
         return count;
       });
@@ -292,8 +385,14 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
     if (!story || choiceIndex < 0 || choiceIndex >= story.currentChoices.length) {
       return;
     }
-    
+
     try {
+      // Track the choice for session notes
+      if (clientId && story.currentChoices[choiceIndex]) {
+        const choiceText = story.currentChoices[choiceIndex].text;
+        trackChoice(choiceText, story.currentFlowName || undefined);
+      }
+
       story.ChooseChoiceIndex(choiceIndex);
       updateStoryContent(story);
     } catch (err) {
@@ -302,7 +401,7 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
         error: err instanceof Error ? err.message : 'Error making choice'
       }));
     }
-  }, [story, updateStoryContent]);
+  }, [story, updateStoryContent, clientId, trackChoice]);
 
   // Restart story
   const restartStory = useCallback(() => {
@@ -391,7 +490,8 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
   }
 
   return (
-    <div className={`max-w-4xl mx-auto p-6 bg-slate-900 ${className}`}>
+    <div className={`h-full overflow-y-auto ${className}`}>
+      <div className="max-w-4xl mx-auto p-6">
       {/* Tarot Reading Display - appears above story content */}
       {currentReading && (
         <div className="mb-8 p-6 bg-slate-800/50 rounded-lg border border-slate-600">
@@ -473,6 +573,7 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
           </details>
         </div>
       )}
+      </div>
     </div>
   );
 };

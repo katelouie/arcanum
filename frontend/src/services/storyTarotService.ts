@@ -35,6 +35,7 @@ interface StoryReadingOptions {
   allowedCards?: string[];
   excludedCards?: string[];
   shuffleCount?: number;
+  positionConstraints?: Record<string, string[]>; // New: position-specific card constraints
 }
 
 export class StoryTarotService {
@@ -43,12 +44,17 @@ export class StoryTarotService {
   /**
    * Draw cards for story integration with optional constraints
    */
-  async drawCards(options: StoryReadingOptions): Promise<{ 
-    cards: CardInfo[]; 
-    spread: string; 
-    seed?: number 
+  async drawCards(options: StoryReadingOptions): Promise<{
+    cards: CardInfo[];
+    spread: string;
+    seed?: number
   }> {
     try {
+      // Validate position constraints first
+      if (options.positionConstraints) {
+        this.validatePositionConstraints(options.positionConstraints, options.cardCount || 3);
+      }
+
       // For stories, we'll use the /api/reading/cards endpoint (no AI interpretation)
       const request: ReadingRequest = {
         question: options.question || "Story-driven reading",
@@ -59,10 +65,15 @@ export class StoryTarotService {
       };
 
       const response = await axios.post<ReadingResponse>(`${this.baseURL}/api/reading/cards`, request);
-      
+
       let cards = response.data.cards;
 
-      // Apply constraints if specified
+      // Apply position-specific constraints (new functionality)
+      if (options.positionConstraints) {
+        cards = await this.applyPositionConstraints(cards, options.positionConstraints, request);
+      }
+
+      // Apply legacy constraints if specified
       if (options.constrainedCards && options.constrainedCards.length > 0) {
         cards = await this.applyCardConstraints(cards, options.constrainedCards);
       }
@@ -232,6 +243,101 @@ export class StoryTarotService {
   private async filterByExcludedCards(cards: CardInfo[], excludedCards: string[]): Promise<CardInfo[]> {
     // Similarly, for excluded cards, we keep non-excluded cards
     return cards.filter(card => !excludedCards.includes(card.name));
+  }
+
+  /**
+   * Validate position constraints to prevent impossible scenarios
+   */
+  private validatePositionConstraints(constraints: Record<string, string[]>, expectedCardCount: number): void {
+    for (const [position, allowedCards] of Object.entries(constraints)) {
+      const positionIndex = parseInt(position);
+
+      // Check position is valid
+      if (isNaN(positionIndex) || positionIndex < 0 || positionIndex >= expectedCardCount) {
+        throw new Error(`Invalid position ${position}. Must be between 0 and ${expectedCardCount - 1}.`);
+      }
+
+      // Check constraint is not empty
+      if (!allowedCards || allowedCards.length === 0) {
+        throw new Error(`Position ${position} constraint cannot be empty. Specify at least one card name.`);
+      }
+
+      // Check for too restrictive constraints (less than 1 card allowed)
+      if (allowedCards.length === 0) {
+        throw new Error(`Position ${position} has no allowed cards. This makes drawing impossible.`);
+      }
+    }
+  }
+
+  /**
+   * Apply position-specific card constraints by redrawing positions that don't match
+   */
+  private async applyPositionConstraints(
+    originalCards: CardInfo[],
+    constraints: Record<string, string[]>,
+    originalRequest: ReadingRequest
+  ): Promise<CardInfo[]> {
+    const constrainedCards = [...originalCards];
+    const maxRetries = 50; // Prevent infinite loops
+
+    for (const [position, allowedCards] of Object.entries(constraints)) {
+      const positionIndex = parseInt(position);
+
+      if (positionIndex >= constrainedCards.length) {
+        continue; // Skip invalid positions
+      }
+
+      const currentCard = constrainedCards[positionIndex];
+
+      // If current card is already in allowed list, keep it
+      if (allowedCards.includes(currentCard.name)) {
+        continue;
+      }
+
+      // Otherwise, redraw until we get an allowed card for this position
+      let retries = 0;
+      let foundValidCard = false;
+
+      while (retries < maxRetries && !foundValidCard) {
+        try {
+          // Draw new cards to get alternatives
+          const redrawResponse = await axios.post<ReadingResponse>(
+            `${this.baseURL}/api/reading/cards`,
+            originalRequest
+          );
+
+          const newCards = redrawResponse.data.cards;
+
+          // Check if any of the newly drawn cards are allowed for this position
+          for (const newCard of newCards) {
+            if (allowedCards.includes(newCard.name)) {
+              // Found a valid card, use it for this position
+              constrainedCards[positionIndex] = {
+                ...newCard,
+                position: currentCard.position // Keep original position name
+              };
+              foundValidCard = true;
+              break;
+            }
+          }
+
+          retries++;
+        } catch (error) {
+          console.error(`Error redrawing for position ${position}:`, error);
+          retries++;
+        }
+      }
+
+      if (!foundValidCard) {
+        throw new Error(
+          `Could not find a valid card for position ${position} after ${maxRetries} attempts. ` +
+          `Allowed cards: ${allowedCards.join(', ')}. ` +
+          `Consider expanding the allowed cards list for this position.`
+        );
+      }
+    }
+
+    return constrainedCards;
   }
 
   /**
