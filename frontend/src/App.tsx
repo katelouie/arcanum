@@ -5,7 +5,7 @@ import { PracticeMode } from './components/PracticeMode'
 import { DevMode } from './components/DevMode'
 import { SpreadLayoutCreator } from './components/SpreadLayoutCreator'
 import { StylingPlaybook } from './components/StylingPlaybook'
-import { StoryExample } from './components/StoryExample'
+import { StoryMode } from './components/StoryMode'
 import { useCardData } from './hooks/useCardData'
 
 interface CardInfo {
@@ -145,7 +145,9 @@ function App() {
         )}
 
         {mode === 'story' && (
-          <StoryExample />
+          <div className="fixed inset-0 bg-slate-950 z-40">
+            <StoryMode onModeChange={setMode} />
+          </div>
         )}
 
         {/* Shared Interpretation Panel */}
