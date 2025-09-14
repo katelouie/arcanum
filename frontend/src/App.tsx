@@ -5,6 +5,7 @@ import { PracticeMode } from './components/PracticeMode'
 import { DevMode } from './components/DevMode'
 import { SpreadLayoutCreator } from './components/SpreadLayoutCreator'
 import { StylingPlaybook } from './components/StylingPlaybook'
+import { StoryExample } from './components/StoryExample'
 import { useCardData } from './hooks/useCardData'
 
 interface CardInfo {
@@ -14,7 +15,7 @@ interface CardInfo {
   image_url: string;
 }
 
-type AppMode = 'reading' | 'practice' | 'layout' | 'dev'
+type AppMode = 'reading' | 'practice' | 'layout' | 'dev' | 'story'
 
 function App() {
   const [mode, setMode] = useState<AppMode>('reading')
@@ -95,6 +96,16 @@ function App() {
             >
               Dev Mode
             </button>
+            <button
+              onClick={() => setMode('story')}
+              className={`px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
+                mode === 'story'
+                  ? 'bg-emerald-600 text-white shadow-lg'
+                  : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+              }`}
+            >
+              Story Mode
+            </button>
           </div>
         </div>
 
@@ -131,6 +142,10 @@ function App() {
 
         {mode === 'dev' && (
           <DevMode />
+        )}
+
+        {mode === 'story' && (
+          <StoryExample />
         )}
 
         {/* Shared Interpretation Panel */}
