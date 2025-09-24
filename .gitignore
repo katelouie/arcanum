@@ -234,3 +234,6 @@ dist-ssr
 
 # Sentry
 .sentryclirc
+
+# Claude self-documentation files
+CLAUDE/*
