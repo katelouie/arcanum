@@ -1,0 +1,16 @@
+{
+  "clients": {
+    "Sarah Chen": {
+      "story_file": "sarah.json",
+      "story_name": "sarah",
+      "total_sessions": 4,
+      "initial_notes": "Recent grad, environmental policy. Anxious about direction. Relationship with Jake uncertain.",
+      "initial_date": "March 15th",
+      "client_id": "sarah_chen"
+    }
+  },
+  "default_session_settings": {
+    "initial_session": 1,
+    "initial_confidence": 0
+  }
+}

@@ -192,6 +192,53 @@ def get_spreads_config():
         return {"error": "Invalid spreads configuration JSON"}
 
 
+@app.get("/api/stories")
+def get_available_stories():
+    """Get list of available Twine story files with basic metadata"""
+    from pathlib import Path
+
+    stories = []
+    # Use absolute path from backend directory
+    stories_dir = Path(__file__).parent.parent / "frontend" / "public" / "stories"
+
+    try:
+        if not stories_dir.exists():
+            return {"stories": [], "error": f"Stories directory not found: {stories_dir}"}
+
+        for html_file in stories_dir.glob("*.html"):
+            try:
+                # Get basic file info only
+                stat = html_file.stat()
+
+                story_info = {
+                    "id": html_file.stem,
+                    "title": html_file.stem.replace("-", " ").title(),
+                    "path": f"/stories/{html_file.name}",
+                    "format": "HTML Story",  # Simple default
+                    "description": f"Interactive story: {html_file.stem.replace('-', ' ')}",
+                    "file_size": stat.st_size,
+                    "modified": stat.st_mtime,
+                    "category": "Story"  # Simple default
+                }
+
+                stories.append(story_info)
+
+            except Exception as e:
+                print(f"Error processing story file {html_file}: {e}")
+                continue
+
+        # Sort by modification time (newest first)
+        stories.sort(key=lambda x: x["modified"], reverse=True)
+
+        return {"stories": stories}
+
+    except Exception as e:
+        return {"stories": [], "error": f"Error reading stories directory: {str(e)}"}
+
+
+# Removed complex metadata extraction functions to avoid API hanging
+
+
 @app.post("/api/reading/cards", response_model=ReadingResponse)
 def create_reading_cards_only(request: ReadingRequest):
     """Create a reading with cards and prompts, but without MLX AI generation"""
@@ -1444,6 +1491,54 @@ def generate_with_mlx(request: MLXInferenceRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Inference error: {str(e)}")
 
+
+# Story Mode Client Management Endpoints
+
+# Load client configuration
+def load_client_config():
+    try:
+        with open('backend/config/clients_config.json', 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print("Warning: clients_config.json not found, using empty config")
+        return {"clients": {}, "default_session_settings": {"initial_session": 1, "initial_confidence": 0}}
+
+client_config = load_client_config()
+
+def add_new_client(client_name: str, story_file: str, story_name: str, total_sessions: int = 4, initial_notes: str = "", initial_date: str = ""):
+    """Add a new client to the configuration and session store"""
+    global client_config, client_session_store
+
+    # Add to configuration
+    client_config["clients"][client_name] = {
+        "story_file": story_file,
+        "story_name": story_name,
+        "total_sessions": total_sessions,
+        "initial_notes": initial_notes,
+        "initial_date": initial_date,
+        "client_id": client_name.lower().replace(" ", "_")
+    }
+
+    # Add to session store
+    client_session_store[client_name] = {
+        "session": client_config["default_session_settings"]["initial_session"],
+        "notes": initial_notes,
+        "last_session_date": initial_date,
+        "confidence_level": client_config["default_session_settings"]["initial_confidence"]
+    }
+
+# Simple in-memory store for client session data
+# Initialize with configured clients
+client_session_store = {}
+for client_name, config in client_config["clients"].items():
+    client_session_store[client_name] = {
+        "session": client_config["default_session_settings"]["initial_session"],
+        "notes": config["initial_notes"],
+        "last_session_date": config["initial_date"],
+        "confidence_level": client_config["default_session_settings"]["initial_confidence"]
+    }
+
+# Client management is now handled entirely within the unified Ink story system
 
 if __name__ == "__main__":
     import uvicorn
