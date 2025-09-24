@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Test Story</title>
+<meta charset="utf-8">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.passage {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #334155;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.choice {
+  display: block;
+  margin: 10px 0;
+  padding: 10px 15px;
+  background-color: #475569;
+  color: #e2e8f0;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid #64748b;
+  transition: all 0.2s;
+}
+
+.choice:hover {
+  background-color: #5b21b6;
+  border-color: #8b5cf6;
+}
+
+h1 {
+  color: #a78bfa;
+  text-align: center;
+}
+
+h2 {
+  color: #c4b5fd;
+}
+</style>
+</head>
+<body>
+
+<div id="story">
+  <div class="passage" id="start">
+    <h1>Simple Test Story</h1>
+    <p>Welcome to the simple test story! This is designed to test the React-Twine integration without complex logic.</p>
+
+    <p>This story will test:</p>
+    <ul>
+      <li>Basic iframe loading</li>
+      <li>PostMessage communication</li>
+      <li>Choice tracking</li>
+      <li>Story completion</li>
+    </ul>
+
+    <p>What would you like to do?</p>
+
+    <a href="#" class="choice" onclick="goToPassage('test-communication')">Test Communication</a>
+    <a href="#" class="choice" onclick="goToPassage('about')">About This Test</a>
+  </div>
+
+  <div class="passage" id="test-communication" style="display: none;">
+    <h2>Testing Communication</h2>
+    <p>Great! You clicked a choice and it worked. This means:</p>
+    <ul>
+      <li>✅ Basic navigation is working</li>
+      <li>✅ Choice tracking should be logged</li>
+      <li>✅ PostMessage communication is active</li>
+    </ul>
+
+    <p>You should see this choice logged in the React app's session log.</p>
+
+    <a href="#" class="choice" onclick="goToPassage('end')">Finish Test</a>
+    <a href="#" class="choice" onclick="goToPassage('start')">Go Back</a>
+  </div>
+
+  <div class="passage" id="about" style="display: none;">
+    <h2>About This Test</h2>
+    <p>This is a minimal Twine-like story created to test the integration between:</p>
+    <ul>
+      <li><strong>React TwineStoryPlayer</strong> - Loads this HTML in an iframe</li>
+      <li><strong>PostMessage API</strong> - Sends events to the parent React app</li>
+      <li><strong>TwineStoryMode</strong> - Displays session logs and handles events</li>
+    </ul>
+
+    <p>It doesn't use SugarCube or Harlowe - just plain HTML/JS to avoid complexity.</p>
+
+    <a href="#" class="choice" onclick="goToPassage('start')">Return to Start</a>
+  </div>
+
+  <div class="passage" id="end" style="display: none;">
+    <h2>Test Complete!</h2>
+    <p>🎉 Congratulations! The basic React-Twine integration is working.</p>
+
+    <p>If you can see this message, then:</p>
+    <ul>
+      <li>✅ HTML story loads in iframe</li>
+      <li>✅ Navigation between passages works</li>
+      <li>✅ Choices are being tracked and logged</li>
+      <li>✅ PostMessage communication is functional</li>
+    </ul>
+
+    <p>You can now test more complex Twine stories with confidence that the integration layer works.</p>
+
+    <a href="#" class="choice" onclick="goToPassage('start')">Start Over</a>
+  </div>
+</div>
+
+<script>
+// Simple story engine - no dependencies
+let currentPassage = 'start';
+
+// Send initial ready message to parent React app
+function sendToParent(message) {
+  if (window.parent && window.parent !== window) {
+    try {
+      window.parent.postMessage(message, '*');
+      console.log('[SimpleStory] Sent message:', message);
+    } catch (error) {
+      console.error('[SimpleStory] Error sending message:', error);
+    }
+  }
+}
+
+// Navigate to a passage
+function goToPassage(passageId) {
+  // Hide current passage
+  const currentEl = document.getElementById(currentPassage);
+  if (currentEl) {
+    currentEl.style.display = 'none';
+  }
+
+  // Show new passage
+  const newEl = document.getElementById(passageId);
+  if (newEl) {
+    newEl.style.display = 'block';
+    currentPassage = passageId;
+
+    // Send choice tracking message
+    sendToParent({
+      type: 'CHOICE_MADE',
+      data: {
+        choice: `Navigated to: ${passageId}`,
+        from: currentPassage,
+        to: passageId
+      },
+      timestamp: Date.now()
+    });
+
+    // Track general story event
+    sendToParent({
+      type: 'TRACK_EVENT',
+      data: {
+        event: 'passage_viewed',
+        passage: passageId
+      },
+      timestamp: Date.now()
+    });
+  }
+}
+
+// Initialize story when loaded
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('[SimpleStory] Story loaded and ready');
+
+  // Send ready message to parent
+  sendToParent({
+    type: 'STORY_READY',
+    data: {
+      title: 'Simple Test Story',
+      version: '1.0',
+      passages: ['start', 'test-communication', 'about', 'end']
+    },
+    timestamp: Date.now()
+  });
+
+  // Listen for messages from parent React app
+  window.addEventListener('message', function(event) {
+    console.log('[SimpleStory] Received message from parent:', event.data);
+
+    if (event.data && event.data.type) {
+      switch (event.data.type) {
+        case 'INIT':
+          console.log('[SimpleStory] Received init message:', event.data);
+          break;
+        default:
+          console.log('[SimpleStory] Unknown message type:', event.data.type);
+      }
+    }
+  });
+});
+</script>
+
+</body>
+</html>
