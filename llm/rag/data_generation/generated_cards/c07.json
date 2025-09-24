@@ -429,6 +429,18 @@
           "unresolved conflict"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic involves many emotional choices and possibly unrealistic fantasies about what's possible together. Between you exists confusion about feelings or an abundance of options that makes commitment difficult.",
+        "reversed": "Illusions are being cleared away and realistic choices are emerging. Fantasy may be giving way to practical decision-making. The relationship involves focusing on what's real and possible rather than what's merely dreamed.",
+        "keywords": [
+          "choices",
+          "illusions",
+          "fantasy",
+          "confusion"
+        ]
+      }
     }
   },
   "question_contexts": {

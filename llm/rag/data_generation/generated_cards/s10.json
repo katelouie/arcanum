@@ -428,6 +428,18 @@
           "struggle cycles"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship has experienced betrayal, painful endings, or the complete breakdown of trust and communication. The dynamic involves rock bottom, backstabbing, or the painful but necessary end of illusions about what was possible between you.",
+        "reversed": "The worst is over and healing can begin. Betrayal may be forgiven or new beginnings may be possible. The relationship involves rising from rock bottom toward restoration and renewed trust.",
+        "keywords": [
+          "betrayal",
+          "rock bottom",
+          "painful ending",
+          "backstabbing"
+        ]
+      }
     }
   },
   "question_contexts": {

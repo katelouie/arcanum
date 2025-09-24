@@ -427,6 +427,18 @@
           "recalibration"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic is grounded in new material opportunities, practical learning, and building something tangible together. Between you exists the potential for financial growth, career advancement, or the beginning of a solid foundation for shared prosperity.",
+        "reversed": "Material opportunities may be lost or learning might be impractical. New beginnings could lack foundation or resources may be mismanaged. The relationship might involve unrealistic material expectations or poor financial decisions.",
+        "keywords": [
+          "opportunity",
+          "learning",
+          "foundation",
+          "material beginnings"
+        ]
+      }
     }
   },
   "question_contexts": {

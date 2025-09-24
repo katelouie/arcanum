@@ -428,6 +428,18 @@
           "regret"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship involves emotional apathy, dissatisfaction, or the need to look beyond surface contentment. The dynamic may include taking each other for granted or missing new emotional opportunities because you're focused on what's lacking.",
+        "reversed": "The connection is moving beyond apathy toward emotional renewal. New opportunities for love are being recognized. The relationship involves releasing dissatisfaction and appreciating what you truly have together.",
+        "keywords": [
+          "apathy",
+          "dissatisfaction",
+          "contemplation",
+          "missed opportunities"
+        ]
+      }
     }
   },
   "question_contexts": {

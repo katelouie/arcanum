@@ -428,6 +428,18 @@
           "unfinished stories"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship connects to past emotional experiences, nostalgia, and childhood memories. The dynamic between you may involve revisiting old feelings, healing family patterns, or finding comfort in familiar emotional territory.",
+        "reversed": "The connection may be stuck in the past or idealize memories unrealistically. Nostalgia might prevent growth or old patterns may be too difficult to break. The relationship could involve being trapped by childhood wounds or family dynamics.",
+        "keywords": [
+          "nostalgia",
+          "past",
+          "childhood",
+          "memories"
+        ]
+      }
     }
   },
   "question_contexts": {

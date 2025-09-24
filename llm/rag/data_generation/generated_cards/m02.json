@@ -429,6 +429,18 @@
           "disarray"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic is one of deep intuitive understanding and hidden knowledge. You share secrets, spiritual insights, or access to information not available to others. There's a mysterious quality to your connection that others may not fully understand.",
+        "reversed": "Secrets, manipulation, or hidden agendas poison the dynamic. Information may be withheld or used as power over the other. The relationship may involve deception, jealousy, or unhealthy competition for knowledge or status.",
+        "keywords": [
+          "intuition",
+          "secrets",
+          "hidden knowledge",
+          "mystery"
+        ]
+      }
     }
   },
   "question_contexts": {
@@ -627,43 +639,88 @@
     "similar_energy": {
       "the_moon": {
         "interpretation": "Both cards dwell in the realm of intuition and hidden knowledge. Together they deepen psychic abilities and reveal what lies beneath the surface of consciousness.",
-        "keywords": ["deep intuition", "hidden knowledge", "psychic abilities", "subconscious wisdom"]
+        "keywords": [
+          "deep intuition",
+          "hidden knowledge",
+          "psychic abilities",
+          "subconscious wisdom"
+        ]
       },
       "the_hanged_man": {
         "interpretation": "Both cards represent inner knowing that comes through stillness and patience. They share the wisdom of waiting and receiving rather than forcing.",
-        "keywords": ["patient wisdom", "inner stillness", "receptive knowing", "spiritual waiting"]
+        "keywords": [
+          "patient wisdom",
+          "inner stillness",
+          "receptive knowing",
+          "spiritual waiting"
+        ]
       },
       "the_hermit": {
         "interpretation": "Inner wisdom meets solitary seeking. The High Priestess's intuitive depths complement The Hermit's conscious search for spiritual truth and understanding.",
-        "keywords": ["inner wisdom", "spiritual seeking", "contemplative depth", "conscious intuition"]
+        "keywords": [
+          "inner wisdom",
+          "spiritual seeking",
+          "contemplative depth",
+          "conscious intuition"
+        ]
       }
     },
     "opposite_energy": {
       "the_emperor": {
         "interpretation": "Intuitive receptivity contrasts with authoritative structure. The High Priestess's fluid wisdom balances The Emperor's rigid control and external power.",
-        "keywords": ["intuition vs authority", "receptive vs controlling", "fluid vs rigid", "inner vs outer power"]
+        "keywords": [
+          "intuition vs authority",
+          "receptive vs controlling",
+          "fluid vs rigid",
+          "inner vs outer power"
+        ]
       },
       "the_sun": {
         "interpretation": "The veiled mysteries of The High Priestess stand opposite to The Sun's open illumination. Shadow consciousness balances brilliant clarity and visible truth.",
-        "keywords": ["mystery vs clarity", "veiled vs illuminated", "shadow vs light", "hidden vs revealed"]
+        "keywords": [
+          "mystery vs clarity",
+          "veiled vs illuminated",
+          "shadow vs light",
+          "hidden vs revealed"
+        ]
       },
       "the_chariot": {
         "interpretation": "Passive reception versus active control. The High Priestess's patient waiting for wisdom contrasts with The Chariot's forceful determination to achieve goals.",
-        "keywords": ["passive vs active", "waiting vs driving", "reception vs control", "flow vs force"]
+        "keywords": [
+          "passive vs active",
+          "waiting vs driving",
+          "reception vs control",
+          "flow vs force"
+        ]
       }
     },
     "learning_sequence": {
       "the_high_priestess": {
         "interpretation": "Multiple High Priestesses emphasize the deepening of intuitive abilities and the importance of trusting inner wisdom over external validation.",
-        "keywords": ["deepened intuition", "inner trust", "wisdom development", "psychic enhancement"]
+        "keywords": [
+          "deepened intuition",
+          "inner trust",
+          "wisdom development",
+          "psychic enhancement"
+        ]
       },
       "the_empress": {
         "interpretation": "From The High Priestess's inner knowing to The Empress's outer creation - learning to bring intuitive wisdom into fertile, nurturing manifestation.",
-        "keywords": ["inner to outer", "wisdom to creation", "intuition to manifestation", "receptive to fertile"]
+        "keywords": [
+          "inner to outer",
+          "wisdom to creation",
+          "intuition to manifestation",
+          "receptive to fertile"
+        ]
       },
       "the_lovers": {
         "interpretation": "Following inner wisdom, The Lovers represents applying intuitive knowledge to relationships and conscious choice-making in matters of the heart.",
-        "keywords": ["wise choices", "intuitive relationships", "heart wisdom", "conscious love"]
+        "keywords": [
+          "wise choices",
+          "intuitive relationships",
+          "heart wisdom",
+          "conscious love"
+        ]
       }
     }
   }

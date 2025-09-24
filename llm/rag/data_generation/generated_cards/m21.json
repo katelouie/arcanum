@@ -428,6 +428,18 @@
           "missed opportunities"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship represents the completion of a significant journey together. Between you exists a dynamic of fulfillment, achievement, and celebration of what you've built together. This connection brings a sense of wholeness and successful integration.",
+        "reversed": "The connection may feel incomplete or lacking in achievement. Goals may remain unfinished or success may feel hollow. The relationship could involve frustration with incomplete cycles or inability to celebrate what you've accomplished together.",
+        "keywords": [
+          "completion",
+          "achievement",
+          "integration",
+          "fulfillment"
+        ]
+      }
     }
   },
   "question_contexts": {

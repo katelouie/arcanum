@@ -429,6 +429,18 @@
           "paralysis from fear"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The dynamic between you is one of stability, structure, and established authority. This relationship provides security and clear boundaries. You build something lasting together through discipline, responsibility, and respect for established systems.",
+        "reversed": "The connection may feel rigid, controlling, or authoritarian. One party may dominate through power rather than wisdom. The relationship could lack flexibility or become stagnant due to excessive control or fear of change.",
+        "keywords": [
+          "authority",
+          "structure",
+          "stability",
+          "control"
+        ]
+      }
     }
   },
   "question_contexts": {

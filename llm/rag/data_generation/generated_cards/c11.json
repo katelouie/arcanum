@@ -428,6 +428,18 @@
           "disconnected"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic embodies youthful emotion, romantic idealism, and intuitive messages between hearts. This connection involves tender feelings, creative inspiration, and the pure expression of emotional truth without worldly concerns.",
+        "reversed": "The romantic idealism may be immature or unrealistic. Emotional expression might be blocked or manipulative. The relationship could involve emotional immaturity, creative blocks, or difficulty expressing genuine feelings.",
+        "keywords": [
+          "romance",
+          "idealism",
+          "intuition",
+          "tenderness"
+        ]
+      }
     }
   },
   "question_contexts": {

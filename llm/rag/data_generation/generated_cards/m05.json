@@ -431,6 +431,18 @@
           "lack of grounding"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "Between you exists a relationship centered on learning, teaching, and spiritual guidance. This connection helps both parties grow in wisdom and understanding of deeper truths. There's a sacred quality to how you share knowledge and spiritual insights.",
+        "reversed": "The dynamic may involve false teachings, dogma, or spiritual manipulation. One party may claim authority they haven't earned or use spiritual concepts to control. Traditional approaches may be too rigid for this relationship's growth.",
+        "keywords": [
+          "teaching",
+          "wisdom",
+          "tradition",
+          "guidance"
+        ]
+      }
     }
   },
   "question_contexts": {

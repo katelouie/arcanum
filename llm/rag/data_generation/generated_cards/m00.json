@@ -429,6 +429,18 @@
           "captured dreams"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship brings out your adventurous, spontaneous sides. There's an exciting energy of new beginnings and endless possibilities between you. You inspire each other to take risks and embrace the unknown together. The dynamic is youthful, optimistic, and full of potential for growth.",
+        "reversed": "The connection feels reckless or immature. One or both parties may be jumping in too quickly without considering consequences. There's potential for poor judgment or naivety to damage what you're building. The relationship may lack grounding or realistic expectations.",
+        "keywords": [
+          "new beginnings",
+          "adventure",
+          "spontaneity",
+          "potential"
+        ]
+      }
     }
   },
   "question_contexts": {
@@ -628,43 +640,88 @@
     "similar_energy": {
       "ace_of_wands": {
         "interpretation": "Both cards embody the pure energy of new beginnings - The Fool with innocent trust and Ace of Wands with creative fire. Together they represent the perfect moment when inspiration meets courage to act.",
-        "keywords": ["new beginnings", "creative potential", "pure energy", "inspired action"]
+        "keywords": [
+          "new beginnings",
+          "creative potential",
+          "pure energy",
+          "inspired action"
+        ]
       },
       "the_star": {
         "interpretation": "Both cards channel divine guidance and optimistic faith. The Fool's naive trust in life's goodness mirrors The Star's serene confidence in universal support and healing.",
-        "keywords": ["divine guidance", "faith", "optimism", "trust in universe"]
+        "keywords": [
+          "divine guidance",
+          "faith",
+          "optimism",
+          "trust in universe"
+        ]
       },
       "three_of_cups": {
         "interpretation": "The Fool's open-hearted approach to life resonates with Three of Cups' joyful celebration and community spirit. Both embrace life with enthusiasm and welcome connections with others.",
-        "keywords": ["joyful celebration", "open heart", "community", "social enthusiasm"]
+        "keywords": [
+          "joyful celebration",
+          "open heart",
+          "community",
+          "social enthusiasm"
+        ]
       }
     },
     "opposite_energy": {
       "the_world": {
         "interpretation": "The Fool represents the beginning of the journey while The World represents its completion. This polarity shows the full cycle from innocent potential to achieved mastery and integration.",
-        "keywords": ["beginning vs completion", "journey's end", "potential vs achievement", "cycle completion"]
+        "keywords": [
+          "beginning vs completion",
+          "journey's end",
+          "potential vs achievement",
+          "cycle completion"
+        ]
       },
       "four_of_pentacles": {
         "interpretation": "The Fool's carefree trust contrasts sharply with Four of Pentacles' need for security and control. Where The Fool leaps freely, Four of Pentacles clings tightly to what it has.",
-        "keywords": ["freedom vs security", "trust vs control", "carefree vs cautious", "letting go vs holding on"]
+        "keywords": [
+          "freedom vs security",
+          "trust vs control",
+          "carefree vs cautious",
+          "letting go vs holding on"
+        ]
       },
       "the_devil": {
         "interpretation": "The Fool's innocent freedom stands in stark opposition to The Devil's chains of limitation and illusion. This contrast highlights the choice between liberation through trust and bondage through fear.",
-        "keywords": ["freedom vs bondage", "innocence vs corruption", "trust vs fear", "liberation vs chains"]
+        "keywords": [
+          "freedom vs bondage",
+          "innocence vs corruption",
+          "trust vs fear",
+          "liberation vs chains"
+        ]
       }
     },
     "learning_sequence": {
       "the_fool": {
         "interpretation": "The Fool represents the eternal beginner's mind - even when The Fool appears multiple times, it emphasizes returning to fresh perspective and childlike wonder in any situation.",
-        "keywords": ["beginner's mind", "fresh perspective", "eternal renewal", "childlike wonder"]
+        "keywords": [
+          "beginner's mind",
+          "fresh perspective",
+          "eternal renewal",
+          "childlike wonder"
+        ]
       },
       "the_magician": {
         "interpretation": "The natural progression from The Fool's raw potential to The Magician's focused manifestation. This sequence shows how innocent trust develops into conscious will and skilled action.",
-        "keywords": ["potential to manifestation", "trust to will", "innocence to skill", "natural progression"]
+        "keywords": [
+          "potential to manifestation",
+          "trust to will",
+          "innocence to skill",
+          "natural progression"
+        ]
       },
       "the_high_priestess": {
         "interpretation": "Following The Magician, The High Priestess teaches The Fool to balance external action with inner wisdom, moving from pure instinct to developed intuition and deeper spiritual understanding.",
-        "keywords": ["inner wisdom", "intuition development", "spiritual understanding", "action to reflection"]
+        "keywords": [
+          "inner wisdom",
+          "intuition development",
+          "spiritual understanding",
+          "action to reflection"
+        ]
       }
     }
   }

@@ -430,6 +430,18 @@
           "disconnect from purpose"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship embodies wisdom, introspection, and spiritual seeking. Between you exists a deep understanding that comes from looking within. This connection encourages solitude when needed and honors the inner journey of both parties.",
+        "reversed": "The dynamic may involve isolation, stubbornness, or excessive secrecy. One or both parties may withdraw too much or refuse guidance from the other. Wisdom may become dogmatism or spiritual seeking may turn into escapism from relationship responsibilities.",
+        "keywords": [
+          "wisdom",
+          "introspection",
+          "guidance",
+          "solitude"
+        ]
+      }
     }
   },
   "question_contexts": {

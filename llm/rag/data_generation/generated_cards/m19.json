@@ -430,6 +430,18 @@
           "ego-driven stagnation"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic radiates joy, vitality, and success. Between you exists a warm, life-giving energy that brings out the best in both parties. This connection illuminates truth, brings clarity, and celebrates the positive aspects of being together.",
+        "reversed": "The connection may lack warmth, optimism, or genuine happiness. Success may be delayed or superficial. The relationship could involve hidden truths, false optimism, or an inability to maintain the positive energy that once brought you together.",
+        "keywords": [
+          "joy",
+          "success",
+          "vitality",
+          "illumination"
+        ]
+      }
     }
   },
   "question_contexts": {

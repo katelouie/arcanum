@@ -431,6 +431,18 @@
           "unending turmoil"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic seeks balance, fairness, and truth. Between you exists a commitment to justice and making ethical decisions together. This connection honors cause and effect, taking responsibility for actions and their consequences.",
+        "reversed": "The dynamic may involve unfairness, blame, or avoiding accountability. Decisions may be biased or self-serving rather than just. The relationship could struggle with imbalance, where one party gives or takes too much without reciprocity.",
+        "keywords": [
+          "justice",
+          "balance",
+          "truth",
+          "accountability"
+        ]
+      }
     }
   },
   "question_contexts": {

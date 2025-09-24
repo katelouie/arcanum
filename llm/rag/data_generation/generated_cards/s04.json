@@ -430,6 +430,18 @@
           "chaos vs. peace"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship requires rest, contemplation, and temporary withdrawal from active engagement. The dynamic involves taking a break to process thoughts and feelings, gather strength, and prepare for the next phase of your connection.",
+        "reversed": "The rest period may be ending or isolation might be excessive. Activity may be resuming or the need for contemplation might be ignored. The relationship involves balancing solitude with engagement.",
+        "keywords": [
+          "rest",
+          "contemplation",
+          "withdrawal",
+          "preparation"
+        ]
+      }
     }
   },
   "question_contexts": {

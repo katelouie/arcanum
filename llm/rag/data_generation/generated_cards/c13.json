@@ -426,6 +426,18 @@
           "wounds"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic embodies emotional mastery, compassion, and the wisdom that comes from deep feeling. Between you exists mature love that is both passionate and stable, combining emotional depth with practical wisdom about relationships.",
+        "reversed": "Emotional mastery may be lacking or corrupted by manipulation. Compassion might be conditional or self-serving. The relationship could involve emotional manipulation, moodiness, or using emotional intelligence for control rather than love.",
+        "keywords": [
+          "emotional mastery",
+          "compassion",
+          "wisdom",
+          "balanced love"
+        ]
+      }
     }
   },
   "question_contexts": {

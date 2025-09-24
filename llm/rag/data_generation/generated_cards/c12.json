@@ -431,6 +431,18 @@
           "fantasy collapse"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship involves someone who is emotionally mature, nurturing, and intuitively wise. The dynamic includes compassionate understanding, emotional support, and the ability to create a safe space for feelings to be expressed and healed.",
+        "reversed": "The nurturing may become smothering or emotionally manipulative. Intuition might be ignored or used for control. The relationship could involve emotional manipulation, codependency, or using sensitivity as a weapon.",
+        "keywords": [
+          "nurturing",
+          "compassion",
+          "intuition",
+          "emotional wisdom"
+        ]
+      }
     }
   },
   "question_contexts": {

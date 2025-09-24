@@ -429,6 +429,18 @@
           "stagnation risk"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship has swift movement, rapid communication, and exciting developments. The dynamic between you accelerates progress and brings quick results. Messages, travel, or fast-paced changes characterize your connection.",
+        "reversed": "The connection may be delayed, miscommunicated, or moving too fast to be sustainable. Hasty decisions or impulsive actions could cause problems. The relationship might involve frustration with slow progress or reckless speed.",
+        "keywords": [
+          "speed",
+          "movement",
+          "communication",
+          "progress"
+        ]
+      }
     }
   },
   "question_contexts": {

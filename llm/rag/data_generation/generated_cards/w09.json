@@ -430,6 +430,18 @@
           "unguarded"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic involves resilience, persistence, and the strength to continue despite challenges. Between you exists determination and the wisdom of experience. You help each other maintain boundaries while staying committed to your goals.",
+        "reversed": "The connection may involve stubbornness, exhaustion, or inability to adapt to new challenges. Persistence may become rigid inflexibility. The relationship could involve paranoia, over-defensiveness, or burnout from constant struggle.",
+        "keywords": [
+          "resilience",
+          "persistence",
+          "boundaries",
+          "endurance"
+        ]
+      }
     }
   },
   "question_contexts": {

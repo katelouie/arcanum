@@ -430,6 +430,18 @@
           "opportunity loss"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic involves standing your ground and defending your shared values against opposition. Between you exists courage and the willingness to fight for what you believe in together. You give each other strength to persevere.",
+        "reversed": "The connection may give up too easily when challenged or become overly defensive. Opposition may overwhelm you or paranoia may damage trust. The relationship could involve unnecessary battles or inability to know when to yield.",
+        "keywords": [
+          "defense",
+          "perseverance",
+          "courage",
+          "challenge"
+        ]
+      }
     }
   },
   "question_contexts": {

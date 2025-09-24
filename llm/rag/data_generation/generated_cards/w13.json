@@ -429,6 +429,18 @@
           "aspirational stagnation"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic embodies mature leadership, vision, and the ability to turn dreams into reality. Between you exists wisdom, experience, and the confidence to take charge of your shared destiny. You build something lasting through skillful action.",
+        "reversed": "Leadership may be immature, reckless, or overly controlling. Vision might be clouded by ego or unrealistic expectations. The relationship could involve power struggles, failed enterprises, or inability to manifest shared dreams effectively.",
+        "keywords": [
+          "mastery",
+          "leadership",
+          "vision",
+          "manifestation"
+        ]
+      }
     }
   },
   "question_contexts": {

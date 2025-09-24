@@ -429,6 +429,18 @@
           "open door"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship involves feeling trapped by limiting thoughts, fear of speaking truth, or mental restriction. The dynamic may include self-imposed limitations, victim mentality, or the belief that change is impossible.",
+        "reversed": "The mental restrictions are being removed or self-imposed limitations are being recognized. Freedom of thought may be returning or the victim mentality might be transforming into empowerment.",
+        "keywords": [
+          "restriction",
+          "limitation",
+          "trapped thinking",
+          "victimhood"
+        ]
+      }
     }
   },
   "question_contexts": {

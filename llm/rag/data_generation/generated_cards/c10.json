@@ -430,6 +430,18 @@
           "emotional distance"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship creates emotional fulfillment, family harmony, and lasting happiness together. The dynamic between you builds something emotionally complete and satisfying that extends to your broader community and family connections.",
+        "reversed": "Family harmony may be disrupted or emotional fulfillment may be temporary. The connection might involve family conflicts, broken relationships, or inability to create lasting emotional satisfaction together.",
+        "keywords": [
+          "fulfillment",
+          "family",
+          "harmony",
+          "completion"
+        ]
+      }
     }
   },
   "question_contexts": {

@@ -430,6 +430,18 @@
           "lost potential"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic is sparked by new creative energy and passionate inspiration. Between you exists the potential for exciting new projects, adventures, or expressions of creativity. This connection ignites mutual enthusiasm and innovative ideas.",
+        "reversed": "The creative spark may be lacking or misdirected in your connection. Inspiration could be blocked or false starts may plague your joint endeavors. The relationship may struggle with creative differences or inability to channel enthusiasm productively.",
+        "keywords": [
+          "inspiration",
+          "creativity",
+          "new projects",
+          "enthusiasm"
+        ]
+      }
     }
   },
   "question_contexts": {

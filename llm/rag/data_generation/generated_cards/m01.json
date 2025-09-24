@@ -431,6 +431,18 @@
           "self-deception"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "Between you exists a powerful creative and manifestation energy. You have the tools and skills to build something meaningful together. This is a dynamic where both parties can make their shared visions reality through focused intention and skillful action.",
+        "reversed": "There's untapped potential or misused talents in this connection. Skills and resources may be scattered or used for manipulation. The relationship may involve deception or one party using their abilities to control rather than create together.",
+        "keywords": [
+          "manifestation",
+          "skill",
+          "creation",
+          "potential"
+        ]
+      }
     }
   },
   "question_contexts": {
@@ -629,43 +641,88 @@
     "similar_energy": {
       "the_empress": {
         "interpretation": "Fertile creativity flows when The Magician's focused will meets The Empress's abundant nurturing energy. Ideas become living manifestations through gentle persistence.",
-        "keywords": ["creative manifestation", "fertile ideas", "gentle persistence", "nurturing focus"]
+        "keywords": [
+          "creative manifestation",
+          "fertile ideas",
+          "gentle persistence",
+          "nurturing focus"
+        ]
       },
       "the_ace_of_wands": {
         "interpretation": "Pure creative fire meets skilled direction. The Magician's mastery channels Ace of Wands' raw inspiration into powerful, purposeful action.",
-        "keywords": ["directed creativity", "channeled fire", "purposeful inspiration", "skilled manifestation"]
+        "keywords": [
+          "directed creativity",
+          "channeled fire",
+          "purposeful inspiration",
+          "skilled manifestation"
+        ]
       },
       "temperance": {
         "interpretation": "Both cards master the art of blending opposing forces. The Magician's willful creation harmonizes beautifully with Temperance's patient alchemy.",
-        "keywords": ["balanced creation", "patient mastery", "harmonious alchemy", "skillful blending"]
+        "keywords": [
+          "balanced creation",
+          "patient mastery",
+          "harmonious alchemy",
+          "skillful blending"
+        ]
       }
     },
     "opposite_energy": {
       "the_hanged_man": {
         "interpretation": "The Magician's active willpower contrasts with The Hanged Man's passive surrender. This tension teaches the value of knowing when to act and when to wait.",
-        "keywords": ["action vs surrender", "will vs patience", "timing wisdom", "active vs passive"]
+        "keywords": [
+          "action vs surrender",
+          "will vs patience",
+          "timing wisdom",
+          "active vs passive"
+        ]
       },
       "four_of_cups": {
         "interpretation": "The Magician's dynamic energy clashes with Four of Cups' emotional withdrawal and apathy. This highlights the need to reignite passion and motivation.",
-        "keywords": ["energy vs apathy", "motivation vs withdrawal", "passion vs stagnation", "action vs inaction"]
+        "keywords": [
+          "energy vs apathy",
+          "motivation vs withdrawal",
+          "passion vs stagnation",
+          "action vs inaction"
+        ]
       },
       "five_of_pentacles": {
         "interpretation": "The Magician's abundant potential stands in stark contrast to Five of Pentacles' scarcity mindset. This pairing calls for using skills to transform lack into abundance.",
-        "keywords": ["abundance vs scarcity", "potential vs lack", "transformation skills", "resourcefulness"]
+        "keywords": [
+          "abundance vs scarcity",
+          "potential vs lack",
+          "transformation skills",
+          "resourcefulness"
+        ]
       }
     },
     "learning_sequence": {
       "the_magician": {
         "interpretation": "Multiple Magicians amplify the themes of manifestation and willpower. This emphasizes mastery through practice and the importance of ethical use of personal power.",
-        "keywords": ["amplified manifestation", "mastery practice", "ethical power", "willpower focus"]
+        "keywords": [
+          "amplified manifestation",
+          "mastery practice",
+          "ethical power",
+          "willpower focus"
+        ]
       },
       "the_high_priestess": {
         "interpretation": "Following The Magician, The High Priestess teaches the importance of balancing external action with inner wisdom and intuitive knowing.",
-        "keywords": ["action to reflection", "outer to inner", "wisdom development", "intuitive balance"]
+        "keywords": [
+          "action to reflection",
+          "outer to inner",
+          "wisdom development",
+          "intuitive balance"
+        ]
       },
       "the_empress": {
         "interpretation": "From The Magician's focused will to The Empress's natural abundance - learning to manifest through flow and receptivity rather than force alone.",
-        "keywords": ["will to flow", "force to receptivity", "natural abundance", "gentle manifestation"]
+        "keywords": [
+          "will to flow",
+          "force to receptivity",
+          "natural abundance",
+          "gentle manifestation"
+        ]
       }
     }
   }

@@ -429,6 +429,18 @@
           "neglect"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship represents the highest expression of material wisdom and earthly stewardship. The dynamic between you serves the greater good through practical action, environmental consciousness, and the ability to manifest abundance that benefits all life.",
+        "reversed": "The material wisdom may be corrupted by greed or stewardship might be neglected. Environmental consciousness could be lacking or abundance might be used selfishly. The relationship may involve exploitation of resources or using practical power for harmful purposes.",
+        "keywords": [
+          "material wisdom",
+          "stewardship",
+          "environmental consciousness",
+          "abundant service"
+        ]
+      }
     }
   },
   "question_contexts": {

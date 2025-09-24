@@ -429,6 +429,18 @@
           "relational breakdown"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship embodies true partnership, choice, and mutual attraction. The dynamic is one of harmony, shared values, and conscious commitment. You complement each other beautifully and make decisions together that honor both your individual needs.",
+        "reversed": "The connection struggles with imbalance, poor choices, or unrequited feelings. Values may clash or one party may be more invested than the other. Decisions made together may lack harmony or consideration for both parties' needs.",
+        "keywords": [
+          "partnership",
+          "harmony",
+          "choice",
+          "attraction"
+        ]
+      }
     }
   },
   "question_contexts": {

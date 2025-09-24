@@ -430,6 +430,18 @@
           "disconnected relationships"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic overflows with new emotional experiences and spiritual connection. Between you exists pure love, intuitive understanding, and the opening of hearts to deeper intimacy. This connection brings emotional renewal and soul-level bonding.",
+        "reversed": "The emotional connection may be blocked, shallow, or one-sided. Love might be conditional or emotionally manipulative. The relationship could involve closed hearts, spiritual disconnection, or fear of emotional vulnerability.",
+        "keywords": [
+          "love",
+          "emotion",
+          "spirituality",
+          "intimacy"
+        ]
+      }
     }
   },
   "question_contexts": {

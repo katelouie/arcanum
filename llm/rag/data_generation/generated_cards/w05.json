@@ -428,6 +428,18 @@
           "stagnation"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic involves healthy competition, disagreement, and passionate debate. Between you exists an energy of creative conflict that, while challenging, can lead to better solutions. You push each other to defend and refine your ideas.",
+        "reversed": "The competition may become destructive or the conflicts may be avoided altogether. Disagreements could escalate beyond healthy debate. The relationship may involve petty arguments, ego conflicts, or inability to find resolution through discussion.",
+        "keywords": [
+          "competition",
+          "conflict",
+          "debate",
+          "challenge"
+        ]
+      }
     }
   },
   "question_contexts": {

@@ -430,6 +430,18 @@
           "imprisoned by doubt"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "Between you flows a dynamic of inner strength, courage, and gentle power. This relationship helps both parties find their bravery and face challenges with grace. You bring out each other's nobility and capacity for patient, loving strength.",
+        "reversed": "The connection may involve power struggles, weakness, or cruelty. One party may dominate through force rather than love. Inner strength may be lacking, leading to victim mentalities or aggressive attempts to control the other.",
+        "keywords": [
+          "inner strength",
+          "courage",
+          "gentleness",
+          "nobility"
+        ]
+      }
     }
   },
   "question_contexts": {

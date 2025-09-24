@@ -429,6 +429,18 @@
           "halted growth"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic brings emotional satisfaction, contentment, and the fulfillment of heartfelt wishes. Between you exists a sense of having achieved what you hoped for emotionally. This connection provides deep happiness and gratitude.",
+        "reversed": "Contentment may be superficial or temporary. Wishes might be fulfilled but not bring expected happiness. The relationship could involve taking emotional satisfaction for granted or realizing that getting what you wanted isn't enough.",
+        "keywords": [
+          "contentment",
+          "satisfaction",
+          "wishes fulfilled",
+          "happiness"
+        ]
+      }
     }
   },
   "question_contexts": {

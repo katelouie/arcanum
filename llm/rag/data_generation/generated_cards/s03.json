@@ -429,6 +429,18 @@
           "delayed transformation"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic involves heartbreak, separation, and painful but necessary communication. Between you exists the experience of loss, betrayal, or the cutting away of illusions that once held you together.",
+        "reversed": "The heartbreak is healing or separation may be avoided. Communication might be restored or forgiveness may be possible. The relationship involves moving beyond pain toward understanding and potential reconciliation.",
+        "keywords": [
+          "heartbreak",
+          "separation",
+          "betrayal",
+          "loss"
+        ]
+      }
     }
   },
   "question_contexts": {

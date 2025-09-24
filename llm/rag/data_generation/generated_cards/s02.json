@@ -391,6 +391,18 @@
           "delayed realization"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship involves blocked communication, difficult decisions, and the need to find balance between opposing viewpoints. The dynamic requires careful consideration and may involve temporary stalemates while working through complex issues.",
+        "reversed": "The blockage is being removed or decisions are finally being made. Communication may be restored or balance may be found. The relationship involves moving beyond stalemate toward resolution and clarity.",
+        "keywords": [
+          "blockage",
+          "indecision",
+          "balance",
+          "stalemate"
+        ]
+      }
     }
   },
   "question_contexts": {

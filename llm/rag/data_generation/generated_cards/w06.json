@@ -430,6 +430,18 @@
           "internal validation"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship brings victory, recognition, and public success together. The dynamic between you creates leadership and achievement that others admire. You support each other in reaching goals and receiving the recognition you deserve.",
+        "reversed": "Success may be delayed, private, or come at too high a cost. Recognition might be lacking or temporary. The relationship could involve ego issues around achievements or failure to acknowledge each other's contributions to success.",
+        "keywords": [
+          "victory",
+          "recognition",
+          "success",
+          "leadership"
+        ]
+      }
     }
   },
   "question_contexts": {

@@ -428,6 +428,18 @@
           "misunderstanding cycle"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic involves conflict, winning at others' expense, and the aftermath of intellectual or verbal battles. Between you exists competition where victory comes with costs and relationships may be damaged by the need to be right.",
+        "reversed": "The conflict is resolving or you're learning to disagree without damage. Competition may be giving way to cooperation. The relationship involves finding ways to resolve differences that honor both parties' perspectives.",
+        "keywords": [
+          "conflict",
+          "defeat",
+          "victory",
+          "competition"
+        ]
+      }
     }
   },
   "question_contexts": {

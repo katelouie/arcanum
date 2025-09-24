@@ -431,6 +431,18 @@
           "derailed progress"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship embodies patience, moderation, and the blending of opposites into harmony. The dynamic between you creates balance through gradual integration and mutual adaptation. You help each other find the middle path and avoid extremes.",
+        "reversed": "The connection may struggle with impatience, excess, or inability to find compromise. Opposing forces may clash rather than blend. The relationship could involve extremes, lack of moderation, or failure to adapt to each other's needs.",
+        "keywords": [
+          "temperance",
+          "balance",
+          "moderation",
+          "harmony"
+        ]
+      }
     }
   },
   "question_contexts": {

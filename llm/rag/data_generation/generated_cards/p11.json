@@ -430,6 +430,18 @@
           "unfulfilled ambitions"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic embodies enthusiasm for learning, new material ventures, and the excitement of discovering practical skills together. Between you exists curiosity about the physical world and eagerness to explore new opportunities for growth.",
+        "reversed": "The enthusiasm for learning may be short-lived or ventures might be impractical. Excitement could lead to poor decisions or opportunities might be wasted. The relationship may involve lack of follow-through or unrealistic material expectations.",
+        "keywords": [
+          "enthusiasm",
+          "learning",
+          "practical exploration",
+          "new ventures"
+        ]
+      }
     }
   },
   "question_contexts": {

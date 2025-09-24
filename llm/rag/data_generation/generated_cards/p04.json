@@ -429,6 +429,18 @@
           "stagnation"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship is built on material security, conservative values, and the careful preservation of resources. The dynamic involves saving, holding onto what you have, and perhaps being overly cautious about spending or sharing material resources.",
+        "reversed": "The holding onto resources may become excessive or sharing might be neglected. Security could turn into stinginess or generosity might be lacking. The relationship may involve hoarding, selfishness, or fear-based scarcity thinking.",
+        "keywords": [
+          "security",
+          "conservation",
+          "material control",
+          "caution"
+        ]
+      }
     }
   },
   "question_contexts": {

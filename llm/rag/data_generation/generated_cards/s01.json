@@ -429,6 +429,18 @@
           "stagnation"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic is characterized by new ideas, clear communication, and intellectual breakthrough. Between you exists mental clarity, the power of truth, and the ability to cut through confusion with honest dialogue and sharp thinking.",
+        "reversed": "Communication may be harsh, hurtful, or used as a weapon. New ideas might be forced or aggressive. The relationship could involve mental cruelty, miscommunication, or using intelligence to dominate rather than illuminate.",
+        "keywords": [
+          "clarity",
+          "communication",
+          "truth",
+          "breakthrough"
+        ]
+      }
     }
   },
   "question_contexts": {

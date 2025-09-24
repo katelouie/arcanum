@@ -431,6 +431,18 @@
           "overconfidence warning"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic involves material attachments, temptation, or unhealthy patterns that bind you together. While there may be strong attraction, the connection could involve codependency, addiction to each other, or bonds that limit rather than liberate.",
+        "reversed": "The connection is breaking free from unhealthy patterns or addictions. Liberation from codependent dynamics is possible. The relationship may involve releasing material attachments or power struggles that once bound you in limiting ways.",
+        "keywords": [
+          "attachment",
+          "temptation",
+          "bondage",
+          "materialism"
+        ]
+      }
     }
   },
   "question_contexts": {

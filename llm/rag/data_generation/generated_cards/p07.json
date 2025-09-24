@@ -429,6 +429,18 @@
           "missed potential"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic involves patience with long-term investments, waiting for rewards, and the wisdom to know that good things take time to develop. Between you exists commitment to slow but steady progress toward material goals.",
+        "reversed": "Patience may be lacking or investments might not be paying off. Long-term planning could be abandoned for quick fixes. The relationship might involve impatience with results, poor timing, or abandoning efforts too soon.",
+        "keywords": [
+          "patience",
+          "investment",
+          "long-term planning",
+          "assessment"
+        ]
+      }
     }
   },
   "question_contexts": {

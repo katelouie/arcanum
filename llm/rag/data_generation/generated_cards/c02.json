@@ -427,6 +427,18 @@
           "lasting damage"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship is built on mutual understanding, emotional harmony, and balanced partnership. The dynamic between you involves deep friendship, cooperation, and the ability to work together toward shared emotional goals.",
+        "reversed": "The partnership may be unbalanced or lack emotional harmony. Understanding could be one-sided or communication may be poor. The relationship might involve codependency, unrequited feelings, or inability to cooperate emotionally.",
+        "keywords": [
+          "partnership",
+          "harmony",
+          "understanding",
+          "cooperation"
+        ]
+      }
     }
   },
   "question_contexts": {

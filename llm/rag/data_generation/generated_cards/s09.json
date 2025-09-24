@@ -429,6 +429,18 @@
           "missed recovery"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic is haunted by worry, anxiety, and mental anguish. Between you exists fear, guilt, or torment that may be worse in imagination than in reality. The connection involves facing dark thoughts and finding dawn after the dark night of the soul.",
+        "reversed": "The anxiety is lifting or worst fears are proving unfounded. Mental anguish may be healing or dawn may be breaking. The relationship involves moving beyond worry toward peace and mental clarity.",
+        "keywords": [
+          "anxiety",
+          "worry",
+          "guilt",
+          "mental torment"
+        ]
+      }
     }
   },
   "question_contexts": {

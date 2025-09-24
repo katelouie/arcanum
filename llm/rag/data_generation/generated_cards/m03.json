@@ -429,6 +429,18 @@
           "stagnation"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This connection embodies nurturing, creativity, and abundance. Between you flows a fertile energy that brings ideas, projects, or even new life into being. The dynamic is supportive, encouraging growth and the manifestation of beauty in all forms.",
+        "reversed": "The relationship may struggle with creative blocks, jealousy, or smothering behavior. Nurturing may become controlling or possessive. There could be issues around fertility, creativity being stifled, or resources being hoarded rather than shared.",
+        "keywords": [
+          "nurturing",
+          "creativity",
+          "abundance",
+          "fertility"
+        ]
+      }
     }
   },
   "question_contexts": {

@@ -431,6 +431,18 @@
           "relational issues"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship involves generosity, charity, and the fair sharing of resources. The dynamic includes giving and receiving in balance, supporting each other's material needs, and creating equity in your shared resources and opportunities.",
+        "reversed": "Generosity may be one-sided or charity might come with strings attached. Sharing could be unfair or resources might be hoarded. The relationship may involve financial manipulation, debt, or unequal exchange of support.",
+        "keywords": [
+          "generosity",
+          "charity",
+          "sharing",
+          "reciprocity"
+        ]
+      }
     }
   },
   "question_contexts": {

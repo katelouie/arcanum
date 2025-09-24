@@ -429,6 +429,18 @@
           "frustration"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic involves expansion, growth, and looking toward broader horizons together. Between you exists an energy that encourages taking your connection to the next level. You support each other's ambitions and shared vision for the future.",
+        "reversed": "The connection may be delayed in growth or expansion. Plans may encounter obstacles or lack the support needed for success. The relationship could involve impatience with progress or unrealistic expectations about timing.",
+        "keywords": [
+          "expansion",
+          "growth",
+          "horizons",
+          "progress"
+        ]
+      }
     }
   },
   "question_contexts": {

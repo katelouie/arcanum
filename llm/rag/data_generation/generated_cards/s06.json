@@ -430,6 +430,18 @@
           "change fear"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship involves moving away from difficulties together, seeking calmer waters, and transitioning to a better state. The dynamic includes mutual support through challenging times and the wisdom to know when to leave problems behind.",
+        "reversed": "The transition may be delayed or you might be running from necessary challenges. Calmer waters could be elusive or the journey might involve returning to face what was left behind.",
+        "keywords": [
+          "transition",
+          "movement",
+          "escape",
+          "calmer waters"
+        ]
+      }
     }
   },
   "question_contexts": {

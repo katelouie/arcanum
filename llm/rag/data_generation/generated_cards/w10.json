@@ -431,6 +431,18 @@
           "missed relief"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship carries heavy responsibilities and burdens that you share together. The dynamic involves taking on too much but having the strength to carry it. Success comes through accepting that some struggles are necessary parts of the journey.",
+        "reversed": "The connection may involve avoiding responsibilities or feeling overwhelmed by burdens. Duties may be unevenly shared or abandoned altogether. The relationship could involve martyrdom, victimhood, or refusing to accept necessary challenges.",
+        "keywords": [
+          "responsibility",
+          "burden",
+          "endurance",
+          "sacrifice"
+        ]
+      }
     }
   },
   "question_contexts": {

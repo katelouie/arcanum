@@ -427,6 +427,18 @@
           "isolation"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic embodies intellectual mastery, clear authority, and the power of truth spoken with conviction. Between you exists respect for knowledge, the ability to lead through wisdom, and communication that cuts to the heart of matters.",
+        "reversed": "The intellectual mastery may become tyrannical or cold. Authority might be abused or truth might be used as a weapon. The relationship could involve intellectual domination, harsh criticism, or communication that lacks warmth and humanity.",
+        "keywords": [
+          "intellectual mastery",
+          "authority",
+          "truth",
+          "leadership"
+        ]
+      }
     }
   },
   "question_contexts": {

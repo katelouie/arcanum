@@ -420,6 +420,18 @@
         "upright": "The worst scenario involves arrogance and over-control leading to burnout or alienation.",
         "reversed": "Fear-based inaction or relentless chaos could lead to a crisis of identity and purpose."
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic is driven by determination, willpower, and shared direction. You move forward together with focused intent, overcoming obstacles through combined strength. This connection has strong momentum toward achieving mutual goals.",
+        "reversed": "The relationship may involve competing wills, lack of direction, or aggressive behavior. You might be pulling in different directions or using force rather than cooperation to resolve conflicts. Progress may be stalled by stubbornness or ego clashes.",
+        "keywords": [
+          "willpower",
+          "determination",
+          "direction",
+          "momentum"
+        ]
+      }
     }
   },
   "question_contexts": {

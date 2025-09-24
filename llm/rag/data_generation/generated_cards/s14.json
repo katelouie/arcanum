@@ -430,6 +430,18 @@
           "hubris pitfalls"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship represents the highest expression of intellectual wisdom and ethical communication. The dynamic between you serves truth and justice above personal interest, combining sharp intelligence with compassion and the ability to guide others toward clarity.",
+        "reversed": "The intellectual wisdom may be corrupted by power or personal agenda. Communication might serve self-interest rather than truth. The relationship could involve manipulation disguised as wisdom or using intelligence to control rather than liberate.",
+        "keywords": [
+          "intellectual wisdom",
+          "ethical communication",
+          "truth",
+          "guidance"
+        ]
+      }
     }
   },
   "question_contexts": {

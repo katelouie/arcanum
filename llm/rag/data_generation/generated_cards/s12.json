@@ -429,6 +429,18 @@
           "unchecked impulsivity"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship involves someone with intellectual authority, clear judgment, and the ability to make fair decisions. The dynamic includes rational analysis, objective perspective, and the wisdom that comes from experience and study.",
+        "reversed": "The intellectual authority may be biased or overly harsh. Judgment might be clouded by personal interests or emotion. The relationship could involve unfair criticism, intellectual bullying, or decisions made without heart or compassion.",
+        "keywords": [
+          "intellectual authority",
+          "judgment",
+          "analysis",
+          "fairness"
+        ]
+      }
     }
   },
   "question_contexts": {

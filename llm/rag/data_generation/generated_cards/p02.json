@@ -428,6 +428,18 @@
           "time allocation"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship involves juggling multiple responsibilities, adapting to changing circumstances, and finding balance in practical matters. The dynamic includes flexibility, resourcefulness, and the ability to manage various aspects of life together.",
+        "reversed": "The juggling may become overwhelming or balance might be lost. Adaptability could give way to chaos or responsibilities might be neglected. The relationship may involve poor time management or inability to handle multiple commitments.",
+        "keywords": [
+          "balance",
+          "juggling",
+          "adaptability",
+          "multiple responsibilities"
+        ]
+      }
     }
   },
   "question_contexts": {

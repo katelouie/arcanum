@@ -431,6 +431,18 @@
           "long-term regret"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This connection involves surrender, patience, and seeing from new perspectives. The dynamic between you requires letting go of control and trusting in the process. You help each other find wisdom through waiting and accepting what cannot be changed.",
+        "reversed": "The relationship may involve unnecessary martyrdom, stagnation, or resistance to needed sacrifice. One party may give up too much or refuse to make necessary compromises. Progress may be blocked by stubborn attachment to outdated perspectives.",
+        "keywords": [
+          "surrender",
+          "patience",
+          "perspective",
+          "sacrifice"
+        ]
+      }
     }
   },
   "question_contexts": {

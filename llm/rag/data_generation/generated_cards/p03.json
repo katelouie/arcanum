@@ -427,6 +427,18 @@
           "stagnation"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic involves collaboration, skill-building, and working together toward mastery. Between you exists mutual respect for each other's talents and the ability to learn from one another while creating something of lasting value.",
+        "reversed": "Collaboration may be lacking or skills might be undervalued. Learning could be hindered by pride or competition. The relationship might involve sloppy work, lack of attention to detail, or failure to appreciate each other's contributions.",
+        "keywords": [
+          "collaboration",
+          "skill",
+          "mastery",
+          "teamwork"
+        ]
+      }
     }
   },
   "question_contexts": {

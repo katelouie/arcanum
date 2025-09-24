@@ -429,6 +429,18 @@
           "isolation"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic celebrates joy, friendship, and emotional abundance. Between you exists a community feeling, shared celebrations, and the ability to bring happiness to each other and those around you. This connection radiates positive social energy.",
+        "reversed": "The social joy may be superficial or exclusive. Celebrations might be forced or overshadowed by gossip. The relationship could involve fair-weather friendship, emotional excess, or inability to maintain genuine happiness together.",
+        "keywords": [
+          "friendship",
+          "celebration",
+          "community",
+          "joy"
+        ]
+      }
     }
   },
   "question_contexts": {

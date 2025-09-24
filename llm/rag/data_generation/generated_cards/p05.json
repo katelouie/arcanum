@@ -429,6 +429,18 @@
           "previous challenges"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic involves material hardship, financial stress, or feeling left out in the cold together. Between you exists the experience of poverty, whether material or spiritual, and the need to support each other through difficult times.",
+        "reversed": "The hardship is ending or support is becoming available. Material recovery may be beginning or spiritual poverty might be healing. The relationship involves moving from scarcity toward abundance and security.",
+        "keywords": [
+          "hardship",
+          "poverty",
+          "exclusion",
+          "material struggle"
+        ]
+      }
     }
   },
   "question_contexts": {

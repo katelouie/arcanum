@@ -428,6 +428,18 @@
           "clarity basics"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic embodies sharp thinking, intellectual curiosity, and direct communication. Between you exists mental agility, the courage to ask difficult questions, and the ability to engage in stimulating intellectual discourse.",
+        "reversed": "The sharp thinking may become cutting or cruel. Intellectual curiosity might turn into gossiping or prying. The relationship could involve using intelligence to hurt rather than illuminate, or communication that lacks compassion.",
+        "keywords": [
+          "sharp thinking",
+          "curiosity",
+          "directness",
+          "intellectual discourse"
+        ]
+      }
     }
   },
   "question_contexts": {

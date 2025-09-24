@@ -427,6 +427,18 @@
           "financial regret"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship creates lasting material legacy, family wealth, and generational prosperity. The dynamic involves building something that will benefit not just yourselves but future generations, creating security and inheritance for those who come after.",
+        "reversed": "The legacy may be lost or family wealth might be squandered. Generational prosperity could be threatened or inheritance might cause conflicts. The relationship may involve family disputes over money or failure to plan for the future.",
+        "keywords": [
+          "legacy",
+          "inheritance",
+          "family wealth",
+          "generational prosperity"
+        ]
+      }
     }
   },
   "question_contexts": {

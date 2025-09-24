@@ -431,6 +431,18 @@
           "unmet goals"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship embodies dedication to craft, attention to detail, and the commitment to excellence through hard work. The dynamic involves mutual respect for quality, skill development, and the satisfaction of creating something valuable together.",
+        "reversed": "Dedication may be lacking or quality might be sacrificed for speed. Attention to detail could be poor or work might be sloppy. The relationship may involve shortcuts, lack of skill development, or dissatisfaction with results.",
+        "keywords": [
+          "craftsmanship",
+          "dedication",
+          "skill development",
+          "quality"
+        ]
+      }
     }
   },
   "question_contexts": {

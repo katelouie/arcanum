@@ -427,6 +427,18 @@
           "dissatisfaction"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic involves material abundance, independence, and the luxury of self-sufficiency. Between you exists the ability to enjoy the finer things in life, appreciate quality, and create a comfortable lifestyle through your own efforts.",
+        "reversed": "Abundance may be superficial or independence might be threatened. Self-sufficiency could become selfishness or luxury might be excessive. The relationship may involve materialism, isolation due to wealth, or taking abundance for granted.",
+        "keywords": [
+          "abundance",
+          "independence",
+          "luxury",
+          "self-sufficiency"
+        ]
+      }
     }
   },
   "question_contexts": {

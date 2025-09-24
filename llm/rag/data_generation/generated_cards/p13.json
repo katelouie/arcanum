@@ -429,6 +429,18 @@
           "stagnation"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic embodies material mastery, reliable leadership, and the ability to create lasting prosperity through practical wisdom. Between you exists respect for resources, the ability to build substantial achievements, and generous sharing of material abundance.",
+        "reversed": "Material mastery may become greed or leadership might be authoritarian. Reliability could become stubbornness or prosperity might be hoarded. The relationship may involve materialistic values, financial control, or using wealth for power rather than good.",
+        "keywords": [
+          "material mastery",
+          "prosperity",
+          "reliable leadership",
+          "practical wisdom"
+        ]
+      }
     }
   },
   "question_contexts": {

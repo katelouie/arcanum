@@ -431,6 +431,18 @@
           "prolonged instability"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship celebrates achievement, stability, and joyful completion of goals. The dynamic between you creates a secure foundation for celebration and continued growth. You've built something worth honoring together.",
+        "reversed": "The connection may struggle to celebrate achievements or maintain stability. Completion may be lacking or success may feel temporary. The relationship could involve taking accomplishments for granted or inability to enjoy what you've built.",
+        "keywords": [
+          "celebration",
+          "stability",
+          "achievement",
+          "foundation"
+        ]
+      }
     }
   },
   "question_contexts": {

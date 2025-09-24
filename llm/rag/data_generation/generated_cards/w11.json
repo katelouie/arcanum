@@ -429,6 +429,18 @@
           "self-doubt"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic is youthful, enthusiastic, and full of passionate energy. Between you exists excitement about shared interests and the courage to explore new adventures together. You inspire each other's zest for life.",
+        "reversed": "The enthusiasm may be short-lived, immature, or misdirected. Impulsiveness could cause problems or arguments. The relationship might involve inconsistency, attention-seeking behavior, or difficulty following through on exciting plans.",
+        "keywords": [
+          "enthusiasm",
+          "passion",
+          "adventure",
+          "youthfulness"
+        ]
+      }
     }
   },
   "question_contexts": {

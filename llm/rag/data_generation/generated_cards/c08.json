@@ -392,6 +392,18 @@
           "loss of fulfillment"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship requires walking away from emotional situations that no longer serve your growth. The dynamic involves the courage to leave behind familiar feelings or relationships that have become limiting or disappointing.",
+        "reversed": "The departure may be avoided or premature. Fear might prevent necessary emotional growth through leaving. The relationship could involve running away from problems rather than facing them or returning to situations that should be left behind.",
+        "keywords": [
+          "departure",
+          "abandonment",
+          "seeking",
+          "disappointment"
+        ]
+      }
     }
   },
   "question_contexts": {

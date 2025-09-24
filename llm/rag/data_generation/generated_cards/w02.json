@@ -428,6 +428,18 @@
           "missed adventures"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship involves making plans together and looking toward future possibilities. The dynamic between you is one of personal power and the ability to influence your shared world. You inspire each other to think big and take control of your destiny.",
+        "reversed": "The connection may lack long-term vision or personal power. Plans may be unrealistic or constantly changing. The relationship could involve power imbalances or inability to effectively work together toward mutual goals.",
+        "keywords": [
+          "planning",
+          "personal power",
+          "future vision",
+          "control"
+        ]
+      }
     }
   },
   "question_contexts": {

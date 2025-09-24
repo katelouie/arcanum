@@ -1,0 +1,398 @@
+[
+  {
+    "category_name": "relationships",
+    "subcategory_name": "relationship_dynamic",
+    "card_interpretations": {
+      "m00": {
+        "upright": "This relationship brings out your adventurous, spontaneous sides. There's an exciting energy of new beginnings and endless possibilities between you. You inspire each other to take risks and embrace the unknown together. The dynamic is youthful, optimistic, and full of potential for growth.",
+        "reversed": "The connection feels reckless or immature. One or both parties may be jumping in too quickly without considering consequences. There's potential for poor judgment or naivety to damage what you're building. The relationship may lack grounding or realistic expectations.",
+        "keywords": ["new beginnings", "adventure", "spontaneity", "potential"]
+      },
+      "m01": {
+        "upright": "Between you exists a powerful creative and manifestation energy. You have the tools and skills to build something meaningful together. This is a dynamic where both parties can make their shared visions reality through focused intention and skillful action.",
+        "reversed": "There's untapped potential or misused talents in this connection. Skills and resources may be scattered or used for manipulation. The relationship may involve deception or one party using their abilities to control rather than create together.",
+        "keywords": ["manifestation", "skill", "creation", "potential"]
+      },
+      "m02": {
+        "upright": "The relationship dynamic is one of deep intuitive understanding and hidden knowledge. You share secrets, spiritual insights, or access to information not available to others. There's a mysterious quality to your connection that others may not fully understand.",
+        "reversed": "Secrets, manipulation, or hidden agendas poison the dynamic. Information may be withheld or used as power over the other. The relationship may involve deception, jealousy, or unhealthy competition for knowledge or status.",
+        "keywords": ["intuition", "secrets", "hidden knowledge", "mystery"]
+      },
+      "m03": {
+        "upright": "This connection embodies nurturing, creativity, and abundance. Between you flows a fertile energy that brings ideas, projects, or even new life into being. The dynamic is supportive, encouraging growth and the manifestation of beauty in all forms.",
+        "reversed": "The relationship may struggle with creative blocks, jealousy, or smothering behavior. Nurturing may become controlling or possessive. There could be issues around fertility, creativity being stifled, or resources being hoarded rather than shared.",
+        "keywords": ["nurturing", "creativity", "abundance", "fertility"]
+      },
+      "m04": {
+        "upright": "The dynamic between you is one of stability, structure, and established authority. This relationship provides security and clear boundaries. You build something lasting together through discipline, responsibility, and respect for established systems.",
+        "reversed": "The connection may feel rigid, controlling, or authoritarian. One party may dominate through power rather than wisdom. The relationship could lack flexibility or become stagnant due to excessive control or fear of change.",
+        "keywords": ["authority", "structure", "stability", "control"]
+      },
+      "m05": {
+        "upright": "Between you exists a relationship centered on learning, teaching, and spiritual guidance. This connection helps both parties grow in wisdom and understanding of deeper truths. There's a sacred quality to how you share knowledge and spiritual insights.",
+        "reversed": "The dynamic may involve false teachings, dogma, or spiritual manipulation. One party may claim authority they haven't earned or use spiritual concepts to control. Traditional approaches may be too rigid for this relationship's growth.",
+        "keywords": ["teaching", "wisdom", "tradition", "guidance"]
+      },
+      "m06": {
+        "upright": "This relationship embodies true partnership, choice, and mutual attraction. The dynamic is one of harmony, shared values, and conscious commitment. You complement each other beautifully and make decisions together that honor both your individual needs.",
+        "reversed": "The connection struggles with imbalance, poor choices, or unrequited feelings. Values may clash or one party may be more invested than the other. Decisions made together may lack harmony or consideration for both parties' needs.",
+        "keywords": ["partnership", "harmony", "choice", "attraction"]
+      },
+      "m07": {
+        "upright": "The relationship dynamic is driven by determination, willpower, and shared direction. You move forward together with focused intent, overcoming obstacles through combined strength. This connection has strong momentum toward achieving mutual goals.",
+        "reversed": "The relationship may involve competing wills, lack of direction, or aggressive behavior. You might be pulling in different directions or using force rather than cooperation to resolve conflicts. Progress may be stalled by stubbornness or ego clashes.",
+        "keywords": ["willpower", "determination", "direction", "momentum"]
+      },
+      "m08": {
+        "upright": "Between you flows a dynamic of inner strength, courage, and gentle power. This relationship helps both parties find their bravery and face challenges with grace. You bring out each other's nobility and capacity for patient, loving strength.",
+        "reversed": "The connection may involve power struggles, weakness, or cruelty. One party may dominate through force rather than love. Inner strength may be lacking, leading to victim mentalities or aggressive attempts to control the other.",
+        "keywords": ["inner strength", "courage", "gentleness", "nobility"]
+      },
+      "m09": {
+        "upright": "The relationship embodies wisdom, introspection, and spiritual seeking. Between you exists a deep understanding that comes from looking within. This connection encourages solitude when needed and honors the inner journey of both parties.",
+        "reversed": "The dynamic may involve isolation, stubbornness, or excessive secrecy. One or both parties may withdraw too much or refuse guidance from the other. Wisdom may become dogmatism or spiritual seeking may turn into escapism from relationship responsibilities.",
+        "keywords": ["wisdom", "introspection", "guidance", "solitude"]
+      },
+      "m10": {
+        "upright": "This relationship represents the completion of cycles and karmic fulfillment. The dynamic between you brings a sense of destiny, wholeness, and achievement of long-term goals. You create something complete and meaningful together.",
+        "reversed": "The connection may resist natural endings or beginnings. Cycles remain incomplete due to fear of change or attachment to outcomes. The relationship may feel stuck in patterns that no longer serve or struggle to reach its full potential.",
+        "keywords": ["completion", "fulfillment", "destiny", "wholeness"]
+      },
+      "m11": {
+        "upright": "The relationship dynamic seeks balance, fairness, and truth. Between you exists a commitment to justice and making ethical decisions together. This connection honors cause and effect, taking responsibility for actions and their consequences.",
+        "reversed": "The dynamic may involve unfairness, blame, or avoiding accountability. Decisions may be biased or self-serving rather than just. The relationship could struggle with imbalance, where one party gives or takes too much without reciprocity.",
+        "keywords": ["justice", "balance", "truth", "accountability"]
+      },
+      "m12": {
+        "upright": "This connection involves surrender, patience, and seeing from new perspectives. The dynamic between you requires letting go of control and trusting in the process. You help each other find wisdom through waiting and accepting what cannot be changed.",
+        "reversed": "The relationship may involve unnecessary martyrdom, stagnation, or resistance to needed sacrifice. One party may give up too much or refuse to make necessary compromises. Progress may be blocked by stubborn attachment to outdated perspectives.",
+        "keywords": ["surrender", "patience", "perspective", "sacrifice"]
+      },
+      "m13": {
+        "upright": "The relationship dynamic is one of profound transformation and rebirth. Between you exists the power to help each other through major life changes, releasing what no longer serves to make space for new growth. This connection facilitates deep healing and renewal.",
+        "reversed": "The connection may resist necessary changes or experience destructive rather than transformative energy. Fear of endings may prevent new beginnings. The relationship could involve stagnation, fear of loss, or inability to let go of what needs to change.",
+        "keywords": ["transformation", "endings", "rebirth", "release"]
+      },
+      "m14": {
+        "upright": "This relationship embodies patience, moderation, and the blending of opposites into harmony. The dynamic between you creates balance through gradual integration and mutual adaptation. You help each other find the middle path and avoid extremes.",
+        "reversed": "The connection may struggle with impatience, excess, or inability to find compromise. Opposing forces may clash rather than blend. The relationship could involve extremes, lack of moderation, or failure to adapt to each other's needs.",
+        "keywords": ["temperance", "balance", "moderation", "harmony"]
+      },
+      "m15": {
+        "upright": "The relationship dynamic involves material attachments, temptation, or unhealthy patterns that bind you together. While there may be strong attraction, the connection could involve codependency, addiction to each other, or bonds that limit rather than liberate.",
+        "reversed": "The connection is breaking free from unhealthy patterns or addictions. Liberation from codependent dynamics is possible. The relationship may involve releasing material attachments or power struggles that once bound you in limiting ways.",
+        "keywords": ["attachment", "temptation", "bondage", "materialism"]
+      },
+      "m16": {
+        "upright": "This relationship brings sudden change, revelation, and the breaking down of illusions. The dynamic between you involves honest truth-telling that may be shocking but ultimately liberating. Old structures in your connection are breaking down to make way for authenticity.",
+        "reversed": "The connection may resist necessary breakdowns or changes. Revelations may be avoided or denied. The relationship could involve clinging to false structures, avoiding truth, or fearing the liberation that comes through honest destruction of what doesn't serve.",
+        "keywords": ["revelation", "breakdown", "truth", "liberation"]
+      },
+      "m17": {
+        "upright": "The relationship dynamic is guided by hope, inspiration, and spiritual connection. Between you flows a healing energy that brings renewal and faith in the future. This connection helps you both reach for your highest aspirations and trust in divine guidance.",
+        "reversed": "The connection may lack hope, faith, or spiritual connection. Dreams may be crushed or inspiration may be lacking. The relationship could involve despair, disconnection from higher purpose, or inability to see beyond current difficulties.",
+        "keywords": ["hope", "inspiration", "healing", "guidance"]
+      },
+      "m18": {
+        "upright": "This relationship dynamic involves illusions, hidden fears, and the need to navigate uncertainty together. Between you may exist confusion, secrets, or elements that are not as they appear. The connection requires trusting intuition over surface appearances.",
+        "reversed": "The relationship is moving beyond illusions toward clarity and truth. Deceptions are being revealed or overcome. The connection involves releasing fears, paranoia, or confusion that once clouded your understanding of each other.",
+        "keywords": ["illusion", "confusion", "secrets", "intuition"]
+      },
+      "m19": {
+        "upright": "The relationship dynamic radiates joy, vitality, and success. Between you exists a warm, life-giving energy that brings out the best in both parties. This connection illuminates truth, brings clarity, and celebrates the positive aspects of being together.",
+        "reversed": "The connection may lack warmth, optimism, or genuine happiness. Success may be delayed or superficial. The relationship could involve hidden truths, false optimism, or an inability to maintain the positive energy that once brought you together.",
+        "keywords": ["joy", "success", "vitality", "illumination"]
+      },
+      "m20": {
+        "upright": "This relationship brings awakening, renewal, and second chances. The dynamic between you involves forgiveness, redemption, and the opportunity to start fresh. Past mistakes can be healed and the connection can be reborn on a higher level.",
+        "reversed": "The connection may resist rebirth or renewal opportunities. Judgment may be harsh or unforgiving. The relationship could involve dwelling on past mistakes, refusing second chances, or fear of spiritual awakening and growth.",
+        "keywords": ["awakening", "renewal", "forgiveness", "rebirth"]
+      },
+      "m21": {
+        "upright": "The relationship represents the completion of a significant journey together. Between you exists a dynamic of fulfillment, achievement, and celebration of what you've built together. This connection brings a sense of wholeness and successful integration.",
+        "reversed": "The connection may feel incomplete or lacking in achievement. Goals may remain unfinished or success may feel hollow. The relationship could involve frustration with incomplete cycles or inability to celebrate what you've accomplished together.",
+        "keywords": ["completion", "achievement", "integration", "fulfillment"]
+      },
+      "w01": {
+        "upright": "The relationship dynamic is sparked by new creative energy and passionate inspiration. Between you exists the potential for exciting new projects, adventures, or expressions of creativity. This connection ignites mutual enthusiasm and innovative ideas.",
+        "reversed": "The creative spark may be lacking or misdirected in your connection. Inspiration could be blocked or false starts may plague your joint endeavors. The relationship may struggle with creative differences or inability to channel enthusiasm productively.",
+        "keywords": ["inspiration", "creativity", "new projects", "enthusiasm"]
+      },
+      "w02": {
+        "upright": "This relationship involves making plans together and looking toward future possibilities. The dynamic between you is one of personal power and the ability to influence your shared world. You inspire each other to think big and take control of your destiny.",
+        "reversed": "The connection may lack long-term vision or personal power. Plans may be unrealistic or constantly changing. The relationship could involve power imbalances or inability to effectively work together toward mutual goals.",
+        "keywords": ["planning", "personal power", "future vision", "control"]
+      },
+      "w03": {
+        "upright": "The relationship dynamic involves expansion, growth, and looking toward broader horizons together. Between you exists an energy that encourages taking your connection to the next level. You support each other's ambitions and shared vision for the future.",
+        "reversed": "The connection may be delayed in growth or expansion. Plans may encounter obstacles or lack the support needed for success. The relationship could involve impatience with progress or unrealistic expectations about timing.",
+        "keywords": ["expansion", "growth", "horizons", "progress"]
+      },
+      "w04": {
+        "upright": "This relationship celebrates achievement, stability, and joyful completion of goals. The dynamic between you creates a secure foundation for celebration and continued growth. You've built something worth honoring together.",
+        "reversed": "The connection may struggle to celebrate achievements or maintain stability. Completion may be lacking or success may feel temporary. The relationship could involve taking accomplishments for granted or inability to enjoy what you've built.",
+        "keywords": ["celebration", "stability", "achievement", "foundation"]
+      },
+      "w05": {
+        "upright": "The relationship dynamic involves healthy competition, disagreement, and passionate debate. Between you exists an energy of creative conflict that, while challenging, can lead to better solutions. You push each other to defend and refine your ideas.",
+        "reversed": "The competition may become destructive or the conflicts may be avoided altogether. Disagreements could escalate beyond healthy debate. The relationship may involve petty arguments, ego conflicts, or inability to find resolution through discussion.",
+        "keywords": ["competition", "conflict", "debate", "challenge"]
+      },
+      "w06": {
+        "upright": "This relationship brings victory, recognition, and public success together. The dynamic between you creates leadership and achievement that others admire. You support each other in reaching goals and receiving the recognition you deserve.",
+        "reversed": "Success may be delayed, private, or come at too high a cost. Recognition might be lacking or temporary. The relationship could involve ego issues around achievements or failure to acknowledge each other's contributions to success.",
+        "keywords": ["victory", "recognition", "success", "leadership"]
+      },
+      "w07": {
+        "upright": "The relationship dynamic involves standing your ground and defending your shared values against opposition. Between you exists courage and the willingness to fight for what you believe in together. You give each other strength to persevere.",
+        "reversed": "The connection may give up too easily when challenged or become overly defensive. Opposition may overwhelm you or paranoia may damage trust. The relationship could involve unnecessary battles or inability to know when to yield.",
+        "keywords": ["defense", "perseverance", "courage", "challenge"]
+      },
+      "w08": {
+        "upright": "This relationship has swift movement, rapid communication, and exciting developments. The dynamic between you accelerates progress and brings quick results. Messages, travel, or fast-paced changes characterize your connection.",
+        "reversed": "The connection may be delayed, miscommunicated, or moving too fast to be sustainable. Hasty decisions or impulsive actions could cause problems. The relationship might involve frustration with slow progress or reckless speed.",
+        "keywords": ["speed", "movement", "communication", "progress"]
+      },
+      "w09": {
+        "upright": "The relationship dynamic involves resilience, persistence, and the strength to continue despite challenges. Between you exists determination and the wisdom of experience. You help each other maintain boundaries while staying committed to your goals.",
+        "reversed": "The connection may involve stubbornness, exhaustion, or inability to adapt to new challenges. Persistence may become rigid inflexibility. The relationship could involve paranoia, over-defensiveness, or burnout from constant struggle.",
+        "keywords": ["resilience", "persistence", "boundaries", "endurance"]
+      },
+      "w10": {
+        "upright": "This relationship carries heavy responsibilities and burdens that you share together. The dynamic involves taking on too much but having the strength to carry it. Success comes through accepting that some struggles are necessary parts of the journey.",
+        "reversed": "The connection may involve avoiding responsibilities or feeling overwhelmed by burdens. Duties may be unevenly shared or abandoned altogether. The relationship could involve martyrdom, victimhood, or refusing to accept necessary challenges.",
+        "keywords": ["responsibility", "burden", "endurance", "sacrifice"]
+      },
+      "w11": {
+        "upright": "The relationship dynamic is youthful, enthusiastic, and full of passionate energy. Between you exists excitement about shared interests and the courage to explore new adventures together. You inspire each other's zest for life.",
+        "reversed": "The enthusiasm may be short-lived, immature, or misdirected. Impulsiveness could cause problems or arguments. The relationship might involve inconsistency, attention-seeking behavior, or difficulty following through on exciting plans.",
+        "keywords": ["enthusiasm", "passion", "adventure", "youthfulness"]
+      },
+      "w12": {
+        "upright": "This relationship involves someone with natural leadership ability, creativity, and the power to inspire others. The dynamic includes mentorship, guidance, or one party helping the other develop their talents and confidence.",
+        "reversed": "Leadership may be lacking, misdirected, or become domineering. Creativity could be blocked or used for selfish purposes. The relationship might involve manipulation, arrogance, or inability to inspire and support each other's growth.",
+        "keywords": ["leadership", "inspiration", "creativity", "guidance"]
+      },
+      "w13": {
+        "upright": "The relationship dynamic embodies mature leadership, vision, and the ability to turn dreams into reality. Between you exists wisdom, experience, and the confidence to take charge of your shared destiny. You build something lasting through skillful action.",
+        "reversed": "Leadership may be immature, reckless, or overly controlling. Vision might be clouded by ego or unrealistic expectations. The relationship could involve power struggles, failed enterprises, or inability to manifest shared dreams effectively.",
+        "keywords": ["mastery", "leadership", "vision", "manifestation"]
+      },
+      "w14": {
+        "upright": "This relationship embodies the highest expression of creative fire and spiritual leadership. The dynamic between you involves inspiring others and creating something that serves a greater purpose. Your connection radiates wisdom, charisma, and transformative power.",
+        "reversed": "The spiritual leadership may become ego-driven or corrupted by power. Vision might be clouded by arrogance or selfish desires. The relationship could involve abuse of influence, false spirituality, or inability to channel creative fire constructively.",
+        "keywords": ["spiritual leadership", "vision", "transformation", "mastery"]
+      },
+      "c01": {
+        "upright": "The relationship dynamic overflows with new emotional experiences and spiritual connection. Between you exists pure love, intuitive understanding, and the opening of hearts to deeper intimacy. This connection brings emotional renewal and soul-level bonding.",
+        "reversed": "The emotional connection may be blocked, shallow, or one-sided. Love might be conditional or emotionally manipulative. The relationship could involve closed hearts, spiritual disconnection, or fear of emotional vulnerability.",
+        "keywords": ["love", "emotion", "spirituality", "intimacy"]
+      },
+      "c02": {
+        "upright": "This relationship is built on mutual understanding, emotional harmony, and balanced partnership. The dynamic between you involves deep friendship, cooperation, and the ability to work together toward shared emotional goals.",
+        "reversed": "The partnership may be unbalanced or lack emotional harmony. Understanding could be one-sided or communication may be poor. The relationship might involve codependency, unrequited feelings, or inability to cooperate emotionally.",
+        "keywords": ["partnership", "harmony", "understanding", "cooperation"]
+      },
+      "c03": {
+        "upright": "The relationship dynamic celebrates joy, friendship, and emotional abundance. Between you exists a community feeling, shared celebrations, and the ability to bring happiness to each other and those around you. This connection radiates positive social energy.",
+        "reversed": "The social joy may be superficial or exclusive. Celebrations might be forced or overshadowed by gossip. The relationship could involve fair-weather friendship, emotional excess, or inability to maintain genuine happiness together.",
+        "keywords": ["friendship", "celebration", "community", "joy"]
+      },
+      "c04": {
+        "upright": "This relationship involves emotional apathy, dissatisfaction, or the need to look beyond surface contentment. The dynamic may include taking each other for granted or missing new emotional opportunities because you're focused on what's lacking.",
+        "reversed": "The connection is moving beyond apathy toward emotional renewal. New opportunities for love are being recognized. The relationship involves releasing dissatisfaction and appreciating what you truly have together.",
+        "keywords": ["apathy", "dissatisfaction", "contemplation", "missed opportunities"]
+      },
+      "c05": {
+        "upright": "The relationship dynamic involves grief, loss, and emotional disappointment. Between you exists the shared experience of something that didn't work out as hoped. This connection requires processing sorrow and finding a way to move forward together.",
+        "reversed": "The grieving process is complete or healing is beginning. Disappointment is being released or forgiveness is possible. The relationship involves moving beyond loss toward emotional recovery and renewed hope.",
+        "keywords": ["grief", "loss", "disappointment", "sorrow"]
+      },
+      "c06": {
+        "upright": "This relationship connects to past emotional experiences, nostalgia, and childhood memories. The dynamic between you may involve revisiting old feelings, healing family patterns, or finding comfort in familiar emotional territory.",
+        "reversed": "The connection may be stuck in the past or idealize memories unrealistically. Nostalgia might prevent growth or old patterns may be too difficult to break. The relationship could involve being trapped by childhood wounds or family dynamics.",
+        "keywords": ["nostalgia", "past", "childhood", "memories"]
+      },
+      "c07": {
+        "upright": "The relationship dynamic involves many emotional choices and possibly unrealistic fantasies about what's possible together. Between you exists confusion about feelings or an abundance of options that makes commitment difficult.",
+        "reversed": "Illusions are being cleared away and realistic choices are emerging. Fantasy may be giving way to practical decision-making. The relationship involves focusing on what's real and possible rather than what's merely dreamed.",
+        "keywords": ["choices", "illusions", "fantasy", "confusion"]
+      },
+      "c08": {
+        "upright": "This relationship requires walking away from emotional situations that no longer serve your growth. The dynamic involves the courage to leave behind familiar feelings or relationships that have become limiting or disappointing.",
+        "reversed": "The departure may be avoided or premature. Fear might prevent necessary emotional growth through leaving. The relationship could involve running away from problems rather than facing them or returning to situations that should be left behind.",
+        "keywords": ["departure", "abandonment", "seeking", "disappointment"]
+      },
+      "c09": {
+        "upright": "The relationship dynamic brings emotional satisfaction, contentment, and the fulfillment of heartfelt wishes. Between you exists a sense of having achieved what you hoped for emotionally. This connection provides deep happiness and gratitude.",
+        "reversed": "Contentment may be superficial or temporary. Wishes might be fulfilled but not bring expected happiness. The relationship could involve taking emotional satisfaction for granted or realizing that getting what you wanted isn't enough.",
+        "keywords": ["contentment", "satisfaction", "wishes fulfilled", "happiness"]
+      },
+      "c10": {
+        "upright": "This relationship creates emotional fulfillment, family harmony, and lasting happiness together. The dynamic between you builds something emotionally complete and satisfying that extends to your broader community and family connections.",
+        "reversed": "Family harmony may be disrupted or emotional fulfillment may be temporary. The connection might involve family conflicts, broken relationships, or inability to create lasting emotional satisfaction together.",
+        "keywords": ["fulfillment", "family", "harmony", "completion"]
+      },
+      "c11": {
+        "upright": "The relationship dynamic embodies youthful emotion, romantic idealism, and intuitive messages between hearts. This connection involves tender feelings, creative inspiration, and the pure expression of emotional truth without worldly concerns.",
+        "reversed": "The romantic idealism may be immature or unrealistic. Emotional expression might be blocked or manipulative. The relationship could involve emotional immaturity, creative blocks, or difficulty expressing genuine feelings.",
+        "keywords": ["romance", "idealism", "intuition", "tenderness"]
+      },
+      "c12": {
+        "upright": "This relationship involves someone who is emotionally mature, nurturing, and intuitively wise. The dynamic includes compassionate understanding, emotional support, and the ability to create a safe space for feelings to be expressed and healed.",
+        "reversed": "The nurturing may become smothering or emotionally manipulative. Intuition might be ignored or used for control. The relationship could involve emotional manipulation, codependency, or using sensitivity as a weapon.",
+        "keywords": ["nurturing", "compassion", "intuition", "emotional wisdom"]
+      },
+      "c13": {
+        "upright": "The relationship dynamic embodies emotional mastery, compassion, and the wisdom that comes from deep feeling. Between you exists mature love that is both passionate and stable, combining emotional depth with practical wisdom about relationships.",
+        "reversed": "Emotional mastery may be lacking or corrupted by manipulation. Compassion might be conditional or self-serving. The relationship could involve emotional manipulation, moodiness, or using emotional intelligence for control rather than love.",
+        "keywords": ["emotional mastery", "compassion", "wisdom", "balanced love"]
+      },
+      "c14": {
+        "upright": "This relationship represents the highest expression of emotional wisdom and spiritual love. The dynamic between you transcends personal needs to serve something greater. You embody unconditional love, healing, and emotional transformation for yourselves and others.",
+        "reversed": "The spiritual love may become possessive or emotionally manipulative. Wisdom might be corrupted by personal desires or ego. The relationship could involve false spirituality, emotional manipulation in the name of love, or inability to embody true compassion.",
+        "keywords": ["spiritual love", "wisdom", "healing", "transcendence"]
+      },
+      "s01": {
+        "upright": "The relationship dynamic is characterized by new ideas, clear communication, and intellectual breakthrough. Between you exists mental clarity, the power of truth, and the ability to cut through confusion with honest dialogue and sharp thinking.",
+        "reversed": "Communication may be harsh, hurtful, or used as a weapon. New ideas might be forced or aggressive. The relationship could involve mental cruelty, miscommunication, or using intelligence to dominate rather than illuminate.",
+        "keywords": ["clarity", "communication", "truth", "breakthrough"]
+      },
+      "s02": {
+        "upright": "This relationship involves blocked communication, difficult decisions, and the need to find balance between opposing viewpoints. The dynamic requires careful consideration and may involve temporary stalemates while working through complex issues.",
+        "reversed": "The blockage is being removed or decisions are finally being made. Communication may be restored or balance may be found. The relationship involves moving beyond stalemate toward resolution and clarity.",
+        "keywords": ["blockage", "indecision", "balance", "stalemate"]
+      },
+      "s03": {
+        "upright": "The relationship dynamic involves heartbreak, separation, and painful but necessary communication. Between you exists the experience of loss, betrayal, or the cutting away of illusions that once held you together.",
+        "reversed": "The heartbreak is healing or separation may be avoided. Communication might be restored or forgiveness may be possible. The relationship involves moving beyond pain toward understanding and potential reconciliation.",
+        "keywords": ["heartbreak", "separation", "betrayal", "loss"]
+      },
+      "s04": {
+        "upright": "This relationship requires rest, contemplation, and temporary withdrawal from active engagement. The dynamic involves taking a break to process thoughts and feelings, gather strength, and prepare for the next phase of your connection.",
+        "reversed": "The rest period may be ending or isolation might be excessive. Activity may be resuming or the need for contemplation might be ignored. The relationship involves balancing solitude with engagement.",
+        "keywords": ["rest", "contemplation", "withdrawal", "preparation"]
+      },
+      "s05": {
+        "upright": "The relationship dynamic involves conflict, winning at others' expense, and the aftermath of intellectual or verbal battles. Between you exists competition where victory comes with costs and relationships may be damaged by the need to be right.",
+        "reversed": "The conflict is resolving or you're learning to disagree without damage. Competition may be giving way to cooperation. The relationship involves finding ways to resolve differences that honor both parties' perspectives.",
+        "keywords": ["conflict", "defeat", "victory", "competition"]
+      },
+      "s06": {
+        "upright": "This relationship involves moving away from difficulties together, seeking calmer waters, and transitioning to a better state. The dynamic includes mutual support through challenging times and the wisdom to know when to leave problems behind.",
+        "reversed": "The transition may be delayed or you might be running from necessary challenges. Calmer waters could be elusive or the journey might involve returning to face what was left behind.",
+        "keywords": ["transition", "movement", "escape", "calmer waters"]
+      },
+      "s07": {
+        "upright": "The relationship dynamic involves deception, stealth, or hidden agendas. Between you may exist secrets, manipulation, or the need to be cautious about trust. Actions may be taken independently rather than through honest communication.",
+        "reversed": "Deceptions are being revealed or honesty is being restored. Hidden agendas may be exposed or trust may be rebuilt. The relationship involves moving from secrecy toward transparency and authentic communication.",
+        "keywords": ["deception", "stealth", "secrets", "independence"]
+      },
+      "s08": {
+        "upright": "This relationship involves feeling trapped by limiting thoughts, fear of speaking truth, or mental restriction. The dynamic may include self-imposed limitations, victim mentality, or the belief that change is impossible.",
+        "reversed": "The mental restrictions are being removed or self-imposed limitations are being recognized. Freedom of thought may be returning or the victim mentality might be transforming into empowerment.",
+        "keywords": ["restriction", "limitation", "trapped thinking", "victimhood"]
+      },
+      "s09": {
+        "upright": "The relationship dynamic is haunted by worry, anxiety, and mental anguish. Between you exists fear, guilt, or torment that may be worse in imagination than in reality. The connection involves facing dark thoughts and finding dawn after the dark night of the soul.",
+        "reversed": "The anxiety is lifting or worst fears are proving unfounded. Mental anguish may be healing or dawn may be breaking. The relationship involves moving beyond worry toward peace and mental clarity.",
+        "keywords": ["anxiety", "worry", "guilt", "mental torment"]
+      },
+      "s10": {
+        "upright": "This relationship has experienced betrayal, painful endings, or the complete breakdown of trust and communication. The dynamic involves rock bottom, backstabbing, or the painful but necessary end of illusions about what was possible between you.",
+        "reversed": "The worst is over and healing can begin. Betrayal may be forgiven or new beginnings may be possible. The relationship involves rising from rock bottom toward restoration and renewed trust.",
+        "keywords": ["betrayal", "rock bottom", "painful ending", "backstabbing"]
+      },
+      "s11": {
+        "upright": "The relationship dynamic embodies sharp thinking, intellectual curiosity, and direct communication. Between you exists mental agility, the courage to ask difficult questions, and the ability to engage in stimulating intellectual discourse.",
+        "reversed": "The sharp thinking may become cutting or cruel. Intellectual curiosity might turn into gossiping or prying. The relationship could involve using intelligence to hurt rather than illuminate, or communication that lacks compassion.",
+        "keywords": ["sharp thinking", "curiosity", "directness", "intellectual discourse"]
+      },
+      "s12": {
+        "upright": "This relationship involves someone with intellectual authority, clear judgment, and the ability to make fair decisions. The dynamic includes rational analysis, objective perspective, and the wisdom that comes from experience and study.",
+        "reversed": "The intellectual authority may be biased or overly harsh. Judgment might be clouded by personal interests or emotion. The relationship could involve unfair criticism, intellectual bullying, or decisions made without heart or compassion.",
+        "keywords": ["intellectual authority", "judgment", "analysis", "fairness"]
+      },
+      "s13": {
+        "upright": "The relationship dynamic embodies intellectual mastery, clear authority, and the power of truth spoken with conviction. Between you exists respect for knowledge, the ability to lead through wisdom, and communication that cuts to the heart of matters.",
+        "reversed": "The intellectual mastery may become tyrannical or cold. Authority might be abused or truth might be used as a weapon. The relationship could involve intellectual domination, harsh criticism, or communication that lacks warmth and humanity.",
+        "keywords": ["intellectual mastery", "authority", "truth", "leadership"]
+      },
+      "s14": {
+        "upright": "This relationship represents the highest expression of intellectual wisdom and ethical communication. The dynamic between you serves truth and justice above personal interest, combining sharp intelligence with compassion and the ability to guide others toward clarity.",
+        "reversed": "The intellectual wisdom may be corrupted by power or personal agenda. Communication might serve self-interest rather than truth. The relationship could involve manipulation disguised as wisdom or using intelligence to control rather than liberate.",
+        "keywords": ["intellectual wisdom", "ethical communication", "truth", "guidance"]
+      },
+      "p01": {
+        "upright": "The relationship dynamic is grounded in new material opportunities, practical learning, and building something tangible together. Between you exists the potential for financial growth, career advancement, or the beginning of a solid foundation for shared prosperity.",
+        "reversed": "Material opportunities may be lost or learning might be impractical. New beginnings could lack foundation or resources may be mismanaged. The relationship might involve unrealistic material expectations or poor financial decisions.",
+        "keywords": ["opportunity", "learning", "foundation", "material beginnings"]
+      },
+      "p02": {
+        "upright": "This relationship involves juggling multiple responsibilities, adapting to changing circumstances, and finding balance in practical matters. The dynamic includes flexibility, resourcefulness, and the ability to manage various aspects of life together.",
+        "reversed": "The juggling may become overwhelming or balance might be lost. Adaptability could give way to chaos or responsibilities might be neglected. The relationship may involve poor time management or inability to handle multiple commitments.",
+        "keywords": ["balance", "juggling", "adaptability", "multiple responsibilities"]
+      },
+      "p03": {
+        "upright": "The relationship dynamic involves collaboration, skill-building, and working together toward mastery. Between you exists mutual respect for each other's talents and the ability to learn from one another while creating something of lasting value.",
+        "reversed": "Collaboration may be lacking or skills might be undervalued. Learning could be hindered by pride or competition. The relationship might involve sloppy work, lack of attention to detail, or failure to appreciate each other's contributions.",
+        "keywords": ["collaboration", "skill", "mastery", "teamwork"]
+      },
+      "p04": {
+        "upright": "This relationship is built on material security, conservative values, and the careful preservation of resources. The dynamic involves saving, holding onto what you have, and perhaps being overly cautious about spending or sharing material resources.",
+        "reversed": "The holding onto resources may become excessive or sharing might be neglected. Security could turn into stinginess or generosity might be lacking. The relationship may involve hoarding, selfishness, or fear-based scarcity thinking.",
+        "keywords": ["security", "conservation", "material control", "caution"]
+      },
+      "p05": {
+        "upright": "The relationship dynamic involves material hardship, financial stress, or feeling left out in the cold together. Between you exists the experience of poverty, whether material or spiritual, and the need to support each other through difficult times.",
+        "reversed": "The hardship is ending or support is becoming available. Material recovery may be beginning or spiritual poverty might be healing. The relationship involves moving from scarcity toward abundance and security.",
+        "keywords": ["hardship", "poverty", "exclusion", "material struggle"]
+      },
+      "p06": {
+        "upright": "This relationship involves generosity, charity, and the fair sharing of resources. The dynamic includes giving and receiving in balance, supporting each other's material needs, and creating equity in your shared resources and opportunities.",
+        "reversed": "Generosity may be one-sided or charity might come with strings attached. Sharing could be unfair or resources might be hoarded. The relationship may involve financial manipulation, debt, or unequal exchange of support.",
+        "keywords": ["generosity", "charity", "sharing", "reciprocity"]
+      },
+      "p07": {
+        "upright": "The relationship dynamic involves patience with long-term investments, waiting for rewards, and the wisdom to know that good things take time to develop. Between you exists commitment to slow but steady progress toward material goals.",
+        "reversed": "Patience may be lacking or investments might not be paying off. Long-term planning could be abandoned for quick fixes. The relationship might involve impatience with results, poor timing, or abandoning efforts too soon.",
+        "keywords": ["patience", "investment", "long-term planning", "assessment"]
+      },
+      "p08": {
+        "upright": "This relationship embodies dedication to craft, attention to detail, and the commitment to excellence through hard work. The dynamic involves mutual respect for quality, skill development, and the satisfaction of creating something valuable together.",
+        "reversed": "Dedication may be lacking or quality might be sacrificed for speed. Attention to detail could be poor or work might be sloppy. The relationship may involve shortcuts, lack of skill development, or dissatisfaction with results.",
+        "keywords": ["craftsmanship", "dedication", "skill development", "quality"]
+      },
+      "p09": {
+        "upright": "The relationship dynamic involves material abundance, independence, and the luxury of self-sufficiency. Between you exists the ability to enjoy the finer things in life, appreciate quality, and create a comfortable lifestyle through your own efforts.",
+        "reversed": "Abundance may be superficial or independence might be threatened. Self-sufficiency could become selfishness or luxury might be excessive. The relationship may involve materialism, isolation due to wealth, or taking abundance for granted.",
+        "keywords": ["abundance", "independence", "luxury", "self-sufficiency"]
+      },
+      "p10": {
+        "upright": "This relationship creates lasting material legacy, family wealth, and generational prosperity. The dynamic involves building something that will benefit not just yourselves but future generations, creating security and inheritance for those who come after.",
+        "reversed": "The legacy may be lost or family wealth might be squandered. Generational prosperity could be threatened or inheritance might cause conflicts. The relationship may involve family disputes over money or failure to plan for the future.",
+        "keywords": ["legacy", "inheritance", "family wealth", "generational prosperity"]
+      },
+      "p11": {
+        "upright": "The relationship dynamic embodies enthusiasm for learning, new material ventures, and the excitement of discovering practical skills together. Between you exists curiosity about the physical world and eagerness to explore new opportunities for growth.",
+        "reversed": "The enthusiasm for learning may be short-lived or ventures might be impractical. Excitement could lead to poor decisions or opportunities might be wasted. The relationship may involve lack of follow-through or unrealistic material expectations.",
+        "keywords": ["enthusiasm", "learning", "practical exploration", "new ventures"]
+      },
+      "p12": {
+        "upright": "This relationship involves someone who is practical, nurturing, and skilled at creating material security. The dynamic includes caring for physical needs, creating comfortable environments, and the wisdom that comes from earth-based, sensual understanding.",
+        "reversed": "The nurturing may become smothering or practical skills might be used for control. Material security could become materialism or caring might have selfish motives. The relationship may involve manipulation through resources or possessiveness about material things.",
+        "keywords": ["practicality", "nurturing", "material security", "earthly wisdom"]
+      },
+      "p13": {
+        "upright": "The relationship dynamic embodies material mastery, reliable leadership, and the ability to create lasting prosperity through practical wisdom. Between you exists respect for resources, the ability to build substantial achievements, and generous sharing of material abundance.",
+        "reversed": "Material mastery may become greed or leadership might be authoritarian. Reliability could become stubbornness or prosperity might be hoarded. The relationship may involve materialistic values, financial control, or using wealth for power rather than good.",
+        "keywords": ["material mastery", "prosperity", "reliable leadership", "practical wisdom"]
+      },
+      "p14": {
+        "upright": "This relationship represents the highest expression of material wisdom and earthly stewardship. The dynamic between you serves the greater good through practical action, environmental consciousness, and the ability to manifest abundance that benefits all life.",
+        "reversed": "The material wisdom may be corrupted by greed or stewardship might be neglected. Environmental consciousness could be lacking or abundance might be used selfishly. The relationship may involve exploitation of resources or using practical power for harmful purposes.",
+        "keywords": ["material wisdom", "stewardship", "environmental consciousness", "abundant service"]
+      }
+    }
+  }
+]

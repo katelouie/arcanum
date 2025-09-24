@@ -393,6 +393,18 @@
           "impetuous cycles"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship involves someone with natural leadership ability, creativity, and the power to inspire others. The dynamic includes mentorship, guidance, or one party helping the other develop their talents and confidence.",
+        "reversed": "Leadership may be lacking, misdirected, or become domineering. Creativity could be blocked or used for selfish purposes. The relationship might involve manipulation, arrogance, or inability to inspire and support each other's growth.",
+        "keywords": [
+          "leadership",
+          "inspiration",
+          "creativity",
+          "guidance"
+        ]
+      }
     }
   },
   "question_contexts": {

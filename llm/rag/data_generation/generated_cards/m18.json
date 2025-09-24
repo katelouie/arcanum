@@ -431,6 +431,18 @@
           "upheaval"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "This relationship dynamic involves illusions, hidden fears, and the need to navigate uncertainty together. Between you may exist confusion, secrets, or elements that are not as they appear. The connection requires trusting intuition over surface appearances.",
+        "reversed": "The relationship is moving beyond illusions toward clarity and truth. Deceptions are being revealed or overcome. The connection involves releasing fears, paranoia, or confusion that once clouded your understanding of each other.",
+        "keywords": [
+          "illusion",
+          "confusion",
+          "secrets",
+          "intuition"
+        ]
+      }
     }
   },
   "question_contexts": {

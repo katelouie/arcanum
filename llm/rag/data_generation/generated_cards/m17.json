@@ -431,6 +431,18 @@
           "unfulfilled potential"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic is guided by hope, inspiration, and spiritual connection. Between you flows a healing energy that brings renewal and faith in the future. This connection helps you both reach for your highest aspirations and trust in divine guidance.",
+        "reversed": "The connection may lack hope, faith, or spiritual connection. Dreams may be crushed or inspiration may be lacking. The relationship could involve despair, disconnection from higher purpose, or inability to see beyond current difficulties.",
+        "keywords": [
+          "hope",
+          "inspiration",
+          "healing",
+          "guidance"
+        ]
+      }
     }
   },
   "question_contexts": {

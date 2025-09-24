@@ -428,6 +428,18 @@
           "stagnation and loss"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic involves deception, stealth, or hidden agendas. Between you may exist secrets, manipulation, or the need to be cautious about trust. Actions may be taken independently rather than through honest communication.",
+        "reversed": "Deceptions are being revealed or honesty is being restored. Hidden agendas may be exposed or trust may be rebuilt. The relationship involves moving from secrecy toward transparency and authentic communication.",
+        "keywords": [
+          "deception",
+          "stealth",
+          "secrets",
+          "independence"
+        ]
+      }
     }
   },
   "question_contexts": {

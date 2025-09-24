@@ -428,6 +428,18 @@
           "profound regret"
         ]
       }
+    },
+    "relationships": {
+      "relationship_dynamic": {
+        "upright": "The relationship dynamic involves grief, loss, and emotional disappointment. Between you exists the shared experience of something that didn't work out as hoped. This connection requires processing sorrow and finding a way to move forward together.",
+        "reversed": "The grieving process is complete or healing is beginning. Disappointment is being released or forgiveness is possible. The relationship involves moving beyond loss toward emotional recovery and renewed hope.",
+        "keywords": [
+          "grief",
+          "loss",
+          "disappointment",
+          "sorrow"
+        ]
+      }
     }
   },
   "question_contexts": {
