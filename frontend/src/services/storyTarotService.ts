@@ -12,7 +12,7 @@ interface ReadingRequest {
   spread_type: string;
   shuffle_count: number;
   include_date: boolean;
-  rhythm: string;
+  rhythm?: number[]; // Optional array of integers to match backend expectation
 }
 
 interface ReadingResponse {
@@ -28,7 +28,8 @@ interface ReadingResponse {
 }
 
 interface StoryReadingOptions {
-  spread: string;
+  spread?: string;
+  spreadType?: string; // Alternative name for spread (for compatibility)
   question?: string;
   cardCount?: number;
   constrainedCards?: { position: number; cardName: string; reversed?: boolean }[];
@@ -38,8 +39,214 @@ interface StoryReadingOptions {
   positionConstraints?: Record<string, string[]>; // New: position-specific card constraints
 }
 
+// Helper interface for parsed constraint cards
+interface ConstraintCard {
+  name: string;
+  orientation?: 'upright' | 'reversed'; // undefined means any orientation
+}
+
+// Helper functions for constraint parsing
+const parseConstraintCard = (cardStr: string): ConstraintCard => {
+  const trimmed = cardStr.trim();
+
+  // Check for new (R) format first
+  if (trimmed.endsWith(' (R)')) {
+    return {
+      name: trimmed.slice(0, -4), // Remove ' (R)'
+      orientation: 'reversed'
+    };
+  }
+  // Backward compatibility: Check for :reversed, :r suffix
+  else if (trimmed.endsWith(':reversed')) {
+    return {
+      name: trimmed.slice(0, -9), // Remove ':reversed'
+      orientation: 'reversed'
+    };
+  } else if (trimmed.endsWith(':r')) {
+    return {
+      name: trimmed.slice(0, -2), // Remove ':r'
+      orientation: 'reversed'
+    };
+  } else if (trimmed.endsWith(':upright')) {
+    return {
+      name: trimmed.slice(0, -8), // Remove ':upright'
+      orientation: 'upright'
+    };
+  } else {
+    // No orientation specified - any orientation is allowed
+    return {
+      name: trimmed,
+      orientation: undefined
+    };
+  }
+};
+
+const cardMatchesConstraint = (card: CardInfo, constraintCard: ConstraintCard): boolean => {
+  // Name must match
+  if (card.name !== constraintCard.name) {
+    return false;
+  }
+
+  // If orientation is specified, it must match
+  if (constraintCard.orientation !== undefined) {
+    const cardOrientation = card.reversed ? 'reversed' : 'upright';
+    return cardOrientation === constraintCard.orientation;
+  }
+
+  // If no orientation specified, any orientation is allowed
+  return true;
+};
+
 export class StoryTarotService {
   private baseURL = 'http://127.0.0.1:8000';
+
+  /**
+   * Parse constraint string and return card filter criteria
+   */
+  private parseConstraintString(constraint: string): {
+    type: 'named' | 'explicit',
+    filter?: any,
+    cards?: string[]
+  } {
+    // Check for explicit card list (contains comma, :r marker, or (R) marker)
+    if (constraint.includes(',') || constraint.includes(':r') || constraint.includes('(R)')) {
+      const cards = constraint.split(',').map(c => c.trim());
+      return { type: 'explicit', cards };
+    }
+
+    // Named constraints
+    const lowerConstraint = constraint.toLowerCase().trim();
+
+    // Suit constraints
+    if (lowerConstraint === 'cups only' || lowerConstraint === 'cups') {
+      return { type: 'named', filter: { suit: 'cups' } };
+    }
+    if (lowerConstraint === 'wands only' || lowerConstraint === 'wands') {
+      return { type: 'named', filter: { suit: 'wands' } };
+    }
+    if (lowerConstraint === 'swords only' || lowerConstraint === 'swords') {
+      return { type: 'named', filter: { suit: 'swords' } };
+    }
+    if (lowerConstraint === 'pentacles only' || lowerConstraint === 'pentacles') {
+      return { type: 'named', filter: { suit: 'pentacles' } };
+    }
+
+    // Category constraints
+    if (lowerConstraint === 'major arcana' || lowerConstraint === 'major') {
+      return { type: 'named', filter: { category: 'major' } };
+    }
+    if (lowerConstraint === 'minor arcana' || lowerConstraint === 'minor') {
+      return { type: 'named', filter: { category: 'minor' } };
+    }
+    if (lowerConstraint === 'court cards' || lowerConstraint === 'court') {
+      return { type: 'named', filter: { category: 'court' } };
+    }
+
+    // Orientation constraints
+    if (lowerConstraint === 'reversed only' || lowerConstraint === 'reversed') {
+      return { type: 'named', filter: { reversed: true } };
+    }
+    if (lowerConstraint === 'upright only' || lowerConstraint === 'upright') {
+      return { type: 'named', filter: { reversed: false } };
+    }
+
+    // Special thematic constraints
+    if (lowerConstraint === 'challenging' || lowerConstraint === 'difficult') {
+      return {
+        type: 'explicit',
+        cards: ['The Tower:r', 'Death:r', 'Three of Swords', 'Five of Cups', 'Ten of Swords', 'Five of Pentacles']
+      };
+    }
+    if (lowerConstraint === 'positive' || lowerConstraint === 'hopeful') {
+      return {
+        type: 'explicit',
+        cards: ['The Sun', 'The Star', 'Ten of Cups', 'The World', 'Three of Cups', 'Nine of Cups']
+      };
+    }
+
+    // Default to any card
+    if (lowerConstraint === 'any' || lowerConstraint === '') {
+      return { type: 'named', filter: {} };
+    }
+
+    // Compound constraints (cups reversed, major arcana no tower, etc)
+    // These could be parsed more sophisticatedly, but for now treat as 'any'
+    console.warn(`[StoryTarotService] Unknown constraint: ${constraint}, using 'any'`);
+    return { type: 'named', filter: {} };
+  }
+
+  /**
+   * Draw cards with a constraint string (NEW FUNCTION)
+   */
+  async drawCardsWithConstraint(constraint: string, count: number = 1): Promise<{
+    cards: CardInfo[];
+    spread: string;
+    seed?: number
+  }> {
+    const parsed = this.parseConstraintString(constraint);
+
+    if (parsed.type === 'explicit' && parsed.cards) {
+      // For explicit card lists, we need to pick from the specified cards
+      // This is a simplified implementation - in production, you'd want proper randomization
+      const selectedCards: CardInfo[] = [];
+      const availableCards = [...parsed.cards];
+
+      for (let i = 0; i < count && availableCards.length > 0; i++) {
+        const randomIndex = Math.floor(Math.random() * availableCards.length);
+        const cardStr = availableCards[randomIndex];
+        availableCards.splice(randomIndex, 1);
+
+        const reversed = cardStr.endsWith(':r');
+        const name = reversed ? cardStr.slice(0, -2) : cardStr;
+
+        selectedCards.push({
+          name: name,
+          reversed: reversed,
+          position: i.toString(),
+          image_url: '' // Will be filled by enrichCardData
+        });
+      }
+
+      return {
+        cards: await this.enrichCardData(selectedCards),
+        spread: 'custom',
+        seed: Math.random()
+      };
+    } else {
+      // For named constraints, we need to handle them client-side
+      // since the backend doesn't support these filter properties directly
+      // For now, just draw cards normally and filter client-side
+      return this.drawCards({
+        spread: 'past-present-future', // Use a valid spread type that the backend knows
+        cardCount: count
+        // Note: Filter properties like 'suit', 'category', 'reversed' are not supported by the backend
+        // We would need to implement client-side filtering or extend the backend API
+      });
+    }
+  }
+
+  /**
+   * Enrich card data with full information (NEW FUNCTION)
+   */
+  async enrichCardData(cards: CardInfo[]): Promise<CardInfo[]> {
+    // Get card image mapping
+    try {
+      const response = await fetch('/static/tarot-images.json');
+      const data = await response.json();
+
+      return cards.map(card => {
+        const imageInfo = data.cards.find((c: any) => c.name === card.name);
+        return {
+          ...card,
+          image_url: imageInfo ? `/static/cards_wikipedia/${imageInfo.img}` : '',
+          // Could also fetch interpretations here if needed
+        };
+      });
+    } catch (error) {
+      console.error('Failed to enrich card data:', error);
+      return cards;
+    }
+  }
 
   /**
    * Draw cards for story integration with optional constraints
@@ -60,8 +267,8 @@ export class StoryTarotService {
         question: options.question || "Story-driven reading",
         spread_type: options.spread || options.spreadType || "past-present-future",
         shuffle_count: options.shuffleCount || 3,
-        include_date: false,
-        rhythm: null  // rhythm should be null or a list of integers
+        include_date: false
+        // rhythm field omitted when not needed (undefined is acceptable for Optional fields)
       };
 
       const response = await axios.post<ReadingResponse>(`${this.baseURL}/api/reading/cards`, request);
@@ -202,8 +409,8 @@ export class StoryTarotService {
         question: options.question,
         spread_type: options.spread,
         shuffle_count: options.shuffleCount || 3,
-        include_date: false,
-        rhythm: "steady"
+        include_date: false
+        // rhythm field omitted for story readings (the backend doesn't use it for story contexts)
       };
 
       const response = await axios.post<ReadingResponse>(`${this.baseURL}/api/reading`, request);
@@ -280,7 +487,7 @@ export class StoryTarotService {
     const constrainedCards = [...originalCards];
     const maxRetries = 50; // Prevent infinite loops
 
-    for (const [position, allowedCards] of Object.entries(constraints)) {
+    for (const [position, allowedCardStrs] of Object.entries(constraints)) {
       const positionIndex = parseInt(position);
 
       if (positionIndex >= constrainedCards.length) {
@@ -289,9 +496,12 @@ export class StoryTarotService {
 
       const currentCard = constrainedCards[positionIndex];
 
-      // If current card is already in allowed list, keep it
-      if (allowedCards.includes(currentCard.name)) {
-        continue;
+      // Parse the constraint cards to check for orientation requirements
+      const allowedConstraints = allowedCardStrs.map(parseConstraintCard);
+
+      // Check if current card matches any of the allowed constraints
+      if (allowedConstraints.some(constraint => cardMatchesConstraint(currentCard, constraint))) {
+        continue; // Current card is valid, keep it
       }
 
       // Otherwise, redraw until we get an allowed card for this position
@@ -308,14 +518,24 @@ export class StoryTarotService {
 
           const newCards = redrawResponse.data.cards;
 
-          // Check if any of the newly drawn cards are allowed for this position
+          // Check if any of the newly drawn cards match the constraints for this position
           for (const newCard of newCards) {
-            if (allowedCards.includes(newCard.name)) {
-              // Found a valid card, use it for this position
-              constrainedCards[positionIndex] = {
+            // Check if the new card matches any of the allowed constraints
+            const matchingConstraint = allowedConstraints.find(constraint =>
+              constraint.name === newCard.name
+            );
+
+            if (matchingConstraint) {
+              // If orientation is specified in constraint, override the card's orientation
+              const finalCard = {
                 ...newCard,
-                position: currentCard.position // Keep original position name
+                position: currentCard.position, // Keep original position name
+                reversed: matchingConstraint.orientation === 'reversed' ? true :
+                         matchingConstraint.orientation === 'upright' ? false :
+                         newCard.reversed // Keep original if no orientation specified
               };
+
+              constrainedCards[positionIndex] = finalCard;
               foundValidCard = true;
               break;
             }
@@ -331,7 +551,7 @@ export class StoryTarotService {
       if (!foundValidCard) {
         throw new Error(
           `Could not find a valid card for position ${position} after ${maxRetries} attempts. ` +
-          `Allowed cards: ${allowedCards.join(', ')}. ` +
+          `Allowed constraints: ${allowedCardStrs.join(', ')}. ` +
           `Consider expanding the allowed cards list for this position.`
         );
       }

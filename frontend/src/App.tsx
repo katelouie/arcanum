@@ -6,6 +6,7 @@ import { DevMode } from './components/DevMode'
 import { SpreadLayoutCreator } from './components/SpreadLayoutCreator'
 import { StylingPlaybook } from './components/StylingPlaybook'
 import { StoryMode } from './components/StoryMode'
+import { TwineStoryMode } from './components/TwineStoryMode'
 import { useCardData } from './hooks/useCardData'
 
 interface CardInfo {
@@ -15,7 +16,7 @@ interface CardInfo {
   image_url: string;
 }
 
-type AppMode = 'reading' | 'practice' | 'layout' | 'dev' | 'story'
+type AppMode = 'reading' | 'practice' | 'layout' | 'dev' | 'story' | 'twine'
 
 function App() {
   const [mode, setMode] = useState<AppMode>('reading')
@@ -106,6 +107,16 @@ function App() {
             >
               Story Mode
             </button>
+            <button
+              onClick={() => setMode('twine')}
+              className={`px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
+                mode === 'twine'
+                  ? 'bg-indigo-600 text-white shadow-lg'
+                  : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+              }`}
+            >
+              Twine Stories
+            </button>
           </div>
         </div>
 
@@ -147,6 +158,27 @@ function App() {
         {mode === 'story' && (
           <div className="fixed inset-0 bg-slate-950 z-40">
             <StoryMode onModeChange={setMode} />
+          </div>
+        )}
+
+        {mode === 'twine' && (
+          <div className="fixed inset-0 bg-slate-950 z-40">
+            <div className="h-screen flex flex-col">
+              <div className="bg-slate-900 border-b border-gray-700 px-4 py-2 flex-shrink-0">
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={() => setMode('reading')}
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
+                  >
+                    ← Back to Main App
+                  </button>
+                  <div className="text-white font-medium">Twine Interactive Stories</div>
+                </div>
+              </div>
+              <div className="flex-1 min-h-0 p-4">
+                <TwineStoryMode />
+              </div>
+            </div>
           </div>
         )}
 

@@ -2,8 +2,25 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Story } from 'inkjs';
 import { StoryTarotDisplay } from './StoryTarotDisplay';
 import { InterpretationPanel } from './InterpretationPanel';
+import { DashboardView } from './DashboardView';
 import { useCardData } from '../hooks/useCardData';
 import { useStorySession } from '../hooks/useStorySession';
+import { storyCardService } from '../services/storyCardService';
+import { CardCallout } from './story/CardCallout';
+import { StoryTooltip, StoryHint } from './story/StoryTooltip';
+import { StoryInsight, SessionNote } from './story/StoryInsight';
+import {
+  parseTag,
+  getTaggedContentClass,
+  hasCardTag,
+  getCardFromTag,
+  hasTooltipTag,
+  getTooltipFromTag,
+  hasNoteTag,
+  getNoteFromTag,
+  hasHintTag,
+  getHintFromTag
+} from '../utils/storyTagParser';
 
 // Helper function to parse constraint strings
 const parseConstraintString = (constraintStr: string): Record<string, string[]> => {
@@ -20,6 +37,55 @@ const parseConstraintString = (constraintStr: string): Record<string, string[]> 
   return constraints;
 };
 
+// Helper function to parse card name and orientation
+const parseCardNameWithOrientation = (cardStr: string): { name: string; reversed: boolean } => {
+  const trimmed = cardStr.trim();
+
+  // Check for new (R) format first
+  if (trimmed.endsWith(' (R)')) {
+    return {
+      name: trimmed.slice(0, -4), // Remove ' (R)'
+      reversed: true
+    };
+  }
+  // Backward compatibility: Check for :reversed, :r, or :upright suffix
+  else if (trimmed.endsWith(':reversed')) {
+    return {
+      name: trimmed.slice(0, -9), // Remove ':reversed'
+      reversed: true
+    };
+  } else if (trimmed.endsWith(':r')) {
+    return {
+      name: trimmed.slice(0, -2), // Remove ':r'
+      reversed: true
+    };
+  } else if (trimmed.endsWith(':upright')) {
+    return {
+      name: trimmed.slice(0, -8), // Remove ':upright'
+      reversed: false
+    };
+  } else {
+    // No orientation specified - default to upright
+    return {
+      name: trimmed,
+      reversed: false
+    };
+  }
+};
+
+// Helper function to get card image URL using tarot-images.json mapping
+const getCardImageUrl = async (cardName: string): Promise<string> => {
+  try {
+    const response = await fetch('/static/tarot-images.json');
+    const data = await response.json();
+    const imageInfo = data.cards.find((c: any) => c.name === cardName);
+    return imageInfo ? `/static/cards_wikipedia/${imageInfo.img}` : '';
+  } catch (error) {
+    console.error('Failed to load card image mapping:', error);
+    return '';
+  }
+};
+
 interface CardInfo {
   name: string;
   position: string;
@@ -32,11 +98,18 @@ interface StoryPlayerProps {
   className?: string;
   onExternalFunction?: (functionName: string, args: any[]) => Promise<any>;
   clientId?: string; // For session tracking
+  clientName?: string; // Full client name for API calls
   storyName?: string; // For session tracking
+  onSessionComplete?: (variables: Record<string, any>) => void; // Called when session ends
+}
+
+interface TaggedParagraph {
+  text: string;
+  tags: string[];
 }
 
 interface StoryState {
-  paragraphs: string[];
+  paragraphs: TaggedParagraph[];
   choices: Array<{ text: string; index: number }>;
   isLoading: boolean;
   error: string | null;
@@ -55,7 +128,9 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
   className = '',
   onExternalFunction,
   clientId,
-  storyName
+  clientName,
+  storyName,
+  onSessionComplete
 }) => {
   const [story, setStory] = useState<Story | null>(null);
   const [storyState, setStoryState] = useState<StoryState>({
@@ -65,6 +140,7 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
     error: null,
     isComplete: false
   });
+  const [isDashboard, setIsDashboard] = useState(true);
 
   // Tarot integration state
   const [currentReading, setCurrentReading] = useState<TarotReading | null>(null);
@@ -88,6 +164,76 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
     addInsight,
     markForFollowUp
   } = useStorySession({ clientId, storyName });
+
+  // Initialize card service once
+  useEffect(() => {
+    storyCardService.initialize().catch(error => {
+      console.error('[StoryPlayer] Failed to initialize card service:', error);
+    });
+  }, []);
+
+  // Save story state to localStorage
+  const saveStoryState = useCallback(() => {
+    if (!story || !storyPath) return;
+
+    try {
+      const storyStateJson = story.state.ToJson();
+      const saveKey = `story_save_${storyPath.replace(/[^a-zA-Z0-9]/g, '_')}`;
+
+      localStorage.setItem(saveKey, storyStateJson);
+      localStorage.setItem(`${saveKey}_timestamp`, Date.now().toString());
+
+      console.log('[StoryPlayer] Story state saved to:', saveKey);
+      console.log('[StoryPlayer] Save data size:', storyStateJson.length, 'characters');
+    } catch (error) {
+      console.error('[StoryPlayer] Failed to save story state:', error);
+    }
+  }, [story, storyPath]);
+
+  // Load story state from localStorage
+  const loadStoryState = useCallback((newStory: Story): boolean => {
+    if (!storyPath) return false;
+
+    try {
+      const saveKey = `story_save_${storyPath.replace(/[^a-zA-Z0-9]/g, '_')}`;
+      const savedState = localStorage.getItem(saveKey);
+      const savedTimestamp = localStorage.getItem(`${saveKey}_timestamp`);
+
+      if (savedState) {
+        // Check if save is not too old (optional - 7 days max)
+        const maxAge = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+        const saveAge = savedTimestamp ? Date.now() - parseInt(savedTimestamp) : 0;
+
+        if (saveAge > maxAge) {
+          console.log('[StoryPlayer] Save too old, starting fresh');
+          localStorage.removeItem(saveKey);
+          localStorage.removeItem(`${saveKey}_timestamp`);
+          return false;
+        }
+
+        newStory.state.LoadJson(savedState);
+        console.log('[StoryPlayer] Story state loaded from save:', saveKey);
+        console.log('[StoryPlayer] Save age:', Math.round(saveAge / 1000 / 60), 'minutes old');
+        return true;
+      }
+    } catch (error) {
+      console.error('[StoryPlayer] Failed to load story state:', error);
+      // If loading fails, start fresh
+      return false;
+    }
+
+    return false;
+  }, [storyPath]);
+
+  // Clear save data (useful for testing or fresh starts)
+  const clearSaveData = useCallback(() => {
+    if (!storyPath) return;
+
+    const saveKey = `story_save_${storyPath.replace(/[^a-zA-Z0-9]/g, '_')}`;
+    localStorage.removeItem(saveKey);
+    localStorage.removeItem(`${saveKey}_timestamp`);
+    console.log('[StoryPlayer] Save data cleared');
+  }, [storyPath]);
 
   // Handle story external function calls with tarot integration
   const handleStoryExternalFunction = useCallback(async (functionName: string, args: any[]) => {
@@ -217,10 +363,28 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
       
       const storyJson = await response.json();
       const newStory = new Story(storyJson);
-      
-      // Set up external function binding with enhanced tarot integration
-      console.log(`[StoryPlayer] Setting up external function bindings`);
-      
+
+      // IMPORTANT: Set up external function bindings BEFORE any story execution
+      console.log(`[StoryPlayer] Setting up external function bindings before story execution`);
+
+      // Bind GetCard function - now uses synchronous card service
+      try {
+        newStory.BindExternalFunction('GetCard', (constraint: string) => {
+          console.log(`[StoryPlayer] GetCard called with constraint:`, constraint);
+
+          // Use the new synchronous card service
+          const card = storyCardService.getCard(constraint);
+          console.log(`[StoryPlayer] GetCard returning:`, card);
+
+          return card;
+        });
+        console.log(`[StoryPlayer] GetCard function bound successfully`);
+      } catch (bindError) {
+        console.error(`[StoryPlayer] Failed to bind GetCard function:`, bindError);
+        throw new Error(`Failed to bind GetCard function: ${bindError}`);
+      }
+
+
       newStory.BindExternalFunction('drawCards', (...args: any[]) => {
         console.log(`[StoryPlayer] drawCards binding called with args:`, args);
         const [spread, count, title, positionConstraintsStr] = args;
@@ -326,9 +490,168 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
         // Return synchronous value for Ink (just a simple string)
         return "interpretation_retrieved";
       });
-      
+
+      newStory.BindExternalFunction('displayReading', (...args: any[]) => {
+        console.log(`[StoryPlayer] displayReading binding called with args:`, args);
+        const [cardListStr, spreadType, title] = args;
+
+        // Parse the comma-separated card list
+        if (!cardListStr || typeof cardListStr !== 'string') {
+          console.error('[StoryPlayer] displayReading: Invalid card list provided');
+          return "error";
+        }
+
+        const cardNames = cardListStr.split(',').map(name => name.trim()).filter(name => name.length > 0);
+
+        if (cardNames.length === 0) {
+          console.error('[StoryPlayer] displayReading: No cards provided');
+          return "error";
+        }
+
+        // Helper function to get position names from spread config
+        const getPositionNames = async (spreadId: string, cardCount: number): Promise<string[]> => {
+          try {
+            // Fetch spread configuration
+            const response = await fetch('http://127.0.0.1:8000/api/spreads');
+            const spreadsConfig = await response.json();
+
+            // Find the spread
+            const spread = spreadsConfig.spreads.find((s: any) => s.id === spreadId);
+            if (!spread || !spread.positions) {
+              console.warn(`[StoryPlayer] Spread '${spreadId}' not found, using generic positions`);
+              return Array.from({ length: cardCount }, (_, i) => `Position ${i + 1}`);
+            }
+
+            // Check if card count matches spread positions
+            if (spread.positions.length !== cardCount) {
+              console.warn(`[StoryPlayer] Card count (${cardCount}) doesn't match spread positions (${spread.positions.length}) for ${spreadId}`);
+              // Use spread positions up to card count, then fallback to generic
+              const positions: string[] = [];
+              for (let i = 0; i < cardCount; i++) {
+                if (i < spread.positions.length) {
+                  positions.push(spread.positions[i].name);
+                } else {
+                  positions.push(`Position ${i + 1}`);
+                }
+              }
+              return positions;
+            }
+
+            // Return the position names from the spread
+            return spread.positions.map((pos: any) => pos.name);
+          } catch (error) {
+            console.error(`[StoryPlayer] Failed to load spread config:`, error);
+            return Array.from({ length: cardCount }, (_, i) => `Position ${i + 1}`);
+          }
+        };
+
+        // Do the actual work asynchronously as a side effect (fire and forget)
+        (async () => {
+          try {
+            const { storyTarotService } = await import('../services/storyTarotService');
+
+            // Get proper position names for this spread
+            const positionNames = await getPositionNames(spreadType || 'custom', cardNames.length);
+
+            // Create card objects with proper structure
+            const cards = await Promise.all(cardNames.map(async (cardStr, index) => {
+              const { name, reversed } = parseCardNameWithOrientation(cardStr);
+              const image_url = await getCardImageUrl(name);
+
+              return {
+                name: name,
+                position: positionNames[index] || `Position ${index + 1}`,
+                reversed: reversed,
+                image_url: image_url
+              };
+            }));
+
+            // Update reading state - same as drawCards does
+            setCurrentReading({
+              cards: cards,
+              spreadId: spreadType || 'custom',
+              title: title || `${spreadType} Reading`,
+              description: 'Reading with pre-selected cards'
+            });
+            setCurrentSpread({ id: spreadType || 'custom', name: spreadType || 'Custom Spread' });
+
+            // Track card drawing for session notes
+            if (clientId) {
+              trackCardDrawing(
+                cardNames,
+                spreadType || 'custom',
+                title,
+                'Pre-selected'
+              );
+            }
+
+            console.log(`[StoryPlayer] displayReading completed:`, { cards, spreadType, title, positionNames });
+          } catch (error) {
+            console.error(`[StoryPlayer] displayReading failed:`, error);
+            // Update story state to show error
+            setStoryState(prev => ({
+              ...prev,
+              error: `Display reading failed: ${error instanceof Error ? error.message : String(error)}`
+            }));
+          }
+        })();
+
+        // Return synchronous value for Ink (number of cards displayed)
+        return cardNames.length;
+      });
+
+      // Watch for dashboard state changes
+      newStory.ObserveVariable('is_dashboard', (name, value) => {
+        setIsDashboard(value);
+        console.log('Dashboard state changed:', value);
+      });
+
+      // Initialize story variables with current session state if available
+      // (Only for old separate stories, not needed for main.ink)
+      if ((clientName || clientId) && !storyPath.includes('main.json')) {
+        try {
+          const clientIdentifier = encodeURIComponent(clientName || clientId);
+          const response = await fetch(`/api/clients/${clientIdentifier}/continue`, {
+            method: 'POST'
+          });
+          if (response.ok) {
+            const sessionData = await response.json();
+            if (sessionData.session_data) {
+              // Set all story variables to match saved session state
+              newStory.variablesState['session_number'] = sessionData.session_data.session;
+              newStory.variablesState['client_notes'] = sessionData.session_data.notes || '';
+              newStory.variablesState['last_reading_date'] = sessionData.session_data.last_session_date || '';
+              newStory.variablesState['sarah_confidence'] = sessionData.session_data.confidence_level || 0;
+
+              console.log(`Initialized story with session data:`, sessionData.session_data);
+              console.log(`Starting at session ${sessionData.session_data.session}`);
+              console.log(`Current session_number variable:`, newStory.variablesState['session_number']);
+            }
+          }
+        } catch (error) {
+          console.log('Could not load session state, starting from beginning:', error);
+        }
+      }
+
+      // Try to load saved story state (overrides session management)
+      const stateLoaded = loadStoryState(newStory);
+      if (stateLoaded) {
+        console.log('[StoryPlayer] Loaded story from saved state, skipping session initialization');
+      }
+
+      // Log completion of all bindings
+      console.log(`[StoryPlayer] All external function bindings completed successfully`);
+      console.log(`[StoryPlayer] Available external functions:`, [
+        'GetCard', 'drawCards', 'shuffleDeck', 'getCardInterpretation', 'displayReading'
+      ]);
+
       setStory(newStory);
-      updateStoryContent(newStory);
+
+      // Add a small delay to ensure variables are set before continuing
+      setTimeout(() => {
+        console.log(`[StoryPlayer] Starting story execution with bound external functions`);
+        updateStoryContent(newStory);
+      }, 100);
       
     } catch (err) {
       setStoryState(prev => ({
@@ -337,19 +660,23 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
         error: err instanceof Error ? err.message : 'Unknown error occurred'
       }));
     }
-  }, [storyPath, handleStoryExternalFunction]);
+  }, [storyPath, handleStoryExternalFunction, loadStoryState]);
 
   // Update story content and choices
   const updateStoryContent = useCallback((currentStory: Story) => {
-    const paragraphs: string[] = [];
+    const paragraphs: TaggedParagraph[] = [];
     const choices: Array<{ text: string; index: number }> = [];
-    
+
     try {
-      // Continue the story and collect all available text
+      // Continue the story and collect all available text with tags
       while (currentStory.canContinue) {
         const line = currentStory.Continue();
         if (line?.trim()) {
-          paragraphs.push(line.trim());
+          const tags = currentStory.currentTags || [];
+          paragraphs.push({
+            text: line.trim(),
+            tags: tags
+          });
         }
       }
       
@@ -363,14 +690,43 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
         });
       }
       
+      const isComplete = !currentStory.canContinue && choices.length === 0;
+
       setStoryState({
         paragraphs,
         choices,
         isLoading: false,
         error: null,
-        isComplete: !currentStory.canContinue && choices.length === 0
+        isComplete
       });
-      
+
+      // If session is complete, extract variables and notify parent
+      if (isComplete && onSessionComplete) {
+        const variables: Record<string, any> = {};
+
+        // Extract key story variables
+        try {
+          if (currentStory.variablesState) {
+            variables.session_number = currentStory.variablesState.$('session_number');
+            variables.client_notes = currentStory.variablesState.$('client_notes');
+            variables.last_reading_date = currentStory.variablesState.$('last_reading_date');
+            variables.sarah_confidence = currentStory.variablesState.$('sarah_confidence');
+            variables.reading_style = currentStory.variablesState.$('reading_style');
+            variables.cards_drawn = currentStory.variablesState.$('cards_drawn');
+          }
+        } catch (err) {
+          console.error('Error extracting story variables:', err);
+        }
+
+        // Notify parent component with extracted variables
+        onSessionComplete(variables);
+      }
+
+      // Auto-save after story content updates (but not if it's the initial load)
+      if (paragraphs.length > 0 || choices.length > 0) {
+        saveStoryState();
+      }
+
     } catch (err) {
       setStoryState(prev => ({
         ...prev,
@@ -378,7 +734,7 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
         error: err instanceof Error ? err.message : 'Error processing story'
       }));
     }
-  }, []);
+  }, [onSessionComplete, saveStoryState]);
 
   // Handle choice selection
   const makeChoice = useCallback((choiceIndex: number) => {
@@ -395,26 +751,34 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
 
       story.ChooseChoiceIndex(choiceIndex);
       updateStoryContent(story);
+
+      // Auto-save after choice is made
+      saveStoryState();
     } catch (err) {
       setStoryState(prev => ({
         ...prev,
         error: err instanceof Error ? err.message : 'Error making choice'
       }));
     }
-  }, [story, updateStoryContent, clientId, trackChoice]);
+  }, [story, updateStoryContent, clientId, trackChoice, saveStoryState]);
 
   // Restart story
   const restartStory = useCallback(() => {
     if (story) {
+      // Clear saved state first
+      clearSaveData();
+
+      // Reset story state
       story.ResetState();
       updateStoryContent(story);
+
       // Clear tarot reading when restarting
       setCurrentReading(null);
       setSelectedCard(null);
       setIsPanelOpen(false);
       setCurrentSpread(null);
     }
-  }, [story, updateStoryContent]);
+  }, [story, updateStoryContent, clearSaveData]);
 
   // Handle card click - open InterpretationPanel
   const handleCardClick = useCallback((card: CardInfo, index: number) => {
@@ -432,6 +796,16 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
   useEffect(() => {
     loadStory();
   }, [loadStory]);
+
+  // Save story state when component unmounts or story changes
+  useEffect(() => {
+    return () => {
+      // Save on unmount
+      if (story && storyPath) {
+        saveStoryState();
+      }
+    };
+  }, [story, storyPath, saveStoryState]);
 
   // Render loading state
   if (storyState.isLoading) {
@@ -489,6 +863,35 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
     );
   }
 
+  // Render dashboard or story view based on state
+  if (isDashboard) {
+    return (
+      <div className={`h-full overflow-y-auto ${className}`}>
+        <div className="max-w-7xl mx-auto p-6">
+          <DashboardView
+            choices={storyState.choices}
+            storyContent={storyState.paragraphs}
+            onChoiceClick={makeChoice}
+            className=""
+          />
+          {/* Restart button on dashboard */}
+          <div className="mt-4 flex justify-end">
+            <button
+              onClick={() => {
+                if (confirm('Restart story and clear all saved progress?')) {
+                  restartStory();
+                }
+              }}
+              className="px-3 py-1.5 text-sm bg-slate-700/50 text-slate-300 rounded hover:bg-slate-700 transition-colors"
+            >
+              Restart Story
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`h-full overflow-y-auto ${className}`}>
       <div className="max-w-4xl mx-auto p-6">
@@ -507,15 +910,107 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
 
       {/* Story content */}
       <div className="space-y-4 mb-6">
-        {storyState.paragraphs.map((paragraph, index) => (
-          <p 
-            key={index}
-            className="text-slate-200 leading-relaxed"
-          >
-            {paragraph}
-          </p>
-        ))}
+        {storyState.paragraphs.map((paragraph, index) => {
+          const parsedTags = paragraph.tags.map(parseTag);
+
+          // Check for special component rendering
+          if (hasCardTag(parsedTags)) {
+            const card = getCardFromTag(parsedTags);
+            if (card) {
+              return (
+                <div key={index}>
+                  <p className="text-slate-200 leading-relaxed mb-2">
+                    {paragraph.text}
+                  </p>
+                  <CardCallout card={card.name} reversed={card.reversed} />
+                </div>
+              );
+            }
+          }
+
+          if (hasTooltipTag(parsedTags)) {
+            const tooltip = getTooltipFromTag(parsedTags);
+            if (tooltip) {
+              return (
+                <p key={index} className="text-slate-200 leading-relaxed">
+                  <StoryTooltip text={paragraph.text} tooltip={tooltip} />
+                </p>
+              );
+            }
+          }
+
+          if (hasHintTag(parsedTags)) {
+            const hint = getHintFromTag(parsedTags);
+            if (hint) {
+              return (
+                <p key={index} className="text-slate-200 leading-relaxed">
+                  <StoryHint text={paragraph.text} hint={hint} />
+                </p>
+              );
+            }
+          }
+
+          if (hasNoteTag(parsedTags)) {
+            const note = getNoteFromTag(parsedTags);
+            if (note) {
+              return (
+                <SessionNote
+                  key={index}
+                  text={paragraph.text}
+                  category={note.category}
+                  detail={note.detail}
+                  onSave={(noteData) => {
+                    if (clientId) {
+                      addInsight(`${noteData.category}: ${noteData.text}`);
+                    }
+                  }}
+                />
+              );
+            }
+          }
+
+          // Check for insight tags
+          const insightTag = parsedTags.find(tag => tag.type === 'insight');
+          if (insightTag) {
+            return (
+              <StoryInsight
+                key={index}
+                text={paragraph.text}
+                type="insight"
+                category={insightTag.params[0]}
+              />
+            );
+          }
+
+          // Apply styling classes based on tags
+          const tagClasses = getTaggedContentClass(parsedTags);
+
+          return (
+            <p
+              key={index}
+              className={`text-slate-200 leading-relaxed ${tagClasses}`}
+            >
+              {paragraph.text}
+            </p>
+          );
+        })}
       </div>
+
+      {/* Restart button during gameplay */}
+      {!storyState.isComplete && story && (
+        <div className="flex justify-end mb-3">
+          <button
+            onClick={() => {
+              if (confirm('Restart story and clear all saved progress?')) {
+                restartStory();
+              }
+            }}
+            className="px-3 py-1.5 text-sm text-slate-400 hover:text-slate-200 transition-colors"
+          >
+            ↺ Restart
+          </button>
+        </div>
+      )}
 
       {/* Choices */}
       {storyState.choices.length > 0 && (
@@ -540,13 +1035,39 @@ export const StoryPlayer: React.FC<StoryPlayerProps> = ({
       {/* Story complete */}
       {storyState.isComplete && (
         <div className="text-center py-6 border-t border-slate-700">
-          <p className="text-slate-300 mb-4">End of story</p>
-          <button
-            onClick={restartStory}
-            className="px-4 py-2 bg-violet-600 text-white rounded hover:bg-violet-700 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500"
-          >
-            Start Over
-          </button>
+          <p className="text-slate-300 mb-4">Session Complete</p>
+          <div className="flex gap-3 justify-center">
+            {onSessionComplete && (
+              <button
+                onClick={() => {
+                  // Extract variables and return to dashboard
+                  if (story?.variablesState) {
+                    const variables: Record<string, any> = {};
+                    try {
+                      variables.session_number = story.variablesState.$('session_number');
+                      variables.client_notes = story.variablesState.$('client_notes');
+                      variables.last_reading_date = story.variablesState.$('last_reading_date');
+                      variables.sarah_confidence = story.variablesState.$('sarah_confidence');
+                      variables.reading_style = story.variablesState.$('reading_style');
+                      variables.cards_drawn = story.variablesState.$('cards_drawn');
+                    } catch (err) {
+                      console.error('Error extracting variables:', err);
+                    }
+                    onSessionComplete(variables);
+                  }
+                }}
+                className="px-4 py-2 bg-violet-600 text-white rounded hover:bg-violet-700 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500"
+              >
+                Return to Dashboard
+              </button>
+            )}
+            <button
+              onClick={restartStory}
+              className="px-4 py-2 bg-slate-600 text-white rounded hover:bg-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-500"
+            >
+              Restart Session
+            </button>
+          </div>
         </div>
       )}
 
