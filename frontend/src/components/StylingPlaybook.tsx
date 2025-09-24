@@ -296,6 +296,21 @@ prose-a:text-violet-400`}
             )}
           </div>
         </div>
+
+        {/* Footer with Attribution */}
+        <div className="border-t border-slate-700 px-6 py-3 bg-slate-800/30">
+          <p className="text-xs text-slate-400 text-center">
+            Icons: <a
+              href="https://www.flaticon.com/free-icons/tarot"
+              title="tarot icons"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-violet-400 hover:text-violet-300 underline decoration-violet-400/50 hover:decoration-violet-300"
+            >
+              Tarot icons created by Heykiyou - Flaticon
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   )

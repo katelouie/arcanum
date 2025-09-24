@@ -57,15 +57,71 @@ cd backend
 python main.py       # Start FastAPI server (port 8000)
 ```
 
-### Story System Development
+### Story Client Management
 
 ```bash
+# Create a new client via API
+curl -X POST http://localhost:8000/api/clients \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Client Name",
+    "story_file": "story.json",
+    "story_name": "story",
+    "total_sessions": 4,
+    "initial_notes": "Initial client notes",
+    "initial_date": "March 15th"
+  }'
+
+# List all clients
+curl -X GET http://localhost:8000/api/clients
+
+# Get client session info
+curl -X POST http://localhost:8000/api/clients/Client%20Name/continue
+```
+
+### Story System Development
+
+**IMPORTANT**: Use the comprehensive Twine build scripts in `scripts/` directory. See `scripts/README.md` for complete documentation and usage examples.
+
+**Twine Stories (Current System):**
+```bash
+# Build all stories with automatic Arcanum styling
+./scripts/build-twine.sh build-all
+
+# Build single story
+./scripts/build-twine.sh build twine-poc/story-name.twee
+
+# Watch for changes (auto-rebuild during development)
+./scripts/build-twine.sh watch
+
+# Python version with advanced features and validation
+python scripts/build_twine.py build-all
+python scripts/build_twine.py validate    # Validate .twee files
+python scripts/build_twine.py watch       # Advanced watch mode
+
+# Clean compiled files
+./scripts/build-twine.sh clean
+
+# View build script configuration and status
+./scripts/build-twine.sh version
+
+# The build scripts automatically include twine-poc/arcanum-stylesheet.twee
+# which applies the site's violet/slate design system to all compiled stories
+```
+
+**Ink Stories (Legacy System):**
+```bash
 # Compile Ink stories to JSON for web consumption
+python build_stories.py                    # Build all .ink files
+python build_stories.py sarah              # Build only sarah.ink
+python build_stories.py sarah demo         # Build multiple specific stories
+
+# Manual compilation (alternative method):
 inklecate -o frontend/public/stories/story_name.json ink/story_name.ink
 
 # When adding EXTERNAL function calls to Ink files:
 # 1. Add EXTERNAL declarations at top of .ink file
-# 2. Recompile to JSON
+# 2. Recompile to JSON using build_stories.py
 # 3. Ensure JavaScript bindings match function signatures in StoryPlayer.tsx
 ```
 
@@ -109,6 +165,7 @@ The story system creates interactive narratives that call live backend services:
 - `backend/config/spreads-config.json` - Tarot spread layouts and position definitions
 - `backend/config/practice_scenarios.json` - Learning scenarios with client contexts
 - `backend/config/evaluation_rubric.json` - AI feedback scoring criteria
+- `backend/config/clients_config.json` - Story mode client configurations and session settings
 - `backend/main.py` - FastAPI app configuration and route definitions
 
 ### Frontend Configuration
@@ -119,9 +176,73 @@ The story system creates interactive narratives that call live backend services:
 
 ### Story System Files
 
+**Twine Stories:**
+- `twine-poc/*.twee` - Source Twine story files (Twee format)
+- `twine-poc/arcanum-stylesheet.twee` - Shared stylesheet with design system (auto-included)
+- `scripts/build-twine.sh` - Shell build script for Twine stories
+- `scripts/build_twine.py` - Python build script with advanced features
+- `scripts/README.md` - Comprehensive documentation for build system
+- `frontend/public/stories/*.html` - Compiled Twine story HTML files
+- `frontend/src/components/TwineStoryPlayer.tsx` - React component for Twine stories
+
+**Ink Stories (Legacy):**
 - `ink/*.ink` - Source Ink language story files
 - `frontend/public/stories/*.json` - Compiled story files for web consumption
 - `frontend/src/services/storyTarotService.ts` - Backend integration for story functions
+
+## Position Interpretation RAG Mappings
+
+When configuring spreads in `backend/config/spreads-config.json`, use these position interpretation options for the `rag_mapping` field of each position. These correspond to the detailed interpretations available in the generated card files.
+
+### Temporal Positions
+- `temporal_positions.past` - Past influences and events
+- `temporal_positions.distant_past` - Long-ago influences, foundational experiences
+- `temporal_positions.recent_past` - Recent events affecting the present
+- `temporal_positions.present` - Current moment and immediate circumstances
+- `temporal_positions.present_situation` - Core of the current situation
+- `temporal_positions.future` - Future possibilities and outcomes
+- `temporal_positions.near_future` - Immediate future developments
+- `temporal_positions.distant_future` - Long-term outcomes and destiny
+
+### Challenge and Growth
+- `challenge_and_growth.challenge` - Main challenge to overcome
+- `challenge_and_growth.cross` - What crosses or opposes you
+- `challenge_and_growth.obstacle` - Barriers and blockages
+- `challenge_and_growth.lesson` - What needs to be learned
+- `challenge_and_growth.shadow` - Shadow aspects to integrate
+- `challenge_and_growth.what_hinders` - What holds you back
+
+### Guidance and Action
+- `guidance_and_action.advice` - Direct guidance and recommendations
+- `guidance_and_action.action` - Specific actions to take
+- `guidance_and_action.your_approach` - Your current approach or attitude
+- `guidance_and_action.what_helps` - Resources and support available
+- `guidance_and_action.guidance` - Spiritual or higher guidance
+- `guidance_and_action.best_course` - Optimal path forward
+
+### Emotional and Internal
+- `emotional_and_internal.hopes_fears` - Combined hopes and fears
+- `emotional_and_internal.hopes` - Aspirations and desires
+- `emotional_and_internal.fears` - Worries and anxieties
+- `emotional_and_internal.subconscious` - Hidden influences and unconscious patterns
+- `emotional_and_internal.conscious` - Conscious awareness and thoughts
+- `emotional_and_internal.emotional_state` - Current emotional landscape
+- `emotional_and_internal.heart` - Heart's desires and emotional truth
+- `emotional_and_internal.mind` - Mental state and thought patterns
+
+### External Influences
+- `external_influences.external_influences` - General outside forces
+- `external_influences.others` - How others affect the situation
+- `external_influences.environment` - Environmental and contextual factors
+- `external_influences.others_see_you` - How you are perceived
+- `external_influences.hidden_influences` - Unseen forces at work
+
+### Outcome and Result
+- `outcome_and_result.outcome` - General outcome
+- `outcome_and_result.final_outcome` - Ultimate resolution
+- `outcome_and_result.possible_outcome` - Potential developments
+- `outcome_and_result.best_case` - Most positive outcome
+- `outcome_and_result.worst_case` - Most challenging outcome
 
 ## LLM/AI Integration Architecture
 
