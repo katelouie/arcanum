@@ -1,0 +1,68 @@
+{
+  "_description": "Configuration file for Twine build scripts",
+  "_version": "1.0.0",
+
+  "source_dir": "twine-poc",
+  "output_dir": "frontend/public/stories",
+  "format": "sugarcube-2",
+
+  "watch_interval": 2,
+  "log_level": "INFO",
+
+  "auto_create_dirs": true,
+  "backup_on_overwrite": false,
+  "validate_before_build": true,
+  "show_statistics": true,
+
+  "compression": {
+    "enabled": false,
+    "level": 6,
+    "_note": "Compression not yet implemented"
+  },
+
+  "validation": {
+    "check_empty_files": true,
+    "check_start_passage": true,
+    "check_balanced_tags": true,
+    "check_balanced_links": true,
+    "require_story_metadata": false
+  },
+
+  "build_options": {
+    "test_mode": false,
+    "watch_subdirectories": false,
+    "parallel_builds": false,
+    "max_parallel_jobs": 4
+  },
+
+  "output_options": {
+    "minify_html": false,
+    "include_source_maps": false,
+    "preserve_comments": true
+  },
+
+  "development": {
+    "auto_open_browser": false,
+    "dev_server_port": 3000,
+    "live_reload": false
+  },
+
+  "_format_options": [
+    "sugarcube-2",
+    "sugarcube-1",
+    "harlowe-3",
+    "harlowe-2",
+    "harlowe-1",
+    "chapbook-1",
+    "snowman-2",
+    "snowman-1"
+  ],
+
+  "_log_levels": [
+    "DEBUG",
+    "INFO",
+    "WARNING",
+    "ERROR",
+    "CRITICAL"
+  ]
+}

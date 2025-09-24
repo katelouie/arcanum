@@ -1,0 +1,772 @@
+# Twine Build Scripts - Examples and Workflows
+
+This document provides practical examples and common workflows for using the Twine build scripts.
+
+## Table of Contents
+
+- [Basic Examples](#basic-examples)
+- [Development Workflows](#development-workflows)
+- [Format Conversion](#format-conversion)
+- [Integration Examples](#integration-examples)
+- [Advanced Workflows](#advanced-workflows)
+- [Troubleshooting Examples](#troubleshooting-examples)
+
+## Basic Examples
+
+### First Time Setup
+
+```bash
+# 1. Verify tweego is installed
+source ~/.zshrc
+tweego --version
+
+# 2. Create your first story
+mkdir -p twine-poc
+cat > twine-poc/my-first-story.twee << 'EOF'
+:: Start
+Welcome to my interactive story!
+
+This is your first Twine story built with the automated build system.
+
+[[Continue to the next passage->Next]]
+[[Make a different choice->Alternative]]
+
+:: Next
+You chose to continue. Great choice!
+
+[[Go back->Start]]
+[[End the story->End]]
+
+:: Alternative
+You chose the alternative path. Interesting!
+
+[[Go back->Start]]
+[[End the story->End]]
+
+:: End
+Thanks for playing!
+
+*The End*
+EOF
+
+# 3. Build your story
+./scripts/build-twine.sh build twine-poc/my-first-story.twee
+
+# 4. Check the output
+ls -la frontend/public/stories/
+# Should show: my-first-story.html
+```
+
+### Build All Stories
+
+```bash
+# Using shell script
+./scripts/build-twine.sh build-all
+
+# Using Python script with validation
+python scripts/build_twine.py build-all
+
+# Check build status
+./scripts/build-twine.sh list
+```
+
+## Development Workflows
+
+### Daily Development Workflow
+
+```bash
+# 1. Start your development session
+./scripts/build-twine.sh watch
+
+# Terminal output will show:
+# [INFO] Starting watch mode
+# [INFO] Watching for changes in twine-poc
+# [INFO] Found 2 .twee files
+# [SUCCESS] Successfully compiled: frontend/public/stories/story1.html
+# [SUCCESS] Successfully compiled: frontend/public/stories/story2.html
+# [INFO] Watching for file changes (checking every 2s)...
+
+# 2. Edit your .twee files in your preferred editor
+# The watch mode will automatically detect changes and rebuild
+
+# 3. When you see a change detected:
+# [INFO] Detected change in: twine-poc/my-story.twee
+# [SUCCESS] Successfully compiled: frontend/public/stories/my-story.html
+
+# 4. Your React app can immediately load the updated story
+```
+
+### Story Development with Validation
+
+```bash
+# Start with validation enabled (Python script)
+python scripts/build_twine.py watch
+
+# In another terminal, run validation manually
+python scripts/build_twine.py validate
+
+# Example validation output:
+# [INFO] Validating all .twee files
+# [INFO] ✓ tarot-story.twee: Valid
+# [ERROR] ✗ broken-story.twee: Validation failed
+# [ERROR]     - Missing Start passage
+# [ERROR]     - Mismatched tags: 3 open, 2 close
+```
+
+### Quick Build and Test
+
+```bash
+# Build and immediately test a specific story
+./scripts/build-twine.sh build twine-poc/new-feature.twee test-story
+
+# Check if it compiled successfully
+if [ -f "frontend/public/stories/test-story.html" ]; then
+    echo "✅ Story compiled successfully!"
+    # Start your React dev server to test
+    cd frontend && npm run dev
+else
+    echo "❌ Build failed - check the logs"
+    tail -n 10 scripts/build.log
+fi
+```
+
+## Format Conversion
+
+### Working with Twine GUI
+
+```bash
+# Export your .twee source to open in Twine GUI
+./scripts/build-twine.sh export twine-poc/my-story.twee twine2 my-story-for-gui
+
+# This creates: my-story-for-gui.tw2
+# You can now open this file in Twine 2 GUI
+
+# After editing in Twine GUI, import back to source
+./scripts/build-twine.sh import my-story-for-gui.tw2 my-story-updated
+
+# This creates: twine-poc/my-story-updated.twee
+```
+
+### Legacy Format Conversion
+
+```bash
+# Convert old Twine 1 story to current format
+./scripts/build-twine.sh import old-story.tws legacy-story
+
+# Update and modernize, then export as Twine 2
+./scripts/build-twine.sh export twine-poc/legacy-story.twee twine2 modernized-story
+
+# Convert between different archive formats
+./scripts/build-twine.sh import story.tw2 temp-story
+./scripts/build-twine.sh export twine-poc/temp-story.twee twine1 legacy-version
+```
+
+### Recovering from HTML
+
+```bash
+# If you only have compiled HTML and lost source
+./scripts/build-twine.sh decompile frontend/public/stories/lost-story.html recovered-story
+
+# The recovered source will be in: twine-poc/recovered-story.twee
+# Note: Some formatting and comments may be lost in decompilation
+```
+
+## Integration Examples
+
+### React Component Integration
+
+```typescript
+// Example React component using compiled Twine stories
+import React, { useState, useEffect } from 'react';
+import TwineStoryPlayer from './TwineStoryPlayer';
+
+const StorySelector: React.FC = () => {
+  const [availableStories, setAvailableStories] = useState<string[]>([]);
+  const [selectedStory, setSelectedStory] = useState<string>('');
+
+  useEffect(() => {
+    // Fetch list of available stories
+    // This could be generated by your build script
+    fetch('/api/stories/list')
+      .then(res => res.json())
+      .then(stories => setAvailableStories(stories));
+  }, []);
+
+  return (
+    <div>
+      <select
+        value={selectedStory}
+        onChange={(e) => setSelectedStory(e.target.value)}
+      >
+        <option value="">Select a story...</option>
+        {availableStories.map(story => (
+          <option key={story} value={story}>{story}</option>
+        ))}
+      </select>
+
+      {selectedStory && (
+        <TwineStoryPlayer
+          storyPath={`/stories/${selectedStory}.html`}
+          onStoryEvent={(event) => console.log('Story event:', event)}
+          clientId="demo-client"
+        />
+      )}
+    </div>
+  );
+};
+```
+
+### NPM Scripts Integration
+
+```json
+{
+  "name": "your-project",
+  "scripts": {
+    "dev": "concurrently \"npm run twine:watch\" \"npm run frontend:dev\"",
+    "build": "npm run twine:build && npm run frontend:build",
+    "twine:build": "./scripts/build-twine.sh build-all",
+    "twine:watch": "./scripts/build-twine.sh watch",
+    "twine:clean": "./scripts/build-twine.sh clean",
+    "twine:validate": "python scripts/build_twine.py validate",
+    "frontend:dev": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build",
+    "deploy": "npm run build && npm run deploy:static"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
+```
+
+Usage:
+```bash
+# Start development with both Twine watching and React dev server
+npm run dev
+
+# Build everything for production
+npm run build
+
+# Validate stories before committing
+npm run twine:validate
+```
+
+### CI/CD Pipeline Example
+
+```yaml
+# .github/workflows/build.yml
+name: Build and Deploy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install tweego
+      run: |
+        wget -O tweego.zip https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-linux-x64.zip
+        unzip tweego.zip
+        sudo mv tweego /usr/local/bin/
+        chmod +x /usr/local/bin/tweego
+
+    - name: Validate Twine stories
+      run: |
+        python scripts/build_twine.py validate
+
+    - name: Build Twine stories
+      run: |
+        ./scripts/build-twine.sh build-all
+
+    - name: Install frontend dependencies
+      run: cd frontend && npm ci
+
+    - name: Build frontend
+      run: cd frontend && npm run build
+
+    - name: Deploy to S3
+      if: github.ref == 'refs/heads/main'
+      run: |
+        aws s3 sync frontend/dist/ s3://your-bucket/
+```
+
+## Advanced Workflows
+
+### Multi-Environment Builds
+
+```bash
+# development-config.json
+{
+  "source_dir": "twine-poc",
+  "output_dir": "frontend/public/stories",
+  "format": "sugarcube-2",
+  "validate_before_build": true,
+  "show_statistics": true,
+  "log_level": "DEBUG"
+}
+
+# production-config.json
+{
+  "source_dir": "twine-poc",
+  "output_dir": "dist/stories",
+  "format": "sugarcube-2",
+  "validate_before_build": true,
+  "show_statistics": false,
+  "log_level": "WARNING"
+}
+
+# Build for different environments
+python scripts/build_twine.py --config development-config.json build-all
+python scripts/build_twine.py --config production-config.json build-all
+```
+
+### Automated Story List Generation
+
+```bash
+#!/bin/bash
+# generate-story-manifest.sh
+
+# Build all stories first
+./scripts/build-twine.sh build-all
+
+# Generate JSON manifest of available stories
+cat > frontend/public/stories/manifest.json << 'EOF'
+{
+  "generated": "$(date -Iseconds)",
+  "stories": [
+EOF
+
+first=true
+for file in frontend/public/stories/*.html; do
+    if [ -f "$file" ]; then
+        basename=$(basename "$file" .html)
+        size=$(wc -c < "$file")
+
+        if [ "$first" = true ]; then
+            first=false
+        else
+            echo "    ," >> frontend/public/stories/manifest.json
+        fi
+
+        cat >> frontend/public/stories/manifest.json << EOF
+    {
+      "id": "$basename",
+      "title": "$(echo $basename | sed 's/-/ /g' | sed 's/\b\w/\U&/g')",
+      "file": "$basename.html",
+      "size": $size,
+      "lastModified": "$(date -r "$file" -Iseconds)"
+    }
+EOF
+    fi
+done
+
+cat >> frontend/public/stories/manifest.json << 'EOF'
+  ]
+}
+EOF
+
+echo "Story manifest generated: frontend/public/stories/manifest.json"
+```
+
+### Automated Testing Pipeline
+
+```python
+#!/usr/bin/env python3
+# test-stories.py
+
+import subprocess
+import sys
+import json
+from pathlib import Path
+
+def test_story_compilation():
+    """Test that all stories compile without errors."""
+    print("🧪 Testing story compilation...")
+
+    result = subprocess.run([
+        'python', 'scripts/build_twine.py', 'build-all'
+    ], capture_output=True, text=True)
+
+    if result.returncode != 0:
+        print("❌ Compilation failed:")
+        print(result.stderr)
+        return False
+
+    print("✅ All stories compiled successfully")
+    return True
+
+def test_story_validation():
+    """Test that all stories pass validation."""
+    print("🧪 Testing story validation...")
+
+    result = subprocess.run([
+        'python', 'scripts/build_twine.py', 'validate'
+    ], capture_output=True, text=True)
+
+    if result.returncode != 0:
+        print("❌ Validation failed:")
+        print(result.stderr)
+        return False
+
+    print("✅ All stories passed validation")
+    return True
+
+def test_output_files():
+    """Test that expected output files exist."""
+    print("🧪 Testing output files...")
+
+    source_dir = Path("twine-poc")
+    output_dir = Path("frontend/public/stories")
+
+    twee_files = list(source_dir.glob("*.twee"))
+
+    for twee_file in twee_files:
+        expected_html = output_dir / f"{twee_file.stem}.html"
+
+        if not expected_html.exists():
+            print(f"❌ Missing output file: {expected_html}")
+            return False
+
+        # Check that HTML file is newer than twee file
+        if expected_html.stat().st_mtime < twee_file.stat().st_mtime:
+            print(f"❌ Output file is older than source: {expected_html}")
+            return False
+
+    print(f"✅ All {len(twee_files)} output files exist and are up to date")
+    return True
+
+def main():
+    """Run all tests."""
+    print("🚀 Starting Twine story tests...")
+
+    tests = [
+        test_story_compilation,
+        test_story_validation,
+        test_output_files
+    ]
+
+    passed = 0
+    failed = 0
+
+    for test in tests:
+        try:
+            if test():
+                passed += 1
+            else:
+                failed += 1
+        except Exception as e:
+            print(f"❌ Test failed with exception: {e}")
+            failed += 1
+
+    print(f"\n📊 Test Results: {passed} passed, {failed} failed")
+
+    if failed > 0:
+        sys.exit(1)
+    else:
+        print("🎉 All tests passed!")
+        sys.exit(0)
+
+if __name__ == '__main__':
+    main()
+```
+
+Usage:
+```bash
+# Run automated tests
+python test-stories.py
+
+# Integrate with git hooks
+# .git/hooks/pre-commit
+#!/bin/bash
+python test-stories.py || exit 1
+```
+
+### Conditional Building
+
+```bash
+#!/bin/bash
+# smart-build.sh - Only build files that have changed
+
+# Get list of changed files from git
+changed_files=$(git diff --name-only HEAD~1 HEAD | grep '\.twee$' || true)
+
+if [ -z "$changed_files" ]; then
+    echo "No .twee files changed, skipping build"
+    exit 0
+fi
+
+echo "Changed files:"
+echo "$changed_files"
+
+# Build only changed files
+for file in $changed_files; do
+    if [ -f "$file" ]; then
+        echo "Building: $file"
+        ./scripts/build-twine.sh build "$file"
+    fi
+done
+
+# Validate all files
+python scripts/build_twine.py validate
+```
+
+## Troubleshooting Examples
+
+### Common Error Scenarios
+
+**Scenario 1: Build fails with "tweego not found"**
+
+```bash
+# Problem
+./scripts/build-twine.sh build-all
+# [ERROR] tweego is not installed or not in PATH
+
+# Diagnosis
+which tweego
+# tweego not found
+
+# Solution
+source ~/.zshrc
+which tweego
+# /Users/username/bin/tweego
+
+# Alternative: Add to PATH manually
+export PATH="/Users/username/bin:$PATH"
+```
+
+**Scenario 2: Validation errors**
+
+```bash
+# Problem
+python scripts/build_twine.py validate
+# [ERROR] ✗ my-story.twee: Validation failed
+# [ERROR]     - Mismatched tags: 5 open, 4 close
+
+# Diagnosis - Check the file
+grep -n '<<\|>>' twine-poc/my-story.twee
+# 10:<<set $variable = "value"
+# 15:<<if $condition>>
+# 20:    Some content
+# 25:<</if>
+# 30:<<display "passage">>
+
+# Problem: Missing >> on line 10
+# Fix the file
+sed -i '' 's/<<set $variable = "value"/<<set $variable = "value">>/g' twine-poc/my-story.twee
+
+# Verify fix
+python scripts/build_twine.py validate
+# [INFO] ✓ my-story.twee: Valid
+```
+
+**Scenario 3: Watch mode not detecting changes**
+
+```bash
+# Problem: Watch mode running but not rebuilding
+./scripts/build-twine.sh watch
+# [INFO] Watching for file changes (checking every 2s)...
+# (No rebuilds happening despite file changes)
+
+# Diagnosis: Check file modification times
+ls -la twine-poc/*.twee
+stat twine-poc/my-story.twee
+
+# Solution 1: Force rebuild
+touch twine-poc/my-story.twee
+
+# Solution 2: Restart watch with different interval
+# Edit WATCH_INTERVAL in build-twine.sh to 1 second
+
+# Solution 3: Use Python script (more reliable change detection)
+python scripts/build_twine.py watch
+```
+
+**Scenario 4: React app not loading updated stories**
+
+```bash
+# Problem: Stories build successfully but React app shows old version
+
+# Diagnosis: Check if files are actually updating
+ls -la frontend/public/stories/
+stat frontend/public/stories/my-story.html
+
+# Check browser cache
+# Solution 1: Hard refresh (Cmd+Shift+R / Ctrl+Shift+R)
+
+# Solution 2: Check React dev server is serving the right directory
+curl http://localhost:5173/stories/my-story.html
+
+# Solution 3: Verify story path in React component
+# Make sure storyPath="/stories/my-story.html" matches actual file
+```
+
+### Debugging with Verbose Output
+
+```bash
+# Shell script debugging
+BASH_XTRACEFD=2
+set -x
+./scripts/build-twine.sh build twine-poc/my-story.twee
+
+# Python script debugging
+python scripts/build_twine.py --config debug-config.json build my-story.twee
+
+# debug-config.json
+{
+  "log_level": "DEBUG",
+  "show_statistics": true,
+  "validate_before_build": true
+}
+
+# Tweego verbose output
+tweego --log-files --log-stats --output story.html story.twee
+```
+
+### Performance Troubleshooting
+
+```bash
+# Large file handling
+ls -lah twine-poc/*.twee
+# If files are > 1MB, consider splitting
+
+# Build time measurement
+time ./scripts/build-twine.sh build-all
+
+# Python script with statistics
+python scripts/build_twine.py stats
+python scripts/build_twine.py build-all
+
+# Watch mode optimization
+# Reduce watch interval if builds are slow
+# Edit twine-config.json: "watch_interval": 5
+```
+
+### Recovery Scenarios
+
+**Scenario: Accidentally deleted source files**
+
+```bash
+# If you have compiled HTML files, recover source
+for html in frontend/public/stories/*.html; do
+    basename=$(basename "$html" .html)
+    ./scripts/build-twine.sh decompile "$html" "recovered-$basename"
+done
+
+# Check recovered files
+ls -la twine-poc/recovered-*.twee
+```
+
+**Scenario: Corrupted configuration**
+
+```bash
+# Reset to default configuration
+mv scripts/twine-config.json scripts/twine-config.json.backup
+python scripts/build_twine.py save-config
+
+# Or copy from template
+cp scripts/twine-config.json.template scripts/twine-config.json
+```
+
+**Scenario: Build system broken**
+
+```bash
+# Manual build as fallback
+tweego --format=sugarcube-2 --output=manual-story.html twine-poc/story.twee
+
+# Verify tweego works independently
+tweego --list-formats
+tweego --version
+
+# Reinstall tweego if needed
+# Download from: http://www.motoslave.net/tweego/
+```
+
+## Workflow Templates
+
+### Daily Development Template
+
+```bash
+#!/bin/bash
+# daily-dev-start.sh
+
+echo "🚀 Starting Twine development session..."
+
+# 1. Update from git
+git pull origin main
+
+# 2. Clean previous builds
+./scripts/build-twine.sh clean
+
+# 3. Validate all stories
+python scripts/build_twine.py validate
+
+# 4. Build all stories
+./scripts/build-twine.sh build-all
+
+# 5. Start watch mode in background
+./scripts/build-twine.sh watch &
+WATCH_PID=$!
+
+echo "Watch mode started (PID: $WATCH_PID)"
+echo "Edit your .twee files and they'll auto-rebuild"
+echo "Press any key to stop watch mode and exit..."
+
+# 6. Wait for user input
+read -n 1
+
+# 7. Stop watch mode
+kill $WATCH_PID 2>/dev/null
+echo "Development session ended"
+```
+
+### Release Preparation Template
+
+```bash
+#!/bin/bash
+# prepare-release.sh
+
+echo "📦 Preparing release build..."
+
+# 1. Validate all stories
+echo "Validating stories..."
+if ! python scripts/build_twine.py validate; then
+    echo "❌ Validation failed - fix errors before release"
+    exit 1
+fi
+
+# 2. Clean build
+echo "Cleaning previous builds..."
+./scripts/build-twine.sh clean
+
+# 3. Production build
+echo "Building for production..."
+python scripts/build_twine.py --config production-config.json build-all
+
+# 4. Generate manifest
+echo "Generating story manifest..."
+./generate-story-manifest.sh
+
+# 5. Run tests
+echo "Running tests..."
+python test-stories.py
+
+# 6. Build frontend
+echo "Building frontend..."
+cd frontend && npm run build && cd ..
+
+echo "✅ Release preparation complete!"
+echo "Files ready in: frontend/dist/"
+```
+
+These examples provide a comprehensive guide for using the Twine build scripts in various scenarios, from simple daily development to complex CI/CD pipelines.

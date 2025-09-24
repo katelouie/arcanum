@@ -1,0 +1,265 @@
+:: StoryTitle
+SugarCube Test Story
+
+:: StoryData
+{
+	"ifid": "E432764D-81DD-4D94-AD18-BDD82400E5CF",
+	"format": "SugarCube",
+	"format-version": "2.36.1",
+	"start": "Start"
+}
+
+:: Start {"position":"100,100","size":"100,100"}
+Welcome to **SugarCube 2 Test Story**!
+
+This tests real SugarCube functionality with React integration.
+
+''Current Variables:''
+• Session: $session
+• Test String: $testString
+• Random Number: $randomNum
+• Cards Drawn: $cardsDrawn
+
+<<set $session = 1>>
+<<set $testString = "SugarCube is working!">>
+<<set $randomNum = random(1, 100)>>
+<<set $cardsDrawn = 0>>
+
+---
+
+What would you like to test?
+
+[[Test Variables & Logic|Variables]]
+[[Test SugarCube Macros|Macros]]
+[[Test React Integration|ReactTest]]
+[[Test Tarot Card Draw|TarotTest]]
+
+:: Variables {"position":"300,100","size":"100,100"}
+**Variable & Logic Testing**
+
+Session: $session (should be 1)
+Test String: $testString
+Random Number: $randomNum
+
+<<set $session += 1>>
+<<set $testString = "Variables updated in session " + $session + "!">>
+
+<<if $session > 2>>
+  ✅ ''Session counter working!'' (Session: $session)
+<<else>>
+  ⏳ Session counter: $session (visit again to increment)
+<</if>>
+
+<<if $randomNum > 50>>
+  🎲 Your random number ($randomNum) is above 50!
+<<else>>
+  🎲 Your random number ($randomNum) is 50 or below.
+<</if>>
+
+[[Back to Start|Start]]
+[[Test Macros|Macros]]
+
+:: Macros {"position":"500,100","size":"100,100"}
+**SugarCube Macro Testing**
+
+''Time and Date:''
+Current time: <<print new Date().toLocaleTimeString()>>
+Current date: <<print new Date().toLocaleDateString()>>
+
+''Loop Test:''
+<<nobr>>
+<<for $i = 1; $i <= 5; $i++>>
+  Item $i<<if $i < 5>>, <</if>>
+<</for>>
+<</nobr>>
+
+''Conditional Display:''
+<<if $session > 1>>
+  ✅ Multi-session test passed (Session $session)
+<<else>>
+  📝 First session - visit Variables page first
+<</if>>
+
+''Button Test:''
+<<button "Increment Session">>
+  <<set $session += 1>>
+  <<replace "#session-display">>Session: $session<</replace>>
+<</button>>
+
+<span id="session-display">Session: $session</span>
+
+[[Back to Start|Start]]
+[[Test React Integration|ReactTest]]
+
+:: ReactTest {"position":"300,300","size":"100,100"}
+**React Integration Test**
+
+This passage tests communication with the React parent application.
+
+<<script>>
+// Send message to React parent window
+if (window.parent && window.parent !== window) {
+  try {
+    window.parent.postMessage({
+      type: 'STORY_EVENT',
+      data: {
+        event: 'sugarcube_test',
+        message: 'SugarCube postMessage working!',
+        variables: {
+          session: State.variables.session,
+          testString: State.variables.testString,
+          randomNum: State.variables.randomNum
+        },
+        storyFormat: 'SugarCube 2',
+        passage: 'ReactTest'
+      },
+      timestamp: Date.now()
+    }, '*');
+
+    console.log('[SugarCube] Message sent to React parent');
+  } catch (error) {
+    console.error('[SugarCube] Error sending message:', error);
+  }
+} else {
+  console.log('[SugarCube] No parent window found - running standalone');
+}
+<</script>>
+
+✅ **Message sent to React app!**
+
+Check the browser console and the React app's session log for:
+• Story event logged
+• SugarCube variables passed to React
+• Confirmation message
+
+''Current session data being sent:''
+• Session: $session
+• Test String: $testString
+• Random Number: $randomNum
+
+[[Back to Start|Start]]
+[[Test Card Drawing|TarotTest]]
+
+:: TarotTest {"position":"500,300","size":"100,100"}
+**Tarot Card Draw Test**
+
+This tests integration with the React app's tarot card system.
+
+Current cards drawn this session: $cardsDrawn
+
+<<button "Draw a Single Card">>
+  <<set $cardsDrawn += 1>>
+  <<script>>
+    // Simulate card draw and send to React
+    const cardNames = [
+      "The Fool", "The Magician", "The High Priestess", "The Empress",
+      "The Emperor", "The Hierophant", "The Lovers", "The Chariot"
+    ];
+
+    const randomCard = cardNames[Math.floor(Math.random() * cardNames.length)];
+    const isReversed = Math.random() > 0.5;
+
+    const cardData = {
+      name: randomCard,
+      suit: "Major Arcana",
+      number: 0,
+      img: randomCard.toLowerCase().replace(/ /g, '-') + '.jpg',
+      reversed: isReversed,
+      upright: `${randomCard} upright meaning`
+    };
+
+    if (window.parent && window.parent !== window) {
+      try {
+        // Send card drawn event
+        window.parent.postMessage({
+          type: 'CARD_DRAWN',
+          data: {
+            cards: [cardData],
+            spread: 'single',
+            context: 'SugarCube test draw'
+          },
+          timestamp: Date.now()
+        }, '*');
+
+        // Also send as general event
+        window.parent.postMessage({
+          type: 'STORY_EVENT',
+          data: {
+            event: 'card_drawn',
+            card: randomCard,
+            reversed: isReversed,
+            totalDrawn: State.variables.cardsDrawn
+          },
+          timestamp: Date.now()
+        }, '*');
+
+        console.log('[SugarCube] Card drawn:', randomCard, isReversed ? '(Reversed)' : '(Upright)');
+      } catch (error) {
+        console.error('[SugarCube] Error sending card data:', error);
+      }
+    }
+  <</script>>
+  <<replace "#card-info">>
+    ✅ Card #$cardsDrawn drawn! Check the React app's card display sidebar.
+  <</replace>>
+<</button>>
+
+<span id="card-info">Click above to draw a card and test React integration.</span>
+
+''Testing Notes:''
+• Cards should appear in React app's sidebar
+• Session log should show card draw events
+• Browser console shows detailed card data
+
+[[Back to Start|Start]]
+[[Test Variables|Variables]]
+
+:: StoryInit {"position":"100,300","size":"100,100"}
+/* SugarCube Story Initialization */
+
+<<set $storyTitle = "SugarCube Test Story">>
+<<set $storyVersion = "1.0">>
+<<set $storyFormat = "SugarCube 2">>
+
+/* Initialize story communication with React */
+<<script>>
+$(document).ready(function() {
+  console.log('[SugarCube] Story initialized');
+
+  // Send story ready message to React parent
+  if (window.parent && window.parent !== window) {
+    try {
+      window.parent.postMessage({
+        type: 'STORY_READY',
+        data: {
+          title: 'SugarCube Test Story',
+          format: 'SugarCube 2',
+          version: '1.0',
+          passages: ['Start', 'Variables', 'Macros', 'ReactTest', 'TarotTest'],
+          features: ['variables', 'macros', 'react-integration', 'card-drawing']
+        },
+        timestamp: Date.now()
+      }, '*');
+
+      console.log('[SugarCube] Story ready message sent to React parent');
+    } catch (error) {
+      console.error('[SugarCube] Error sending ready message:', error);
+    }
+  }
+
+  // Listen for messages from React parent
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type) {
+      console.log('[SugarCube] Received message from React:', event.data);
+
+      switch (event.data.type) {
+        case 'INIT':
+          console.log('[SugarCube] Received init from React:', event.data);
+          break;
+        default:
+          console.log('[SugarCube] Unknown message type:', event.data.type);
+      }
+    }
+  });
+});
+<</script>>

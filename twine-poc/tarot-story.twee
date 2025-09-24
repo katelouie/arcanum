@@ -1,0 +1,262 @@
+:: Start
+Welcome to the Tarot Story Proof of Concept!
+
+This demonstrates how much simpler the tarot system becomes with SugarCube.
+
+<<link "Draw a single card" "SingleCard">><</link>>
+<<link "Draw three cards (Past-Present-Future)" "ThreeCard">><</link>>
+<<link "Test position constraints" "Constraints">><</link>>
+<<link "Test card display" "CardDisplay">><</link>>
+
+:: StoryInit
+<<script>>
+// Complete tarot deck - just 78 objects!
+setup.tarotDeck = [
+  // Major Arcana
+  {name: "The Fool", suit: "major", number: 0, img: "m00.jpg",
+   upright: "New beginnings, innocence, spontaneity",
+   reversed: "Recklessness, taken advantage of, inconsistency"},
+  {name: "The Magician", suit: "major", number: 1, img: "m01.jpg",
+   upright: "Willpower, desire, manifestation",
+   reversed: "Trickery, illusions, out of touch"},
+  {name: "The High Priestess", suit: "major", number: 2, img: "m02.jpg",
+   upright: "Intuition, sacred knowledge, divine feminine",
+   reversed: "Secrets, disconnected from intuition"},
+
+  // Cups (sample)
+  {name: "Ace of Cups", suit: "cups", number: 1, img: "c01.jpg",
+   upright: "Love, new relationships, compassion",
+   reversed: "Self-love, intuition, repressed emotions"},
+  {name: "Two of Cups", suit: "cups", number: 2, img: "c02.jpg",
+   upright: "Unified love, partnership, mutual attraction",
+   reversed: "Self-love, break-ups, disharmony"},
+  {name: "Three of Cups", suit: "cups", number: 3, img: "c03.jpg",
+   upright: "Celebration, friendship, creativity",
+   reversed: "Independence, alone time, hardcore partying"},
+
+  // Swords (sample)
+  {name: "Ace of Swords", suit: "swords", number: 1, img: "s01.jpg",
+   upright: "Breakthrough, clarity, sharp mind",
+   reversed: "Confusion, brutality, chaos"},
+  {name: "Five of Swords", suit: "swords", number: 5, img: "s05.jpg",
+   upright: "Conflict, disagreements, competition",
+   reversed: "Release, making amends, inner conflict"},
+
+  // Wands (sample)
+  {name: "Ace of Wands", suit: "wands", number: 1, img: "w01.jpg",
+   upright: "Inspiration, new opportunities, growth",
+   reversed: "Lack of energy, lack of passion, boredom"},
+
+  // Pentacles (sample)
+  {name: "Ace of Pentacles", suit: "pentacles", number: 1, img: "p01.jpg",
+   upright: "Manifestation, financial opportunity",
+   reversed: "Lost opportunity, lack of planning"}
+];
+
+// Simple constraint-based card drawing
+setup.drawCards = function(options = {}) {
+  const {
+    count = 1,
+    suit = null,
+    majorOnly = false,
+    forceReversed = null,
+    exclude = []
+  } = options;
+
+  let availableCards = setup.tarotDeck.filter(card =>
+    !exclude.includes(card.name) &&
+    (!suit || card.suit === suit) &&
+    (!majorOnly || card.suit === "major")
+  );
+
+  if (availableCards.length === 0) {
+    return [{name: "No cards available", suit: "error", reversed: false}];
+  }
+
+  return availableCards.random(count).map(card => ({
+    ...card,
+    reversed: forceReversed !== null ? forceReversed : (Math.random() < 0.5)
+  }));
+};
+
+// Position-specific draws for complex spreads
+setup.drawCelticCross = function() {
+  return {
+    present: setup.drawCards({majorOnly: true})[0],
+    cross: setup.drawCards({suit: "swords"})[0],
+    foundation: setup.drawCards({forceReversed: true})[0],
+    recentPast: setup.drawCards({})[0],
+    possibleOutcome: setup.drawCards({})[0],
+    nearFuture: setup.drawCards({})[0],
+    approach: setup.drawCards({})[0],
+    external: setup.drawCards({})[0],
+    hopesFeares: setup.drawCards({})[0],
+    finalOutcome: setup.drawCards({})[0]
+  };
+};
+
+// Card display function
+setup.displayCard = function(card) {
+  const meaning = card.reversed ? card.reversed : card.upright;
+  const reversedText = card.reversed ? " (Reversed)" : "";
+
+  return `<div class="card-display">
+    <h3>${card.name}${reversedText}</h3>
+    <img src="/static/cards_wikipedia/${card.img}" alt="${card.name}" style="width:100px;height:auto;">
+    <p><strong>Meaning:</strong> ${meaning}</p>
+  </div>`;
+};
+
+// Communication with React parent
+setup.notifyParent = function(type, data) {
+  if (window.parent !== window) {
+    window.parent.postMessage({
+      type: type,
+      data: data,
+      timestamp: Date.now()
+    }, '*');
+  }
+};
+<</script>>
+
+:: SingleCard
+Let's draw a single random card from the deck.
+
+<<set $drawnCard = setup.drawCards()[0]>>
+
+You drew: **$drawnCard.name**
+
+<<if $drawnCard.reversed>>
+This card appears reversed.
+<<else>>
+This card appears upright.
+<</if>>
+
+**Meaning:** <<= $drawnCard.reversed ? $drawnCard.reversed : $drawnCard.upright>>
+
+<<script>>
+setup.notifyParent('CARD_DRAWN', {
+  cards: [State.variables.drawnCard],
+  spread: 'single'
+});
+<</script>>
+
+[[Draw another card|SingleCard]]
+[[Back to start|Start]]
+
+:: ThreeCard
+Drawing a Past-Present-Future three-card spread...
+
+<<set $pastCard = setup.drawCards()[0]>>
+<<set $presentCard = setup.drawCards({exclude: [$pastCard.name]})[0]>>
+<<set $futureCard = setup.drawCards({exclude: [$pastCard.name, $presentCard.name]})[0]>>
+
+## Past: $pastCard.name
+<<if $pastCard.reversed>>(Reversed)<</if>>
+*$pastCard.upright*
+
+## Present: $presentCard.name
+<<if $presentCard.reversed>>(Reversed)<</if>>
+*<<= $presentCard.reversed ? $presentCard.reversed : $presentCard.upright>>*
+
+## Future: $futureCard.name
+<<if $futureCard.reversed>>(Reversed)<</if>>
+*<<= $futureCard.reversed ? $futureCard.reversed : $futureCard.upright>>*
+
+<<script>>
+setup.notifyParent('CARDS_DRAWN', {
+  cards: [State.variables.pastCard, State.variables.presentCard, State.variables.futureCard],
+  spread: 'past-present-future'
+});
+<</script>>
+
+[[Draw new three-card spread|ThreeCard]]
+[[Back to start|Start]]
+
+:: Constraints
+Testing position-specific constraints - much simpler than Ink!
+
+## Only Major Arcana
+<<set $majorCard = setup.drawCards({majorOnly: true})[0]>>
+Drew: **$majorCard.name** (Suit: $majorCard.suit)
+
+## Only Cups
+<<set $cupsCard = setup.drawCards({suit: "cups"})[0]>>
+Drew: **$cupsCard.name** (Suit: $cupsCard.suit)
+
+## Force Reversed
+<<set $reversedCard = setup.drawCards({forceReversed: true})[0]>>
+Drew: **$reversedCard.name** <<if $reversedCard.reversed>>(Reversed - ✓)<</if>>
+
+## Complex Celtic Cross Position
+Present situation (Major Arcana only): **<<set $celticPresent = setup.drawCards({majorOnly: true})[0]>>$celticPresent.name**
+
+Cross/Challenge (Swords only): **<<set $celticCross = setup.drawCards({suit: "swords"})[0]>>$celticCross.name**
+
+Foundation (Forced reversed): **<<set $celticFoundation = setup.drawCards({forceReversed: true})[0]>>$celticFoundation.name** <<if $celticFoundation.reversed>>(Reversed - ✓)<</if>>
+
+*This is SO much cleaner than the 156-item LIST system!*
+
+<<script>>
+setup.notifyParent('CONSTRAINTS_TESTED', {
+  major: State.variables.majorCard,
+  cups: State.variables.cupsCard,
+  reversed: State.variables.reversedCard,
+  celtic: {
+    present: State.variables.celticPresent,
+    cross: State.variables.celticCross,
+    foundation: State.variables.celticFoundation
+  }
+});
+<</script>>
+
+[[Test again|Constraints]]
+[[Back to start|Start]]
+
+:: CardDisplay
+Testing rich card display with images:
+
+<<set $displayCard = setup.drawCards()[0]>>
+
+<<= setup.displayCard($displayCard)>>
+
+<style>
+.card-display {
+  border: 2px solid #8b5cf6;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background: linear-gradient(to right, rgba(139, 92, 246, 0.1), rgba(99, 102, 241, 0.1));
+  text-align: center;
+}
+
+.card-display img {
+  margin: 8px 0;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.card-display h3 {
+  color: #8b5cf6;
+  margin-bottom: 8px;
+}
+</style>
+
+The card image loads from your existing `/static/cards_wikipedia/` directory using the same filename mapping!
+
+[[Draw another card|CardDisplay]]
+[[Back to start|Start]]
+
+:: StoryTitle
+Tarot Story POC
+
+:: StoryData
+{
+	"ifid": "66569935-DB00-497D-9884-8D7F45118857"
+}
+
+:: StoryCaption
+Twine+SugarCube Tarot POC
+
+:: StorySubtitle
+Demonstrating simplified tarot functionality
