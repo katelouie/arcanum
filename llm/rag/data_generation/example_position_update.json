@@ -1,0 +1,65 @@
+[
+  {
+    "category_name": "relationship_dynamics",
+    "subcategory_name": "romantic_potential",
+    "card_interpretations": {
+      "m00": {
+        "upright": "New love begins with innocent trust and open-hearted wonder, ready to embrace romance without reservation.",
+        "reversed": "Fear of vulnerability or reckless romantic choices block authentic connection and meaningful relationships.",
+        "keywords": ["new romance", "innocent love", "romantic fear", "blocked heart"]
+      },
+      "c01": {
+        "upright": "A new emotional beginning in romance, with the heart overflowing with love and potential for deep connection.",
+        "reversed": "Emotional blockages prevent romantic flow, with unhealed wounds creating barriers to authentic intimacy.",
+        "keywords": ["emotional beginning", "romantic flow", "blocked feelings", "love potential"]
+      },
+      "w14": {
+        "upright": "Passionate romantic leadership with the confidence to pursue love boldly and inspire passion in others.",
+        "reversed": "Impulsive romantic decisions or domineering behavior that intimidates rather than attracts potential partners.",
+        "keywords": ["passionate love", "romantic leadership", "impulsive romance", "relationship control"]
+      }
+    }
+  },
+  {
+    "category_name": "relationship_dynamics",
+    "subcategory_name": "communication_style",
+    "card_interpretations": {
+      "m00": {
+        "upright": "Open, honest communication without filters, expressing thoughts and feelings with childlike authenticity.",
+        "reversed": "Either speaking without thinking or being too fearful to communicate honestly about important matters.",
+        "keywords": ["honest expression", "authentic communication", "thoughtless words", "communication fear"]
+      },
+      "c01": {
+        "upright": "Heart-centered communication that flows with empathy, creating emotional safety for vulnerable conversations.",
+        "reversed": "Difficulty expressing emotions clearly, with feelings getting blocked or miscommunicated in relationships.",
+        "keywords": ["empathetic communication", "emotional expression", "blocked feelings", "miscommunication"]
+      },
+      "w14": {
+        "upright": "Confident, charismatic communication that inspires and motivates others through passionate expression.",
+        "reversed": "Aggressive or domineering communication style that overpowers others rather than creating dialogue.",
+        "keywords": ["charismatic communication", "inspiring words", "aggressive speech", "domineering style"]
+      }
+    }
+  },
+  {
+    "category_name": "career_insights",
+    "subcategory_name": "leadership_style",
+    "card_interpretations": {
+      "m00": {
+        "upright": "Leading through innovation and fresh perspectives, bringing beginner's mind to challenge established ways.",
+        "reversed": "Either avoiding leadership responsibilities or leading without proper preparation and consideration.",
+        "keywords": ["innovative leadership", "fresh perspective", "avoided responsibility", "unprepared leadership"]
+      },
+      "c01": {
+        "upright": "Compassionate leadership that prioritizes team wellbeing and creates emotionally supportive work environments.",
+        "reversed": "Leadership blocked by emotional overwhelm or inability to make tough decisions that might hurt feelings.",
+        "keywords": ["compassionate leadership", "supportive environment", "emotional overwhelm", "decision paralysis"]
+      },
+      "w14": {
+        "upright": "Natural born leader with magnetic charisma and the ability to inspire teams toward ambitious goals.",
+        "reversed": "Authoritarian leadership style that burns out teams through unrealistic demands and ego-driven decisions.",
+        "keywords": ["natural leadership", "magnetic charisma", "authoritarian style", "team burnout"]
+      }
+    }
+  }
+]
